@@ -43,4 +43,37 @@ mvtsplot(
   gcol = 1
 )
 
+##week_date
+nov_wide_week <- nov_raw_data %>%
+  select(site_code, Week_date, Log10_NoV_norm) %>%
+  group_by(site_code, Week_date) %>%
+  summarise(Log10_NoV_norm = mean(Log10_NoV_norm, na.rm = TRUE), .groups = "drop") %>%
+  pivot_wider(names_from = Week_date, values_from = Log10_NoV_norm) %>%
+  arrange(site_code)
+
+nov_wide_week <- nov_wide_week %>%
+  column_to_rownames(var = colnames(nov_wide_week)[1])
+
+nov_wide_week <- t(nov_wide_week)
+
+# Ensure xtime is Date class and increasing
+xtime <- as.Date(rownames(nov_wide_week))
+sorted_index <- order(xtime)
+nov_wide_sorted_week <- nov_wide_week[sorted_index, ]
+
+# plot
+mvtsplot(
+  x = nov_wide_sorted_week,
+  xtime = xtime[sorted_index],
+  norm = "global",
+  main = "Norovirus Trends by Site",
+  gcol = 1
+)
+
+#plot with practical 10
+mvtsplot(nov_wide_sorted_week, group = NULL, xtime = NULL, norm = c("global"),
+         levels = 3, smooth.df = NULL, margin = TRUE, sort = NULL,
+         main = "", palette = "PRGn", rowstat = "median", xlim,
+         bottom.ylim = NULL, right.xlim = NULL, gcol = 3)
+
 
