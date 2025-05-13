@@ -1,0 +1,20 @@
+Column descriptions for sample_data_STW and sample_data_NETWORK
+
+sample_id	The unique sample ID assigned to the wastewater sample by EA when orignally recieved by the EA lab
+site_code	The site code for the stie from which the sample was collected.
+sample_collection_date_time	Date and time that the sample was collected.
+Week_date	During data analysis, all samples were assigned to two-weekly bins depending on their sampling date. This column is first date of the two-weekly bin to which the sample was assigned.
+ammonia_mg_l	Ammonia concentration in the sample (mg/l)
+ophosph_mg_l	Orthophosphate concentration in the sample (mg/l)
+GI_ND	TRUE/FALSE - was the Norovirus GI RT-qPCR result a non-detect?
+GI_lower_LOQ	TRUE/FALSE - was the Norovirus GI result below the limit of quantification for RT-qPCR ?
+GII_ND	TRUE/FALSE - was the Norovirus GII RT-qPCR result a non-detect?
+GII_lower_LOQ	TRUE/FALSE - was the Norovirus GII result below the limit of quantification for RT-qPCR?
+GI_per_litre	Concentration of norovirus GI (genome copies/l) of the sample as measured prior to normalisation against  flow and population. Non-detects are LOD/2, <LOQ are LOQ/2 applied at the RT-qPCR result stage (i.e. copies/ul are censored before back calculating to copies/l). An NA here means that either there were no GI data availalbe (i.e. no result rather than non-detect)
+GII_per_litre	Concentration of norovirus GII (genome copies/l) of the sample as measured prior to normalisation against  flow and population. Non-detects are LOD/2, <LOQ are LOQ/2 applied at the RT-qPCR result stage (i.e. copies/ul are censored before back calculating to copies/l). An NA here means that either there were no GII data availalbe (i.e. no result rather than non-detect)
+Log10_GI	Log10 GI_per_litre
+Log10_GII	Log10 GII_per_litre
+Log10_NoV	Log10(GI_per_litre+GII_per_litre)
+Log10_GI_norm	Unit: copies/100k capita. Log10 normalised norovirus GI concentration (GI_per_litre normalised against flow and population). An NA here means that either there were no GI data availalbe (i.e. no result rather than non-detect) or that there was no ammonia or phosphate data for normalisation.
+Log10_GII_norm	Unit: copies/100k capita. Log10 normalised norovirus GII concentration (GII_per_litre normalised against flow and population). An NA here means that either there were no GI data availalbe (i.e. no result rather than non-detect) or that there was no ammonia or phosphate data for normalisation.
+Log10_NoV_norm	Unit: copies/100 k capita. Log10 normalised norovirus results. This is Log10(10^Log10_GI_norm+10^Log10_GII_norm). - copies/100k capita. An NA here indicates both GI and GII were NA

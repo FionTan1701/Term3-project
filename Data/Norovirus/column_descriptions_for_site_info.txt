@@ -1,0 +1,11 @@
+Column descriptions for site_info
+
+site_code	The unique sampling site code associated with site_name
+site_name	The unique sampling site name associated with site_code
+site_type	"SEWAGE TREATMENT WORKS" indicates the samples were collected from the crude influent from a sewage works that serves a defined community. "NETWORK" indicates that the site sampling location was further upstreamof the sewershed than the sewage works.
+water_company_name	Name of the water company that owns the asset from which the samples were taken
+catchment_population_ons_mid_2019	The populuation that the asset serves. Population estimates calculated according to this website (accessed 01/11/2023): https://www.gov.uk/government/publications/wastewater-testing-coverage-data-for-23-february-2022-emhp-programme/wastewater-testing-coverage-data-for-the-environmental-monitoring-for-health-protection-emhp-programme
+grab_compo_ind	Was the sample a 24-hour composite sample or a grab sample?
+Easting	Easting of the sampling site (EPSG:27700)
+Northing	Northing of the sampling site (EPSG:27700)
+region	The English region in which the sampling site is located
