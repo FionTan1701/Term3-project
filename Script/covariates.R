@@ -6,47 +6,58 @@ setwd("/rds/general/user/ft824/home/Term3-project/Data")
 
 stw_sf<- st_read("STW/stw_catchment_FINAL.shp")
 ethnicity <- read.csv("Covariates/lsoa/ethnicity.csv")
-
 lsoa_sf<-st_read("LSOA2021_boundaries/LSOA2021_boundaries.shp")
 
+ethnicity_summary <- ethnicity %>%
+  mutate(ethnicity_group = if_else(
+    grepl("^White:", `Ethnic.group..20.categories.`), 
+    "White", 
+    "Non-White"
+  )) %>%
+  group_by(`Lower.layer.Super.Output.Areas.Code`, ethnicity_group) %>%
+  summarise(total = sum(Observation, na.rm = TRUE), .groups = "drop") %>%
+  pivot_wider(
+    names_from = ethnicity_group, 
+    values_from = total,
+    values_fill = 0
+  ) %>%
+  mutate(
+    total_population = White + `Non-White`,
+    prop_non_white = `Non-White` / total_population
+  )
 
-# Step 1: Make sure shapefiles have matching CRS
-stw_sf <- st_transform(stw_sf, crs = st_crs(lsoa_sf))
 
-# Step 2: Merge ethnicity CSV with LSOA shapefile
-# Rename LSOA code column if needed to match
 lsoa_sf <- lsoa_sf %>%
-  left_join(ethnicity, by = c("LSOA21CD" = "Lower.layer.Super.Output.Areas.Code"))
+  mutate(lsoa_area = as.numeric(st_area(.)))
 
-# Step 3: Intersect LSOAs with STW catchments
 lsoa_stw_intersection <- st_intersection(lsoa_sf, stw_sf)
 
-# Step 4: Add intersection area (used as a proxy weight)
-lsoa_stw_intersection$area <- st_area(lsoa_stw_intersection)
+# Add overlap area
+lsoa_stw_intersection <- lsoa_stw_intersection %>%
+  mutate(intersection_area = as.numeric(st_area(.)))
 
-# Step 5: For each STW catchment, compute area-weighted ethnic group counts
+lsoa_stw <- lsoa_stw_intersection %>%
+  left_join(select(lsoa_sf, LSOA21CD, lsoa_area), by = "LSOA21CD") %>%
+  left_join(
+    ethnicity_summary %>%
+      rename(LSOA21CD = `Lower.layer.Super.Output.Areas.Code`),
+    by = "LSOA21CD"
+  )
 
-# Let's assume you have one column called `Observation` and one called `Ethnic.group`
-# Pivot to wide first if you have multiple rows per LSOA per ethnic group
-ethnic_wide <- ethnicity%>%
-  pivot_wider(names_from = `Ethnic.group..20.categories.`, values_from = Observation)  # adjust names if needed
+lsoa_stw <- lsoa_stw %>%
+  mutate(
+    pop_fraction = intersection_area / lsoa_area,
+    pop_in_stw = total_population * pop_fraction
+  )
 
-# Join the wide ethnic data to LSOA geometries
-lsoa_sf <- lsoa_sf %>%
-  left_join(ethnic_wide, by = c("LSOA21CD" = "Lower.layer.Super.Output.Areas.Code"))
-
-# Re-intersect with STW after joining wide ethnicity data
-lsoa_stw_intersection <- st_intersection(lsoa_sf, stw_sf)
-
-# Calculate area per polygon
-lsoa_stw_intersection$area <- as.numeric(st_area(lsoa_stw_intersection))
-
-# Now group by STW and compute area-weighted totals for each ethnic group
-ethnic_vars <- names(ethnic_wide)[-1]  # drop LSOA code
-
-stw_ethnic_summary <- lsoa_stw_intersection %>%
+stw_ethnicity <- lsoa_stw %>%
   group_by(site_code) %>%
-  summarise(across(all_of(ethnic_vars), ~weighted.mean(., w = area, na.rm = TRUE), .names = "wmean_{.col}"),
-            .groups = "drop")
+  summarise(
+    weighted_prop_non_white = sum(prop_non_white * pop_in_stw, na.rm = TRUE) /
+      sum(pop_in_stw, na.rm = TRUE),
+    .groups = "drop"
+  )
 
-saveRDS(stw_ethnic_summary,"stw_ethnic_summary.rds")
+
+saveRDS(stw_ethnicity,"stw_ethnic_summary.rds")
+
