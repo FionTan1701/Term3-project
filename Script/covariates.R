@@ -16,7 +16,7 @@ stw_sf <- st_transform(stw_sf, crs = st_crs(lsoa_sf))
 # Step 2: Merge ethnicity CSV with LSOA shapefile
 # Rename LSOA code column if needed to match
 lsoa_sf <- lsoa_sf %>%
-  left_join(ethnic_data, by = c("LSOA_code_column" = "Lower.layer.Super.Output.Areas.Code"))
+  left_join(ethnicity, by = c("LSOA21CD" = "Lower.layer.Super.Output.Areas.Code"))
 
 # Step 3: Intersect LSOAs with STW catchments
 lsoa_stw_intersection <- st_intersection(lsoa_sf, stw_sf)
@@ -28,12 +28,12 @@ lsoa_stw_intersection$area <- st_area(lsoa_stw_intersection)
 
 # Let's assume you have one column called `Observation` and one called `Ethnic.group`
 # Pivot to wide first if you have multiple rows per LSOA per ethnic group
-ethnic_wide <- ethnic_data %>%
+ethnic_wide <- ethnicity%>%
   pivot_wider(names_from = `Ethnic.group..20.categories.`, values_from = Observation)  # adjust names if needed
 
 # Join the wide ethnic data to LSOA geometries
 lsoa_sf <- lsoa_sf %>%
-  left_join(ethnic_wide, by = c("LSOA_code_column" = "Lower.layer.Super.Output.Areas.Code"))
+  left_join(ethnic_wide, by = c("LSOA21CD" = "Lower.layer.Super.Output.Areas.Code"))
 
 # Re-intersect with STW after joining wide ethnicity data
 lsoa_stw_intersection <- st_intersection(lsoa_sf, stw_sf)

@@ -1,6 +1,6 @@
-#PBS -l walltime=5:00:00
-#PBS -l select=1:ncpus=1:mem=50gb
-#PBS -N covariates processing
+#PBS -l walltime=10:00:00
+#PBS -l select=1:ncpus=4:mem=400gb
+#PBS -N covariates_processing
 
 cd /rds/general/user/ft824/home/Term3-project/Script
 
