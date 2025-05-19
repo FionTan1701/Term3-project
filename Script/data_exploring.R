@@ -2,6 +2,7 @@ library(tidyr)
 library(dplyr)
 library(lubridate)
 library(tibble)
+library(astsa)
 library(mvtsplot) #visualisation for missing data
 
 setwd("~/Term3-project/Script")
@@ -69,4 +70,25 @@ mvtsplot(nov_wide_week, group = NULL, xtime = NULL, norm = c("global"),
          main = "", palette = "PRGn", rowstat = "median", xlim,
          bottom.ylim = NULL, right.xlim = NULL, gcol = 3)
 
+x11() 
+site1 <- ts(nov_stw_raw[nov_stw_raw$site_code == "UKENSO_SW_TP000026",18])
+tsplot(site1, col = 2, lwd=1.5, main="Site1")
 
+outcome <- nov_stw_raw[,c("Log10_NoV_norm","site_code")]
+outcome <- unstack(outcome)
+max_len <- max(sapply(outcome, length))
+
+# Step 3: Pad each vector with NA to match max length
+outcome <- lapply(outcome, function(x) {
+  length(x) <- max_len
+  return(x)
+})
+outcome <- as.data.frame(outcome)
+outcome <- as.matrix(outcome)
+outcome <- ts(outcome)
+dim(outcome)
+
+tsplot(outcome[,1:3], col=2:4,lwd=1.5)
+tsplot(outcome, spaghetti=TRUE, col=rgb(0, 0, 1, 0.2),
+       ylab="log10_nov_norm", main="Time series for all sites")
+lines(rowMeans(outcome, na.rm=TRUE), col=2, lwd=1.5)
