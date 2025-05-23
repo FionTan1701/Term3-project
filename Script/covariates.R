@@ -6,8 +6,8 @@ setwd("/rds/general/user/ft824/home/Term3-project/Data")
 
 stw_sf<- st_read("STW/stw_catchment_FINAL.shp")
 ethnicity <- read.csv("Covariates/lsoa/ethnicity.csv")
-lsoa_sf<-st_read("LSOA2021_boundaries/LSOA2021_boundaries.shp")
-pop_df<- read.csv("Data/Covariates/lsoa/population_2021.csv")
+lsoa_sf<-st_read("LSOA/LSOA2021_boundaries/LSOA2021_boundaries.shp")
+pop_df<- read.csv("Covariates/lsoa/population_2021.csv")
 
 pop_df <- pop_df %>%
   mutate(population = as.numeric(gsub(",", "", population)))
