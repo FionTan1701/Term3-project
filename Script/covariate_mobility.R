@@ -1,13 +1,16 @@
 library(lubridate)
 library(dplyr)
+library(tidyr)
+library(sf)
 
 setwd("~/Term3-project")
-mobility_df <- read_csv("Data/Covariates/lsoa/lsoa_mob_raw.csv")
+mobility_df <- read.csv("Data/Covariates/lsoa/lsoa_mob_raw.csv")
 stw_sf <- st_read("Data/STW/stw_catchment_FINAL.shp")
 lsoa_sf <- st_read("Data/LSOA/LSOA2021_boundaries/LSOA2021_boundaries.shp")
+pop_df<- read.csv("Data/Covariates/lsoa/population_2021.csv")
 
 mobility_weekly <- mobility_df %>%
-  mutate(week = floor_date(date, "week")) %>%
+  mutate(week = floor_date(as.Date(date), "week")) %>%
   group_by(LSOA21CD, week) %>%
   summarise(mobility_avg = mean(mobility, na.rm = TRUE), .groups = "drop")
 
@@ -25,57 +28,52 @@ print(lsoa_week_counts)
 
 #########
 
+#########################################################################
 lsoa_sf <- lsoa_sf %>%
-  mutate(lsoa_area = as.numeric(st_area(.)))  # this creates 'lsoa_area'
+  mutate(lsoa_area = as.numeric(st_area(.))) 
 
-lsoa_stw <- st_intersection(lsoa_sf, stw_sf) %>%
-  mutate(intersection_area = as.numeric(st_area(.))) %>%
-  left_join(
-    lsoa_sf %>%
-      st_drop_geometry() %>%
-      select(LSOA21CD, lsoa_area),
-    by = "LSOA21CD"
-  ) %>%
-  mutate(area_fraction = intersection_area / lsoa_area.y )
+#join population_df to each lsoa
+lsoa_sf <- lsoa_sf %>%
+  left_join(pop_df %>% select(LSOA21CD, population), by = "LSOA21CD") 
 
 ###create a week column in lsoa to join with mobility weekly
 weeks <- unique(mobility_weekly$week)
 
+###################################################################
 
-#create all combinations of LSOA-STW + weeks
-lsoa_stw_weeks <- expand.grid(
-  LSOA21CD = lsoa_stw$LSOA21CD,
-  week = weeks,
-  stringsAsFactors = FALSE
-) %>%
-  left_join(lsoa_stw, by = "LSOA21CD")
+#### intersect lsoa_sf and stw_Sf
 
-# Step 3: join with mobility
-lsoa_stw_mobility <- lsoa_stw_weeks %>%
-  left_join(mobility_weekly, by = c("LSOA21CD", "week")) %>%
-  mutate(weighted_mobility = mobility_avg * area_fraction)
+#Intersect STW catchments with LSOAs
+intersections <- st_intersection(stw_sf, lsoa_sf)
+
+intersections <- intersections %>%
+  mutate(intersect_area = st_area(.))
+
+#create combinations of lsoa and week
+lsoa_stw_weeks_2 <- intersections %>%
+  distinct(LSOA21CD, .keep_all = TRUE) %>%
+  select(LSOA21CD,geometry) %>%
+  crossing(week = weeks) %>%
+  left_join(intersections, by = "LSOA21CD")
+
+lsoa_stw_mobility <- lsoa_stw_weeks_2 %>%
+  left_join(mobility_weekly, by = c("LSOA21CD", "week"))
 
 
+lsoa_stw_mobility <- lsoa_stw_mobility %>%
+  mutate(population = as.numeric(gsub(",", "", population)))
 
+#Calculate weighted values
+lsoa_stw_mobility <-  lsoa_stw_mobility %>%
+  mutate(area_prop = as.numeric(intersect_area) / Shape__Are,
+         pop_in_catchment = population * area_prop,
+         weighted_mobility = mobility_avg * pop_in_catchment)
 
-# Join weekly mobility
-lsoa_stw_mobility <- lsoa_stw %>%
-  left_join(mobility_weekly, by = c("LSOA21CD", "week"))%>%
-  mutate(weighted_mobility = mobility_avg * area_fraction)
-
-# Aggregate to STW
-stw_weekly_mobility <- lsoa_stw_mobility %>%
+stw_mobility_weekly <- lsoa_stw_mobility %>%
   group_by(site_code, week) %>%
-  summarise(mobility_avg = sum(weighted_mobility, na.rm = TRUE), .groups = "drop")
+  summarise(
+    pop_weighted_mobility = sum(weighted_mobility, na.rm = TRUE) / sum(pop_in_catchment, na.rm = TRUE),
+    .groups = "drop"
+  )
 
-# How many LSOAs in each?
-n_distinct(lsoa_stw$LSOA21CD)
-n_distinct(mobility_weekly$LSOA21CD)
-length(lsoa_stw$LSOA21CD)
-length(unique(mobility_weekly$LSOA21CD))
-
-
-# Check how many got dropped
-lsoa_stw_mobility %>%
-  filter(is.na(mobility_avg)) %>%
-  count()
+write.csv(stw_mobility_weekly,"~/Term3-project/Data/cleaned_covariates/stw_mobility_weekly.csv")

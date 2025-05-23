@@ -30,4 +30,20 @@ ggplot() +
   labs(title = " STW catchments over LSOA boundaries",
       caption = " LSOA boundaries with STW catchments overlaid")
 
+data <- read_csv("Data/Norovirus/site_info.csv")
+stw_data <- data %>% filter(site_type == "SEWAGE TREATMENT WORKS")
+
+stw_sf <- st_as_sf(
+  stw_data,
+  coords = c("Easting", "Northing"),
+  crs = 27700  # British National Grid
+)
+
+stw_wgs84 <- st_transform(stw_sf, crs = 4326)
+
+ggplot() +
+  geom_sf(data = stw_wgs84, color = "blue", size = 1) +
+  labs(title = "Sewage Treatment Works Locations in England") +
+  theme_minimal()
+
 
