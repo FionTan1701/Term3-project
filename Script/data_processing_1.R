@@ -9,14 +9,17 @@ library(sf)
 library(lubridate)
 library(data.table) # usefule for reading in large csv files
 
+#set directory
+setwd("~/Term3-project/")
+
 #=================================================== 
 ###  Land cover
 #===================================================
 
 # land cover raster
-land_cover<- raster("data/raw/Covariates/Land cover/land_cover_100m_2018.tif")
+#land_cover<- raster("data/raw/Covariates/Land cover/land_cover_100m_2018.tif")
 
-land_cover_v<- st_read("data/raw/Covariates/Land cover/U2018_CLC2018_V2020_20u1_gdb.gdb")
+land_cover_v<- st_read("Data/Covariates/raw/land cover/U2018_CLC2018_V2020_20u1_gdb.gdb")
 
 land_cover_v<- st_transform(land_cover_v, crs= 27700)
 
