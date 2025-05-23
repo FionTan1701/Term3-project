@@ -3,6 +3,7 @@ library(dplyr)
 library(sf)
 
 setwd("/rds/general/user/ft824/home/Term3-project/Data")
+setwd("~/Term3-project/Data")
 
 stw_sf<- st_read("STW/stw_catchment_FINAL.shp")
 ethnicity <- read.csv("Covariates/lsoa/ethnicity.csv")
@@ -31,15 +32,10 @@ ethnicity_summary <- ethnicity %>%
   ) %>%
   rename(LSOA21CD = `Lower.layer.Super.Output.Areas.Code`)
 
-# ---- STEP 2: Prepare LSOA sf with area ----
-lsoa_sf <- lsoa_sf %>%
-  mutate(
-    LSOA21CD = trimws(LSOA21CD),
-    lsoa_area = as.numeric(st_area(.))
-  )
+# ---- STEP 2: Prepare LSOA sf with population ----
 
 lsoa_sf <- lsoa_sf %>%
-  left_join(pop_df %>% select(LSOA21CD, population), by = "LSOA21CD") %>%
+  left_join(pop_df %>% select(LSOA21CD, population), by = "LSOA21CD")
   
 
 # ---- STEP 3: Intersect LSOAs with STW catchments ----
