@@ -3,7 +3,6 @@ library(dplyr)
 library(sf)
 
 setwd("/rds/general/user/ft824/home/Term3-project/Data")
-setwd("~/Term3-project/Data")
 
 stw_sf<- st_read("STW/stw_catchment_FINAL.shp")
 ethnicity <- read.csv("Covariates/lsoa/ethnicity.csv")
@@ -39,10 +38,7 @@ lsoa_sf <- lsoa_sf %>%
   
 
 # ---- STEP 3: Intersect LSOAs with STW catchments ----
-lsoa_stw_intersection <- st_intersection(
-  lsoa_sf %>% select(LSOA21CD, geometry),
-  stw_sf %>% select(site_code, geometry)
-)
+lsoa_stw_intersection <- st_intersection(lsoa_sf, stw_sf )
 
 # ---- STEP 4: Compute intersection area ----
 lsoa_stw_intersection <- lsoa_stw_intersection %>%
@@ -51,7 +47,7 @@ lsoa_stw_intersection <- lsoa_stw_intersection %>%
 # ---- STEP 5: Join LSOA area and ethnicity info ----
 lsoa_stw <- lsoa_stw_intersection %>%
   left_join(
-    lsoa_sf %>% st_drop_geometry() %>% select(LSOA21CD, lsoa_area),
+    lsoa_sf %>% st_drop_geometry() %>% select(LSOA21CD, Shape__Are),
     by = "LSOA21CD"
   ) %>%
   left_join(
@@ -61,7 +57,7 @@ lsoa_stw <- lsoa_stw_intersection %>%
 
 # ---- STEP 6: Calculate population fractions ----
 lsoa_stw <- lsoa_stw %>%
-  mutate(area_prop = as.numeric(intersection_area) / lsoa_area,
+  mutate(area_prop = as.numeric(intersection_area) / Shape__Are.x,
          pop_in_stw= population * area_prop,
   )
 
