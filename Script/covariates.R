@@ -7,6 +7,10 @@ setwd("/rds/general/user/ft824/home/Term3-project/Data")
 stw_sf<- st_read("STW/stw_catchment_FINAL.shp")
 ethnicity <- read.csv("Covariates/lsoa/ethnicity.csv")
 lsoa_sf<-st_read("LSOA2021_boundaries/LSOA2021_boundaries.shp")
+pop_df<- read.csv("Data/Covariates/lsoa/population_2021.csv")
+
+pop_df <- pop_df %>%
+  mutate(population = as.numeric(gsub(",", "", population)))
 
 
 ethnicity_summary <- ethnicity %>%
@@ -34,6 +38,10 @@ lsoa_sf <- lsoa_sf %>%
     lsoa_area = as.numeric(st_area(.))
   )
 
+lsoa_sf <- lsoa_sf %>%
+  left_join(pop_df %>% select(LSOA21CD, population), by = "LSOA21CD") %>%
+  
+
 # ---- STEP 3: Intersect LSOAs with STW catchments ----
 lsoa_stw_intersection <- st_intersection(
   lsoa_sf %>% select(LSOA21CD, geometry),
@@ -57,10 +65,10 @@ lsoa_stw <- lsoa_stw_intersection %>%
 
 # ---- STEP 6: Calculate population fractions ----
 lsoa_stw <- lsoa_stw %>%
-  mutate(
-    pop_fraction = intersection_area / lsoa_area,
-    pop_in_stw = total_population * pop_fraction
+  mutate(area_prop = as.numeric(intersection_area) / lsoa_area,
+         pop_in_stw= population * area_prop,
   )
+
 
 # ---- STEP 7: Compute weighted proportion of non-white ----
 stw_ethnicity <- lsoa_stw %>%
@@ -72,4 +80,4 @@ stw_ethnicity <- lsoa_stw %>%
   )
 
 
-write_csv(stw_ethnicity, "/rds/general/user/ft824/home/Term3-project/Data/stw_ethnicity.csv")
+write_csv(stw_ethnicity, "/rds/general/user/ft824/home/Term3-project/Data/stw_ethnicity_v2.csv")
