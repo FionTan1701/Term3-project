@@ -19,6 +19,9 @@ setwd("~/Term3-project/")
 # land cover raster
 #land_cover<- raster("data/raw/Covariates/Land cover/land_cover_100m_2018.tif")
 
+stw_sf <- st_read("Data/STW/stw_catchment_FINAL.shp")
+lsoa_sf <- st_read("Data/LSOA/LSOA2021_boundaries/LSOA2021_boundaries.shp")
+
 land_cover_v<- st_read("Data/Covariates/raw/land cover/U2018_CLC2018_V2020_20u1_gdb.gdb")
 
 land_cover_v<- st_transform(land_cover_v, crs= 27700)
@@ -31,6 +34,7 @@ england<- st_read("data/raw/shapefiles/england/england_crop.shp")
 england<- st_transform(england, crs= 27700)
 
 land_cvr_crop<- st_crop(land_cover_v, england)
+land_cvr_crop<- st_crop(land_cover_v, lsoa_sf)
 
 names(land_cvr_crop)
 
@@ -38,6 +42,7 @@ names(land_cvr_crop)
 # Group by urban, vegetation, industrial and other
 
 # 111, 112 = Urban
+#urbanicity_codes <- c(111,112)
 
 # 311, 312, 313, 321, 322, 323,324, 331, 333, 334, 335 =Vegetation
 
@@ -45,15 +50,18 @@ names(land_cvr_crop)
 
 # Other
 
-land_cvr_crop$land_cat <- ifelse(land_cvr_crop$Code_18 %in% c(111, 112), "urban",
-                                 ifelse(land_cvr_crop$Code_18 %in% c(311, 312, 313, 321, 322, 323, 324), "veg",
-                                        ifelse(land_cvr_crop$Code_18 %in% c(121, 122, 123), "industrial", "other")))
+#agriculture_codes <- c(211, 212, 213, 221, 222, 223, 231, 241, 242, 243, 244) 
+
+
+land_cvr_crop$land_cat <- ifelse(land_cvr_crop$Code_18 %in% c(111, 112), "urbanicity",
+                                 ifelse(land_cvr_crop$Code_18 %in% c(211:213, 221:223, 231, 241:244), "agriculture", "other"))
+            
 
 
 
 
 # stw catchmnet shp
-stw<- st_read("data/processed/stw catchment/FINAL/stw_catchment_FINAL.shp", crs= 27700)
+stw<- st_read("Data/STW/stw_catchment_FINAL.shp", crs= 27700)
 
 stw<- st_transform(stw, crs= 27700)
 
@@ -68,27 +76,54 @@ intersection$area_land<- st_area(intersection)
 
 # e.g. proportion urban
 prop_urb <- intersection %>%
-  filter(land_cat == "urban") %>%
-  group_by(identifier) %>%
+  filter(land_cat == "urbanicity") %>%
+  group_by(site_code) %>%
   summarise(prop_urb = sum(area_land) / first(stw_area)) %>%
   ungroup()
 
 prop_urb<- st_drop_geometry(prop_urb)
+
+write.csv(prop_urb, "~/Term3-project/Data/cleaned_covariates/stw_prop_urb.csv")
 
 
 
 #=================================================== 
 ###  Lockdown stage
 #===================================================
+nov_df <- read.csv("Data/Norovirus/nov_stw_raw.csv")
 
+#extract date only
+nov_df$date_only <- ifelse(
+  grepl(":", nov_df$sample_collection_date_time),  # rows with time
+  format(as.Date(nov_df$sample_collection_date_time, format = "%d/%m/%Y %H:%M"), "%Y-%m-%d"),
+  format(as.Date(nov_df$sample_collection_date_time, format = "%d/%m/%Y"), "%Y-%m-%d")
+)
+
+#one-week bin date
+nov_df <- nov_df %>%
+  mutate(one_week_date = floor_date(as.Date(date_only), unit = "week", week_start = 1))
+
+#convert date stlye to dd/mm/yyyy
+nov_df$one_week_date <- format(nov_df$one_week_date , "%Y-%m-%d")  
+
+nov_wide_week <- nov_df%>%
+  select(site_code, one_week_date, Log10_NoV_norm) %>%
+  group_by(site_code, one_week_date) %>%
+  summarise(Log10_NoV_norm = mean(Log10_NoV_norm, na.rm = TRUE), .groups = "drop") %>%
+  pivot_wider(names_from = one_week_date, values_from = Log10_NoV_norm) %>%
+  arrange(site_code)
+
+nov_df <- nov_df %>% select(sample_id,site_code,date_only, one_week_date, Log10_NoV_norm)
+#nov_df$one_week_date <- format(as.Date(nov_df$one_week_date, format = "%d-%m-%Y") , "%Y-%m-%d")  
 
 # lockdown
 nov_df <- nov_df %>%
   mutate(lockdown_phase = case_when(
-    date >= as.Date("2021-05-27") & date <= as.Date("2021-07-18") ~ "step3",
-    date >= as.Date("2021-07-19") & date <= as.Date("2021-12-07") ~ "step4",
-    date >= as.Date("2021-12-08") & date <= as.Date("2022-01-26") ~ "planB",
-    date >= as.Date("2022-01-27") & date <= as.Date("2022-03-17") ~ "lifting"))
+    one_week_date >= as.Date("2021-05-27") & one_week_date <= as.Date("2021-07-18") ~ "step3",
+    one_week_date >= as.Date("2021-07-19") & one_week_date <= as.Date("2021-12-07") ~ "step4",
+    one_week_date >= as.Date("2021-12-08") & one_week_date <= as.Date("2022-01-26") ~ "planB",
+    one_week_date >= as.Date("2022-01-27") & one_week_date <= as.Date("2022-03-17") ~ "lifting"))
+write.csv(nov_df,"~/Term3-project/Data/Norovirus/nov_df.csv")
 
 # recode as dummy variable
 nov_df<- nov_df %>%
