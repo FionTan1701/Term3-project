@@ -5,9 +5,9 @@ library(tibble)
 library(astsa)
 library(mvtsplot) #visualisation for missing data
 
-setwd("~/Term3-project/Script")
+setwd("~/Term3-project")
 
-nov_stw_raw <- read_csv("../Data/Norovirus/nov_stw_raw.csv")
+nov_stw_raw <- read_csv("Data/Norovirus/nov_stw_raw.csv")
 summary(nov_stw_raw)
 
 #extract date only
