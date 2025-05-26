@@ -21,6 +21,9 @@ setwd("~/Term3-project/")
 
 stw_sf <- st_read("Data/STW/stw_catchment_FINAL.shp")
 lsoa_sf <- st_read("Data/LSOA/LSOA2021_boundaries/LSOA2021_boundaries.shp")
+pop_df <- pop_df %>%
+  mutate(population = as.numeric(gsub(",", "", population)))
+
 
 land_cover_v<- st_read("Data/Covariates/raw/land cover/U2018_CLC2018_V2020_20u1_gdb.gdb")
 
@@ -56,9 +59,6 @@ names(land_cvr_crop)
 land_cvr_crop$land_cat <- ifelse(land_cvr_crop$Code_18 %in% c(111, 112), "urbanicity",
                                  ifelse(land_cvr_crop$Code_18 %in% c(211:213, 221:223, 231, 241:244), "agriculture", "other"))
             
-
-
-
 
 # stw catchmnet shp
 stw<- st_read("Data/STW/stw_catchment_FINAL.shp", crs= 27700)
@@ -123,9 +123,9 @@ nov_df <- nov_df %>%
     one_week_date >= as.Date("2021-07-19") & one_week_date <= as.Date("2021-12-07") ~ "step4",
     one_week_date >= as.Date("2021-12-08") & one_week_date <= as.Date("2022-01-26") ~ "planB",
     one_week_date >= as.Date("2022-01-27") & one_week_date <= as.Date("2022-03-17") ~ "lifting"))
-write.csv(nov_df,"~/Term3-project/Data/Norovirus/nov_df.csv")
+#write.csv(nov_df,"~/Term3-project/Data/Norovirus/nov_df.csv")
 
-# recode as dummy variable
+# recode as dummy variable(one-hot encode)
 nov_df<- nov_df %>%
   mutate(lockdown_phase = as.character(lockdown_phase)) %>%
   pivot_wider(names_from   = lockdown_phase, 
@@ -140,6 +140,58 @@ nov_df$lockdown_step3 <- as.numeric(as.character(nov_df$lockdown_step3))
 nov_df$lockdown_step4 <- as.numeric(as.character(nov_df$lockdown_step4))
 nov_df$lockdown_planA <- as.numeric(as.character(nov_df$lockdown_lifting))
 nov_df$lockdown_planB <- as.numeric(as.character(nov_df$lockdown_planB))
+
+write.csv(nov_df,"~/Term3-project/Data/Norovirus/nov_df.csv")
+
+#=================================================== 
+###  index of multiple deprivation processing 
+#===================================================
+
+imd_df <- read.csv("Data/Covariates/lsoa/lsoa_imd.csv")
+
+imd_df <- imd_df %>% select(LSOA21CD, IMD_score,IMD_rank)
+
+stw_sf <- st_read("Data/STW/stw_catchment_FINAL.shp")
+lsoa_sf <- st_read("Data/LSOA/LSOA2021_boundaries/LSOA2021_boundaries.shp")
+pop_df<- read.csv("Data/Covariates/lsoa/population_2021.csv")
+
+pop_df <- pop_df %>%
+  mutate(population = as.numeric(gsub(",", "", population)))
+
+lsoa_sf <- lsoa_sf %>%
+  left_join(pop_df %>% select(LSOA21CD, population), by = "LSOA21CD")
+
+lsoa_stw_intersection <- st_intersection(lsoa_sf, stw_sf )
+
+lsoa_stw_intersection <- lsoa_stw_intersection %>%
+  mutate(intersection_area = as.numeric(st_area(.)))
+
+imd_lsoa_stw <- lsoa_stw_intersection %>%
+  left_join(
+    lsoa_sf %>% st_drop_geometry() %>% select(LSOA21CD, Shape__Are),
+    by = "LSOA21CD"
+  ) %>%
+  left_join(
+    imd_df,
+    by = "LSOA21CD"
+  )
+
+imd_lsoa_stw <- imd_lsoa_stw %>%
+  mutate(area_prop = as.numeric(intersection_area) / Shape__Are.x,
+         pop_in_stw= population * area_prop,
+  )
+
+stw_imd <- imd_lsoa_stw %>%
+  group_by(site_code) %>%
+  summarise(
+    weighted_imd_score = sum(IMD_score * pop_in_stw, na.rm = TRUE) /
+      sum(pop_in_stw, na.rm = TRUE),
+    weighted_imd_rank = sum(IMD_rank * pop_in_stw, na.rm = TRUE) /
+      sum(pop_in_stw, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+write.csv(stw_imd, "~/Term3-project/Data/cleaned_covariates/stw_imd.csv")
 
 
 #=================================================== 
