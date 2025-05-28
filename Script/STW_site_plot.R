@@ -2,10 +2,10 @@ library(sf)
 library(ggplot2)
 
 
-setwd("~/Term3-project/Script")
+setwd("~/Term3-project")
 
-stw_sf <- st_read("../Data/STW/stw_catchment_FINAL.shp")
-lsoa_sf <- st_read("../Data/LSOA/LSOA2021_boundaries/LSOA2021_boundaries.shp")
+stw_sf <- st_read("Data/STW/stw_catchment_FINAL.shp")
+lsoa_sf <- st_read("Data/LSOA/LSOA2021_boundaries/LSOA2021_boundaries.shp")
 
 # Plot all STW catchment areas
 ggplot(data = stw_sf) +
@@ -30,6 +30,7 @@ ggplot() +
   labs(title = " STW catchments over LSOA boundaries",
       caption = " LSOA boundaries with STW catchments overlaid")
 
+##############
 data <- read_csv("Data/Norovirus/site_info.csv")
 stw_data <- data %>% filter(site_type == "SEWAGE TREATMENT WORKS")
 
@@ -45,5 +46,22 @@ ggplot() +
   geom_sf(data = stw_wgs84, color = "blue", size = 1) +
   labs(title = "Sewage Treatment Works Locations in England") +
   theme_minimal()
+############
 
+#zoom in to greater london
+
+lsoa_sf <- st_transform(lsoa_sf, 4326)
+stw_sf <- st_transform(stw_sf, 4326)
+
+ggplot() +
+  geom_sf(data = lsoa_sf , fill = "grey90", colour = "white", size = 0.1) +
+  geom_sf(data = stw_sf, fill = "lightblue", colour = "darkblue", alpha = 0.4) +
+  coord_sf(xlim = c(-0.5, 0.3), ylim = c(51.3, 51.7), expand = FALSE) +
+  theme_minimal() +
+  labs(
+    title = "STW catchments over LSOA boundaries (London Zoom)",
+    caption = "LSOA boundaries with STW catchments overlaid"
+  )
+print(st_geometry_type(lsoa_sf))  # Should return types like "MULTIPOLYGON"
+print(st_geometry_type(stw_sf))
 

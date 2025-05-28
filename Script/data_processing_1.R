@@ -6,6 +6,7 @@ library(tidyverse)
 library(dplyr)
 library(terra)
 library(sf)
+library(gstat)    
 library(lubridate)
 library(data.table) # usefule for reading in large csv files
 
@@ -19,12 +20,6 @@ setwd("~/Term3-project/")
 # land cover raster
 #land_cover<- raster("data/raw/Covariates/Land cover/land_cover_100m_2018.tif")
 
-stw_sf <- st_read("Data/STW/stw_catchment_FINAL.shp")
-lsoa_sf <- st_read("Data/LSOA/LSOA2021_boundaries/LSOA2021_boundaries.shp")
-pop_df <- pop_df %>%
-  mutate(population = as.numeric(gsub(",", "", population)))
-
-
 land_cover_v<- st_read("Data/Covariates/raw/land cover/U2018_CLC2018_V2020_20u1_gdb.gdb")
 
 land_cover_v<- st_transform(land_cover_v, crs= 27700)
@@ -32,12 +27,11 @@ land_cover_v<- st_transform(land_cover_v, crs= 27700)
 # crop to study area
 
 # england shapefile
-england<- st_read("data/raw/shapefiles/england/england_crop.shp")
+england<- st_read("Data/shapefiles/england/england_crop.shp")
 
 england<- st_transform(england, crs= 27700)
 
 land_cvr_crop<- st_crop(land_cover_v, england)
-land_cvr_crop<- st_crop(land_cover_v, lsoa_sf)
 
 names(land_cvr_crop)
 
@@ -81,9 +75,16 @@ prop_urb <- intersection %>%
   summarise(prop_urb = sum(area_land) / first(stw_area)) %>%
   ungroup()
 
-prop_urb<- st_drop_geometry(prop_urb)
+prop_agri <- intersection %>%
+  filter(land_cat == "agriculture") %>%
+  group_by(site_code) %>%
+  summarise(prop_agri = sum(area_land) / first(stw_area)) %>%
+  ungroup()
 
-write.csv(prop_urb, "~/Term3-project/Data/cleaned_covariates/stw_prop_urb.csv")
+prop_urb<- st_drop_geometry(prop_urb)
+prop_agri<- st_drop_geometry(prob_agri)
+
+write.csv(prop_urb, "~/Term3-project/Data/cleaned_covariates/stw_prop_urb1.csv", row.names =  FALSE )
 
 
 
@@ -140,6 +141,8 @@ nov_df$lockdown_step3 <- as.numeric(as.character(nov_df$lockdown_step3))
 nov_df$lockdown_step4 <- as.numeric(as.character(nov_df$lockdown_step4))
 nov_df$lockdown_planA <- as.numeric(as.character(nov_df$lockdown_lifting))
 nov_df$lockdown_planB <- as.numeric(as.character(nov_df$lockdown_planB))
+
+nov_df <- nov_df %>% arrange(date_only)
 
 write.csv(nov_df,"~/Term3-project/Data/Norovirus/nov_df.csv")
 
@@ -217,7 +220,8 @@ raster_stack <- rast(grib.files)
 # Project and crop raster to extent of England  --------------------------------
 
 # get england shapefile and project data to its extent
-england<- st_read("data/raw/shapefiles/england/england_crop.shp")
+england<- st_read("Data/shapefiles/england/england_crop.shp")
+
 
 # project raster to england so they have the same 
 rast <- project(raster_stack, crs(england))
@@ -313,8 +317,25 @@ daily_rain <- rain %>%
 
 # create time index called day
 
-daily_temp$Date <- as.Date(daily_temp$Date) 
-daily_temp$day <- as.numeric(daily_temp$Date - min(daily_temp$Date)) + 1
+#daily_temp<-daily_temp_lsoa
+
+daily_temp <- daily_temp %>%
+  left_join(
+    lsoa_sf %>% 
+      st_drop_geometry() %>%                    # Drop geometry to avoid spatial column conflicts
+      select(LSOA21CD, BNG_E, BNG_N),           # Keep only needed columns
+    by = "LSOA21CD"
+  )
+
+
+daily_temp <- daily_temp %>%
+  rename(
+    x = BNG_E,
+    y = BNG_N
+  )
+
+daily_temp$Date <- as.Date(daily_temp$date) 
+daily_temp$day <- as.numeric(daily_temp$date - min(daily_temp$date)) + 1
 
 
 # initialise empty lists
@@ -340,6 +361,7 @@ for (i in 1:337){
   LIDW.grid[[i]] <- cbind(st_drop_geometry(all.day.sf), predict(g, all.day.sf)[,c(1,2)])
   
 }
+#####run from here
 
 # combine into one data frame
 temp.LIDW.df<- do.call(rbind, LIDW.grid)
