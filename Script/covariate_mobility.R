@@ -9,10 +9,12 @@ stw_sf <- st_read("Data/STW/stw_catchment_FINAL.shp")
 lsoa_sf <- st_read("Data/LSOA/LSOA2021_boundaries/LSOA2021_boundaries.shp")
 pop_df<- read.csv("Data/Covariates/lsoa/population_2021.csv")
 
+
 mobility_weekly <- mobility_df %>%
-  mutate(week = floor_date(as.Date(date), "week")) %>%
+  mutate(week = floor_date(as.Date(date), unit = "week", week_start = 1)) %>%
   group_by(LSOA21CD, week) %>%
   summarise(mobility_avg = mean(mobility, na.rm = TRUE), .groups = "drop")
+
 
 summary(mobility_weekly)
 ###mobility df includes lsoa of wales
@@ -76,4 +78,4 @@ stw_mobility_weekly <- lsoa_stw_mobility %>%
     .groups = "drop"
   )
 
-write.csv(stw_mobility_weekly,"~/Term3-project/Data/cleaned_covariates/stw_mobility_weekly.csv")
+write.csv(stw_mobility_weekly,"~/Term3-project/Data/cleaned_covariates/stw_mobility_weekly.csv", row.names =  FALSE)
