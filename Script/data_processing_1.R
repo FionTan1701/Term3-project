@@ -204,7 +204,7 @@ write.csv(stw_imd, "~/Term3-project/Data/cleaned_covariates/stw_imd.csv")
 
 # Reading and processing data as rasters  --------------------------------------
 
-era5.folder<- "data/raw/era5"
+era5.folder<- "Data/Covariates/raw/era5"
 
 # list all grib files
 grib.files<- list.files(era5.folder, pattern= "\\.grib", full.names=T)
