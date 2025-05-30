@@ -233,3 +233,6 @@ nov_df <- nov_df %>%
 
 write.csv(nov_df, "Data/final_df1.csv", row.names = FALSE)  
 
+##check nov concentraion is normal distributed
+shapiro.test(nov_df$Log10_NoV_norm)
+# W = 0.97794, p-value < 2.2e-16
