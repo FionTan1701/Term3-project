@@ -204,6 +204,17 @@ for (i in seq_along(csv_files)) {
 
 ##bind covariates df with nov_df
 
+nov_df <- read.csv("Data/Norovirus/nov_df_full.csv")
+
+nov_df <- nov_df %>% select(site_code, one_week_date, Log10_NoV_norm,Easting, Northing)
+
+lockdown_stage <- lockdown_stage %>% 
+  rename(one_week_date = week_date)
+
+nov_df$one_week_date <- as.Date(nov_df$one_week_date)
+
+stw_mobility_weekly$one_week_date <- as.Date(stw_mobility_weekly$one_week_date)
+
 nov_df <- nov_df %>%
   left_join(stw_carehome_density %>%
               select(site_code, weighted_carehome_density), by = "site_code") %>%
@@ -213,9 +224,12 @@ nov_df <- nov_df %>%
               select(site_code, weighted_prop_non_white), by = "site_code")  %>%
   left_join(stw_prop_urb %>%
               select(site_code, prop_urb), by = "site_code") %>%
-  left_join(nov_df_lockdown_stage %>%
+  left_join(lockdown_stage %>%
               select(one_week_date, lockdown_lifting,
-                     lockdown_step3,lockdown_step4,lockdown_planA,lockdown_planB,
+                     lockdown_step3,lockdown_step4,lockdown_lifting,lockdown_planB,
                      lockdown_NA), by = "one_week_date") %>%
-  left_join(stw_mobility_weekly, by = "site_code", "one_week_date")
+  left_join(stw_mobility_weekly, by = c("site_code", "one_week_date")) %>%
+  left_join(stw_imd, by = "site_code")
+
+write.csv(nov_df, "Data/final_df1.csv", row.names = FALSE)  
 
