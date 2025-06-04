@@ -5,6 +5,7 @@ library(tibble)
 library(astsa)
 library(mvtsplot) #visualisation for missing data
 library(ggplot2)
+library(viridis)
 
 setwd("~/Term3-project")
 
@@ -108,11 +109,11 @@ nov_df_week <- nov_stw_raw %>%
   summarise(Log10_NoV_norm = mean(Log10_NoV_norm, na.rm = TRUE), .groups = "drop") %>%
   arrange(site_code, one_week_date)
 
-write.csv(nov_df_week, "Data/Norovirus/nov_long_week.csv")
+#write.csv(nov_df_week, "Data/Norovirus/nov_long_week.csv")
 
 ggplot(nov_df_week, aes(x = one_week_date, y = site_code, fill = Log10_NoV_norm)) +
   geom_tile() +
-  scale_fill_distiller(palette = "RdBu", direction = 1) +
+  scale_fill_viridis(option = "D", direction = -1)  +
   labs(
     title = "Multivariate Time Series Plot",
     x = "weekly date",
