@@ -111,6 +111,7 @@ nov_df_week <- nov_stw_raw %>%
 
 #write.csv(nov_df_week, "Data/Norovirus/nov_long_week.csv")
 
+
 ggplot(nov_df_week, aes(x = one_week_date, y = site_code, fill = Log10_NoV_norm)) +
   geom_tile() +
   scale_fill_viridis(option = "D", direction = -1)  +
@@ -135,6 +136,55 @@ ggplot(nov_df_week, aes(x = one_week_date, y = site_code, fill = Log10_NoV_norm)
     axis.text.y = element_text(size = 4),
     axis.text.x = element_text(angle = 45, hjust = 1)
   )
+
+
+####plot time series by region--------------------------------------------------
+
+
+# 1. Extract region from site_code (first 6 characters)
+try <- nov_df_week
+your_data <- try %>%
+  mutate(region = substr(site_code, 1, 6))
+
+your_data <- your_data %>%
+  mutate(region = case_when(
+    grepl("^UKENAN", site_code) ~ "East of England",
+    grepl("^UKENMI", site_code) ~ "Midlands",
+    grepl("^UKENNE", site_code) ~ "North East",
+    grepl("^UKENNW", site_code) ~ "North West",
+    grepl("^UKENSO", site_code) ~ "South East",
+    grepl("^UKENSW", site_code) ~ "South West",
+    grepl("^UKENTH", site_code) ~ "London"))
+
+
+# 2. Plot time series, faceted by region
+ggplot(your_data, aes(x = one_week_date, y = site_code, fill = Log10_NoV_norm)) +
+  geom_tile() +
+  scale_fill_viridis(option = "D", direction = -1)  +
+  labs(
+    title = "Multivariate Time Series Plot by regions",
+    x = "weekly date",
+    y = "STW site",
+    fill = "NoV concentration"
+  ) +
+  theme(
+    panel.background = element_rect(fill = "white"),
+    plot.background = element_rect(fill = "white"),
+    panel.grid.major = element_line(color = "white"),
+    panel.grid.minor = element_blank()
+  ) +
+  scale_x_date(
+    date_labels = "%Y-%m-%d",   # Or "%b %d" for "Jul 01", etc.
+    date_breaks = "2 weeks"     # Adjust break interval
+  ) +
+  theme(
+    axis.line = element_line(color = "black"),
+    axis.text.y = element_text(size = 4),
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  )+
+  facet_wrap(~ region, scales = "free_y", ncol = 2)
+
+#####
 
 summary(nov_df_week)
 
