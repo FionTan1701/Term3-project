@@ -139,14 +139,12 @@ ggplot(nov_df_week, aes(x = one_week_date, y = site_code, fill = Log10_NoV_norm)
 
 
 ####plot time series by region--------------------------------------------------
-
-
 # 1. Extract region from site_code (first 6 characters)
-try <- nov_df_week
-your_data <- try %>%
+region_df <- nov_df_week
+region_df <- region_df %>%
   mutate(region = substr(site_code, 1, 6))
 
-your_data <- your_data %>%
+region_df <- region_df %>%
   mutate(region = case_when(
     grepl("^UKENAN", site_code) ~ "East of England",
     grepl("^UKENMI", site_code) ~ "Midlands",
@@ -158,7 +156,7 @@ your_data <- your_data %>%
 
 
 # 2. Plot time series, faceted by region
-ggplot(your_data, aes(x = one_week_date, y = site_code, fill = Log10_NoV_norm)) +
+ggplot(region_df, aes(x = one_week_date, y = site_code, fill = Log10_NoV_norm)) +
   geom_tile() +
   scale_fill_viridis(option = "D", direction = -1)  +
   labs(
@@ -184,22 +182,29 @@ ggplot(your_data, aes(x = one_week_date, y = site_code, fill = Log10_NoV_norm)) 
   )+
   facet_wrap(~ region, scales = "free_y", ncol = 2)
 
-#####
+# 3. plot average time series by region
+region_ts <- region_df %>%
+  group_by(one_week_date, region) %>%
+  summarise(mean_nov = mean(Log10_NoV_norm, na.rm = TRUE), .groups = "drop")
 
-summary(nov_df_week)
+library(RColorBrewer)
+n_regions <- length(unique(region_ts$region))
 
-#histogram of log10 norovirus concentration
-nov_df_week %>%
-  ggplot +
-  geom_histogram(aes(Log10_NoV_norm), col = "blue") +
-  labs(title = "Histogram of NoV Concentration")
-
+ggplot(region_ts, aes(x = as.Date(one_week_date), y = mean_nov, color = region)) +
+  geom_line(size = 1.0) +
+  labs(x = "Date", y = "Mean log10 NoV concentration") +
+  scale_color_manual(values = brewer.pal(n_regions, "Set2"))+
+  theme_minimal() +
+  theme(legend.position = "bottom")+
+  ggtitle("Regional Time Series of Norovirus") +
+  theme(plot.title = element_text(hjust = 0.5))
+################################################################################
 
 #count how many dates are under each site
 count <- nov_df_week %>%
   group_by(site_code) %>%
   summarise(n_dates = n()) %>%
-  arrange(desc(n_dates))  # Optional: to sort by count
+  arrange(desc(n_dates))  
 
 # site with less than 11 dates with data
 #UKENNE_NU_TP000048,UKENNE_NU_TP000039,UKENNW_UU_TP000017,UKENNW_UU_TP000023,
@@ -238,52 +243,19 @@ nov_df <- nov_df_full %>%
 
 write.csv(nov_df,"Data/Norovirus/nov_df_full.csv")
 
-#######read covariates csv
-folder_path <- "Data/cleaned_covariates"
-
-# List all CSV files
-csv_files <- list.files(path = folder_path, pattern = "\\.csv$", full.names = TRUE)
-
-# Create a name for each data frame from the file name (without extension)
-df_names <- tools::file_path_sans_ext(basename(csv_files))
-
-# Read each file and assign to a variable in the global environment
-for (i in seq_along(csv_files)) {
-  assign(df_names[i], read.csv(csv_files[i]))
-}
-########
-
-##bind covariates df with nov_df
-
-nov_df <- read.csv("Data/Norovirus/nov_df_full.csv")
-
-nov_df <- nov_df %>% select(site_code, one_week_date, Log10_NoV_norm,Easting, Northing)
-
-lockdown_stage <- lockdown_stage %>% 
-  rename(one_week_date = week_date)
-
-nov_df$one_week_date <- as.Date(nov_df$one_week_date)
-
-stw_mobility_weekly$one_week_date <- as.Date(stw_mobility_weekly$one_week_date)
-
-nov_df <- nov_df %>%
-  left_join(stw_carehome_density %>%
-              select(site_code, weighted_carehome_density), by = "site_code") %>%
-  left_join(stw_school_density %>%
-              select(site_code, weighted_school_density), by = "site_code")  %>%
-  left_join(stw_ethnicity %>%
-              select(site_code, weighted_prop_non_white), by = "site_code")  %>%
-  left_join(stw_prop_urb %>%
-              select(site_code, prop_urb), by = "site_code") %>%
-  left_join(lockdown_stage %>%
-              select(one_week_date, lockdown_lifting,
-                     lockdown_step3,lockdown_step4,lockdown_lifting,lockdown_planB,
-                     lockdown_NA), by = "one_week_date") %>%
-  left_join(stw_mobility_weekly, by = c("site_code", "one_week_date")) %>%
-  left_join(stw_imd, by = "site_code")
-
-write.csv(nov_df, "Data/final_df1.csv", row.names = FALSE)  
+################################################################################
 
 ##check nov concentraion is normal distributed
 shapiro.test(nov_df$Log10_NoV_norm)
 # W = 0.97794, p-value < 2.2e-16
+
+#histogram of log10 norovirus concentration
+nov_df_week %>%
+  ggplot +
+  geom_histogram(aes(Log10_NoV_norm), col = "blue") +
+  labs(title = "Histogram of NoV Concentration")
+
+summary(nov_df_week)
+
+
+

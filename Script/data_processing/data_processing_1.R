@@ -93,20 +93,14 @@ write.csv(prop_urb, "~/Term3-project/Data/cleaned_covariates/stw_prop_urb.csv", 
 #===================================================
 nov_df <- read.csv("Data/Norovirus/nov_wide_week.csv")
 
-
-nov_df <- rownames_to_column(nov_wide_week, var = "week_date")
-nov_df <- as.Date(nov_df$week_date)
-nov_df <- as.data.frame(nov_df) %>% 
-  rename(week_date = nov_df)
-
-                                     
 # lockdown
-nov_df <- nov_df %>%
+nov_df <- nov_df %>% 
+  select(one_week_date) %>%
   mutate(lockdown_phase = case_when(
-    week_date >= as.Date("2021-05-27") & week_date <= as.Date("2021-07-18") ~ "step3",
-    week_date >= as.Date("2021-07-19") & week_date <= as.Date("2021-12-07") ~ "step4",
-    week_date >= as.Date("2021-12-08") & week_date <= as.Date("2022-01-26") ~ "planB",
-    week_date >= as.Date("2022-01-27") & week_date <= as.Date("2022-03-17") ~ "lifting"))
+    one_week_date >= as.Date("2021-05-17") & one_week_date <= as.Date("2021-07-18") ~ "step3",
+    one_week_date >= as.Date("2021-07-19") & one_week_date <= as.Date("2021-12-07") ~ "step4",
+    one_week_date >= as.Date("2021-12-08") & one_week_date <= as.Date("2022-01-26") ~ "planB",
+    one_week_date >= as.Date("2022-01-27") & one_week_date <= as.Date("2022-03-28") ~ "lifting"))
 #write.csv(nov_df,"~/Term3-project/Data/Norovirus/nov_df.csv")
 
 # recode as dummy variable(one-hot encode)
@@ -124,7 +118,6 @@ nov_df$lockdown_step3 <- as.numeric(as.character(nov_df$lockdown_step3))
 nov_df$lockdown_step4 <- as.numeric(as.character(nov_df$lockdown_step4))
 nov_df$lockdown_planB <- as.numeric(as.character(nov_df$lockdown_planB))
 nov_df$lockdown_lifting <- as.numeric(as.character(nov_df$lockdown_lifting))
-nov_df$lockdown_NA <- as.numeric(as.character(nov_df$lockdown_NA))
 
 write.csv(nov_df,"~/Term3-project/Data/cleaned_covariates/lockdown_stage.csv", row.names = FALSE)
 
