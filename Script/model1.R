@@ -22,8 +22,132 @@ library(zoo)
 library(INLAspacetime)
 library(blockCV)
 
+options(saveWorkspace = FALSE)
+inla.setOption(num.threads= "6")
+
+
 setwd("~/Term3-project")
 nov_df <- read.csv("Data/final_df3.csv")
+
+## functions--------------------------------------------------------------------
+
+extract.predicted = function(val_pred) {
+  # Initialize vectors to store results
+  prediction.vector.tot = NULL
+  coverage = NULL
+  ci_amplitude = NULL
+  
+  # Loop through each row of val_pred
+  for (i in 1:nrow(val_pred)) {
+    # Extract mean, standard deviation, and quantiles
+    mean_val = val_pred$mean[i]
+    sd_val = val_pred$sd[i]
+    q0.025 = val_pred$q0.025[i]
+    q0.975 = val_pred$q0.975[i]
+    
+    # Generate predictions
+    prediction.vector = rnorm(n.pred, mean = mean_val, sd = sd_val)
+    prediction.vector.tot = c(prediction.vector.tot, prediction.vector)  # Collect all predictions
+    
+    # Calculate confidence interval amplitude
+    ci_amplitude = c(ci_amplitude, q0.975 - q0.025)
+    
+    # Calculate coverage
+    coverage = c(coverage, COV(mean_val, lower = q0.025, upper = q0.975))
+  }
+  
+  # Compute summary metrics
+  predicted = c(
+    mean(prediction.vector.tot),  # Mean of all predictions
+    round(sum(coverage[!is.na(coverage)]) / length(coverage[!is.na(coverage)]), 4),  # Average coverage
+    mean(ci_amplitude),  # Mean of CI amplitudes
+    var(prediction.vector.tot)  # Variance of all predictions
+  )
+  
+  # Name the elements of the result vector
+  names(predicted) = c(
+    "mean_pred",
+    "coverage",
+    "ci_amplitude",
+    "pmcc"
+  )
+  
+  return(predicted)
+}
+
+
+# functions
+MSE <- function(z, zhat) {
+  z <- as.matrix(z)
+  zhat <- as.matrix(zhat)
+  x <- c(z - zhat)
+  u <- x[!is.na(x)]
+  # round(sqrt(sum(u^2)/length(u)), 4) # cannot be rooted now because we take the average later
+  round(sum(u^2)/length(u), 4)
+}
+MAE <- function(z, zhat) {
+  z <- as.matrix(z)
+  zhat <- as.matrix(zhat)
+  x <- abs(c(zhat - z))
+  u <- x[!is.na(x)]
+  round(sum(u)/length(u), 4)
+}
+MAPE <- function(z, zhat) {
+  z <- as.matrix(z)
+  zhat <- as.matrix(zhat)
+  x <- abs(c(zhat - z))/z
+  u <- x[!is.na(x)]
+  u <- u[!is.infinite(u)]
+  round(sum(u)/length(u) * 100, 4)
+}
+BIAS <- function(z, zhat) {
+  z <- as.matrix(z)
+  zhat <- as.matrix(zhat)
+  x <- c(zhat - z)
+  u <- x[!is.na(x)]
+  round(sum(u)/length(u), 4)
+}
+pBIAS <- function(z, zhat) {
+  z <- as.matrix(z)
+  zhat <- as.matrix(zhat)
+  x <- c(zhat - z)/z
+  u <- x[!is.na(x)]
+  u <- u[!is.infinite(u)]
+  round(sum(u)/length(u) * 100, 4)
+}
+CORR <- function(z, zhat) {
+  z <- as.matrix(z)
+  zhat <- as.matrix(zhat)
+  round(cor(z,zhat,use="pairwise.complete.obs", method="spearman"), 4)
+}
+COV <- function(z, lower=NULL, upper=NULL, coverage=NULL) {
+  if(!is.null(lower) && !is.null(upper)){
+    z <- as.matrix(z)
+    lower <- as.matrix(lower)
+    upper <- as.matrix(upper)
+    x <- z>=lower & z<=upper
+    u <- x[!is.na(x)]
+    round(sum(u)/length(u) * 100, 4)
+  }else if(!is.null(coverage)){
+    round(mean(coverage, na.rm = T),4)
+  }
+}
+FRAC2 <- function(z, zhat) {
+  z <- as.matrix(z)
+  zhat <- as.matrix(zhat)
+  x <- z/zhat>=0.5 & z/zhat<=2
+  u <- x[!is.na(x)]
+  round(sum(u)/length(u) * 100, 4)
+}
+
+PMCC <- function(z, zhat) {
+  z <- as.matrix(z)
+  zhat <- as.matrix(zhat)
+  x <- c(z-zhat)^2
+  gof <- sum(x[!is.na(x)])
+  pmcc <- gof
+  round(pmcc, 4)
+}
 
 ## scale------------------------------------------------------------------------
 
@@ -53,6 +177,7 @@ nov_df <- nov_df %>%
 
 ## create f_index (numerical index for week date)-------------------------------
 
+nov <- nov_df
 nov<- nov %>%
   arrange(Week_date) %>%
   mutate(f_index= as.numeric(one_week_date))
@@ -70,7 +195,7 @@ sites<- nov %>%
   unique()
 
 # shapefile
-england<- st_read("data/england_crop.shp")
+england<- st_read("Data/shapefiles/england/england_crop.shp")
 england<- st_transform(england, crs= st_crs(nov))
 
 raster<- raster(england)
@@ -118,10 +243,6 @@ predictions<- data.frame()
 samples<- data.frame()
 all_interval_scores <- numeric()
 metrics<- data.frame()
-# shapefile
-england<- st_read("data/england_crop.shp")
-england<- st_transform(england, crs= st_crs(nov))
-
 
 
 max.edge = 15
@@ -137,9 +258,6 @@ theta.ini <- c(
   log(0.5) # theta 1
 ) 
 
-nov$avg_Log10_NoV<- 10^(nov$Log10_NoV)
-
-# Taking dimensions of bounding box
 
 # Loop through each fold for cross-validation
 for (k in 1:10) {
@@ -148,7 +266,7 @@ for (k in 1:10) {
   train <- subset(nov, folds != k)  # All folds except k
   val <- subset(nov, folds == k)   # Only fold k
   
-  val_data<- val$avg_Log10_NoV
+  val_data<- val$Log10_NoV_norm
   
   # Create mesh using coordinates from training data
   sc= 1/1000
@@ -181,7 +299,7 @@ for (k in 1:10) {
   
   A.train<- inla.spde.make.A(mesh=mesh,
                              loc=coords.train,
-                             group=train$week,
+                             group=train$one_week_date,
                              n.group= n_week)
   print(dim(A.train))
   
@@ -189,7 +307,7 @@ for (k in 1:10) {
   
   A.val <- inla.spde.make.A(mesh=mesh,
                             loc=coords.val,
-                            group= val$week,
+                            group= val$one_week_date,
                             n.group= n_week)
   
   print(dim(A.val))
@@ -210,12 +328,13 @@ for (k in 1:10) {
   
   # training stack
   stack.train <- inla.stack(
-    data = list(avg_Log10_NoV = train$avg_Log10_NoV), 
+    data = list(Log10_NoV_norm = train$Log10_NoV_norm), 
     A = list(A.train, 1), 
     effects = list(
       c(s.index, list(Intercept = 1)),
       list(
-        week = train$week,
+        week = train$one_week_date,
+        site_code = train$site_code,
         site_code = train$site_code,
         lockdown_step3 = train$lockdown_step3,
         lockdown_step4 = train$lockdown_step4,
@@ -223,20 +342,12 @@ for (k in 1:10) {
         lockdown_planB = train$lockdown_planB,
         scale_school_den = train$scale_school_den,
         scale_carehome_den = train$scale_carehome_den,
-        scale_mob_7day = train$scale_mob_7day,
+        scale_mobility = train$scale_mobility,
         scale_bame= train$scale_bame,
-        scale_imd= train$scale_imd,
+        scale_imd_score= train$scale_imd_score,
         scale_prop_urb= train$scale_prop_urb,
-        scale_prop_agri= train$scale_prop_agri,
-        temp_2 = train$temp_2,
-        temp_3 = train$temp_3,
-        temp_4 = train$temp_4,
-        temp_5 = train$temp_5,
-        rain_2 = train$rain_2,
-        rain_3 = train$rain_3,
-        rain_4 = train$rain_4,
-        rain_5 = train$rain_5,
-        scale_pop_den = train$scale_pop_den
+        scale_rain_rolling_7day = train$scale_rain_rolling_7day,
+        scale_temp_rolling_7day = train$scale_temp_rolling_7day,
       )
     ),
     tag = "train"
@@ -250,7 +361,7 @@ for (k in 1:10) {
     effects = list(
       c(s.index, list(Intercept = 1)),
       list(
-        week = val$week,
+        week = val$one_week_date,
         site_code = val$site_code,
         lockdown_step3 = val$lockdown_step3,
         lockdown_step4 = val$lockdown_step4,
@@ -258,20 +369,12 @@ for (k in 1:10) {
         lockdown_planB = val$lockdown_planB,
         scale_school_den = val$scale_school_den,
         scale_carehome_den = val$scale_carehome_den,
-        scale_mob_7day = val$scale_mob_7day,
+        scale_mobility = val$scale_mobility,
         scale_bame= val$scale_bame,
-        scale_imd= val$scale_imd,
+        scale_imd_score= val$scale_imd_score,
         scale_prop_urb= val$scale_prop_urb,
-        scale_prop_agri= val$scale_prop_agri,
-        temp_2 = val$temp_2,
-        temp_3 = val$temp_3,
-        temp_4 = val$temp_4,
-        temp_5 = val$temp_5,
-        rain_2 = val$rain_2,
-        rain_3 = val$rain_3,
-        rain_4 = val$rain_4,
-        rain_5 = val$rain_5,
-        scale_pop_den = val$scale_pop_den
+        scale_rain_rolling_7day = val$scale_rain_rolling_7day,
+        scale_temp_rolling_7day = val$scale_temp_rolling_7day,
       )
     ),
     tag = "val"
@@ -284,10 +387,9 @@ for (k in 1:10) {
   ## Fit model
   
   # formula
-  formula<-  as.formula('avg_Log10_NoV ~ -1 + Intercept + lockdown_step3 + lockdown_step4 + lockdown_planB +
-    scale_school_den + scale_carehome_den + scale_mob_7day + scale_bame + scale_imd + scale_prop_agri + scale_prop_urb +
-    temp_2 + temp_3 + temp_4 + temp_5 +
-    rain_2 + rain_3 + rain_4 + rain_5 + scale_pop_den +
+  formula<-  as.formula('Log10_NoV_norm ~ -1 + Intercept + lockdown_step3 + lockdown_step4 + lockdown_planB +
+    scale_school_den + scale_carehome_den + scale_mobility + scale_bame + scale_imd_score + scale_prop_urb +
+    scale_rain_rolling_7day + scale_temp_rolling_7day 
                         f(site_code, model="iid", hyper= pc_prec) + f(week, model= "iid", hyper= pc_prec) +
                         f(spatial.field, model=spde, group=spatial.field.group, control.group=list(model="iid", hyper=pc_prec))')
   print(paste("Fitting of fold", k, "in progress..."))
@@ -381,3 +483,51 @@ for (k in 1:10) {
   
   print(paste(k, "folds done"))
 }
+
+
+
+## CV metrics-------------------------------------------------------------------
+
+
+# 95 % coverage probability
+# Coverage
+coverage_vector <- numeric(nrow(predictions))
+
+for (i in 1:nrow(predictions)) {
+  # Get the confidence interval bounds for the i-th observation
+  lower_bound <- predictions$q0.025[i]
+  upper_bound <- predictions$q0.975[i]
+  
+  # Get the observed value for the i-th observation
+  observed <- predictions$avg_Log10_NoV[i]
+  
+  # Check if the observed value is within the confidence interval bounds
+  coverage <- ifelse(observed >= lower_bound & observed <= upper_bound, 1, 0)
+  
+  # Store the coverage result (1 if within interval, 0 if outside) for the i-th observation
+  coverage_vector[i] <- coverage
+}
+
+# Calculate the overall coverage probability
+coverage_probability <- mean(coverage_vector, na.rm = TRUE) * 100
+print(paste("Coverage Probability (%):", coverage_probability))
+
+summary_metrics <- metrics %>%
+  summarise(
+    Mean_MSE = mean(MSE, na.rm = TRUE),
+    Mean_MAE = mean(MAE, na.rm = TRUE),
+    Mean_MAPE = mean(MAPE, na.rm = TRUE),
+    Mean_BIAS = mean(BIAS, na.rm = TRUE),
+    Mean_pBIAS = mean(pBIAS, na.rm = TRUE),
+    Mean_CORR = mean(CORR, na.rm = TRUE),
+    COV = coverage_probability,
+    PMCC = PMCC(predictions$avg_Log10_NoV, predictions$mean),
+  )
+
+# Print the summary of metrics
+print(summary_metrics)
+
+
+write.csv(metrics, "outputs/cv/cv_model1_metrics_full.csv")
+write.csv(predictions, "outputs/cv/cv_model1_predictions.csv")
+
