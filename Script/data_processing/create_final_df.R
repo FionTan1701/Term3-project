@@ -57,4 +57,11 @@ nov_df <- nov_df %>%
   left_join(stw_dailytemp %>% 
               select(site_code, one_week_date, temp_rolling_7day), by = c("site_code", "one_week_date"))
 
-write.csv(nov_df, "Data/final_df2.csv", row.names = FALSE) 
+write.csv(final_df2, "~/Term3-project/Data/final_df3.csv", row.names = FALSE) 
+
+# Create an ordered index
+final_df2$one_week_date <- as.Date(final_df2$one_week_date, format = "%d/%m/%Y")
+
+final_df2 <- final_df2 %>%
+  arrange(one_week_date) %>%                # Sort by date
+  mutate(date_index = dense_rank(one_week_date))  # Assign increasing index
