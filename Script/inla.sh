@@ -1,4 +1,4 @@
-#PBS -l walltime=72:00:00
+#PBS -l walltime=48:00:00
 #PBS -l select=1:ncpus=4:mem=600gb
 #PBS -N inla_model1
 
