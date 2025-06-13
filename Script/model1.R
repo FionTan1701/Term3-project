@@ -151,7 +151,7 @@ PMCC <- function(z, zhat) {
 
 ## scale------------------------------------------------------------------------
 
-covariates_to_scale <-  c("school_den", "carehome_den", "imd_score", "bame", "mobility", "rain_rolling_7day","temp_rolling_7day", "prop_urb")
+covariates_to_scale <-  c("school_density", "carehome_density", "imd_score", "BAME", "mobility", "rain_rolling_7day","temp_rolling_7day", "prop_urb")
 scale_covariates <- function(df, covariates_to_scale) {
   # Define a custom scaling function
   scale <- function(x) {
@@ -335,15 +335,14 @@ for (k in 1:10) {
       list(
         week = train$one_week_date,
         site_code = train$site_code,
-        site_code = train$site_code,
         lockdown_step3 = train$lockdown_step3,
         lockdown_step4 = train$lockdown_step4,
-        lockdown_planA = train$lockdown_planA,
+        lockdown_lifting = train$lockdown_lifting,
         lockdown_planB = train$lockdown_planB,
-        scale_school_den = train$scale_school_den,
-        scale_carehome_den = train$scale_carehome_den,
+        scale_school_density = train$scale_school_density,
+        scale_carehome_density = train$scale_carehome_density,
         scale_mobility = train$scale_mobility,
-        scale_bame= train$scale_bame,
+        scale_BAME = train$scale_BAME,
         scale_imd_score= train$scale_imd_score,
         scale_prop_urb= train$scale_prop_urb,
         scale_rain_rolling_7day = train$scale_rain_rolling_7day,
@@ -356,7 +355,7 @@ for (k in 1:10) {
   # validation stack
   
   stack.val <- inla.stack(
-    data = list(avg_Log10_NoV = NA), 
+    data = list(Log10_NoV_norm = NA), 
     A = list(A.val, 1), 
     effects = list(
       c(s.index, list(Intercept = 1)),
@@ -365,10 +364,10 @@ for (k in 1:10) {
         site_code = val$site_code,
         lockdown_step3 = val$lockdown_step3,
         lockdown_step4 = val$lockdown_step4,
-        lockdown_planA = val$lockdown_planA,
+        lockdown_lifting = val$lockdown_lifting,
         lockdown_planB = val$lockdown_planB,
-        scale_school_den = val$scale_school_den,
-        scale_carehome_den = val$scale_carehome_den,
+        scale_school_density = val$scale_school_density,
+        scale_carehome_density = val$scale_carehome_density,
         scale_mobility = val$scale_mobility,
         scale_bame= val$scale_bame,
         scale_imd_score= val$scale_imd_score,
@@ -388,7 +387,7 @@ for (k in 1:10) {
   
   # formula
   formula<-  as.formula('Log10_NoV_norm ~ -1 + Intercept + lockdown_step3 + lockdown_step4 + lockdown_planB +
-    scale_school_den + scale_carehome_den + scale_mobility + scale_bame + scale_imd_score + scale_prop_urb +
+    scale_school_density + scale_carehome_density + scale_mobility + scale_BAME + scale_imd_score + scale_prop_urb +
     scale_rain_rolling_7day + scale_temp_rolling_7day 
                         f(site_code, model="iid", hyper= pc_prec) + f(week, model= "iid", hyper= pc_prec) +
                         f(spatial.field, model=spde, group=spatial.field.group, control.group=list(model="iid", hyper=pc_prec))')
@@ -434,9 +433,9 @@ for (k in 1:10) {
   results.train= fit.fold$summary.linear.predictor$mean[index_inla_train]
   predicted= fit.fold$summary.linear.predictor$mean[index_inla_val]
   
-  train_data<- train$avg_Log10_NoV
+  train_data<- train$Log10_NoV_norm
   
-  observed<-val$avg_Log10_NoV
+  observed<-val$Log10_NoV_norm
   
   val$mean<-fit.fold$summary.linear.predictor$mean[index_inla_val]
   val$q0.025<-fit.fold$summary.linear.predictor$`0.025quant`[index_inla_val]
@@ -445,7 +444,7 @@ for (k in 1:10) {
   # append predictions and samples to dataframe
   
   val<- val %>%
-    dplyr::select(week, site_code, region, avg_Log10_NoV, mean, q0.025, q0.975) %>%
+    dplyr::select(week, site_code, region, Log10_NoV_norm, mean, q0.025, q0.975) %>%
     st_drop_geometry()
   
   predictions<- rbind(predictions, val)
@@ -460,7 +459,7 @@ for (k in 1:10) {
   bias<- BIAS(observed, predicted)
   pbias <- pBIAS(observed, predicted)
   corr <- CORR(observed, predicted)
-  cov<- COV(val$avg_Log10_NoV, lower = val$q0.025, upper= val$q0.975)
+  cov<- COV(val$Log10_NoV_norm, lower = val$q0.025, upper= val$q0.975)
   
   # store metrics
   metrics_fold <- data.frame(
@@ -499,7 +498,7 @@ for (i in 1:nrow(predictions)) {
   upper_bound <- predictions$q0.975[i]
   
   # Get the observed value for the i-th observation
-  observed <- predictions$avg_Log10_NoV[i]
+  observed <- predictions$Log10_NoV_norm[i]
   
   # Check if the observed value is within the confidence interval bounds
   coverage <- ifelse(observed >= lower_bound & observed <= upper_bound, 1, 0)
@@ -521,7 +520,7 @@ summary_metrics <- metrics %>%
     Mean_pBIAS = mean(pBIAS, na.rm = TRUE),
     Mean_CORR = mean(CORR, na.rm = TRUE),
     COV = coverage_probability,
-    PMCC = PMCC(predictions$avg_Log10_NoV, predictions$mean),
+    PMCC = PMCC(predictions$Log10_NoV_norm, predictions$mean),
   )
 
 # Print the summary of metrics
