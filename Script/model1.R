@@ -178,9 +178,14 @@ nov_df <- nov_df %>%
 ## create f_index (numerical index for week date)-------------------------------
 
 nov <- nov_df
-nov<- nov %>%
-  arrange(Week_date) %>%
-  mutate(f_index= as.numeric(one_week_date))
+nov <- nov %>%
+  arrange(as.Date(one_week_date, format = "%d/%m/%Y")) %>%
+  mutate(
+    one_week_date = as.Date(one_week_date, format = "%d/%m/%Y"),
+    one_week_date = factor(one_week_date, levels = unique(one_week_date)),
+    f_index = as.numeric(one_week_date)
+  )
+
 
 ## convert df to sf-------------------------------------------------------------
 
