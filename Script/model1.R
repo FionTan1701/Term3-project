@@ -194,7 +194,7 @@ nov <- st_transform(nov,  crs = "+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717
 # unique sites
 
 sites<- nov %>%
-  dplyr::select(site_code, geometry) %>%
+  dplyr::select(site_code) %>%
   unique()
 
 # shapefile
@@ -246,6 +246,7 @@ predictions<- data.frame()
 samples<- data.frame()
 all_interval_scores <- numeric()
 metrics<- data.frame()
+fit <- list()
 
 
 max.edge = 15
@@ -338,7 +339,7 @@ for (k in 1:10) {
     effects = list(
       c(s.index, list(Intercept = 1)),
       list(
-        week = train$one_week_date,
+        week = train$date_index,
         site_code = train$site_code,
         lockdown_step3 = train$lockdown_step3,
         lockdown_step4 = train$lockdown_step4,
@@ -351,7 +352,7 @@ for (k in 1:10) {
         scale_imd_score= train$scale_imd_score,
         scale_prop_urb= train$scale_prop_urb,
         scale_rain_rolling_7day = train$scale_rain_rolling_7day,
-        scale_temp_rolling_7day = train$scale_temp_rolling_7day,
+        scale_temp_rolling_7day = train$scale_temp_rolling_7day
       )
     ),
     tag = "train"
@@ -365,7 +366,7 @@ for (k in 1:10) {
     effects = list(
       c(s.index, list(Intercept = 1)),
       list(
-        week = val$one_week_date,
+        week = val$date_index,
         site_code = val$site_code,
         lockdown_step3 = val$lockdown_step3,
         lockdown_step4 = val$lockdown_step4,
@@ -374,11 +375,11 @@ for (k in 1:10) {
         scale_school_density = val$scale_school_density,
         scale_carehome_density = val$scale_carehome_density,
         scale_mobility = val$scale_mobility,
-        scale_bame= val$scale_bame,
+        scale_BAME= val$scale_BAME,
         scale_imd_score= val$scale_imd_score,
         scale_prop_urb= val$scale_prop_urb,
         scale_rain_rolling_7day = val$scale_rain_rolling_7day,
-        scale_temp_rolling_7day = val$scale_temp_rolling_7day,
+        scale_temp_rolling_7day = val$scale_temp_rolling_7day
       )
     ),
     tag = "val"
@@ -394,7 +395,7 @@ for (k in 1:10) {
   formula<-  as.formula('Log10_NoV_norm ~ -1 + Intercept + lockdown_step3 + lockdown_step4 + lockdown_planB +
     scale_school_density + scale_carehome_density + scale_mobility + scale_BAME + scale_imd_score + scale_prop_urb +
     scale_rain_rolling_7day + scale_temp_rolling_7day +
-                        f(site_code, model="iid", hyper= pc_prec) + f(date_index, model= "iid", hyper= pc_prec) +
+                        f(site_code, model="iid", hyper= pc_prec) + f(week, model= "iid", hyper= pc_prec) +
                         f(spatial.field, model=spde, group=spatial.field.group, control.group=list(model="iid", hyper=pc_prec))')
   print(paste("Fitting of fold", k, "in progress..."))
   
@@ -449,7 +450,7 @@ for (k in 1:10) {
   # append predictions and samples to dataframe
   
   val<- val %>%
-    dplyr::select(date_index, site_code, region, Log10_NoV_norm, mean, q0.025, q0.975) %>%
+    dplyr::select(date_index, site_code, Log10_NoV_norm, mean, q0.025, q0.975) %>%
     st_drop_geometry()
   
   predictions<- rbind(predictions, val)
