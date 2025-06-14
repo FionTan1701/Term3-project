@@ -179,12 +179,10 @@ nov_df <- nov_df %>%
 
 nov <- nov_df
 nov <- nov %>%
-  arrange(as.Date(one_week_date, format = "%d/%m/%Y")) %>%
-  mutate(
-    one_week_date = as.Date(one_week_date, format = "%d/%m/%Y"),
-    one_week_date = factor(one_week_date, levels = unique(one_week_date)),
-    f_index = as.numeric(one_week_date)
-  )
+  mutate(one_week_date = as.Date(one_week_date, format = "%d/%m/%Y")) %>%  # Adjust format as needed
+  arrange(one_week_date) %>%
+  mutate(f_index = as.numeric(one_week_date))
+
 
 
 ## convert df to sf-------------------------------------------------------------
@@ -298,22 +296,24 @@ for (k in 1:10) {
   
   ## A matrices
   
-  n_week<- length(unique(nov$week))
+  n_week<- length(unique(train$f_index))
   
   coords.train<- as.matrix(st_coordinates(train))
   
   A.train<- inla.spde.make.A(mesh=mesh,
                              loc=coords.train,
-                             group=train$one_week_date,
+                             group=train$f_index,
                              n.group= n_week)
   print(dim(A.train))
   
   coords.val<- as.matrix(st_coordinates(val))
   
+  n_week2<- length(unique(val$f_index))
+
   A.val <- inla.spde.make.A(mesh=mesh,
                             loc=coords.val,
-                            group= val$one_week_date,
-                            n.group= n_week)
+                            group= val$f_index,
+                            n.group= n_week2)
   
   print(dim(A.val))
   
@@ -393,8 +393,8 @@ for (k in 1:10) {
   # formula
   formula<-  as.formula('Log10_NoV_norm ~ -1 + Intercept + lockdown_step3 + lockdown_step4 + lockdown_planB +
     scale_school_density + scale_carehome_density + scale_mobility + scale_BAME + scale_imd_score + scale_prop_urb +
-    scale_rain_rolling_7day + scale_temp_rolling_7day 
-                        f(site_code, model="iid", hyper= pc_prec) + f(week, model= "iid", hyper= pc_prec) +
+    scale_rain_rolling_7day + scale_temp_rolling_7day +
+                        f(site_code, model="iid", hyper= pc_prec) + f(f_index, model= "iid", hyper= pc_prec) +
                         f(spatial.field, model=spde, group=spatial.field.group, control.group=list(model="iid", hyper=pc_prec))')
   print(paste("Fitting of fold", k, "in progress..."))
   
@@ -449,7 +449,7 @@ for (k in 1:10) {
   # append predictions and samples to dataframe
   
   val<- val %>%
-    dplyr::select(week, site_code, region, Log10_NoV_norm, mean, q0.025, q0.975) %>%
+    dplyr::select(f_index, site_code, region, Log10_NoV_norm, mean, q0.025, q0.975) %>%
     st_drop_geometry()
   
   predictions<- rbind(predictions, val)
