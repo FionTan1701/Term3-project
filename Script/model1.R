@@ -296,23 +296,23 @@ for (k in 1:10) {
   
   ## A matrices
   
-  n_week<- length(unique(train$f_index))
+  n_week<- length(unique(train$date_index))
   
   coords.train<- as.matrix(st_coordinates(train))
   
   A.train<- inla.spde.make.A(mesh=mesh,
                              loc=coords.train,
-                             group=train$f_index,
+                             group=train$date_index,
                              n.group= n_week)
   print(dim(A.train))
   
   coords.val<- as.matrix(st_coordinates(val))
   
-  n_week2<- length(unique(val$f_index))
+  n_week2<- length(unique(val$date_index))
 
   A.val <- inla.spde.make.A(mesh=mesh,
                             loc=coords.val,
-                            group= val$f_index,
+                            group= val$date_index,
                             n.group= n_week2)
   
   print(dim(A.val))
@@ -394,7 +394,7 @@ for (k in 1:10) {
   formula<-  as.formula('Log10_NoV_norm ~ -1 + Intercept + lockdown_step3 + lockdown_step4 + lockdown_planB +
     scale_school_density + scale_carehome_density + scale_mobility + scale_BAME + scale_imd_score + scale_prop_urb +
     scale_rain_rolling_7day + scale_temp_rolling_7day +
-                        f(site_code, model="iid", hyper= pc_prec) + f(f_index, model= "iid", hyper= pc_prec) +
+                        f(site_code, model="iid", hyper= pc_prec) + f(date_index, model= "iid", hyper= pc_prec) +
                         f(spatial.field, model=spde, group=spatial.field.group, control.group=list(model="iid", hyper=pc_prec))')
   print(paste("Fitting of fold", k, "in progress..."))
   
@@ -449,7 +449,7 @@ for (k in 1:10) {
   # append predictions and samples to dataframe
   
   val<- val %>%
-    dplyr::select(f_index, site_code, region, Log10_NoV_norm, mean, q0.025, q0.975) %>%
+    dplyr::select(date_index, site_code, region, Log10_NoV_norm, mean, q0.025, q0.975) %>%
     st_drop_geometry()
   
   predictions<- rbind(predictions, val)
