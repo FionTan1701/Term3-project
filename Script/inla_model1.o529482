@@ -1,0 +1,582 @@
+Reading layer `england_crop' from data source 
+  `/rds/general/user/ft824/home/Term3-project/Data/shapefiles/england/england_crop.shp' 
+  using driver `ESRI Shapefile'
+Simple feature collection with 1 feature and 8 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 82668.52 ymin: 5336.966 xmax: 655653.8 ymax: 657536
+Projected CRS: OSGB36 / British National Grid
+  |                                                                              |                                                                      |   0%  |                                                                              |=                                                                     |   1%  |                                                                              |=                                                                     |   2%  |                                                                              |==                                                                    |   3%  |                                                                              |===                                                                   |   4%  |                                                                              |====                                                                  |   5%  |                                                                              |====                                                                  |   6%  |                                                                              |=====                                                                 |   7%  |                                                                              |======                                                                |   8%  |                                                                              |======                                                                |   9%  |                                                                              |=======                                                               |  10%  |                                                                              |========                                                              |  11%  |                                                                              |========                                                              |  12%  |                                                                              |=========                                                             |  13%  |                                                                              |==========                                                            |  14%  |                                                                              |==========                                                            |  15%  |                                                                              |===========                                                           |  16%  |                                                                              |============                                                          |  17%  |                                                                              |=============                                                         |  18%  |                                                                              |=============                                                         |  19%  |                                                                              |==============                                                        |  20%  |                                                                              |===============                                                       |  21%  |                                                                              |===============                                                       |  22%  |                                                                              |================                                                      |  23%  |                                                                              |=================                                                     |  24%  |                                                                              |==================                                                    |  25%  |                                                                              |==================                                                    |  26%  |                                                                              |===================                                                   |  27%  |                                                                              |====================                                                  |  28%  |                                                                              |====================                                                  |  29%  |                                                                              |=====================                                                 |  30%  |                                                                              |======================                                                |  31%  |                                                                              |======================                                                |  32%  |                                                                              |=======================                                               |  33%  |                                                                              |========================                                              |  34%  |                                                                              |========================                                              |  35%  |                                                                              |=========================                                             |  36%  |                                                                              |==========================                                            |  37%  |                                                                              |===========================                                           |  38%  |                                                                              |===========================                                           |  39%  |                                                                              |============================                                          |  40%  |                                                                              |=============================                                         |  41%  |                                                                              |=============================                                         |  42%  |                                                                              |==============================                                        |  43%  |                                                                              |===============================                                       |  44%  |                                                                              |================================                                      |  45%  |                                                                              |================================                                      |  46%  |                                                                              |=================================                                     |  47%  |                                                                              |==================================                                    |  48%  |                                                                              |==================================                                    |  49%  |                                                                              |===================================                                   |  50%  |                                                                              |====================================                                  |  51%  |                                                                              |====================================                                  |  52%  |                                                                              |=====================================                                 |  53%  |                                                                              |======================================                                |  54%  |                                                                              |======================================                                |  55%  |                                                                              |=======================================                               |  56%  |                                                                              |========================================                              |  57%  |                                                                              |=========================================                             |  58%  |                                                                              |=========================================                             |  59%  |                                                                              |==========================================                            |  60%  |                                                                              |===========================================                           |  61%  |                                                                              |===========================================                           |  62%  |                                                                              |============================================                          |  63%  |                                                                              |=============================================                         |  64%  |                                                                              |==============================================                        |  65%  |                                                                              |==============================================                        |  66%  |                                                                              |===============================================                       |  67%  |                                                                              |================================================                      |  68%  |                                                                              |================================================                      |  69%  |                                                                              |=================================================                     |  70%  |                                                                              |==================================================                    |  71%  |                                                                              |==================================================                    |  72%  |                                                                              |===================================================                   |  73%  |                                                                              |====================================================                  |  74%  |                                                                              |====================================================                  |  75%  |                                                                              |=====================================================                 |  76%  |                                                                              |======================================================                |  77%  |                                                                              |=======================================================               |  78%  |                                                                              |=======================================================               |  79%  |                                                                              |========================================================              |  80%  |                                                                              |=========================================================             |  81%  |                                                                              |=========================================================             |  82%  |                                                                              |==========================================================            |  83%  |                                                                              |===========================================================           |  84%  |                                                                              |============================================================          |  85%  |                                                                              |============================================================          |  86%  |                                                                              |=============================================================         |  87%  |                                                                              |==============================================================        |  88%  |                                                                              |==============================================================        |  89%  |                                                                              |===============================================================       |  90%  |                                                                              |================================================================      |  91%  |                                                                              |================================================================      |  92%  |                                                                              |=================================================================     |  93%  |                                                                              |==================================================================    |  94%  |                                                                              |==================================================================    |  95%  |                                                                              |===================================================================   |  96%  |                                                                              |====================================================================  |  97%  |                                                                              |===================================================================== |  98%  |                                                                              |===================================================================== |  99%  |                                                                              |======================================================================| 100%
+   train test
+1    139   13
+2    131   21
+3    137   15
+4    138   14
+5    140   12
+6    139   13
+7    138   14
+8    134   18
+9    135   17
+10   137   15
+[1]   6255 201195
+[1]    585 201195
+[1] "Fitting of fold 1 in progress..."
+Time used:
+    Pre = 0.623, Running = 393, Post = 21.9, Total = 415 
+Fixed effects:
+                          mean    sd 0.025quant 0.5quant 0.975quant   mode kld
+Intercept                5.354 0.080      5.198    5.354      5.512  5.354   0
+lockdown_step3          -0.745 0.109     -0.964   -0.744     -0.536 -0.744   0
+lockdown_step4          -0.219 0.084     -0.386   -0.219     -0.055 -0.219   0
+lockdown_planB          -0.434 0.112     -0.656   -0.434     -0.212 -0.434   0
+scale_school_density    -0.027 0.037     -0.099   -0.027      0.046 -0.027   0
+scale_carehome_density   0.033 0.038     -0.042    0.033      0.108  0.033   0
+scale_mobility           0.009 0.033     -0.053    0.009      0.075  0.009   0
+scale_BAME              -0.158 0.041     -0.239   -0.158     -0.077 -0.158   0
+scale_imd_score          0.006 0.037     -0.067    0.006      0.080  0.006   0
+scale_prop_urb          -0.052 0.039     -0.130   -0.052      0.025 -0.052   0
+scale_rain_rolling_7day -0.027 0.025     -0.076   -0.027      0.022 -0.027   0
+scale_temp_rolling_7day  0.000 0.032     -0.065    0.000      0.061  0.000   0
+
+Random effects:
+  Name	  Model
+    site_code IID model
+   week IID model
+   spatial.field SPDE2 model
+
+Model hyperparameters:
+                                         mean     sd 0.025quant 0.5quant
+Precision for the Gaussian observations  3.57  0.261      3.062    3.569
+Precision for site_code                  6.68  0.931      5.026    6.626
+Precision for week                      39.23 14.300     18.444   36.840
+Range for spatial.field                 56.20 16.857     31.877   53.345
+Stdev for spatial.field                  0.25  0.031      0.191    0.249
+                                        0.975quant   mode
+Precision for the Gaussian observations      4.086  3.585
+Precision for site_code                      8.683  6.518
+Precision for week                          73.933 32.490
+Range for spatial.field                     97.439 47.557
+Stdev for spatial.field                      0.313  0.249
+
+Deviance Information Criterion (DIC) ...............: 5253.81
+Deviance Information Criterion (DIC, saturated) ....: 3601.75
+Effective number of parameters .....................: 655.43
+
+Watanabe-Akaike information criterion (WAIC) ...: 5277.79
+Effective number of parameters .................: 583.84
+
+Marginal log-Likelihood:  -2902.11 
+CPO, PIT is computed 
+Posterior summaries for the linear predictor and the fitted values are computed
+(Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
+
+  Fold    MSE  MAE   MAPE    BIAS  pBIAS   CORR     COV
+1    1 0.3581 0.47 9.6922 -0.0412 0.8517 0.5674 89.1051
+[1] "1 folds done"
+[1]   5895 202860
+[1]    945 202860
+[1] "Fitting of fold 2 in progress..."
+Time used:
+    Pre = 0.527, Running = 424, Post = 20.1, Total = 445 
+Fixed effects:
+                          mean    sd 0.025quant 0.5quant 0.975quant   mode kld
+Intercept                5.363 0.081      5.205    5.363      5.524  5.363   0
+lockdown_step3          -0.762 0.111     -0.984   -0.761     -0.549 -0.761   0
+lockdown_step4          -0.185 0.086     -0.355   -0.184     -0.018 -0.184   0
+lockdown_planB          -0.403 0.115     -0.630   -0.403     -0.178 -0.403   0
+scale_school_density    -0.039 0.036     -0.111   -0.039      0.032 -0.039   0
+scale_carehome_density   0.029 0.038     -0.045    0.029      0.104  0.029   0
+scale_mobility           0.020 0.033     -0.044    0.020      0.087  0.020   0
+scale_BAME              -0.162 0.043     -0.246   -0.162     -0.078 -0.162   0
+scale_imd_score         -0.005 0.039     -0.081   -0.005      0.072 -0.005   0
+scale_prop_urb          -0.055 0.039     -0.132   -0.055      0.021 -0.055   0
+scale_rain_rolling_7day -0.020 0.026     -0.071   -0.020      0.029 -0.020   0
+scale_temp_rolling_7day -0.003 0.033     -0.071   -0.002      0.060 -0.003   0
+
+Random effects:
+  Name	  Model
+    site_code IID model
+   week IID model
+   spatial.field SPDE2 model
+
+Model hyperparameters:
+                                           mean      sd 0.025quant 0.5quant
+Precision for the Gaussian observations   3.196   0.115      2.974    3.194
+Precision for site_code                   6.971   1.004      5.183    6.907
+Precision for week                       64.574  45.393     16.233   52.647
+Range for spatial.field                 279.611 163.857     86.172  240.464
+Stdev for spatial.field                   0.193   0.024      0.149    0.192
+                                        0.975quant   mode
+Precision for the Gaussian observations      3.426   3.19
+Precision for site_code                      9.127   6.79
+Precision for week                         184.680  35.83
+Range for spatial.field                    705.997 179.68
+Stdev for spatial.field                      0.243   0.19
+
+Deviance Information Criterion (DIC) ...............: 4928.15
+Deviance Information Criterion (DIC, saturated) ....: 3079.75
+Effective number of parameters .....................: 318.54
+
+Watanabe-Akaike information criterion (WAIC) ...: 4938.92
+Effective number of parameters .................: 299.75
+
+Marginal log-Likelihood:  -2695.45 
+CPO, PIT is computed 
+Posterior summaries for the linear predictor and the fitted values are computed
+(Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
+
+  Fold    MSE    MAE    MAPE  BIAS  pBIAS   CORR     COV
+1    2 0.4984 0.5487 12.3244 0.088 4.1263 0.3741 79.2411
+[1] "2 folds done"
+[1]   6165 202275
+[1]    675 202275
+[1] "Fitting of fold 3 in progress..."
+Time used:
+    Pre = 0.511, Running = 406, Post = 17.9, Total = 425 
+Fixed effects:
+                          mean    sd 0.025quant 0.5quant 0.975quant   mode kld
+Intercept                5.361 0.078      5.208    5.360      5.516  5.360   0
+lockdown_step3          -0.746 0.107     -0.960   -0.745     -0.539 -0.745   0
+lockdown_step4          -0.242 0.083     -0.407   -0.242     -0.080 -0.242   0
+lockdown_planB          -0.434 0.112     -0.654   -0.434     -0.214 -0.434   0
+scale_school_density    -0.036 0.036     -0.108   -0.036      0.036 -0.036   0
+scale_carehome_density   0.035 0.039     -0.041    0.035      0.111  0.035   0
+scale_mobility           0.004 0.033     -0.060    0.003      0.071  0.003   0
+scale_BAME              -0.150 0.039     -0.228   -0.150     -0.074 -0.150   0
+scale_imd_score          0.010 0.036     -0.061    0.010      0.081  0.010   0
+scale_prop_urb          -0.072 0.041     -0.152   -0.072      0.008 -0.072   0
+scale_rain_rolling_7day -0.021 0.024     -0.069   -0.021      0.026 -0.021   0
+scale_temp_rolling_7day  0.005 0.031     -0.058    0.006      0.066  0.006   0
+
+Random effects:
+  Name	  Model
+    site_code IID model
+   week IID model
+   spatial.field SPDE2 model
+
+Model hyperparameters:
+                                          mean     sd 0.025quant 0.5quant
+Precision for the Gaussian observations  3.442  0.289      2.885    3.438
+Precision for site_code                  6.926  0.982      5.206    6.853
+Precision for week                      40.303 14.803     18.427   37.939
+Range for spatial.field                 77.115 43.732     26.384   66.508
+Stdev for spatial.field                  0.224  0.040      0.153    0.222
+                                        0.975quant  mode
+Precision for the Gaussian observations      4.018  3.45
+Precision for site_code                      9.064  6.70
+Precision for week                          75.862 33.61
+Range for spatial.field                    191.663 50.42
+Stdev for spatial.field                      0.307  0.22
+
+Deviance Information Criterion (DIC) ...............: 5112.49
+Deviance Information Criterion (DIC, saturated) ....: 3408.33
+Effective number of parameters .....................: 534.84
+
+Watanabe-Akaike information criterion (WAIC) ...: 5135.57
+Effective number of parameters .................: 491.51
+
+Marginal log-Likelihood:  -2813.71 
+CPO, PIT is computed 
+Posterior summaries for the linear predictor and the fitted values are computed
+(Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
+
+  Fold    MSE    MAE    MAPE    BIAS  pBIAS   CORR COV
+1    3 0.4889 0.5532 11.2052 -0.1022 0.0551 0.3461  80
+[1] "3 folds done"
+[1]   6210 201960
+[1]    630 201960
+[1] "Fitting of fold 4 in progress..."
+Time used:
+    Pre = 0.534, Running = 382, Post = 18.1, Total = 401 
+Fixed effects:
+                          mean    sd 0.025quant 0.5quant 0.975quant   mode kld
+Intercept                5.344 0.080      5.189    5.344      5.503  5.344   0
+lockdown_step3          -0.706 0.109     -0.924   -0.705     -0.496 -0.705   0
+lockdown_step4          -0.219 0.084     -0.387   -0.219     -0.054 -0.219   0
+lockdown_planB          -0.431 0.113     -0.654   -0.431     -0.210 -0.431   0
+scale_school_density    -0.037 0.036     -0.108   -0.037      0.035 -0.037   0
+scale_carehome_density   0.052 0.037     -0.021    0.052      0.125  0.052   0
+scale_mobility           0.006 0.032     -0.057    0.006      0.071  0.006   0
+scale_BAME              -0.145 0.040     -0.224   -0.145     -0.067 -0.145   0
+scale_imd_score          0.001 0.038     -0.072    0.001      0.075  0.001   0
+scale_prop_urb          -0.055 0.038     -0.131   -0.055      0.020 -0.055   0
+scale_rain_rolling_7day -0.007 0.024     -0.056   -0.007      0.040 -0.007   0
+scale_temp_rolling_7day  0.006 0.032     -0.058    0.007      0.068  0.007   0
+
+Random effects:
+  Name	  Model
+    site_code IID model
+   week IID model
+   spatial.field SPDE2 model
+
+Model hyperparameters:
+                                          mean     sd 0.025quant 0.5quant
+Precision for the Gaussian observations  3.480  0.254       2.99    3.475
+Precision for site_code                  6.899  0.974       5.18    6.830
+Precision for week                      39.267 14.255      18.86   36.792
+Range for spatial.field                 63.762 23.626      30.54   59.489
+Stdev for spatial.field                  0.233  0.035       0.17    0.232
+                                        0.975quant   mode
+Precision for the Gaussian observations      3.992  3.476
+Precision for site_code                      9.012  6.693
+Precision for week                          74.174 32.286
+Range for spatial.field                    122.128 51.725
+Stdev for spatial.field                      0.308  0.229
+
+Deviance Information Criterion (DIC) ...............: 5232.62
+Deviance Information Criterion (DIC, saturated) ....: 3506.42
+Effective number of parameters .....................: 580.85
+
+Watanabe-Akaike information criterion (WAIC) ...: 5249.71
+Effective number of parameters .................: 522.56
+
+Marginal log-Likelihood:  -2874.95 
+CPO, PIT is computed 
+Posterior summaries for the linear predictor and the fitted values are computed
+(Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
+
+  Fold    MSE    MAE    MAPE    BIAS   pBIAS   CORR     COV
+1    4 0.4541 0.5277 10.8036 -0.1175 -0.2017 0.4665 84.8921
+[1] "4 folds done"
+[1]   6300 202320
+[1]    540 202320
+[1] "Fitting of fold 5 in progress..."
+Time used:
+    Pre = 0.526, Running = 423, Post = 17.4, Total = 441 
+Fixed effects:
+                          mean    sd 0.025quant 0.5quant 0.975quant   mode kld
+Intercept                5.367 0.084      5.203    5.366      5.533  5.366   0
+lockdown_step3          -0.761 0.116     -0.995   -0.760     -0.537 -0.760   0
+lockdown_step4          -0.222 0.090     -0.402   -0.221     -0.046 -0.221   0
+lockdown_planB          -0.431 0.120     -0.668   -0.431     -0.195 -0.431   0
+scale_school_density    -0.044 0.037     -0.116   -0.044      0.029 -0.044   0
+scale_carehome_density   0.036 0.044     -0.049    0.036      0.122  0.036   0
+scale_mobility           0.016 0.035     -0.050    0.016      0.086  0.016   0
+scale_BAME              -0.185 0.040     -0.264   -0.185     -0.106 -0.185   0
+scale_imd_score          0.002 0.037     -0.071    0.002      0.075  0.002   0
+scale_prop_urb          -0.020 0.040     -0.099   -0.020      0.058 -0.020   0
+scale_rain_rolling_7day -0.037 0.026     -0.089   -0.037      0.013 -0.037   0
+scale_temp_rolling_7day  0.004 0.034     -0.065    0.004      0.069  0.004   0
+
+Random effects:
+  Name	  Model
+    site_code IID model
+   week IID model
+   spatial.field SPDE2 model
+
+Model hyperparameters:
+                                          mean     sd 0.025quant 0.5quant
+Precision for the Gaussian observations  3.348  0.213      2.932    3.347
+Precision for site_code                  6.799  0.956      5.106    6.735
+Precision for week                      35.021 13.843     16.013   32.389
+Range for spatial.field                 93.349 44.250     37.752   83.610
+Stdev for spatial.field                  0.226  0.031      0.169    0.225
+                                        0.975quant   mode
+Precision for the Gaussian observations       3.77  3.357
+Precision for site_code                       8.86  6.613
+Precision for week                           69.55 27.706
+Range for spatial.field                     207.14 67.518
+Stdev for spatial.field                       0.29  0.224
+
+Deviance Information Criterion (DIC) ...............: 5288.89
+Deviance Information Criterion (DIC, saturated) ....: 3450.97
+Effective number of parameters .....................: 502.21
+
+Watanabe-Akaike information criterion (WAIC) ...: 5317.00
+Effective number of parameters .................: 468.96
+
+Marginal log-Likelihood:  -2908.46 
+CPO, PIT is computed 
+Posterior summaries for the linear predictor and the fitted values are computed
+(Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
+
+  Fold   MSE    MAE   MAPE   BIAS  pBIAS   CORR     COV
+1    5 0.363 0.4571 9.5496 0.1139 3.6793 0.3832 85.2713
+[1] "5 folds done"
+[1]   6255 202455
+[1]    585 202455
+[1] "Fitting of fold 6 in progress..."
+Time used:
+    Pre = 0.54, Running = 369, Post = 18.7, Total = 388 
+Fixed effects:
+                          mean    sd 0.025quant 0.5quant 0.975quant   mode kld
+Intercept                5.365 0.079      5.211    5.364      5.522  5.364   0
+lockdown_step3          -0.759 0.111     -0.981   -0.757     -0.545 -0.757   0
+lockdown_step4          -0.225 0.086     -0.396   -0.224     -0.058 -0.224   0
+lockdown_planB          -0.453 0.114     -0.678   -0.452     -0.230 -0.452   0
+scale_school_density    -0.025 0.032     -0.087   -0.025      0.037 -0.025   0
+scale_carehome_density   0.036 0.036     -0.034    0.036      0.107  0.036   0
+scale_mobility          -0.002 0.032     -0.064   -0.002      0.062 -0.002   0
+scale_BAME              -0.235 0.039     -0.311   -0.235     -0.159 -0.235   0
+scale_imd_score          0.005 0.033     -0.059    0.005      0.070  0.005   0
+scale_prop_urb          -0.044 0.034     -0.112   -0.044      0.023 -0.044   0
+scale_rain_rolling_7day -0.034 0.025     -0.083   -0.034      0.014 -0.034   0
+scale_temp_rolling_7day -0.009 0.032     -0.074   -0.008      0.053 -0.008   0
+
+Random effects:
+  Name	  Model
+    site_code IID model
+   week IID model
+   spatial.field SPDE2 model
+
+Model hyperparameters:
+                                          mean     sd 0.025quant 0.5quant
+Precision for the Gaussian observations  3.476  0.307       2.87    3.475
+Precision for site_code                  9.001  1.302       6.70    8.912
+Precision for week                      38.331 14.211      18.21   35.797
+Range for spatial.field                 66.688 30.378      29.14   59.900
+Stdev for spatial.field                  0.241  0.038       0.17    0.239
+                                        0.975quant   mode
+Precision for the Gaussian observations      4.077  3.506
+Precision for site_code                     11.813  8.745
+Precision for week                          73.323 31.202
+Range for spatial.field                    145.238 48.314
+Stdev for spatial.field                      0.319  0.239
+
+Deviance Information Criterion (DIC) ...............: 5227.68
+Deviance Information Criterion (DIC, saturated) ....: 3521.60
+Effective number of parameters .....................: 598.43
+
+Watanabe-Akaike information criterion (WAIC) ...: 5255.94
+Effective number of parameters .................: 545.14
+
+Marginal log-Likelihood:  -2868.62 
+CPO, PIT is computed 
+Posterior summaries for the linear predictor and the fitted values are computed
+(Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
+
+  Fold    MSE    MAE    MAPE    BIAS  pBIAS   CORR     COV
+1    6 0.8089 0.7152 15.3183 -0.0651 1.5791 0.0279 60.2837
+[1] "6 folds done"
+[1]   6210 202860
+[1]    630 202860
+[1] "Fitting of fold 7 in progress..."
+Time used:
+    Pre = 0.532, Running = 372, Post = 16.9, Total = 389 
+Fixed effects:
+                          mean    sd 0.025quant 0.5quant 0.975quant   mode kld
+Intercept                5.359 0.081      5.202    5.358      5.519  5.358   0
+lockdown_step3          -0.764 0.110     -0.985   -0.763     -0.551 -0.763   0
+lockdown_step4          -0.234 0.086     -0.405   -0.234     -0.067 -0.234   0
+lockdown_planB          -0.430 0.114     -0.656   -0.429     -0.205 -0.429   0
+scale_school_density    -0.035 0.036     -0.106   -0.035      0.036 -0.035   0
+scale_carehome_density   0.044 0.038     -0.031    0.044      0.119  0.044   0
+scale_mobility           0.013 0.034     -0.051    0.013      0.081  0.013   0
+scale_BAME              -0.172 0.040     -0.250   -0.172     -0.094 -0.172   0
+scale_imd_score         -0.006 0.036     -0.077   -0.006      0.066 -0.006   0
+scale_prop_urb          -0.037 0.041     -0.117   -0.037      0.044 -0.037   0
+scale_rain_rolling_7day -0.034 0.025     -0.083   -0.034      0.014 -0.034   0
+scale_temp_rolling_7day  0.006 0.032     -0.058    0.007      0.068  0.007   0
+
+Random effects:
+  Name	  Model
+    site_code IID model
+   week IID model
+   spatial.field SPDE2 model
+
+Model hyperparameters:
+                                          mean     sd 0.025quant 0.5quant
+Precision for the Gaussian observations  3.550  0.255      3.065    3.544
+Precision for site_code                  6.937  0.967      5.208    6.878
+Precision for week                      37.822 13.851     18.023   35.408
+Range for spatial.field                 66.913 23.841     32.651   62.809
+Stdev for spatial.field                  0.239  0.033      0.179    0.238
+                                        0.975quant   mode
+Precision for the Gaussian observations       4.07  3.539
+Precision for site_code                       9.01  6.775
+Precision for week                           71.76 31.022
+Range for spatial.field                     125.22 55.294
+Stdev for spatial.field                       0.31  0.235
+
+Deviance Information Criterion (DIC) ...............: 5140.80
+Deviance Information Criterion (DIC, saturated) ....: 3474.40
+Effective number of parameters .....................: 569.57
+
+Watanabe-Akaike information criterion (WAIC) ...: 5171.76
+Effective number of parameters .................: 523.88
+
+Marginal log-Likelihood:  -2841.37 
+CPO, PIT is computed 
+Posterior summaries for the linear predictor and the fitted values are computed
+(Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
+
+  Fold    MSE    MAE    MAPE    BIAS  pBIAS   CORR     COV
+1    7 0.4749 0.5286 10.8768 -0.1254 -0.431 0.4467 80.5369
+[1] "7 folds done"
+[1]   6030 201870
+[1]    810 201870
+[1] "Fitting of fold 8 in progress..."
+Time used:
+    Pre = 0.722, Running = 349, Post = 15.6, Total = 365 
+Fixed effects:
+                          mean    sd 0.025quant 0.5quant 0.975quant   mode kld
+Intercept                5.348 0.080      5.190    5.347      5.507  5.347   0
+lockdown_step3          -0.736 0.110     -0.956   -0.735     -0.524 -0.735   0
+lockdown_step4          -0.185 0.085     -0.353   -0.185     -0.018 -0.185   0
+lockdown_planB          -0.446 0.114     -0.670   -0.446     -0.222 -0.446   0
+scale_school_density    -0.037 0.037     -0.109   -0.037      0.035 -0.037   0
+scale_carehome_density   0.036 0.038     -0.039    0.035      0.110  0.035   0
+scale_mobility           0.012 0.034     -0.052    0.011      0.079  0.011   0
+scale_BAME              -0.165 0.042     -0.248   -0.165     -0.082 -0.165   0
+scale_imd_score         -0.005 0.039     -0.080   -0.005      0.072 -0.005   0
+scale_prop_urb          -0.054 0.038     -0.129   -0.054      0.022 -0.054   0
+scale_rain_rolling_7day -0.051 0.026     -0.102   -0.051     -0.001 -0.051   0
+scale_temp_rolling_7day  0.015 0.032     -0.049    0.015      0.077  0.015   0
+
+Random effects:
+  Name	  Model
+    site_code IID model
+   week IID model
+   spatial.field SPDE2 model
+
+Model hyperparameters:
+                                          mean     sd 0.025quant 0.5quant
+Precision for the Gaussian observations  3.976  0.465      3.105    3.960
+Precision for site_code                  6.625  0.936      4.949    6.568
+Precision for week                      38.128 13.872     18.045   35.785
+Range for spatial.field                 52.904 20.119     25.317   49.075
+Stdev for spatial.field                  0.274  0.041      0.199    0.271
+                                        0.975quant   mode
+Precision for the Gaussian observations       4.93  3.956
+Precision for site_code                       8.62  6.471
+Precision for week                           71.88 31.522
+Range for spatial.field                     103.16 42.135
+Stdev for spatial.field                       0.36  0.269
+
+Deviance Information Criterion (DIC) ...............: 4901.29
+Deviance Information Criterion (DIC, saturated) ....: 3592.77
+Effective number of parameters .....................: 747.16
+
+Watanabe-Akaike information criterion (WAIC) ...: 4927.90
+Effective number of parameters .................: 654.76
+
+Marginal log-Likelihood:  -2747.35 
+CPO, PIT is computed 
+Posterior summaries for the linear predictor and the fitted values are computed
+(Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
+
+  Fold    MSE    MAE    MAPE   BIAS  pBIAS   CORR     COV
+1    8 0.5139 0.5632 12.5499 0.0147 2.7701 0.3568 84.5938
+[1] "8 folds done"
+[1]   6075 200745
+[1]    765 200745
+[1] "Fitting of fold 9 in progress..."
+Time used:
+    Pre = 0.505, Running = 630, Post = 14.5, Total = 645 
+Fixed effects:
+                          mean    sd 0.025quant 0.5quant 0.975quant   mode kld
+Intercept                5.378 0.078      5.226    5.377      5.531  5.377   0
+lockdown_step3          -0.717 0.106     -0.928   -0.716     -0.512 -0.716   0
+lockdown_step4          -0.193 0.082     -0.356   -0.193     -0.033 -0.193   0
+lockdown_planB          -0.417 0.110     -0.635   -0.417     -0.200 -0.417   0
+scale_school_density     0.043 0.047     -0.050    0.043      0.135  0.043   0
+scale_carehome_density   0.027 0.035     -0.042    0.027      0.096  0.027   0
+scale_mobility           0.002 0.032     -0.059    0.002      0.066  0.002   0
+scale_BAME              -0.133 0.038     -0.208   -0.133     -0.058 -0.133   0
+scale_imd_score         -0.030 0.037     -0.103   -0.030      0.044 -0.030   0
+scale_prop_urb          -0.044 0.036     -0.116   -0.044      0.028 -0.044   0
+scale_rain_rolling_7day -0.017 0.025     -0.067   -0.017      0.032 -0.017   0
+scale_temp_rolling_7day  0.018 0.031     -0.044    0.018      0.079  0.018   0
+
+Random effects:
+  Name	  Model
+    site_code IID model
+   week IID model
+   spatial.field SPDE2 model
+
+Model hyperparameters:
+                                           mean      sd 0.025quant 0.5quant
+Precision for the Gaussian observations   3.347   0.154      3.049    3.346
+Precision for site_code                   7.739   1.099      5.728    7.686
+Precision for week                       55.198  28.989     19.874   48.539
+Range for spatial.field                 175.727 100.763     56.743  151.680
+Stdev for spatial.field                   0.208   0.022      0.166    0.207
+                                        0.975quant    mode
+Precision for the Gaussian observations      3.655   3.347
+Precision for site_code                     10.044   7.631
+Precision for week                         130.267  37.970
+Range for spatial.field                    438.297 114.583
+Stdev for spatial.field                      0.255   0.206
+
+Deviance Information Criterion (DIC) ...............: 5003.16
+Deviance Information Criterion (DIC, saturated) ....: 3236.82
+Effective number of parameters .....................: 397.74
+
+Watanabe-Akaike information criterion (WAIC) ...: 5018.59
+Effective number of parameters .................: 371.38
+
+Marginal log-Likelihood:  -2741.75 
+CPO, PIT is computed 
+Posterior summaries for the linear predictor and the fitted values are computed
+(Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
+
+  Fold    MSE    MAE    MAPE   BIAS  pBIAS   CORR     COV
+1    9 0.7082 0.6391 15.7551 0.2855 9.5953 0.3645 70.8108
+[1] "9 folds done"
+[1]   6165 203355
+[1]    675 203355
+[1] "Fitting of fold 10 in progress..."
+Time used:
+    Pre = 0.547, Running = 347, Post = 18.6, Total = 367 
+Fixed effects:
+                          mean    sd 0.025quant 0.5quant 0.975quant   mode kld
+Intercept                5.350 0.079      5.195    5.350      5.506  5.350   0
+lockdown_step3          -0.740 0.107     -0.953   -0.739     -0.533 -0.739   0
+lockdown_step4          -0.217 0.083     -0.381   -0.217     -0.055 -0.217   0
+lockdown_planB          -0.430 0.111     -0.648   -0.431     -0.212 -0.431   0
+scale_school_density    -0.032 0.037     -0.104   -0.032      0.040 -0.032   0
+scale_carehome_density   0.039 0.039     -0.038    0.039      0.117  0.039   0
+scale_mobility           0.009 0.033     -0.054    0.008      0.075  0.008   0
+scale_BAME              -0.159 0.041     -0.239   -0.159     -0.079 -0.159   0
+scale_imd_score         -0.011 0.040     -0.090   -0.011      0.068 -0.011   0
+scale_prop_urb          -0.038 0.039     -0.115   -0.038      0.039 -0.038   0
+scale_rain_rolling_7day -0.014 0.025     -0.064   -0.014      0.034 -0.014   0
+scale_temp_rolling_7day  0.000 0.032     -0.064    0.001      0.061  0.001   0
+
+Random effects:
+  Name	  Model
+    site_code IID model
+   week IID model
+   spatial.field SPDE2 model
+
+Model hyperparameters:
+                                           mean     sd 0.025quant 0.5quant
+Precision for the Gaussian observations   3.248  0.160      2.939     3.25
+Precision for site_code                   6.655  0.939      4.983     6.59
+Precision for week                       46.934 20.499     19.660    42.80
+Range for spatial.field                 120.899 57.213     47.366   108.69
+Stdev for spatial.field                   0.211  0.026      0.164     0.21
+                                        0.975quant   mode
+Precision for the Gaussian observations      3.567  3.248
+Precision for site_code                      8.670  6.487
+Precision for week                          98.627 35.688
+Range for spatial.field                    266.837 88.320
+Stdev for spatial.field                      0.265  0.209
+
+Deviance Information Criterion (DIC) ...............: 5193.64
+Deviance Information Criterion (DIC, saturated) ....: 3306.80
+Effective number of parameters .....................: 430.26
+
+Watanabe-Akaike information criterion (WAIC) ...: 5212.35
+Effective number of parameters .................: 401.44
+
+Marginal log-Likelihood:  -2845.95 
+CPO, PIT is computed 
+Posterior summaries for the linear predictor and the fitted values are computed
+(Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
+
+  Fold    MSE    MAE   MAPE    BIAS   pBIAS   CORR     COV
+1   10 0.3657 0.4715 9.6838 -0.0983 -0.3734 0.5128 85.1964
+[1] "10 folds done"
+[1] "Coverage Probability (%): 79.7756310377064"
+  Mean_MSE Mean_MAE Mean_MAPE Mean_BIAS Mean_pBIAS Mean_CORR      COV     PMCC
+1  0.50341  0.54743  11.77589  -0.00476    2.16508    0.3846 79.77563 1632.687
+
+====================================
+CPU Time used: 03:30:44
+CPU Percent: 363%
+Memory usage: 38178960kb
+Approx Power usage: 0.042
+Walltime usage: 01:13:24
+
+====================================
