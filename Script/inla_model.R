@@ -2,10 +2,8 @@
 library(tidyverse)
 library(INLA)
 library(inlabru)
-library(viridis)
 library(sp)
 library(fmesher)
-library(GGally)
 library(sf)
 library(ggplot2)
 
@@ -23,18 +21,6 @@ nov_df <- nov_df %>%
   mutate(site_code= as.character(site_code))
 
 #mesh construction
-pdf("mesh.pdf", width = 14, height = 10)  # Open PDF device
-
-coords.cv = unique(nov_df[c("Easting", "Northing")])
-boundary.cv = inla.nonconvex.hull(as.matrix(coords.cv[,1:2]))
-mesh.cv = inla.mesh.2d(boundary = boundary.cv, max.edge = c(0.8, 1.3), cutoff = 0.1)
-plot(mesh.cv)
-
-ggplot() +
-  gg(mesh.cv) +
-  geom_point(data = coords.cv, aes(Longitude, Latitude)) 
-
-dev.off()
 ##############
 
 

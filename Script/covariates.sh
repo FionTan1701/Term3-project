@@ -1,10 +1,10 @@
-#PBS -l walltime=72:00:00
+#PBS -l walltime=12:00:00
 #PBS -l select=1:ncpus=4:mem=600gb
-#PBS -N 4_cov_processing
+#PBS -N mesh_plot
 
-cd /rds/general/user/ft824/home/Term3-project/Script/data_processing
+cd /rds/general/user/ft824/home/Term3-project/Script
 
 eval "$(~/anaconda3/bin/conda shell.bash hook)"
 source activate r442
 
-Rscript covariates_era5_v2.R
+Rscript inla_model.R
