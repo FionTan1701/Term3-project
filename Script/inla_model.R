@@ -23,8 +23,9 @@ nov_df <- nov_df %>%
 #mesh construction
 ##############
 
+nov_df <- st_as_sf(nov_df, coords= c("Easting", "Northing"), crs= 27700)
+nov_df <- st_transform(nov,  crs = "+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=km +no_defs")
 
-pdf("mesh2.pdf", width = 14, height = 10)
 
 coords<- unique(st_coordinates(nov_df))
 
@@ -40,6 +41,9 @@ mesh<- fm_mesh_2d_inla(boundary = domain,
                        offset= c(max.edge, bound.outer),
                        cutoff= max.edge/5,
                        crs= st_crs(nov_df))
+
+pdf("mesh2.pdf", width = 14, height = 10)
+                       
 plot(mesh)
 
 ggplot() +
@@ -48,5 +52,5 @@ ggplot() +
 
 dev.off()
 
-##############
+
 
