@@ -6,11 +6,23 @@ library(astsa)
 library(mvtsplot) #visualisation for missing data
 library(ggplot2)
 library(viridis)
+library(zoo)
+library(slider)
+
 
 setwd("~/Term3-project")
 
 nov_stw_raw <- read.csv("Data/Norovirus/nov_stw_raw.csv")
 summary(nov_stw_raw)
+
+#print rows where the column of interest is na
+nov_stw_raw %>%
+  filter(is.na(Log10_NoV_norm)) %>%
+  print()
+
+#remove rows where Log10_NoV_norm is NA
+nov_stw_raw <- nov_stw_raw %>%
+  filter(!is.na(Log10_NoV_norm))
 
 #extract date only
 nov_stw_raw$date_only <- ifelse(
@@ -140,7 +152,7 @@ ggplot(nov_df_week, aes(x = one_week_date, y = site_code, fill = Log10_NoV_norm)
 
 ####plot time series by region--------------------------------------------------
 # 1. Extract region from site_code (first 6 characters)
-region_df <- nov_df_week
+region_df <- nov2
 region_df <- region_df %>%
   mutate(region = substr(site_code, 1, 6))
 
@@ -185,7 +197,7 @@ ggplot(region_df, aes(x = one_week_date, y = site_code, fill = Log10_NoV_norm)) 
 # 3. plot average time series by region
 region_ts <- region_df %>%
   group_by(one_week_date, region) %>%
-  summarise(mean_nov = mean(Log10_NoV_norm, na.rm = TRUE), .groups = "drop")
+  summarise(mean_nov = mean(nov_3week, na.rm = TRUE), .groups = "drop")
 
 library(RColorBrewer)
 n_regions <- length(unique(region_ts$region))
@@ -257,5 +269,4 @@ nov_df_week %>%
 
 summary(nov_df_week)
 
-
-
+################################################################################
