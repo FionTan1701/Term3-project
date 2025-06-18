@@ -7,6 +7,8 @@ library(mvtsplot) #visualisation for missing data
 library(ggplot2)
 library(viridis)
 
+getwd("~/Term3-project")
+
 # read all covariates csv-------------------------------------------------------
 folder_path <- "Data/cleaned_covariates"
 
@@ -65,3 +67,16 @@ final_df2$one_week_date <- as.Date(final_df2$one_week_date, format = "%d/%m/%Y")
 final_df2 <- final_df2 %>%
   arrange(one_week_date) %>%                # Sort by date
   mutate(date_index = dense_rank(one_week_date))  # Assign increasing index
+
+##### pre-processed data , 3 week rolling average
+nov_df <- read.csv("Data/final_df3.csv")
+nov_3weekroll <- read.csv("Data/Norovirus/nov_3weekroll.csv")
+
+nov_3weekroll$one_week_date <- as.Date(nov_3weekroll$one_week_date)
+nov_3weekroll$one_week_date <-  format(nov_3weekroll$one_week_date, "%d/%m/%Y")
+
+nov_new <- nov_df %>%
+  left_join(nov_3weekroll %>%
+              dplyr::select(site_code, one_week_date, nov_3week), by = c("site_code", "one_week_date"))
+
+write.csv(nov_new, "~/Term3-project/Data/processed_final.csv", row.names = FALSE) 
