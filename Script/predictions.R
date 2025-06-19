@@ -124,20 +124,20 @@ stack.train <- inla.stack(
   effects = list(
     c(s.index, list(Intercept = 1)),
     list(
-      week = train$date_index,
-      site_code = train$site_code,
-      lockdown_step3 = train$lockdown_step3,
-      lockdown_step4 = train$lockdown_step4,
-      lockdown_lifting = train$lockdown_lifting,
-      lockdown_planB = train$lockdown_planB,
-      scale_school_density = train$scale_school_density,
-      scale_carehome_density = train$scale_carehome_density,
-      scale_mobility = train$scale_mobility,
-      scale_BAME = train$scale_BAME,
-      scale_imd_score= train$scale_imd_score,
-      scale_prop_urb= train$scale_prop_urb,
-      scale_rain_rolling_7day = train$scale_rain_rolling_7day,
-      scale_temp_rolling_7day = train$scale_temp_rolling_7day
+      week = nov$date_index,
+      site_code = nov$site_code,
+      lockdown_step3 = nov$lockdown_step3,
+      lockdown_step4 = nov$lockdown_step4,
+      lockdown_lifting = nov$lockdown_lifting,
+      lockdown_planB = nov$lockdown_planB,
+      scale_school_density = nov$scale_school_density,
+      scale_carehome_density = nov$scale_carehome_density,
+      scale_mobility = nov$scale_mobility,
+      scale_BAME = nov$scale_BAME,
+      scale_imd_score= nov$scale_imd_score,
+      scale_prop_urb= nov$scale_prop_urb,
+      scale_rain_rolling_7day = nov$scale_rain_rolling_7day,
+      scale_temp_rolling_7day = nov$scale_temp_rolling_7day
     )
   ),
   tag = "train"
@@ -161,20 +161,20 @@ stack.val <- inla.stack(
   effects = list(
     c(s.index, list(Intercept = 1)),
     list(
-      week = val$date_index,
-      site_code = val$site_code,
-      lockdown_step3 = val$lockdown_step3,
-      lockdown_step4 = val$lockdown_step4,
-      lockdown_lifting = val$lockdown_lifting,
-      lockdown_planB = val$lockdown_planB,
-      scale_school_density = val$scale_school_density,
-      scale_carehome_density = val$scale_carehome_density,
-      scale_mobility = val$scale_mobility,
-      scale_BAME= val$scale_BAME,
-      scale_imd_score= val$scale_imd_score,
-      scale_prop_urb= val$scale_prop_urb,
-      scale_rain_rolling_7day = val$scale_rain_rolling_7day,
-      scale_temp_rolling_7day = val$scale_temp_rolling_7day
+      week = nov$date_index,
+      site_code = nov$site_code,
+      lockdown_step3 = nov$lockdown_step3,
+      lockdown_step4 = nov$lockdown_step4,
+      lockdown_lifting = nov$lockdown_lifting,
+      lockdown_planB = nov$lockdown_planB,
+      scale_school_density = nov$scale_school_density,
+      scale_carehome_density = nov$scale_carehome_density,
+      scale_mobility = nov$scale_mobility,
+      scale_BAME= nov$scale_BAME,
+      scale_imd_score= nov$scale_imd_score,
+      scale_prop_urb= nov$scale_prop_urb,
+      scale_rain_rolling_7day = nov$scale_rain_rolling_7day,
+      scale_temp_rolling_7day = nov$scale_temp_rolling_7day
     )
   ),
   tag = "val"
