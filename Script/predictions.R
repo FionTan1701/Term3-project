@@ -1,14 +1,11 @@
-library(tidyverse)
-library(mapview) 
+library(tidyverse) 
 library(lubridate)
-library(mvtsplot)
 library(INLA)
 library(inlabru)
-library(viridis)
 library(sp)
 library(fmesher)
-library(GGally)
 library(corrr)
+library(sf)
 
 setwd("~/Term3-project")
 nov_df <- read.csv("Data/final_df3.csv")
@@ -79,7 +76,7 @@ domain <- inla.nonconvex.hull(coords)
 
 
 mesh<- fm_mesh_2d_inla(boundary = domain,
-                       loc=coords.train,
+                       loc=coords,
                        max.edge = c(1,2)*max.edge,
                        offset= c(max.edge, bound.outer),
                        cutoff= max.edge/5,
