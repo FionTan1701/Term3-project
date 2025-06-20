@@ -249,7 +249,7 @@ metrics<- data.frame()
 fit <- list()
 
 
-max.edge = 15
+max.edge = diff(range(st_coordinates(nov)[,1]))/(3*5)
 bound.outer = diff(range(st_coordinates(nov)[,1]))/3
 
 # initial values, from model
@@ -271,7 +271,6 @@ for (k in 1:10) {
   val <- subset(nov, folds == k)   # Only fold k
   
   val_data<- val$nov_3week
-
   
   # Create mesh using coordinates from training data
   sc= 1/1000
@@ -393,7 +392,7 @@ for (k in 1:10) {
   ## Fit model
   
   # formula
-  formula<-  as.formula('nov_3week ~ -1 + Intercept + lockdown_step3 + lockdown_step4 + lockdown_planB +
+  formula<-  as.formula('nov_3week ~ -1 + Intercept + lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting +
     scale_school_density + scale_carehome_density + scale_mobility + scale_BAME + scale_imd_score + scale_prop_urb +
     scale_rain_rolling_7day + scale_temp_rolling_7day +
                         f(site_code, model="iid", hyper= pc_prec) + f(week, model= "iid", hyper= pc_prec) +
@@ -534,6 +533,6 @@ summary_metrics <- metrics %>%
 print(summary_metrics)
 
 
-write.csv(metrics, "outputs/cv/cv_model1_processed_metrics_full.csv")
-write.csv(predictions, "outputs/cv/cv_model1_processed_predictions.csv")
+write.csv(metrics, "outputs/cv/cv_model7_processed_metrics_full.csv")
+write.csv(predictions, "outputs/cv/cv_model7_processed_predictions.csv")
 

@@ -66,7 +66,8 @@ fixed_effects_prior <- list(mean = 0, prec = 0.0001)
 rho_hyper = list(theta = list(prior = "pccor0", param = c(0.1, 0.9)))
 pc_prec <- list(prec = list(prior = "pc.prec", param = c(10, 0.05)))
 
-max.edge = 15
+#max.edge = 15
+max.edge = diff(range(st_coordinates(nov)[,1]))/(3*5)
 bound.outer = diff(range(st_coordinates(nov)[,1]))/3
 
 coords<- unique(st_coordinates(nov))
@@ -219,14 +220,14 @@ fit <- inla(
 
 print(summary(fit))
 
-saveRDS(fit, "outputs/model1.rds")
+saveRDS(fit, "outputs/model6.rds")
 
 index_inla_train <- inla.stack.index(join.stack,"train")$data
 
 # correlation between the data response and the posterior mean of the predicted values 
 print(cor(nov$Log10_NoV_norm, fit$summary.linear.predictor$mean[index_inla_train], use="complete.obs"))
 
-pdf("corr_plot_obs_pred.pdf",width = 14, height = 10)
+pdf("model6_corrplot.pdf",width = 14, height = 10)
 # plot
 plot(nov$Log10_NoV_norm, fit$summary.linear.predictor$mean[index_inla_train])
 dev.off()

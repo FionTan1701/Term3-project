@@ -18,25 +18,25 @@ Projected CRS: OSGB36 / British National Grid
 8    134   18
 9    135   17
 10   137   15
-[1]   6255 106650
-[1]    585 106650
+[1]   6255 177300
+[1]    585 177300
 [1] "Fitting of fold 1 in progress..."
 Time used:
-    Pre = 0.649, Running = 230, Post = 13, Total = 244 
+    Pre = 0.97, Running = 337, Post = 18.8, Total = 356 
 Fixed effects:
                           mean    sd 0.025quant 0.5quant 0.975quant   mode kld
-Intercept                5.353 0.080      5.196    5.353      5.513  5.353   0
-lockdown_step3          -0.745 0.109     -0.965   -0.744     -0.534 -0.744   0
-lockdown_step4          -0.218 0.085     -0.387   -0.218     -0.053 -0.218   0
-lockdown_planB          -0.432 0.113     -0.656   -0.432     -0.209 -0.432   0
+Intercept                5.354 0.080      5.197    5.353      5.513  5.353   0
+lockdown_step3          -0.745 0.109     -0.964   -0.744     -0.535 -0.744   0
+lockdown_step4          -0.219 0.084     -0.387   -0.219     -0.054 -0.219   0
+lockdown_planB          -0.433 0.113     -0.656   -0.433     -0.211 -0.433   0
 scale_school_density    -0.027 0.037     -0.099   -0.027      0.046 -0.027   0
-scale_carehome_density   0.033 0.038     -0.041    0.033      0.108  0.033   0
-scale_mobility           0.010 0.033     -0.053    0.010      0.076  0.010   0
-scale_BAME              -0.158 0.041     -0.238   -0.158     -0.077 -0.158   0
+scale_carehome_density   0.033 0.038     -0.042    0.033      0.108  0.033   0
+scale_mobility           0.010 0.033     -0.053    0.009      0.075  0.009   0
+scale_BAME              -0.158 0.041     -0.239   -0.158     -0.077 -0.158   0
 scale_imd_score          0.006 0.037     -0.067    0.006      0.080  0.006   0
-scale_prop_urb          -0.052 0.039     -0.129   -0.052      0.025 -0.052   0
-scale_rain_rolling_7day -0.027 0.025     -0.077   -0.027      0.022 -0.027   0
-scale_temp_rolling_7day -0.001 0.032     -0.066    0.000      0.061  0.000   0
+scale_prop_urb          -0.052 0.039     -0.130   -0.052      0.025 -0.052   0
+scale_rain_rolling_7day -0.027 0.025     -0.076   -0.027      0.022 -0.027   0
+scale_temp_rolling_7day  0.000 0.032     -0.065    0.000      0.061  0.000   0
 
 Random effects:
   Name	  Model
@@ -45,53 +45,53 @@ Random effects:
    spatial.field SPDE2 model
 
 Model hyperparameters:
-                                         mean     sd 0.025quant 0.5quant
-Precision for the Gaussian observations  3.58  0.255      3.089    3.571
-Precision for site_code                  6.68  0.928      5.010    6.630
-Precision for week                      38.87 14.369     18.483   36.314
-Range for spatial.field                 55.91 16.127     31.372   53.531
-Stdev for spatial.field                  0.25  0.032      0.192    0.248
+                                          mean     sd 0.025quant 0.5quant
+Precision for the Gaussian observations  3.565  0.258      3.075    3.559
+Precision for site_code                  6.686  0.931      5.029    6.626
+Precision for week                      38.920 14.200     18.380   36.517
+Range for spatial.field                 56.441 17.025     30.801   53.856
+Stdev for spatial.field                  0.248  0.032      0.189    0.247
                                         0.975quant   mode
-Precision for the Gaussian observations      4.094  3.567
-Precision for site_code                      8.655  6.546
-Precision for week                          74.207 31.691
-Range for spatial.field                     94.303 48.936
-Stdev for spatial.field                      0.316  0.246
+Precision for the Gaussian observations      4.088  3.555
+Precision for site_code                      8.685  6.517
+Precision for week                          73.479 32.148
+Range for spatial.field                     97.178 48.915
+Stdev for spatial.field                      0.316  0.245
 
-Deviance Information Criterion (DIC) ...............: 5251.20
-Deviance Information Criterion (DIC, saturated) ....: 3588.33
-Effective number of parameters .....................: 639.95
+Deviance Information Criterion (DIC) ...............: 5253.64
+Deviance Information Criterion (DIC, saturated) ....: 3581.21
+Effective number of parameters .....................: 633.74
 
-Watanabe-Akaike information criterion (WAIC) ...: 5279.80
-Effective number of parameters .................: 575.58
+Watanabe-Akaike information criterion (WAIC) ...: 5281.75
+Effective number of parameters .................: 570.74
 
-Marginal log-Likelihood:  -2901.93 
+Marginal log-Likelihood:  -2902.05 
 CPO, PIT is computed 
 Posterior summaries for the linear predictor and the fitted values are computed
 (Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
 
   Fold    MSE    MAE  MAPE    BIAS  pBIAS   CORR     COV
-1    1 0.3578 0.4699 9.689 -0.0414 0.8457 0.5667 89.1051
+1    1 0.3578 0.4698 9.688 -0.0412 0.8496 0.5678 89.1051
 [1] "1 folds done"
-[1]   5895 107505
-[1]    945 107505
+[1]   5895 178875
+[1]    945 178875
 [1] "Fitting of fold 2 in progress..."
 Time used:
-    Pre = 0.855, Running = 277, Post = 10.2, Total = 288 
+    Pre = 0.604, Running = 382, Post = 17.3, Total = 400 
 Fixed effects:
                           mean    sd 0.025quant 0.5quant 0.975quant   mode kld
-Intercept                5.367 0.082      5.207    5.367      5.531  5.367   0
-lockdown_step3          -0.763 0.113     -0.990   -0.761     -0.545 -0.761   0
-lockdown_step4          -0.192 0.087     -0.365   -0.191     -0.022 -0.191   0
-lockdown_planB          -0.411 0.116     -0.641   -0.411     -0.183 -0.411   0
-scale_school_density    -0.040 0.036     -0.111   -0.040      0.031 -0.040   0
+Intercept                5.364 0.082      5.205    5.364      5.527  5.364   0
+lockdown_step3          -0.762 0.112     -0.987   -0.761     -0.547 -0.761   0
+lockdown_step4          -0.187 0.086     -0.358   -0.186     -0.018 -0.186   0
+lockdown_planB          -0.405 0.115     -0.633   -0.405     -0.178 -0.405   0
+scale_school_density    -0.040 0.036     -0.111   -0.039      0.032 -0.039   0
 scale_carehome_density   0.029 0.038     -0.045    0.029      0.103  0.029   0
-scale_mobility           0.020 0.034     -0.045    0.020      0.088  0.020   0
+scale_mobility           0.020 0.034     -0.044    0.020      0.088  0.020   0
 scale_BAME              -0.162 0.043     -0.246   -0.162     -0.078 -0.162   0
 scale_imd_score         -0.005 0.039     -0.081   -0.005      0.072 -0.005   0
 scale_prop_urb          -0.055 0.039     -0.132   -0.055      0.021 -0.055   0
-scale_rain_rolling_7day -0.021 0.026     -0.072   -0.021      0.030 -0.021   0
-scale_temp_rolling_7day -0.004 0.034     -0.073   -0.003      0.060 -0.003   0
+scale_rain_rolling_7day -0.021 0.026     -0.072   -0.020      0.030 -0.020   0
+scale_temp_rolling_7day -0.003 0.033     -0.071   -0.003      0.060 -0.003   0
 
 Random effects:
   Name	  Model
@@ -100,53 +100,53 @@ Random effects:
    spatial.field SPDE2 model
 
 Model hyperparameters:
-                                           mean     sd 0.025quant 0.5quant
-Precision for the Gaussian observations   3.212  0.115      2.988    3.210
-Precision for site_code                   6.973  1.007      5.190    6.905
-Precision for week                       55.556 30.899     19.703   48.077
-Range for spatial.field                 225.535 99.291     94.728  205.176
-Stdev for spatial.field                   0.187  0.024      0.144    0.186
+                                           mean      sd 0.025quant 0.5quant
+Precision for the Gaussian observations   3.198   0.112      2.982     3.20
+Precision for site_code                   6.968   1.003      5.175     6.91
+Precision for week                       62.329  40.206     17.585    52.15
+Range for spatial.field                 260.099 127.455     94.985   233.22
+Stdev for spatial.field                   0.191   0.023      0.148     0.19
                                         0.975quant    mode
-Precision for the Gaussian observations      3.443   3.209
-Precision for site_code                      9.147   6.777
-Precision for week                         136.527  36.657
-Range for spatial.field                    476.963 170.327
-Stdev for spatial.field                      0.237   0.184
+Precision for the Gaussian observations       3.42   3.193
+Precision for site_code                       9.12   6.802
+Precision for week                          168.18  37.252
+Range for spatial.field                     583.38 187.942
+Stdev for spatial.field                       0.24   0.189
 
-Deviance Information Criterion (DIC) ...............: 4928.51
-Deviance Information Criterion (DIC, saturated) ....: 3086.16
-Effective number of parameters .....................: 325.66
+Deviance Information Criterion (DIC) ...............: 4928.26
+Deviance Information Criterion (DIC, saturated) ....: 3079.28
+Effective number of parameters .....................: 318.17
 
-Watanabe-Akaike information criterion (WAIC) ...: 4938.14
-Effective number of parameters .................: 304.76
+Watanabe-Akaike information criterion (WAIC) ...: 4938.89
+Effective number of parameters .................: 299.23
 
-Marginal log-Likelihood:  -2695.70 
+Marginal log-Likelihood:  -2695.59 
 CPO, PIT is computed 
 Posterior summaries for the linear predictor and the fitted values are computed
 (Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
 
-  Fold    MSE    MAE    MAPE   BIAS  pBIAS   CORR     COV
-1    2 0.4982 0.5486 12.3219 0.0881 4.1283 0.3742 79.2411
+  Fold    MSE    MAE    MAPE  BIAS  pBIAS  CORR     COV
+1    2 0.4984 0.5487 12.3245 0.088 4.1271 0.374 79.2411
 [1] "2 folds done"
-[1]   6165 107190
-[1]    675 107190
+[1]   6165 178065
+[1]    675 178065
 [1] "Fitting of fold 3 in progress..."
 Time used:
-    Pre = 0.55, Running = 204, Post = 9.73, Total = 214 
+    Pre = 0.518, Running = 370, Post = 15.4, Total = 385 
 Fixed effects:
                           mean    sd 0.025quant 0.5quant 0.975quant   mode kld
-Intercept                5.362 0.079      5.207    5.361      5.519  5.361   0
-lockdown_step3          -0.749 0.108     -0.965   -0.747     -0.539 -0.747   0
-lockdown_step4          -0.244 0.084     -0.410   -0.243     -0.079 -0.243   0
-lockdown_planB          -0.435 0.113     -0.658   -0.435     -0.212 -0.435   0
-scale_school_density    -0.036 0.036     -0.108   -0.036      0.035 -0.036   0
+Intercept                5.361 0.079      5.208    5.361      5.517  5.361   0
+lockdown_step3          -0.747 0.107     -0.962   -0.746     -0.539 -0.746   0
+lockdown_step4          -0.243 0.083     -0.409   -0.243     -0.080 -0.243   0
+lockdown_planB          -0.435 0.112     -0.656   -0.435     -0.214 -0.435   0
+scale_school_density    -0.036 0.036     -0.107   -0.036      0.035 -0.036   0
 scale_carehome_density   0.035 0.039     -0.041    0.035      0.111  0.035   0
-scale_mobility           0.005 0.034     -0.059    0.004      0.072  0.004   0
-scale_BAME              -0.151 0.039     -0.227   -0.151     -0.074 -0.151   0
+scale_mobility           0.004 0.033     -0.060    0.003      0.071  0.003   0
+scale_BAME              -0.150 0.039     -0.227   -0.150     -0.074 -0.150   0
 scale_imd_score          0.010 0.036     -0.061    0.010      0.081  0.010   0
 scale_prop_urb          -0.072 0.041     -0.152   -0.072      0.008 -0.072   0
-scale_rain_rolling_7day -0.022 0.024     -0.070   -0.022      0.025 -0.022   0
-scale_temp_rolling_7day  0.005 0.032     -0.059    0.005      0.066  0.005   0
+scale_rain_rolling_7day -0.021 0.024     -0.069   -0.021      0.026 -0.021   0
+scale_temp_rolling_7day  0.005 0.032     -0.058    0.006      0.066  0.005   0
 
 Random effects:
   Name	  Model
@@ -156,216 +156,51 @@ Random effects:
 
 Model hyperparameters:
                                           mean     sd 0.025quant 0.5quant
-Precision for the Gaussian observations  3.483  0.288       2.92    3.480
-Precision for site_code                  6.931  0.979       5.20    6.865
-Precision for week                      39.512 14.487      18.85   36.974
-Range for spatial.field                 68.632 32.944      27.90   61.237
-Stdev for spatial.field                  0.229  0.038       0.16    0.227
+Precision for the Gaussian observations  3.454  0.285      2.899    3.452
+Precision for site_code                  6.922  0.974      5.183    6.861
+Precision for week                      39.615 14.359     18.537   37.279
+Range for spatial.field                 72.549 37.665     27.746   63.687
+Stdev for spatial.field                  0.226  0.039      0.155    0.224
                                         0.975quant   mode
-Precision for the Gaussian observations       4.05  3.496
-Precision for site_code                       9.04  6.738
-Precision for week                           75.05 32.364
-Range for spatial.field                     153.74 49.084
-Stdev for spatial.field                       0.31  0.226
+Precision for the Gaussian observations      4.019  3.472
+Precision for site_code                      9.010  6.753
+Precision for week                          74.269 33.007
+Range for spatial.field                    170.776 49.670
+Stdev for spatial.field                      0.307  0.222
 
-Deviance Information Criterion (DIC) ...............: 5105.56
-Deviance Information Criterion (DIC, saturated) ....: 3431.89
-Effective number of parameters .....................: 557.61
+Deviance Information Criterion (DIC) ...............: 5111.37
+Deviance Information Criterion (DIC, saturated) ....: 3414.06
+Effective number of parameters .....................: 540.49
 
-Watanabe-Akaike information criterion (WAIC) ...: 5130.48
-Effective number of parameters .................: 510.30
+Watanabe-Akaike information criterion (WAIC) ...: 5134.54
+Effective number of parameters .................: 495.68
 
-Marginal log-Likelihood:  -2813.62 
+Marginal log-Likelihood:  -2813.79 
 CPO, PIT is computed 
 Posterior summaries for the linear predictor and the fitted values are computed
 (Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
 
-  Fold    MSE    MAE    MAPE    BIAS  pBIAS  CORR    COV
-1    3 0.4889 0.5531 11.2056 -0.1015 0.0677 0.345 80.303
+  Fold    MSE    MAE    MAPE    BIAS pBIAS   CORR COV
+1    3 0.4889 0.5532 11.2061 -0.1019 0.061 0.3453  80
 [1] "3 folds done"
-[1]   6210 107460
-[1]    630 107460
+[1]   6210 178020
+[1]    630 178020
 [1] "Fitting of fold 4 in progress..."
 Time used:
-    Pre = 0.511, Running = 187, Post = 10.3, Total = 198 
+    Pre = 0.575, Running = 337, Post = 13.4, Total = 351 
 Fixed effects:
                           mean    sd 0.025quant 0.5quant 0.975quant   mode kld
-Intercept                5.344 0.079      5.189    5.343      5.501  5.343   0
-lockdown_step3          -0.706 0.108     -0.922   -0.704     -0.496 -0.704   0
-lockdown_step4          -0.218 0.084     -0.385   -0.218     -0.055 -0.218   0
-lockdown_planB          -0.431 0.112     -0.652   -0.431     -0.211 -0.431   0
+Intercept                5.344 0.080      5.189    5.344      5.503  5.344   0
+lockdown_step3          -0.706 0.109     -0.924   -0.705     -0.496 -0.705   0
+lockdown_step4          -0.219 0.084     -0.387   -0.219     -0.054 -0.219   0
+lockdown_planB          -0.431 0.113     -0.654   -0.431     -0.210 -0.431   0
 scale_school_density    -0.037 0.036     -0.108   -0.037      0.035 -0.037   0
 scale_carehome_density   0.052 0.037     -0.021    0.052      0.125  0.052   0
-scale_mobility           0.006 0.032     -0.057    0.005      0.071  0.005   0
+scale_mobility           0.006 0.032     -0.057    0.006      0.071  0.006   0
 scale_BAME              -0.145 0.040     -0.224   -0.145     -0.067 -0.145   0
 scale_imd_score          0.001 0.038     -0.072    0.001      0.075  0.001   0
 scale_prop_urb          -0.055 0.038     -0.131   -0.055      0.020 -0.055   0
-scale_rain_rolling_7day -0.007 0.024     -0.055   -0.007      0.040 -0.007   0
-scale_temp_rolling_7day  0.006 0.032     -0.057    0.007      0.067  0.007   0
-
-Random effects:
-  Name	  Model
-    site_code IID model
-   week IID model
-   spatial.field SPDE2 model
-
-Model hyperparameters:
-                                          mean     sd 0.025quant 0.5quant
-Precision for the Gaussian observations  3.497  0.261      3.003    3.490
-Precision for site_code                  6.890  0.967      5.158    6.831
-Precision for week                      39.544 14.280     18.602   37.214
-Range for spatial.field                 62.152 22.829     29.466   58.188
-Stdev for spatial.field                  0.236  0.036      0.172    0.234
-                                        0.975quant   mode
-Precision for the Gaussian observations      4.029  3.482
-Precision for site_code                      8.958  6.730
-Precision for week                          74.031 32.955
-Range for spatial.field                    118.032 50.997
-Stdev for spatial.field                      0.312  0.231
-
-Deviance Information Criterion (DIC) ...............: 5214.79
-Deviance Information Criterion (DIC, saturated) ....: 3494.57
-Effective number of parameters .....................: 570.57
-
-Watanabe-Akaike information criterion (WAIC) ...: 5248.02
-Effective number of parameters .................: 527.06
-
-Marginal log-Likelihood:  -2874.82 
-CPO, PIT is computed 
-Posterior summaries for the linear predictor and the fitted values are computed
-(Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
-
-  Fold    MSE    MAE    MAPE    BIAS   pBIAS   CORR     COV
-1    4 0.4541 0.5277 10.8048 -0.1176 -0.2034 0.4665 84.8921
-[1] "4 folds done"
-[1]   6300 107190
-[1]    540 107190
-[1] "Fitting of fold 5 in progress..."
-Time used:
-    Pre = 0.512, Running = 247, Post = 9.71, Total = 257 
-Fixed effects:
-                          mean    sd 0.025quant 0.5quant 0.975quant   mode kld
-Intercept                5.366 0.084      5.203    5.366      5.532  5.366   0
-lockdown_step3          -0.760 0.115     -0.992   -0.759     -0.537 -0.759   0
-lockdown_step4          -0.221 0.090     -0.400   -0.221     -0.046 -0.221   0
-lockdown_planB          -0.430 0.119     -0.666   -0.430     -0.195 -0.430   0
-scale_school_density    -0.044 0.037     -0.116   -0.044      0.029 -0.044   0
-scale_carehome_density   0.036 0.044     -0.049    0.036      0.122  0.036   0
-scale_mobility           0.016 0.035     -0.050    0.015      0.086  0.015   0
-scale_BAME              -0.185 0.040     -0.264   -0.185     -0.106 -0.185   0
-scale_imd_score          0.002 0.037     -0.071    0.002      0.075  0.002   0
-scale_prop_urb          -0.020 0.040     -0.099   -0.020      0.058 -0.020   0
-scale_rain_rolling_7day -0.037 0.026     -0.088   -0.037      0.014 -0.037   0
-scale_temp_rolling_7day  0.004 0.034     -0.064    0.004      0.069  0.004   0
-
-Random effects:
-  Name	  Model
-    site_code IID model
-   week IID model
-   spatial.field SPDE2 model
-
-Model hyperparameters:
-                                          mean     sd 0.025quant 0.5quant
-Precision for the Gaussian observations  3.346  0.210      2.940    3.344
-Precision for site_code                  6.791  0.952      5.092    6.732
-Precision for week                      35.745 14.174     15.990   33.131
-Range for spatial.field                 94.087 44.355     37.366   84.551
-Stdev for spatial.field                  0.226  0.031      0.169    0.225
-                                        0.975quant   mode
-Precision for the Gaussian observations      3.767  3.347
-Precision for site_code                      8.832  6.626
-Precision for week                          70.833 28.483
-Range for spatial.field                    207.459 68.686
-Stdev for spatial.field                      0.291  0.223
-
-Deviance Information Criterion (DIC) ...............: 5292.38
-Deviance Information Criterion (DIC, saturated) ....: 3449.18
-Effective number of parameters .....................: 501.30
-
-Watanabe-Akaike information criterion (WAIC) ...: 5317.38
-Effective number of parameters .................: 465.78
-
-Marginal log-Likelihood:  -2908.37 
-CPO, PIT is computed 
-Posterior summaries for the linear predictor and the fitted values are computed
-(Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
-
-  Fold    MSE   MAE   MAPE   BIAS  pBIAS   CORR     COV
-1    5 0.3629 0.457 9.5481 0.1139 3.6789 0.3832 85.2713
-[1] "5 folds done"
-[1]   6255 107505
-[1]    585 107505
-[1] "Fitting of fold 6 in progress..."
-Time used:
-    Pre = 0.527, Running = 219, Post = 8.14, Total = 227 
-Fixed effects:
-                          mean    sd 0.025quant 0.5quant 0.975quant   mode kld
-Intercept                5.364 0.079      5.210    5.364      5.521  5.364   0
-lockdown_step3          -0.758 0.111     -0.981   -0.757     -0.545 -0.757   0
-lockdown_step4          -0.224 0.086     -0.395   -0.224     -0.057 -0.224   0
-lockdown_planB          -0.452 0.114     -0.677   -0.452     -0.229 -0.452   0
-scale_school_density    -0.025 0.032     -0.087   -0.025      0.037 -0.025   0
-scale_carehome_density   0.036 0.036     -0.034    0.036      0.107  0.036   0
-scale_mobility          -0.002 0.032     -0.064   -0.002      0.062 -0.002   0
-scale_BAME              -0.235 0.039     -0.311   -0.235     -0.159 -0.235   0
-scale_imd_score          0.005 0.033     -0.060    0.005      0.070  0.005   0
-scale_prop_urb          -0.044 0.034     -0.112   -0.044      0.023 -0.044   0
-scale_rain_rolling_7day -0.034 0.025     -0.082   -0.033      0.014 -0.033   0
-scale_temp_rolling_7day -0.009 0.032     -0.074   -0.008      0.053 -0.008   0
-
-Random effects:
-  Name	  Model
-    site_code IID model
-   week IID model
-   spatial.field SPDE2 model
-
-Model hyperparameters:
-                                         mean     sd 0.025quant 0.5quant
-Precision for the Gaussian observations  3.47  0.285      2.912    3.469
-Precision for site_code                  9.01  1.310      6.712    8.910
-Precision for week                      38.82 14.456     18.402   36.227
-Range for spatial.field                 67.12 28.647     30.469   61.013
-Stdev for spatial.field                  0.24  0.036      0.173    0.239
-                                        0.975quant   mode
-Precision for the Gaussian observations      4.032  3.492
-Precision for site_code                     11.860  8.714
-Precision for week                          74.451 31.535
-Range for spatial.field                    140.454 50.324
-Stdev for spatial.field                      0.316  0.239
-
-Deviance Information Criterion (DIC) ...............: 5226.84
-Deviance Information Criterion (DIC, saturated) ....: 3508.15
-Effective number of parameters .....................: 585.38
-
-Watanabe-Akaike information criterion (WAIC) ...: 5258.06
-Effective number of parameters .................: 537.03
-
-Marginal log-Likelihood:  -2868.59 
-CPO, PIT is computed 
-Posterior summaries for the linear predictor and the fitted values are computed
-(Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
-
-  Fold    MSE    MAE    MAPE    BIAS  pBIAS   CORR     COV
-1    6 0.8087 0.7152 15.3172 -0.0651 1.5779 0.0282 60.6383
-[1] "6 folds done"
-[1]   6210 106965
-[1]    630 106965
-[1] "Fitting of fold 7 in progress..."
-Time used:
-    Pre = 0.539, Running = 211, Post = 8.16, Total = 220 
-Fixed effects:
-                          mean    sd 0.025quant 0.5quant 0.975quant   mode kld
-Intercept                5.359 0.081      5.202    5.358      5.519  5.358   0
-lockdown_step3          -0.764 0.110     -0.984   -0.763     -0.551 -0.763   0
-lockdown_step4          -0.234 0.086     -0.405   -0.234     -0.067 -0.234   0
-lockdown_planB          -0.430 0.114     -0.655   -0.429     -0.206 -0.429   0
-scale_school_density    -0.035 0.036     -0.107   -0.035      0.037 -0.035   0
-scale_carehome_density   0.044 0.038     -0.031    0.044      0.119  0.044   0
-scale_mobility           0.013 0.034     -0.052    0.012      0.080  0.012   0
-scale_BAME              -0.172 0.040     -0.250   -0.172     -0.094 -0.172   0
-scale_imd_score         -0.006 0.037     -0.078   -0.006      0.067 -0.006   0
-scale_prop_urb          -0.037 0.041     -0.118   -0.037      0.044 -0.037   0
-scale_rain_rolling_7day -0.034 0.025     -0.083   -0.034      0.014 -0.034   0
+scale_rain_rolling_7day -0.007 0.024     -0.056   -0.007      0.040 -0.007   0
 scale_temp_rolling_7day  0.006 0.032     -0.058    0.007      0.068  0.007   0
 
 Random effects:
@@ -376,51 +211,216 @@ Random effects:
 
 Model hyperparameters:
                                           mean     sd 0.025quant 0.5quant
-Precision for the Gaussian observations  3.558  0.256      3.070    3.552
-Precision for site_code                  6.939  0.968      5.213    6.878
-Precision for week                      37.882 13.789     18.033   35.520
-Range for spatial.field                 66.156 22.994     33.041   62.218
-Stdev for spatial.field                  0.241  0.033      0.181    0.239
+Precision for the Gaussian observations  3.480  0.254       2.99    3.475
+Precision for site_code                  6.900  0.976       5.18    6.830
+Precision for week                      39.250 14.249      18.84   36.777
+Range for spatial.field                 63.827 23.713      30.53   59.522
+Stdev for spatial.field                  0.233  0.035       0.17    0.232
                                         0.975quant   mode
-Precision for the Gaussian observations      4.076  3.549
-Precision for site_code                      9.018  6.767
-Precision for week                          71.541 31.224
-Range for spatial.field                    122.373 54.937
-Stdev for spatial.field                      0.311  0.237
+Precision for the Gaussian observations      3.992  3.477
+Precision for site_code                      9.018  6.690
+Precision for week                          74.141 32.273
+Range for spatial.field                    122.455 51.705
+Stdev for spatial.field                      0.307  0.229
 
-Deviance Information Criterion (DIC) ...............: 5141.56
-Deviance Information Criterion (DIC, saturated) ....: 3476.65
-Effective number of parameters .....................: 573.03
+Deviance Information Criterion (DIC) ...............: 5232.21
+Deviance Information Criterion (DIC, saturated) ....: 3506.73
+Effective number of parameters .....................: 580.98
+
+Watanabe-Akaike information criterion (WAIC) ...: 5249.64
+Effective number of parameters .................: 522.89
+
+Marginal log-Likelihood:  -2874.95 
+CPO, PIT is computed 
+Posterior summaries for the linear predictor and the fitted values are computed
+(Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
+
+  Fold    MSE    MAE    MAPE    BIAS   pBIAS   CORR     COV
+1    4 0.4541 0.5277 10.8037 -0.1175 -0.2017 0.4664 84.8921
+[1] "4 folds done"
+[1]   6300 177840
+[1]    540 177840
+[1] "Fitting of fold 5 in progress..."
+Time used:
+    Pre = 0.498, Running = 379, Post = 15.2, Total = 395 
+Fixed effects:
+                          mean    sd 0.025quant 0.5quant 0.975quant   mode kld
+Intercept                5.367 0.084      5.203    5.367      5.533  5.367   0
+lockdown_step3          -0.761 0.116     -0.994   -0.760     -0.537 -0.760   0
+lockdown_step4          -0.222 0.090     -0.402   -0.222     -0.046 -0.222   0
+lockdown_planB          -0.431 0.120     -0.668   -0.431     -0.195 -0.431   0
+scale_school_density    -0.044 0.037     -0.116   -0.044      0.029 -0.044   0
+scale_carehome_density   0.036 0.044     -0.049    0.036      0.122  0.036   0
+scale_mobility           0.016 0.035     -0.050    0.016      0.086  0.016   0
+scale_BAME              -0.185 0.040     -0.264   -0.185     -0.106 -0.185   0
+scale_imd_score          0.002 0.037     -0.071    0.002      0.075  0.002   0
+scale_prop_urb          -0.020 0.040     -0.099   -0.020      0.058 -0.020   0
+scale_rain_rolling_7day -0.037 0.026     -0.089   -0.037      0.013 -0.037   0
+scale_temp_rolling_7day  0.004 0.034     -0.065    0.004      0.069  0.004   0
+
+Random effects:
+  Name	  Model
+    site_code IID model
+   week IID model
+   spatial.field SPDE2 model
+
+Model hyperparameters:
+                                          mean     sd 0.025quant 0.5quant
+Precision for the Gaussian observations  3.346  0.208      2.941    3.344
+Precision for site_code                  6.800  0.957      5.110    6.734
+Precision for week                      35.290 14.117     16.004   32.579
+Range for spatial.field                 92.994 43.035     38.228   83.692
+Stdev for spatial.field                  0.226  0.031      0.169    0.224
+                                        0.975quant   mode
+Precision for the Gaussian observations       3.76  3.351
+Precision for site_code                       8.87  6.606
+Precision for week                           70.57 27.776
+Range for spatial.field                     203.24 68.147
+Stdev for spatial.field                       0.29  0.223
+
+Deviance Information Criterion (DIC) ...............: 5296.69
+Deviance Information Criterion (DIC, saturated) ....: 3455.14
+Effective number of parameters .....................: 508.23
+
+Watanabe-Akaike information criterion (WAIC) ...: 5317.19
+Effective number of parameters .................: 467.75
+
+Marginal log-Likelihood:  -2908.46 
+CPO, PIT is computed 
+Posterior summaries for the linear predictor and the fitted values are computed
+(Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
+
+  Fold   MSE    MAE   MAPE   BIAS  pBIAS   CORR     COV
+1    5 0.363 0.4571 9.5497 0.1139 3.6792 0.3834 85.2713
+[1] "5 folds done"
+[1]   6255 178155
+[1]    585 178155
+[1] "Fitting of fold 6 in progress..."
+Time used:
+    Pre = 0.526, Running = 311, Post = 16.2, Total = 328 
+Fixed effects:
+                          mean    sd 0.025quant 0.5quant 0.975quant   mode kld
+Intercept                5.365 0.079      5.211    5.364      5.522  5.364   0
+lockdown_step3          -0.758 0.111     -0.981   -0.757     -0.545 -0.757   0
+lockdown_step4          -0.225 0.085     -0.396   -0.224     -0.058 -0.224   0
+lockdown_planB          -0.453 0.114     -0.678   -0.452     -0.230 -0.452   0
+scale_school_density    -0.025 0.032     -0.087   -0.025      0.037 -0.025   0
+scale_carehome_density   0.036 0.036     -0.034    0.036      0.107  0.036   0
+scale_mobility          -0.002 0.032     -0.064   -0.002      0.062 -0.002   0
+scale_BAME              -0.235 0.039     -0.311   -0.235     -0.159 -0.235   0
+scale_imd_score          0.005 0.033     -0.059    0.005      0.070  0.005   0
+scale_prop_urb          -0.044 0.034     -0.112   -0.044      0.023 -0.044   0
+scale_rain_rolling_7day -0.034 0.025     -0.083   -0.034      0.014 -0.034   0
+scale_temp_rolling_7day -0.009 0.032     -0.074   -0.008      0.053 -0.008   0
+
+Random effects:
+  Name	  Model
+    site_code IID model
+   week IID model
+   spatial.field SPDE2 model
+
+Model hyperparameters:
+                                          mean     sd 0.025quant 0.5quant
+Precision for the Gaussian observations  3.477  0.315      2.858    3.477
+Precision for site_code                  9.002  1.305      6.698    8.912
+Precision for week                      38.232 14.105     18.196   35.737
+Range for spatial.field                 66.899 31.061     28.841   59.881
+Stdev for spatial.field                  0.241  0.039      0.168    0.239
+                                        0.975quant   mode
+Precision for the Gaussian observations      4.095  3.510
+Precision for site_code                     11.827  8.738
+Precision for week                          72.906 31.209
+Range for spatial.field                    147.399 48.013
+Stdev for spatial.field                      0.321  0.239
+
+Deviance Information Criterion (DIC) ...............: 5228.90
+Deviance Information Criterion (DIC, saturated) ....: 3524.52
+Effective number of parameters .....................: 600.05
+
+Watanabe-Akaike information criterion (WAIC) ...: 5255.85
+Effective number of parameters .................: 545.40
+
+Marginal log-Likelihood:  -2868.60 
+CPO, PIT is computed 
+Posterior summaries for the linear predictor and the fitted values are computed
+(Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
+
+  Fold    MSE    MAE    MAPE    BIAS  pBIAS   CORR     COV
+1    6 0.8089 0.7152 15.3187 -0.0651 1.5792 0.0278 60.2837
+[1] "6 folds done"
+[1]   6210 179190
+[1]    630 179190
+[1] "Fitting of fold 7 in progress..."
+Time used:
+    Pre = 0.519, Running = 314, Post = 12.8, Total = 328 
+Fixed effects:
+                          mean    sd 0.025quant 0.5quant 0.975quant   mode kld
+Intercept                5.359 0.081      5.202    5.359      5.520  5.359   0
+lockdown_step3          -0.765 0.110     -0.986   -0.763     -0.551 -0.763   0
+lockdown_step4          -0.235 0.086     -0.406   -0.234     -0.067 -0.234   0
+lockdown_planB          -0.430 0.115     -0.657   -0.430     -0.205 -0.430   0
+scale_school_density    -0.035 0.036     -0.107   -0.035      0.036 -0.035   0
+scale_carehome_density   0.044 0.038     -0.031    0.044      0.119  0.044   0
+scale_mobility           0.013 0.034     -0.052    0.013      0.081  0.013   0
+scale_BAME              -0.172 0.040     -0.250   -0.172     -0.094 -0.172   0
+scale_imd_score         -0.006 0.037     -0.077   -0.006      0.067 -0.006   0
+scale_prop_urb          -0.037 0.041     -0.118   -0.037      0.044 -0.037   0
+scale_rain_rolling_7day -0.034 0.025     -0.084   -0.034      0.014 -0.034   0
+scale_temp_rolling_7day  0.006 0.032     -0.058    0.006      0.068  0.006   0
+
+Random effects:
+  Name	  Model
+    site_code IID model
+   week IID model
+   spatial.field SPDE2 model
+
+Model hyperparameters:
+                                         mean     sd 0.025quant 0.5quant
+Precision for the Gaussian observations  3.55  0.256       3.06    3.548
+Precision for site_code                  6.93  0.963       5.19    6.881
+Precision for week                      37.78 13.964      18.02   35.294
+Range for spatial.field                 66.29 23.493      32.86   62.154
+Stdev for spatial.field                  0.24  0.033       0.18    0.238
+                                        0.975quant   mode
+Precision for the Gaussian observations       4.07  3.547
+Precision for site_code                       8.97  6.807
+Precision for week                           72.17 30.776
+Range for spatial.field                     124.06 54.518
+Stdev for spatial.field                       0.31  0.236
+
+Deviance Information Criterion (DIC) ...............: 5150.17
+Deviance Information Criterion (DIC, saturated) ....: 3488.17
+Effective number of parameters .....................: 583.63
 
 Watanabe-Akaike information criterion (WAIC) ...: 5170.98
-Effective number of parameters .................: 525.08
+Effective number of parameters .................: 526.87
 
-Marginal log-Likelihood:  -2841.28 
+Marginal log-Likelihood:  -2841.38 
 CPO, PIT is computed 
 Posterior summaries for the linear predictor and the fitted values are computed
 (Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
 
   Fold   MSE    MAE    MAPE    BIAS   pBIAS   CORR     COV
-1    7 0.475 0.5286 10.8772 -0.1254 -0.4303 0.4473 81.5436
+1    7 0.475 0.5286 10.8775 -0.1255 -0.4327 0.4466 81.2081
 [1] "7 folds done"
-[1]   6030 107010
-[1]    810 107010
+[1]   6030 178065
+[1]    810 178065
 [1] "Fitting of fold 8 in progress..."
 Time used:
-    Pre = 0.532, Running = 200, Post = 7.65, Total = 208 
+    Pre = 0.541, Running = 309, Post = 12.6, Total = 322 
 Fixed effects:
                           mean    sd 0.025quant 0.5quant 0.975quant   mode kld
-Intercept                5.347 0.081      5.189    5.346      5.506  5.346   0
-lockdown_step3          -0.736 0.110     -0.956   -0.735     -0.523 -0.735   0
-lockdown_step4          -0.183 0.085     -0.352   -0.183     -0.017 -0.183   0
-lockdown_planB          -0.445 0.114     -0.669   -0.445     -0.221 -0.445   0
+Intercept                5.348 0.080      5.190    5.347      5.507  5.347   0
+lockdown_step3          -0.736 0.110     -0.956   -0.735     -0.524 -0.735   0
+lockdown_step4          -0.185 0.085     -0.353   -0.185     -0.018 -0.185   0
+lockdown_planB          -0.446 0.114     -0.670   -0.446     -0.222 -0.446   0
 scale_school_density    -0.037 0.037     -0.109   -0.037      0.035 -0.037   0
-scale_carehome_density   0.036 0.038     -0.039    0.036      0.110  0.036   0
+scale_carehome_density   0.036 0.038     -0.039    0.035      0.110  0.035   0
 scale_mobility           0.012 0.034     -0.052    0.011      0.079  0.011   0
 scale_BAME              -0.165 0.042     -0.248   -0.165     -0.082 -0.165   0
 scale_imd_score         -0.005 0.039     -0.080   -0.005      0.072 -0.005   0
-scale_prop_urb          -0.054 0.039     -0.130   -0.054      0.022 -0.054   0
-scale_rain_rolling_7day -0.051 0.026     -0.102   -0.051      0.000 -0.051   0
+scale_prop_urb          -0.054 0.038     -0.129   -0.054      0.022 -0.054   0
+scale_rain_rolling_7day -0.051 0.026     -0.102   -0.051     -0.001 -0.051   0
 scale_temp_rolling_7day  0.015 0.032     -0.049    0.015      0.077  0.015   0
 
 Random effects:
@@ -431,52 +431,52 @@ Random effects:
 
 Model hyperparameters:
                                           mean     sd 0.025quant 0.5quant
-Precision for the Gaussian observations  3.925  0.424      3.132    3.911
-Precision for site_code                  6.627  0.939      4.961    6.564
-Precision for week                      38.798 14.678     18.059   36.170
-Range for spatial.field                 55.619 20.951     26.466   51.744
-Stdev for spatial.field                  0.269  0.040      0.198    0.267
-                                        0.975quant   mode
-Precision for the Gaussian observations      4.799  3.899
-Precision for site_code                      8.652  6.447
-Precision for week                          74.945 31.437
-Range for spatial.field                    107.623 44.727
-Stdev for spatial.field                      0.353  0.264
+Precision for the Gaussian observations  3.976  0.466      3.103    3.961
+Precision for site_code                  6.624  0.935      4.948    6.568
+Precision for week                      38.127 13.868     18.035   35.789
+Range for spatial.field                 52.894 20.144     25.289   49.055
+Stdev for spatial.field                  0.274  0.041      0.199    0.272
+                                        0.975quant  mode
+Precision for the Gaussian observations       4.93  3.96
+Precision for site_code                       8.62  6.47
+Precision for week                           71.85 31.54
+Range for spatial.field                     103.23 42.10
+Stdev for spatial.field                       0.36  0.27
 
-Deviance Information Criterion (DIC) ...............: 4913.53
-Deviance Information Criterion (DIC, saturated) ....: 3560.16
-Effective number of parameters .....................: 714.81
+Deviance Information Criterion (DIC) ...............: 4901.19
+Deviance Information Criterion (DIC, saturated) ....: 3593.27
+Effective number of parameters .....................: 747.74
 
-Watanabe-Akaike information criterion (WAIC) ...: 4938.78
-Effective number of parameters .................: 629.79
+Watanabe-Akaike information criterion (WAIC) ...: 4927.72
+Effective number of parameters .................: 655.12
 
-Marginal log-Likelihood:  -2747.26 
+Marginal log-Likelihood:  -2747.35 
 CPO, PIT is computed 
 Posterior summaries for the linear predictor and the fitted values are computed
 (Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
 
-  Fold   MSE    MAE    MAPE   BIAS  pBIAS   CORR     COV
-1    8 0.514 0.5633 12.5524 0.0149 2.7747 0.3556 84.5938
+  Fold    MSE    MAE    MAPE   BIAS  pBIAS   CORR     COV
+1    8 0.5139 0.5632 12.5499 0.0147 2.7701 0.3569 84.5938
 [1] "8 folds done"
-[1]   6075 107010
-[1]    765 107010
+[1]   6075 177615
+[1]    765 177615
 [1] "Fitting of fold 9 in progress..."
 Time used:
-    Pre = 0.543, Running = 230, Post = 8.46, Total = 239 
+    Pre = 0.515, Running = 486, Post = 13.1, Total = 499 
 Fixed effects:
                           mean    sd 0.025quant 0.5quant 0.975quant   mode kld
-Intercept                5.379 0.077      5.229    5.378      5.531  5.379   0
-lockdown_step3          -0.715 0.104     -0.924   -0.714     -0.512 -0.714   0
-lockdown_step4          -0.196 0.081     -0.357   -0.195     -0.037 -0.195   0
-lockdown_planB          -0.421 0.109     -0.637   -0.421     -0.208 -0.421   0
+Intercept                5.378 0.078      5.226    5.377      5.531  5.377   0
+lockdown_step3          -0.716 0.106     -0.927   -0.715     -0.511 -0.715   0
+lockdown_step4          -0.193 0.082     -0.357   -0.193     -0.033 -0.193   0
+lockdown_planB          -0.417 0.110     -0.636   -0.417     -0.201 -0.417   0
 scale_school_density     0.043 0.047     -0.050    0.043      0.136  0.043   0
-scale_carehome_density   0.027 0.035     -0.042    0.027      0.097  0.027   0
-scale_mobility           0.001 0.031     -0.060    0.001      0.064  0.001   0
-scale_BAME              -0.133 0.038     -0.209   -0.133     -0.058 -0.133   0
-scale_imd_score         -0.030 0.038     -0.104   -0.030      0.044 -0.030   0
+scale_carehome_density   0.027 0.035     -0.042    0.027      0.096  0.027   0
+scale_mobility           0.002 0.032     -0.059    0.002      0.066  0.002   0
+scale_BAME              -0.133 0.038     -0.208   -0.133     -0.058 -0.133   0
+scale_imd_score         -0.030 0.037     -0.104   -0.030      0.044 -0.030   0
 scale_prop_urb          -0.044 0.037     -0.116   -0.044      0.028 -0.044   0
-scale_rain_rolling_7day -0.016 0.025     -0.066   -0.016      0.033 -0.016   0
-scale_temp_rolling_7day  0.018 0.031     -0.043    0.019      0.078  0.018   0
+scale_rain_rolling_7day -0.017 0.025     -0.067   -0.016      0.033 -0.016   0
+scale_temp_rolling_7day  0.018 0.031     -0.044    0.018      0.079  0.018   0
 
 Random effects:
   Name	  Model
@@ -485,53 +485,53 @@ Random effects:
    spatial.field SPDE2 model
 
 Model hyperparameters:
-                                          mean      sd 0.025quant 0.5quant
-Precision for the Gaussian observations   3.37   0.176      3.032    3.368
-Precision for site_code                   7.75   1.107      5.791    7.675
-Precision for week                       51.54  25.503     18.732   46.104
-Range for spatial.field                 160.70 100.604     46.313  135.708
-Stdev for spatial.field                   0.21   0.026      0.162    0.209
-                                        0.975quant   mode
-Precision for the Gaussian observations      3.725  3.367
-Precision for site_code                     10.141  7.532
-Precision for week                         116.394 37.008
-Range for spatial.field                    424.482 98.264
-Stdev for spatial.field                      0.265  0.207
+                                           mean      sd 0.025quant 0.5quant
+Precision for the Gaussian observations   3.351   0.158      3.045    3.350
+Precision for site_code                   7.742   1.100      5.745    7.684
+Precision for week                       54.302  28.608     19.393   47.740
+Range for spatial.field                 175.033 103.460     54.091  150.057
+Stdev for spatial.field                   0.208   0.022      0.166    0.207
+                                        0.975quant    mode
+Precision for the Gaussian observations      3.668   3.350
+Precision for site_code                     10.067   7.607
+Precision for week                         128.345  37.315
+Range for spatial.field                    445.014 111.752
+Stdev for spatial.field                      0.254   0.208
 
-Deviance Information Criterion (DIC) ...............: 5003.13
-Deviance Information Criterion (DIC, saturated) ....: 3252.22
-Effective number of parameters .....................: 414.51
+Deviance Information Criterion (DIC) ...............: 5000.61
+Deviance Information Criterion (DIC, saturated) ....: 3236.88
+Effective number of parameters .....................: 398.11
 
-Watanabe-Akaike information criterion (WAIC) ...: 5015.96
-Effective number of parameters .................: 383.67
+Watanabe-Akaike information criterion (WAIC) ...: 5018.17
+Effective number of parameters .................: 373.47
 
-Marginal log-Likelihood:  -2741.57 
+Marginal log-Likelihood:  -2741.72 
 CPO, PIT is computed 
 Posterior summaries for the linear predictor and the fitted values are computed
 (Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
 
-  Fold    MSE   MAE    MAPE   BIAS  pBIAS   CORR     COV
-1    9 0.7085 0.639 15.7557 0.2857 9.6005 0.3645 70.8108
+  Fold    MSE    MAE    MAPE   BIAS  pBIAS   CORR     COV
+1    9 0.7084 0.6391 15.7571 0.2855 9.5949 0.3643 70.8108
 [1] "9 folds done"
-[1]   6165 107100
-[1]    675 107100
+[1]   6165 180000
+[1]    675 180000
 [1] "Fitting of fold 10 in progress..."
 Time used:
-    Pre = 0.53, Running = 183, Post = 10.7, Total = 195 
+    Pre = 0.525, Running = 309, Post = 16.8, Total = 327 
 Fixed effects:
                           mean    sd 0.025quant 0.5quant 0.975quant   mode kld
-Intercept                5.350 0.078      5.197    5.350      5.505  5.350   0
-lockdown_step3          -0.739 0.106     -0.951   -0.738     -0.534 -0.738   0
-lockdown_step4          -0.218 0.082     -0.380   -0.217     -0.057 -0.217   0
-lockdown_planB          -0.432 0.110     -0.648   -0.432     -0.215 -0.432   0
+Intercept                5.351 0.079      5.195    5.350      5.507  5.350   0
+lockdown_step3          -0.741 0.107     -0.955   -0.740     -0.533 -0.740   0
+lockdown_step4          -0.218 0.083     -0.383   -0.217     -0.055 -0.217   0
+lockdown_planB          -0.431 0.111     -0.650   -0.431     -0.211 -0.431   0
 scale_school_density    -0.032 0.037     -0.104   -0.032      0.039 -0.032   0
-scale_carehome_density   0.040 0.039     -0.038    0.040      0.117  0.040   0
-scale_mobility           0.008 0.033     -0.054    0.008      0.075  0.008   0
+scale_carehome_density   0.039 0.039     -0.038    0.039      0.117  0.039   0
+scale_mobility           0.009 0.033     -0.054    0.009      0.076  0.009   0
 scale_BAME              -0.159 0.041     -0.239   -0.159     -0.079 -0.159   0
-scale_imd_score         -0.011 0.040     -0.090   -0.011      0.069 -0.011   0
+scale_imd_score         -0.011 0.040     -0.090   -0.011      0.068 -0.011   0
 scale_prop_urb          -0.038 0.039     -0.115   -0.038      0.039 -0.038   0
-scale_rain_rolling_7day -0.014 0.025     -0.063   -0.014      0.034 -0.014   0
-scale_temp_rolling_7day  0.001 0.031     -0.063    0.001      0.061  0.001   0
+scale_rain_rolling_7day -0.015 0.025     -0.064   -0.015      0.034 -0.015   0
+scale_temp_rolling_7day  0.000 0.032     -0.064    0.000      0.061  0.000   0
 
 Random effects:
   Name	  Model
@@ -541,42 +541,42 @@ Random effects:
 
 Model hyperparameters:
                                            mean     sd 0.025quant 0.5quant
-Precision for the Gaussian observations   3.258  0.170      2.928    3.257
-Precision for site_code                   6.647  0.938      4.972    6.588
-Precision for week                       47.237 20.457     19.341   43.294
-Range for spatial.field                 118.322 58.871     44.699  105.250
-Stdev for spatial.field                   0.213  0.027      0.163    0.212
-                                        0.975quant   mode
-Precision for the Gaussian observations       3.60  3.261
-Precision for site_code                       8.66  6.486
-Precision for week                           98.22 36.407
-Range for spatial.field                     269.74 83.980
-Stdev for spatial.field                       0.27  0.211
+Precision for the Gaussian observations   3.251  0.160      2.938    3.250
+Precision for site_code                   6.657  0.940      4.983    6.597
+Precision for week                       46.461 20.076     20.118   42.322
+Range for spatial.field                 119.646 55.667     49.482  107.463
+Stdev for spatial.field                   0.212  0.026      0.165    0.211
+                                        0.975quant  mode
+Precision for the Gaussian observations      3.566  3.26
+Precision for site_code                      8.678  6.49
+Precision for week                          97.403 35.20
+Range for spatial.field                    262.709 87.15
+Stdev for spatial.field                      0.265  0.21
 
-Deviance Information Criterion (DIC) ...............: 5190.72
-Deviance Information Criterion (DIC, saturated) ....: 3319.54
-Effective number of parameters .....................: 443.65
+Deviance Information Criterion (DIC) ...............: 5192.79
+Deviance Information Criterion (DIC, saturated) ....: 3310.96
+Effective number of parameters .....................: 435.34
 
-Watanabe-Akaike information criterion (WAIC) ...: 5210.05
-Effective number of parameters .................: 413.10
+Watanabe-Akaike information criterion (WAIC) ...: 5211.80
+Effective number of parameters .................: 405.73
 
-Marginal log-Likelihood:  -2845.82 
+Marginal log-Likelihood:  -2846.00 
 CPO, PIT is computed 
 Posterior summaries for the linear predictor and the fitted values are computed
 (Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
 
   Fold    MSE    MAE   MAPE    BIAS   pBIAS   CORR     COV
-1   10 0.3656 0.4713 9.6803 -0.0981 -0.3686 0.5129 85.1964
+1   10 0.3656 0.4714 9.6814 -0.0986 -0.3795 0.5132 85.1964
 [1] "10 folds done"
-[1] "Coverage Probability (%): 79.931442817077"
+[1] "Coverage Probability (%): 79.8379557494547"
   Mean_MSE Mean_MAE Mean_MAPE Mean_BIAS Mean_pBIAS Mean_CORR      COV     PMCC
-1  0.50337  0.54737  11.77522  -0.00465    2.16714   0.38441 79.93144 1632.635
+1   0.5034   0.5474  11.77566  -0.00477    2.16472   0.38457 79.83796 1632.679
 
 ====================================
-CPU Time used: 01:56:43
-CPU Percent: 327%
-Memory usage: 22039096kb
-Approx Power usage: 0.0232
-Walltime usage: 00:42:13
+CPU Time used: 03:04:58
+CPU Percent: 345%
+Memory usage: 37394608kb
+Approx Power usage: 0.036800000000000006
+Walltime usage: 01:03:27
 
 ====================================
