@@ -1,0 +1,66 @@
+[1]   6840 202995
+[1] 6840
+[1] 202995
+[1]   6840 202995
+Time used:
+    Pre = 0.827, Running = 681, Post = 23.7, Total = 706 
+Fixed effects:
+                          mean     sd 0.025quant 0.5quant 0.975quant   mode kld
+Intercept                4.009 44.721    -83.685    4.009     91.703  4.009   0
+lockdown_step3           0.605 44.721    -87.089    0.605     88.298  0.605   0
+lockdown_step4           1.135 44.721    -86.558    1.135     88.829  1.135   0
+lockdown_planB           0.919 44.721    -86.775    0.919     88.612  0.919   0
+lockdown_lifting         1.350 44.721    -86.344    1.350     89.044  1.350   0
+scale_school_density    -0.031  0.035     -0.099   -0.031      0.038 -0.031   0
+scale_carehome_density   0.036  0.036     -0.035    0.036      0.107  0.036   0
+scale_mobility           0.012  0.032     -0.050    0.012      0.077  0.012   0
+scale_BAME              -0.165  0.038     -0.240   -0.165     -0.091 -0.165   0
+scale_imd_score         -0.002  0.035     -0.071   -0.002      0.067 -0.002   0
+scale_prop_urb          -0.048  0.037     -0.120   -0.048      0.023 -0.048   0
+scale_rain_rolling_7day -0.027  0.024     -0.075   -0.027      0.020 -0.027   0
+scale_temp_rolling_7day  0.003  0.032     -0.061    0.003      0.063  0.003   0
+
+Random effects:
+  Name	  Model
+    site_code IID model
+   week IID model
+   spatial.field SPDE2 model
+
+Model hyperparameters:
+                                          mean     sd 0.025quant 0.5quant
+Precision for the Gaussian observations  3.419  0.220      2.995    3.416
+Precision for site_code                  7.041  0.939      5.351    6.987
+Precision for week                      39.874 14.742     18.119   37.512
+Range for spatial.field                 84.120 37.234     35.274   76.430
+Stdev for spatial.field                  0.224  0.032      0.167    0.223
+                                        0.975quant   mode
+Precision for the Gaussian observations      3.859  3.419
+Precision for site_code                      9.042  6.895
+Precision for week                          75.305 33.181
+Range for spatial.field                    178.533 63.312
+Stdev for spatial.field                      0.291  0.221
+
+Deviance Information Criterion (DIC) ...............: 5705.77
+Deviance Information Criterion (DIC, saturated) ....: 3764.73
+Effective number of parameters .....................: 559.09
+
+Watanabe-Akaike information criterion (WAIC) ...: 5729.67
+Effective number of parameters .................: 514.94
+
+Marginal log-Likelihood:  -3126.06 
+CPO, PIT is computed 
+Posterior summaries for the linear predictor and the fitted values are computed
+(Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
+
+[1] 0.7816497
+null device 
+          1 
+
+====================================
+CPU Time used: 00:42:32
+CPU Percent: 384%
+Memory usage: 41174308kb
+Approx Power usage: 0.008399999999999998
+Walltime usage: 00:16:55
+
+====================================

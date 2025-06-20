@@ -38,6 +38,11 @@ scale_covariates <- function(df, covariates_to_scale) {
 nov_df<- scale_covariates(nov_df, covariates_to_scale)
 nov_df<- as.data.frame(nov_df)
 
+# england crop
+nov_df <- st_as_sf(nov_df, coords= c("Easting", "Northing"), crs= 27700)
+
+england<- st_read("Data/shapefiles/england/england_crop.shp")
+england<- st_transform(england, crs= st_crs(nov_df))
 
 #mesh construction
 
@@ -51,8 +56,9 @@ coords_df <- as.data.frame(coords)
 #domain <- inla.nonconvex.hull(coords, concave = -0.05, convex = -0.02, resolution=c(200,200))
 domain <- inla.nonconvex.hull(coords)
 
-max.edge = 5
-bound.outer = diff(range(st_coordinates(nov_df)[,1]))/5
+#max.edge = 15
+max.edge = diff(range(st_coordinates(nov_df)[,1]))/(3*5)
+bound.outer = diff(range(st_coordinates(nov_df)[,1]))/3
 
 mesh<- fm_mesh_2d_inla(boundary = domain,
                        loc=coords,
@@ -61,10 +67,12 @@ mesh<- fm_mesh_2d_inla(boundary = domain,
                        cutoff= max.edge/5,
                        crs= st_crs(nov_df))
 
-pdf("mesh5.pdf", width = 14, height = 10)
+pdf("model6_mesh.pdf", width = 14, height = 10)
                        
 plot(mesh)
+print(max.edge)
 print(bound.outer)
+
 
 ggplot() +
   gg(mesh) +
