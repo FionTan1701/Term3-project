@@ -249,8 +249,8 @@ metrics<- data.frame()
 fit <- list()
 
 
-max.edge = 15
-bound.outer = diff(range(st_coordinates(nov)[,1]))/5
+max.edge = diff(range(st_coordinates(nov)[,1]))/(3*5)
+bound.outer = diff(range(st_coordinates(nov)[,1]))/3
 
 # initial values, from model
 
@@ -270,7 +270,7 @@ for (k in 1:10) {
   train <- subset(nov, folds != k)  # All folds except k
   val <- subset(nov, folds == k)   # Only fold k
   
-  val_data<- val$Log10_NoV_norm
+  val_data<- val$nov_3week
   
   # Create mesh using coordinates from training data
   sc= 1/1000
@@ -334,7 +334,7 @@ for (k in 1:10) {
   
   # training stack
   stack.train <- inla.stack(
-    data = list(Log10_NoV_norm = train$Log10_NoV_norm), 
+    data = list(nov_3week = train$nov_3week), 
     A = list(A.train, 1), 
     effects = list(
       c(s.index, list(Intercept = 1)),
@@ -361,7 +361,7 @@ for (k in 1:10) {
   # validation stack
   
   stack.val <- inla.stack(
-    data = list(Log10_NoV_norm = NA), 
+    data = list(nov_3week = NA), 
     A = list(A.val, 1), 
     effects = list(
       c(s.index, list(Intercept = 1)),
@@ -392,10 +392,10 @@ for (k in 1:10) {
   ## Fit model
   
   # formula
-  formula<-  as.formula('Log10_NoV_norm ~ -1 + Intercept + lockdown_step3 + lockdown_step4 + lockdown_planB +
+  formula<-  as.formula('nov_3week ~ -1 + Intercept + lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting +
     scale_school_density + scale_carehome_density + scale_mobility + scale_BAME + scale_imd_score + scale_prop_urb +
     scale_rain_rolling_7day + scale_temp_rolling_7day +
-                        f(site_code, model="iid", hyper= pc_prec) + f(week, model= "ar1", hyper= rho_hyper) +
+                        f(site_code, model="iid", hyper= pc_prec) + f(week, model= "ar1", hyper=rho_hyper) +
                         f(spatial.field, model=spde, group=spatial.field.group, control.group=list(model="iid", hyper=pc_prec))')
   print(paste("Fitting of fold", k, "in progress..."))
   
@@ -439,9 +439,9 @@ for (k in 1:10) {
   results.train= fit.fold$summary.linear.predictor$mean[index_inla_train]
   predicted= fit.fold$summary.linear.predictor$mean[index_inla_val]
   
-  train_data<- train$Log10_NoV_norm
+  train_data<- train$nov_3week
   
-  observed<-val$Log10_NoV_norm
+  observed<-val$nov_3week
   
   val$mean<-fit.fold$summary.linear.predictor$mean[index_inla_val]
   val$q0.025<-fit.fold$summary.linear.predictor$`0.025quant`[index_inla_val]
@@ -450,7 +450,7 @@ for (k in 1:10) {
   # append predictions and samples to dataframe
   
   val<- val %>%
-    dplyr::select(date_index, site_code, Log10_NoV_norm, mean, q0.025, q0.975) %>%
+    dplyr::select(date_index, site_code, nov_3week, mean, q0.025, q0.975) %>%
     st_drop_geometry()
   
   predictions<- rbind(predictions, val)
@@ -465,7 +465,7 @@ for (k in 1:10) {
   bias<- BIAS(observed, predicted)
   pbias <- pBIAS(observed, predicted)
   corr <- CORR(observed, predicted)
-  cov<- COV(val$Log10_NoV_norm, lower = val$q0.025, upper= val$q0.975)
+  cov<- COV(val$nov_3week, lower = val$q0.025, upper= val$q0.975)
   
   # store metrics
   metrics_fold <- data.frame(
@@ -504,7 +504,7 @@ for (i in 1:nrow(predictions)) {
   upper_bound <- predictions$q0.975[i]
   
   # Get the observed value for the i-th observation
-  observed <- predictions$Log10_NoV_norm[i]
+  observed <- predictions$nov_3week[i]
   
   # Check if the observed value is within the confidence interval bounds
   coverage <- ifelse(observed >= lower_bound & observed <= upper_bound, 1, 0)
@@ -526,7 +526,7 @@ summary_metrics <- metrics %>%
     Mean_pBIAS = mean(pBIAS, na.rm = TRUE),
     Mean_CORR = mean(CORR, na.rm = TRUE),
     COV = coverage_probability,
-    PMCC = PMCC(predictions$Log10_NoV_norm, predictions$mean),
+    PMCC = PMCC(predictions$nov_3week, predictions$mean),
   )
 
 # Print the summary of metrics

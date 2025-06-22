@@ -1,6 +1,6 @@
 #PBS -l walltime=24:00:00
 #PBS -l select=1:ncpus=4:mem=200gb
-#PBS -N processed_model6
+#PBS -N model6_processed
 
 cd /rds/general/user/ft824/home/Term3-project/Script
 
