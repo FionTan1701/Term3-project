@@ -3,4 +3,5 @@ papers/
 Data/LSOA/
 *.docx
 *.rds
-
+outputs/cv/error_ouput_file
+outputs/prediction/error_ouput_file
