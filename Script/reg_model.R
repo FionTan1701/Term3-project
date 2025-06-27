@@ -1,6 +1,7 @@
 library(tidyverse)
 library(mgcv)
 
+set.seed(123)
 
 setwd("~/Term3-project")
 
