@@ -91,8 +91,6 @@ spde <- inla.spde2.pcmatern(mesh = mesh, alpha = 2,
                             prior.sigma = c(5, 0.05))
 
 
-
-
 ## Create spatial index and A matrices
 
 n_week<- length(unique(nov$date_index))
@@ -207,7 +205,7 @@ fit <- inla(
     config = TRUE,
     openmp.strategy = "default", 
     smtp = "taucs"),
-  control.predictor=list(A=inla.stack.A(join.stack),compute=T, link= 1),
+  control.predictor=list(A=inla.stack.A(join.stack),compute=TRUE, link= 1),
   control.fixed = list(
     mean = 0, 
     prec = 0.0001,
@@ -220,14 +218,26 @@ fit <- inla(
 
 print(summary(fit))
 
-saveRDS(fit, "outputs/model7_processed.rds")
+#saveRDS(fit, "outputs/model7_processed.rds")
 
 index_inla_train <- inla.stack.index(join.stack,"train")$data
 
 # correlation between the data response and the posterior mean of the predicted values 
-print(cor(nov$nov_3week, fit$summary.linear.predictor$mean[index_inla_train], use="complete.obs"))
+#print(cor(nov$nov_3week, fit$summary.linear.predictor$mean[index_inla_train], use="complete.obs"))
+print(paste("Correlation of obeserved and predicted:",cor(nov$nov_3week, fit$summary.fitted.values$mean[index_inla_train], use="complete.obs")))
 
-pdf("model7_processed_corrplot.pdf",width = 14, height = 10)
-# plot
-plot(nov$nov_3week, fit$summary.linear.predictor$mean[index_inla_train])
+lims <- range(c(nov$nov_3week, fit$summary.fitted.values$mean[index_inla_train]), na.rm = TRUE)
+
+pdf("m7_processed_corrplotv2.pdf",width = 14, height = 10)
+
+# plot(nov$nov_3week, fit$summary.linear.predictor$mean[index_inla_train])
+
+plot(nov$nov_3week, fit$summary.fitted.values$mean[index_inla_train],
+main ="Observed vs predicted (Posterior Mean)",
+xlab = "Observed nov_3week",
+ylab = "Predicted nov_3week",
+xlim = lims,
+ylim = lims)
+abline(0,1,col="blue",lwd=2)
+
 dev.off()
