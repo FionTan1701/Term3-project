@@ -47,7 +47,7 @@ gam_smooth <- gam(nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_planB +
                    s(scale_temp_rolling_7day) + site_date,
                  data = nov_df, family = gaussian)
 
-print(fam_linear)
+print(gam_linear)
 print(gam_smooth)
 
 print(anova(gam_linear, gam_smooth, test = "F"))

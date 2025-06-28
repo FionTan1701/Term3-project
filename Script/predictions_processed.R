@@ -220,22 +220,41 @@ print(summary(fit))
 
 #saveRDS(fit, "outputs/model7_processed.rds")
 
+##predictions
 index_inla_train <- inla.stack.index(join.stack,"train")$data
+
+# Extract linear predictor posterior mean (fitted means)
+mu_it <- fit$summary.linear.predictor$mean  # vector length = n observations
+
+# Extract posterior mean of residual precision (Gaussian noise precision)
+prec_noise <- fit$summary.hyperpar["Precision for the Gaussian observations", "mean"]
+sd_noise <- 1 / sqrt(prec_noise)
+
+# Simulate measurement error epsilon_it ~ Normal(0, sd_noise)
+set.seed(123)  
+epsilon_it <- rnorm(length(mu_it), mean = 0, sd = sd_noise)
+
+# Predicted values with measurement error added
+y_it_pred <- mu_it + epsilon_it
+print(y_it_pred[index_inla_train])
+
 
 # correlation between the data response and the posterior mean of the predicted values 
 #print(cor(nov$nov_3week, fit$summary.linear.predictor$mean[index_inla_train], use="complete.obs"))
-print(paste("Correlation of obeserved and predicted:",cor(nov$nov_3week, fit$summary.fitted.values$mean[index_inla_train], use="complete.obs")))
+#print(paste("Correlation of obeserved and predicted:",cor(nov$nov_3week, fit$summary.fitted.values$mean[index_inla_train], use="complete.obs")))
+print(paste("Correlation of obeserved and predicted(simulated noise):",cor(nov$nov_3week, y_it_pred[index_inla_train], use="complete.obs")))
 
-lims <- range(c(nov$nov_3week, fit$summary.fitted.values$mean[index_inla_train]), na.rm = TRUE)
+#lims <- range(c(nov$nov_3week, fit$summary.fitted.values$mean[index_inla_train]), na.rm = TRUE)
+lims <- range(c(nov$nov_3week, y_it_pred[index_inla_train]), na.rm = TRUE)
 
-pdf("m7_processed_corrplotv2.pdf",width = 14, height = 10)
+pdf("m7_processed_corrplotv3.pdf",width = 14, height = 10)
 
 # plot(nov$nov_3week, fit$summary.linear.predictor$mean[index_inla_train])
 
-plot(nov$nov_3week, fit$summary.fitted.values$mean[index_inla_train],
-main ="Observed vs predicted (Posterior Mean)",
-xlab = "Observed nov_3week",
-ylab = "Predicted nov_3week",
+plot(nov$nov_3week, y_it_pred[index_inla_train],
+main ="Observed vs predicted (Posterior Mean with Simulated Noise)",
+xlab = "Observed values",
+ylab = "Predicted values",
 xlim = lims,
 ylim = lims)
 abline(0,1,col="blue",lwd=2)
