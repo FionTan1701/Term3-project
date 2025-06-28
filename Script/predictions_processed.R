@@ -8,6 +8,7 @@ library(corrr)
 library(sf)
 library(ggplot2)
 library(viridis)
+library(ggforce)
 
 setwd("~/Term3-project")
 nov_df <- read.csv("Data/processed_final.csv")
@@ -272,31 +273,38 @@ print(paste("Correlation of obeserved and predicted:",cor(nov$nov_3week, fit$sum
 
 # predictions for validation data
 predictions <- data.frame()
-observed<-nov_df$nov_3week
+observed<-nov$nov_3week
 
-nov_df$mean <- fit$summary.fitted.values$mean[index_inla_val]
-nov_df$q0.025<-fit$summary.linear.predictor$`0.025quant`[index_inla_val]
-nov_df$q0.975<-fit$summary.linear.predictor$`0.975quant`[index_inla_val]
+nov$mean <- fit$summary.fitted.values$mean[index_inla_val]
+nov$q0.025<-fit$summary.linear.predictor$`0.025quant`[index_inla_val]
+nov$q0.975<-fit$summary.linear.predictor$`0.975quant`[index_inla_val]
   
-nov_df<- nov_df %>% 
-  dplyr::select(one_week_date,date_index, site_code, Easting, Northing, nov_3week, mean, q0.025, q0.975)
+nov<- nov %>% 
+  dplyr::select(one_week_date,date_index, site_code, nov_3week, mean, q0.025, q0.975)
     
   
-predictions<- rbind(predictions, nov_df)
+predictions<- rbind(predictions, nov)
 
-pred_tp <- predictions %>% filter(one_week_date == "24/05/2021")
+dates_to_plot <- unique(predictions$one_week_date)
+
+pred_tp <- predictions %>% filter(one_week_date %in% dates_to_plot)
 
 pdf("outputs/prediction/m7processed_prediction.pdf", width = 14, height = 10)
 
-ggplot() + geom_sf(data = england, fill = "white", color = "black")+
-  coord_sf(datum = NA) +
-  geom_point(
-    data = predictions, aes(x = Easting, y = Northing, color = nov_df$mean),
-    size = 2
-  ) +
-  labs(x = "", y = "") +
-  scale_color_viridis() +
-  theme_bw()
+ncol <- 3
+nrow <- 2
+n_pages <- ceiling(length(dates_to_plot) / (ncol * nrow))
+
+for (i in 1:n_pages) {
+  print(
+    ggplot() +
+      geom_sf(data = england, fill = "white", color = "black") +
+      geom_sf(data = pred_tp, aes(color = mean), size = 1) +
+      ggforce::facet_wrap_paginate(~ one_week_date, ncol = ncol, nrow = nrow, page = i) +
+      scale_color_viridis() +
+      theme_bw()
+  )
+}
 
 dev.off()
 
