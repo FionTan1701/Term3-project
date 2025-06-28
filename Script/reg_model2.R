@@ -119,4 +119,21 @@ for (k in 1:10) {
    
 }
 
+summary_metrics <- metrics %>%
+  summarise(
+    Mean_MSE = mean(MSE, na.rm = TRUE),
+    SE = sd(MSE, na.rm = TRUE) / sqrt(length(MSE)),
+    CI_Lower = Mean_MSE - qt(0.975, df = length(MSE) - 1) * SE,
+    CI_Upper = Mean_MSE + qt(0.975, df = length(MSE) - 1) * SE,
+    Mean_MAE = mean(MAE, na.rm = TRUE),
+    Mean_MAPE = mean(MAPE, na.rm = TRUE),
+    Mean_BIAS = mean(BIAS, na.rm = TRUE),
+    Mean_pBIAS = mean(pBIAS, na.rm = TRUE),
+    Mean_CORR = mean(CORR, na.rm = TRUE)
+  )
+  
+
+# Print the summary of metrics
+print(summary_metrics)
+
 write.csv(metrics, "outputs/ML_model/cv/ML_gam_model_metrics_full.csv")
