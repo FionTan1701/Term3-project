@@ -6,9 +6,12 @@ library(sp)
 library(fmesher)
 library(corrr)
 library(sf)
+library(ggplot2)
+library(viridis)
 
 setwd("~/Term3-project")
 nov_df <- read.csv("Data/processed_final.csv")
+
 
 ## scale------------------------------------------------------------------------
 
@@ -49,6 +52,9 @@ nov <- nov %>%
 
 nov <- st_as_sf(nov_df, coords= c("Easting", "Northing"), crs= 27700)
 nov <- st_transform(nov,  crs = "+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=km +no_defs")
+
+england<- st_read("Data/shapefiles/england/england_crop.shp")
+england<- st_transform(england, crs= st_crs(nov))
 
 
 #=================================================== 
@@ -222,7 +228,10 @@ print(summary(fit))
 
 ##predictions
 index_inla_train <- inla.stack.index(join.stack,"train")$data
+index_inla_val <- inla.stack.index(join.stack,"val")$data
+  
 
+# predictied with simulated noise-----------------------------------------------------
 # Extract linear predictor posterior mean (fitted means)
 mu_it <- fit$summary.linear.predictor$mean  # vector length = n observations
 
@@ -231,32 +240,66 @@ prec_noise <- fit$summary.hyperpar["Precision for the Gaussian observations", "m
 sd_noise <- 1 / sqrt(prec_noise)
 
 # Simulate measurement error epsilon_it ~ Normal(0, sd_noise)
-set.seed(123)  
-epsilon_it <- rnorm(length(mu_it), mean = 0, sd = sd_noise)
+#set.seed(123)  
+#epsilon_it <- rnorm(length(mu_it), mean = 0, sd = sd_noise)
 
 # Predicted values with measurement error added
-y_it_pred <- mu_it + epsilon_it
-print(y_it_pred[index_inla_train])
+#y_it_pred <- mu_it + epsilon_it
+#print(y_it_pred[index_inla_train])
+##################################################################################
 
-
-# correlation between the data response and the posterior mean of the predicted values 
+#correlation between the data response and the posterior mean of the predicted values 
 #print(cor(nov$nov_3week, fit$summary.linear.predictor$mean[index_inla_train], use="complete.obs"))
-#print(paste("Correlation of obeserved and predicted:",cor(nov$nov_3week, fit$summary.fitted.values$mean[index_inla_train], use="complete.obs")))
-print(paste("Correlation of obeserved and predicted(simulated noise):",cor(nov$nov_3week, y_it_pred[index_inla_train], use="complete.obs")))
+print(paste("Correlation of obeserved and predicted:",cor(nov$nov_3week, fit$summary.fitted.values$mean[index_inla_train], use="complete.obs")))
+#print(paste("Correlation of obeserved and predicted(simulated noise):",cor(nov$nov_3week, y_it_pred[index_inla_train], use="complete.obs")))
 
 #lims <- range(c(nov$nov_3week, fit$summary.fitted.values$mean[index_inla_train]), na.rm = TRUE)
-lims <- range(c(nov$nov_3week, y_it_pred[index_inla_train]), na.rm = TRUE)
+#lims <- range(c(nov$nov_3week, y_it_pred[index_inla_train]), na.rm = TRUE)
 
-pdf("m7_processed_corrplotv3.pdf",width = 14, height = 10)
+#pdf("m7_processed_corrplotv3.pdf",width = 14, height = 10)
 
 # plot(nov$nov_3week, fit$summary.linear.predictor$mean[index_inla_train])
 
-plot(nov$nov_3week, y_it_pred[index_inla_train],
-main ="Observed vs predicted (Posterior Mean with Simulated Noise)",
-xlab = "Observed values",
-ylab = "Predicted values",
-xlim = lims,
-ylim = lims)
-abline(0,1,col="blue",lwd=2)
+#plot(nov$nov_3week, y_it_pred[index_inla_train],
+#main ="Observed vs predicted (Posterior Mean with Simulated Noise)",
+#xlab = "Observed values",
+#ylab = "Predicted values",
+#xlim = lims,
+#ylim = lims)
+#abline(0,1,col="blue",lwd=2)
+
+#dev.off()
+
+# predictions for validation data
+predictions <- data.frame()
+observed<-nov_df$nov_3week
+
+nov_df$mean <- fit$summary.fitted.values$mean[index_inla_val]
+nov_df$q0.025<-fit$summary.linear.predictor$`0.025quant`[index_inla_val]
+nov_df$q0.975<-fit$summary.linear.predictor$`0.975quant`[index_inla_val]
+  
+nov_df<- nov_df %>% 
+  dplyr::select(one_week_date,date_index, site_code, Easting, Northing, nov_3week, mean, q0.025, q0.975)
+    
+  
+predictions<- rbind(predictions, nov_df)
+
+pred_tp <- predictions %>% filter(one_week_date == "24/05/2021")
+
+pdf("outputs/prediction/m7processed_prediction.pdf", width = 14, height = 10)
+
+ggplot() + geom_sf(data = england, fill = "white", color = "black")+
+  coord_sf(datum = NA) +
+  geom_point(
+    data = predictions, aes(x = Easting, y = Northing, color = nov_df$mean),
+    size = 2
+  ) +
+  labs(x = "", y = "") +
+  scale_color_viridis() +
+  theme_bw()
 
 dev.off()
+
+write.csv(predictions, "outputs/prediction/m7processed_prediction.csv", row.names = FALSE)
+
+
