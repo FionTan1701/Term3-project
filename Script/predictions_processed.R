@@ -276,8 +276,8 @@ predictions <- data.frame()
 observed<-nov$nov_3week
 
 nov$mean <- fit$summary.fitted.values$mean[index_inla_val]
-nov$q0.025<-fit$summary.linear.predictor$`0.025quant`[index_inla_val]
-nov$q0.975<-fit$summary.linear.predictor$`0.975quant`[index_inla_val]
+nov$q0.025<-fit$summary.fitted.values$`0.025quant`[index_inla_val]
+nov$q0.975<-fit$summary.fitted.values$`0.975quant`[index_inla_val]
   
 nov<- nov %>% 
   dplyr::select(one_week_date,date_index, site_code, nov_3week, mean, q0.025, q0.975)

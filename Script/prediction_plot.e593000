@@ -1,0 +1,9 @@
+Error while loading conda entry point: conda-libmamba-solver (/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /rds/general/user/ft824/home/anaconda3/lib/python3.10/site-packages/libmambapy/bindings.cpython-310-x86_64-linux-gnu.so))
+Error while loading conda entry point: conda-libmamba-solver (/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /rds/general/user/ft824/home/anaconda3/lib/python3.10/site-packages/libmambapy/bindings.cpython-310-x86_64-linux-gnu.so))
+Error while loading conda entry point: conda-libmamba-solver (/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /rds/general/user/ft824/home/anaconda3/lib/python3.10/site-packages/libmambapy/bindings.cpython-310-x86_64-linux-gnu.so))
+Warning message:
+package ‘ggplot2’ was built under R version 4.4.3 
+Error in read.table(file = file, header = header, sep = sep, quote = quote,  : 
+  duplicate 'row.names' are not allowed
+Calls: read.csv -> read.table
+Execution halted
