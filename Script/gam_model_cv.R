@@ -91,6 +91,8 @@ for (k in 1:10) {
     fit.fold<- fit[[k]]
   
     print(summary(fit.fold))
+    print(gam.check(fit.fold))
+    
   
     # Predictions
     val$predicted <- predict(fit.fold, newdata = val, type = "response")
