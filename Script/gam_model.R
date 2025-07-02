@@ -1,11 +1,15 @@
 library(tidyverse)
 library(mgcv)
+library(sf)
+library(ggplot2)
 
 set.seed(123)
 
 setwd("~/Term3-project")
 
 nov_df <- read.csv("Data/processed_final.csv")
+england <- st_read("Data/shapefiles/england/england_crop.shp")
+england <- st_transform(england, crs = 27700)
 
 nov_df <- nov_df %>%
   mutate(one_week_date = as.Date(one_week_date, format = "%d/%m/%Y")) %>%  # Adjust format as needed
@@ -56,11 +60,58 @@ gam_model <- gam(nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_planB + 
 gam_model1 <- gam(nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting +
                    scale_school_density + scale_carehome_density + scale_mobility + scale_BAME + scale_imd_score + scale_prop_urb +
                    scale_rain_rolling_7day + scale_temp_rolling_7day + s(Easting, Northing)+ s(date_index) + ti(Easting, Northing, date_index, d=c(2,1)),
-                 data =nov_df, family =gaussian)
+                 data =nov_df, family =gaussian,method="REML")
 
+gam_model2 <- gam(nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting +
+                    scale_school_density + scale_carehome_density + scale_mobility + scale_BAME + scale_imd_score + scale_prop_urb +
+                    scale_rain_rolling_7day + scale_temp_rolling_7day + s(Easting, Northing)+ s(date_index) + ti(Easting, Northing, date_index, d=c(2,1)),
+                  data =nov_df, family =gaussian,method="ML")
 
+gam_model3 <- gam(nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting +
+                    scale_school_density + scale_carehome_density + scale_mobility + scale_BAME + scale_imd_score + scale_prop_urb +
+                    scale_rain_rolling_7day + scale_temp_rolling_7day + s(Easting, Northing, k=150)+ s(date_index, k=20) + ti(Easting, Northing, date_index, d=c(2,1), k=20),
+                  data =nov_df, family =gaussian,method="ML")
+gam_model4 <- gam(nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting +
+                    scale_school_density + scale_carehome_density + scale_mobility + scale_BAME + scale_imd_score + scale_prop_urb +
+                    scale_rain_rolling_7day + scale_temp_rolling_7day + s(Easting, Northing, k=150, bs ="tp")+ s(date_index, k=20, bs ="tp") + ti(Easting, Northing, date_index, d=c(2,1), k=20, bs= c("tp","tp","tp")),
+                  data =nov_df, family =gaussian,method="REML")
+
+#results interpretation
 par(mfrow=c(2,2))
 plot(gam_model, select =1)
-summary(gam_model1)
-print(gam.check(gam_model))
-anova(gam_model, gam_model1)
+summary(gam_model3)
+gam.check(gam_model4)
+anova(gam_model3, gam_model4)
+
+layout(matrix(1:3,nrow=1))
+
+plot.gam(gam_model, scheme =2)
+plot(gam_model1,pages=1,scheme=1,unconditional=TRUE) 
+AIC(gam_model1, gam_model3)
+
+#prediction
+predict_nov = expand.grid(
+  Easting= seq(min(nov_df$Easting), 
+                max(nov_df$Easting),
+                length=50),
+  Northing = seq(min(nov_df$Northing),
+                  max(nov_df$Northing),
+                  length=50),
+  Year = seq(1,45, by = 2)
+)
+
+dp <- as.matrix(predict_nov)
+
+p <- st_as_sf(data.frame(x = dp[, 1], y = dp[, 2]),coords = c("x", "y"))
+st_crs(p) <- st_crs(27700)
+ind <- st_intersects(england, p)
+predict_nov<- dp[ind[[1]], ]
+
+predict_nov$model_fit = predict(gam_model4,predict_nov,type = "response")
+##need all covariates used in fitted gam model
+ggplot(aes(Easting, Northing, fill= model_fit),
+       data=predict_nov)+
+  geom_tile()+
+  facet_wrap(~Year,nrow=2)+
+  scale_fill_viridis("Nov concentration")+
+  theme_bw(10)

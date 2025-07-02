@@ -83,11 +83,10 @@ for (k in 1:10) {
     val$Northing <- val_coords[,2]
 
     
-    fit[[k]] <- gam(nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting +
-                       s(scale_school_density) + s(scale_carehome_density) + s(scale_mobility) + s(scale_BAME) +
-                       s(scale_imd_score) + s(scale_prop_urb) + s(scale_rain_rolling_7day) + 
-                       s(scale_temp_rolling_7day) + s(Easting, Northing)+ s(one_week_date) + ti(Easting, Northing, one_week_date, d=c(2,1)),
-                     data = train, family = gaussian)
+    fit[[k]] <- gam(nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting + 
+                      scale_school_density + scale_carehome_density + scale_mobility + scale_BAME + scale_imd_score + scale_prop_urb +
+                      scale_rain_rolling_7day + scale_temp_rolling_7day + s(Easting, Northing, k=150, bs ="tp")+ s(date_index, k=20, bs ="tp") + ti(Easting, Northing, date_index, d=c(2,1), k=20, bs= c("tp","tp","tp")),
+                    data = train, family =gaussian,method="REML")
 
     fit.fold<- fit[[k]]
   
