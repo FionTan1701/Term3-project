@@ -85,7 +85,7 @@ for (k in 1:10) {
     
     fit[[k]] <- gam(nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting + 
                       scale_school_density + scale_carehome_density + scale_mobility + scale_BAME + scale_imd_score + scale_prop_urb +
-                      scale_rain_rolling_7day + scale_temp_rolling_7day + s(Easting, Northing, k=150, bs ="tp")+ s(date_index, k=20, bs ="tp") + ti(Easting, Northing, date_index, d=c(2,1), k=20, bs= c("tp","tp","tp")),
+                      scale_rain_rolling_7day + scale_temp_rolling_7day + s(Easting, Northing, k=100, bs ="tp")+ s(date_index, k=20, bs ="tp") + ti(Easting, Northing, date_index, d=c(2,1), k=20, bs= c("tp","tp")),
                     data = train, family =gaussian,method="REML")
 
     fit.fold<- fit[[k]]
@@ -98,7 +98,7 @@ for (k in 1:10) {
     val$predicted <- predict(fit.fold, newdata = val, type = "response")
     # Calculate mean squared error
     mse <- mean((val$nov_3week - val$predicted)^2, na.rm = TRUE)
-    
+    rmse <- sqrt(mse)
     mae <- mean(abs(val$nov_3week - val$predicted), na.rm = TRUE)
     mape <- mean(abs((val$nov_3week - val$predicted) / val$nov_3week), na.rm = TRUE) * 100
     bias <- mean(val$predicted - val$nov_3week, na.rm = TRUE)
@@ -108,6 +108,7 @@ for (k in 1:10) {
     metrics_fold <- data.frame(
     Fold = k,
     MSE = mse,
+    RMSE = rmse,
     MAE = mae,
     MAPE = mape,
     BIAS = bias,
@@ -126,6 +127,10 @@ summary_metrics <- metrics %>%
     SE = sd(MSE, na.rm = TRUE) / sqrt(length(MSE)),
     CI_Lower = Mean_MSE - qt(0.975, df = length(MSE) - 1) * SE,
     CI_Upper = Mean_MSE + qt(0.975, df = length(MSE) - 1) * SE,
+    Mean_rmse = mean(RMSE, na.rm = TRUE),
+    SE_rmse = sd(RMSE, na.rm = TRUE) / sqrt(length(RMSE)),
+    CI_Lower_rmse = Mean_rmse - qt(0.975, df = length(RMSE) - 1) * SE_rmse,
+    CI_Upper_rmse = Mean_rmse + qt(0.975, df = length(RMSE) - 1) * SE_rmse,
     Mean_MAE = mean(MAE, na.rm = TRUE),
     Mean_MAPE = mean(MAPE, na.rm = TRUE),
     Mean_BIAS = mean(BIAS, na.rm = TRUE),
@@ -137,4 +142,4 @@ summary_metrics <- metrics %>%
 # Print the summary of metrics
 print(summary_metrics)
 
-write.csv(metrics, "outputs/ML_model/cv/ML_gam_model_metrics_full.csv")
+write.csv(metrics, "outputs/ML_model/cv/ML_gam_model1_metrics_full.csv")
