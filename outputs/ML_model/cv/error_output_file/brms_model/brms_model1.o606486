@@ -1,0 +1,171 @@
+
+SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 1).
+
+SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 2).
+Chain 1: 
+Chain 1: Gradient evaluation took 0.005451 seconds
+Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 54.51 seconds.
+Chain 1: Adjust your expectations accordingly!
+Chain 1: 
+Chain 1: 
+
+SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 3).
+Chain 2: 
+Chain 2: Gradient evaluation took 0.006074 seconds
+Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 60.74 seconds.
+Chain 2: Adjust your expectations accordingly!
+Chain 2: 
+Chain 2: 
+Chain 3: 
+Chain 3: Gradient evaluation took 0.006557 seconds
+Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 65.57 seconds.
+Chain 3: Adjust your expectations accordingly!
+Chain 3: 
+Chain 3: 
+
+SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 4).
+Chain 4: 
+Chain 4: Gradient evaluation took 0.007588 seconds
+Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 75.88 seconds.
+Chain 4: Adjust your expectations accordingly!
+Chain 4: 
+Chain 4: 
+Chain 1: Iteration:    1 / 4000 [  0%]  (Warmup)
+Chain 3: Iteration:    1 / 4000 [  0%]  (Warmup)
+Chain 2: Iteration:    1 / 4000 [  0%]  (Warmup)
+Chain 4: Iteration:    1 / 4000 [  0%]  (Warmup)
+Chain 3: Iteration:  400 / 4000 [ 10%]  (Warmup)
+Chain 2: Iteration:  400 / 4000 [ 10%]  (Warmup)
+Chain 1: Iteration:  400 / 4000 [ 10%]  (Warmup)
+Chain 4: Iteration:  400 / 4000 [ 10%]  (Warmup)
+Chain 3: Iteration:  800 / 4000 [ 20%]  (Warmup)
+Chain 2: Iteration:  800 / 4000 [ 20%]  (Warmup)
+Chain 1: Iteration:  800 / 4000 [ 20%]  (Warmup)
+Chain 4: Iteration:  800 / 4000 [ 20%]  (Warmup)
+Chain 3: Iteration: 1200 / 4000 [ 30%]  (Warmup)
+Chain 2: Iteration: 1200 / 4000 [ 30%]  (Warmup)
+Chain 1: Iteration: 1200 / 4000 [ 30%]  (Warmup)
+Chain 4: Iteration: 1200 / 4000 [ 30%]  (Warmup)
+Chain 3: Iteration: 1600 / 4000 [ 40%]  (Warmup)
+Chain 2: Iteration: 1600 / 4000 [ 40%]  (Warmup)
+Chain 1: Iteration: 1600 / 4000 [ 40%]  (Warmup)
+Chain 4: Iteration: 1600 / 4000 [ 40%]  (Warmup)
+Chain 3: Iteration: 2000 / 4000 [ 50%]  (Warmup)
+Chain 3: Iteration: 2001 / 4000 [ 50%]  (Sampling)
+Chain 1: Iteration: 2000 / 4000 [ 50%]  (Warmup)
+Chain 2: Iteration: 2000 / 4000 [ 50%]  (Warmup)
+Chain 1: Iteration: 2001 / 4000 [ 50%]  (Sampling)
+Chain 2: Iteration: 2001 / 4000 [ 50%]  (Sampling)
+Chain 4: Iteration: 2000 / 4000 [ 50%]  (Warmup)
+Chain 4: Iteration: 2001 / 4000 [ 50%]  (Sampling)
+Chain 3: Iteration: 2400 / 4000 [ 60%]  (Sampling)
+Chain 1: Iteration: 2400 / 4000 [ 60%]  (Sampling)
+Chain 2: Iteration: 2400 / 4000 [ 60%]  (Sampling)
+Chain 4: Iteration: 2400 / 4000 [ 60%]  (Sampling)
+Chain 3: Iteration: 2800 / 4000 [ 70%]  (Sampling)
+Chain 1: Iteration: 2800 / 4000 [ 70%]  (Sampling)
+Chain 2: Iteration: 2800 / 4000 [ 70%]  (Sampling)
+Chain 4: Iteration: 2800 / 4000 [ 70%]  (Sampling)
+Chain 3: Iteration: 3200 / 4000 [ 80%]  (Sampling)
+Chain 1: Iteration: 3200 / 4000 [ 80%]  (Sampling)
+Chain 2: Iteration: 3200 / 4000 [ 80%]  (Sampling)
+Chain 4: Iteration: 3200 / 4000 [ 80%]  (Sampling)
+Chain 3: Iteration: 3600 / 4000 [ 90%]  (Sampling)
+Chain 1: Iteration: 3600 / 4000 [ 90%]  (Sampling)
+Chain 2: Iteration: 3600 / 4000 [ 90%]  (Sampling)
+Chain 4: Iteration: 3600 / 4000 [ 90%]  (Sampling)
+Chain 3: Iteration: 4000 / 4000 [100%]  (Sampling)
+Chain 3: 
+Chain 3:  Elapsed Time: 9905.79 seconds (Warm-up)
+Chain 3:                10015.7 seconds (Sampling)
+Chain 3:                19921.5 seconds (Total)
+Chain 3: 
+Chain 1: Iteration: 4000 / 4000 [100%]  (Sampling)
+Chain 1: 
+Chain 1:  Elapsed Time: 9954.56 seconds (Warm-up)
+Chain 1:                10018.9 seconds (Sampling)
+Chain 1:                19973.4 seconds (Total)
+Chain 1: 
+Chain 2: Iteration: 4000 / 4000 [100%]  (Sampling)
+Chain 2: 
+Chain 2:  Elapsed Time: 9954.76 seconds (Warm-up)
+Chain 2:                10022.2 seconds (Sampling)
+Chain 2:                19976.9 seconds (Total)
+Chain 2: 
+Chain 4: Iteration: 4000 / 4000 [100%]  (Sampling)
+Chain 4: 
+Chain 4:  Elapsed Time: 10017.4 seconds (Warm-up)
+Chain 4:                9977.88 seconds (Sampling)
+Chain 4:                19995.3 seconds (Total)
+Chain 4: 
+ Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: nov_3week ~ s(Easting, Northing) + s(date_index) + t2(Easting, Northing, date_index) 
+   Data: nov_df (Number of observations: 6435) 
+  Draws: 4 chains, each with iter = 4000; warmup = 2000; thin = 1;
+         total post-warmup draws = 8000
+
+Smoothing Spline Hyperparameters:
+                                   Estimate Est.Error l-95% CI u-95% CI Rhat
+sds(sEastingNorthing_1)                1.66      0.21     1.33     2.16 1.79
+sds(sdate_index_1)                     4.17      0.86     3.13     6.40 1.48
+sds(t2EastingNorthingdate_index_1)     5.29      1.20     3.30     7.86 1.29
+sds(t2EastingNorthingdate_index_2)     3.64      1.16     1.56     6.28 1.14
+sds(t2EastingNorthingdate_index_3)     2.96      1.93     0.12     7.26 1.87
+sds(t2EastingNorthingdate_index_4)     1.87      1.36     0.02     5.08 1.83
+sds(t2EastingNorthingdate_index_5)     3.47      1.84     0.45     7.20 1.41
+sds(t2EastingNorthingdate_index_6)     1.13      0.96     0.06     3.63 1.78
+sds(t2EastingNorthingdate_index_7)     2.54      1.88     0.03     7.98 1.47
+                                   Bulk_ESS Tail_ESS
+sds(sEastingNorthing_1)                   6       31
+sds(sdate_index_1)                        8       15
+sds(t2EastingNorthingdate_index_1)       11       25
+sds(t2EastingNorthingdate_index_2)       27       80
+sds(t2EastingNorthingdate_index_3)        6       11
+sds(t2EastingNorthingdate_index_4)        6       13
+sds(t2EastingNorthingdate_index_5)        8       40
+sds(t2EastingNorthingdate_index_6)        6       21
+sds(t2EastingNorthingdate_index_7)        8       15
+
+Regression Coefficients:
+                              Estimate Est.Error l-95% CI u-95% CI Rhat
+Intercept                         5.06      0.05     4.96     5.15 1.63
+sEastingNorthing_1              198.19    662.67  -923.70  1326.96 2.09
+sEastingNorthing_2             -267.21    846.63 -1948.55   644.73 2.71
+sdate_index_1                  -210.41    453.97 -1143.61   473.11 3.36
+t2EastingNorthingdate_index_1   -29.52     63.11  -159.31    65.37 3.36
+t2EastingNorthingdate_index_2   -20.63     58.27  -128.68    85.91 2.60
+t2EastingNorthingdate_index_3     0.06      0.18    -0.12     0.39 3.07
+t2EastingNorthingdate_index_4   -20.17     72.95  -169.99    64.96 2.65
+t2EastingNorthingdate_index_5    -0.04      0.02    -0.08     0.01 1.42
+t2EastingNorthingdate_index_6    -0.23      0.36    -0.84     0.37 2.80
+t2EastingNorthingdate_index_7     0.03      0.02    -0.00     0.07 1.16
+                              Bulk_ESS Tail_ESS
+Intercept                            7       13
+sEastingNorthing_1                   5       23
+sEastingNorthing_2                   5       13
+sdate_index_1                        4       11
+t2EastingNorthingdate_index_1        4       11
+t2EastingNorthingdate_index_2        5       20
+t2EastingNorthingdate_index_3        5       13
+t2EastingNorthingdate_index_4        5       12
+t2EastingNorthingdate_index_5        9       13
+t2EastingNorthingdate_index_6        5       11
+t2EastingNorthingdate_index_7       22       71
+
+Further Distributional Parameters:
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma     0.61      0.00     0.60     0.62 1.25       14       98
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+
+====================================
+CPU Time used: 21:58:46
+CPU Percent: 396%
+Memory usage: 3142880kb
+Approx Power usage: 0.26359999999999995
+Walltime usage: 05:35:37
+
+====================================

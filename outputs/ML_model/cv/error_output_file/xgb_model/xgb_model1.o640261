@@ -1,0 +1,253 @@
+[1]	train-rmse:3.250179	test-rmse:3.248438 
+[2]	train-rmse:2.318891	test-rmse:2.315087 
+[3]	train-rmse:1.682729	test-rmse:1.680014 
+[4]	train-rmse:1.255248	test-rmse:1.254067 
+[5]	train-rmse:0.976712	test-rmse:0.980738 
+[6]	train-rmse:0.802481	test-rmse:0.809400 
+[7]	train-rmse:0.698754	test-rmse:0.712387 
+[8]	train-rmse:0.641393	test-rmse:0.658931 
+[9]	train-rmse:0.609470	test-rmse:0.629331 
+[10]	train-rmse:0.588219	test-rmse:0.610400 
+[11]	train-rmse:0.577187	test-rmse:0.601648 
+[12]	train-rmse:0.570611	test-rmse:0.596251 
+[13]	train-rmse:0.564389	test-rmse:0.589896 
+[14]	train-rmse:0.560957	test-rmse:0.587862 
+[15]	train-rmse:0.558146	test-rmse:0.586265 
+[16]	train-rmse:0.555417	test-rmse:0.585403 
+[17]	train-rmse:0.553056	test-rmse:0.585294 
+[18]	train-rmse:0.550734	test-rmse:0.584098 
+[19]	train-rmse:0.548273	test-rmse:0.582763 
+[20]	train-rmse:0.546217	test-rmse:0.580294 
+[21]	train-rmse:0.544282	test-rmse:0.578143 
+[22]	train-rmse:0.541922	test-rmse:0.576267 
+[23]	train-rmse:0.540013	test-rmse:0.574826 
+[24]	train-rmse:0.538193	test-rmse:0.572231 
+[25]	train-rmse:0.535650	test-rmse:0.571512 
+[26]	train-rmse:0.530990	test-rmse:0.567309 
+[27]	train-rmse:0.528247	test-rmse:0.565364 
+[28]	train-rmse:0.525130	test-rmse:0.563443 
+[29]	train-rmse:0.523769	test-rmse:0.562018 
+[30]	train-rmse:0.522139	test-rmse:0.561294 
+[31]	train-rmse:0.520576	test-rmse:0.561153 
+[32]	train-rmse:0.519181	test-rmse:0.560385 
+[33]	train-rmse:0.517768	test-rmse:0.559251 
+[34]	train-rmse:0.516200	test-rmse:0.558688 
+[35]	train-rmse:0.513264	test-rmse:0.556923 
+[36]	train-rmse:0.511435	test-rmse:0.556742 
+[37]	train-rmse:0.510087	test-rmse:0.556292 
+[38]	train-rmse:0.508918	test-rmse:0.554808 
+[39]	train-rmse:0.507899	test-rmse:0.553935 
+[40]	train-rmse:0.506824	test-rmse:0.553463 
+[41]	train-rmse:0.505399	test-rmse:0.552709 
+[42]	train-rmse:0.503641	test-rmse:0.551954 
+[43]	train-rmse:0.502188	test-rmse:0.551891 
+[44]	train-rmse:0.501110	test-rmse:0.551400 
+[45]	train-rmse:0.499697	test-rmse:0.551275 
+[46]	train-rmse:0.498519	test-rmse:0.550200 
+[47]	train-rmse:0.497151	test-rmse:0.549734 
+[48]	train-rmse:0.495866	test-rmse:0.550326 
+[49]	train-rmse:0.494929	test-rmse:0.549674 
+[50]	train-rmse:0.494097	test-rmse:0.549404 
+[51]	train-rmse:0.493337	test-rmse:0.548797 
+[52]	train-rmse:0.492617	test-rmse:0.548272 
+[53]	train-rmse:0.491518	test-rmse:0.548007 
+[54]	train-rmse:0.490491	test-rmse:0.547312 
+[55]	train-rmse:0.489411	test-rmse:0.547140 
+[56]	train-rmse:0.488260	test-rmse:0.546681 
+[57]	train-rmse:0.487035	test-rmse:0.545873 
+[58]	train-rmse:0.485983	test-rmse:0.545116 
+[59]	train-rmse:0.484685	test-rmse:0.543894 
+[60]	train-rmse:0.483877	test-rmse:0.543458 
+[61]	train-rmse:0.482972	test-rmse:0.543144 
+[62]	train-rmse:0.482034	test-rmse:0.542577 
+[63]	train-rmse:0.480797	test-rmse:0.541433 
+[64]	train-rmse:0.479669	test-rmse:0.541172 
+[65]	train-rmse:0.478770	test-rmse:0.540363 
+[66]	train-rmse:0.478183	test-rmse:0.539993 
+[67]	train-rmse:0.477384	test-rmse:0.539814 
+[68]	train-rmse:0.475685	test-rmse:0.539060 
+[69]	train-rmse:0.474883	test-rmse:0.539404 
+[70]	train-rmse:0.473693	test-rmse:0.538736 
+[71]	train-rmse:0.473105	test-rmse:0.538897 
+[72]	train-rmse:0.472423	test-rmse:0.538635 
+[73]	train-rmse:0.471686	test-rmse:0.537779 
+[74]	train-rmse:0.471123	test-rmse:0.537195 
+[75]	train-rmse:0.470215	test-rmse:0.536713 
+[76]	train-rmse:0.469364	test-rmse:0.536771 
+[77]	train-rmse:0.468878	test-rmse:0.536594 
+[78]	train-rmse:0.468023	test-rmse:0.536097 
+[79]	train-rmse:0.467198	test-rmse:0.536575 
+[80]	train-rmse:0.466755	test-rmse:0.535988 
+[81]	train-rmse:0.466256	test-rmse:0.535690 
+[82]	train-rmse:0.464922	test-rmse:0.535704 
+[83]	train-rmse:0.463957	test-rmse:0.534556 
+[84]	train-rmse:0.463320	test-rmse:0.534639 
+[85]	train-rmse:0.462735	test-rmse:0.534640 
+[86]	train-rmse:0.462025	test-rmse:0.534277 
+[87]	train-rmse:0.461465	test-rmse:0.533991 
+[88]	train-rmse:0.461039	test-rmse:0.534082 
+[89]	train-rmse:0.460511	test-rmse:0.534279 
+[90]	train-rmse:0.459969	test-rmse:0.533383 
+[91]	train-rmse:0.459244	test-rmse:0.533077 
+[92]	train-rmse:0.458773	test-rmse:0.532868 
+[93]	train-rmse:0.458034	test-rmse:0.532078 
+[94]	train-rmse:0.457226	test-rmse:0.531442 
+[95]	train-rmse:0.456603	test-rmse:0.531119 
+[96]	train-rmse:0.455939	test-rmse:0.530177 
+[97]	train-rmse:0.455185	test-rmse:0.530188 
+[98]	train-rmse:0.454344	test-rmse:0.529579 
+[99]	train-rmse:0.453394	test-rmse:0.529779 
+[100]	train-rmse:0.452923	test-rmse:0.529179 
+[101]	train-rmse:0.451901	test-rmse:0.528319 
+[102]	train-rmse:0.451425	test-rmse:0.528151 
+[103]	train-rmse:0.450167	test-rmse:0.527992 
+[104]	train-rmse:0.449671	test-rmse:0.527845 
+[105]	train-rmse:0.449204	test-rmse:0.527902 
+[106]	train-rmse:0.448495	test-rmse:0.527904 
+[107]	train-rmse:0.447999	test-rmse:0.528512 
+[108]	train-rmse:0.447489	test-rmse:0.528199 
+[109]	train-rmse:0.446635	test-rmse:0.527692 
+[110]	train-rmse:0.445906	test-rmse:0.527919 
+[111]	train-rmse:0.445417	test-rmse:0.527320 
+[112]	train-rmse:0.444660	test-rmse:0.527099 
+[113]	train-rmse:0.444150	test-rmse:0.527345 
+[114]	train-rmse:0.443509	test-rmse:0.526884 
+[115]	train-rmse:0.442984	test-rmse:0.526552 
+[116]	train-rmse:0.442634	test-rmse:0.526386 
+[117]	train-rmse:0.442232	test-rmse:0.525735 
+[118]	train-rmse:0.441938	test-rmse:0.525431 
+[119]	train-rmse:0.441465	test-rmse:0.525244 
+[120]	train-rmse:0.441068	test-rmse:0.525623 
+[121]	train-rmse:0.440647	test-rmse:0.525369 
+[122]	train-rmse:0.440181	test-rmse:0.525113 
+[123]	train-rmse:0.439710	test-rmse:0.525028 
+[124]	train-rmse:0.439212	test-rmse:0.524909 
+[125]	train-rmse:0.438832	test-rmse:0.524747 
+[126]	train-rmse:0.438225	test-rmse:0.524749 
+[127]	train-rmse:0.437750	test-rmse:0.524399 
+[128]	train-rmse:0.437528	test-rmse:0.524243 
+[129]	train-rmse:0.437145	test-rmse:0.523863 
+[130]	train-rmse:0.436911	test-rmse:0.523721 
+[131]	train-rmse:0.436067	test-rmse:0.523469 
+[132]	train-rmse:0.435664	test-rmse:0.523489 
+[133]	train-rmse:0.434925	test-rmse:0.522724 
+[134]	train-rmse:0.433879	test-rmse:0.523119 
+[135]	train-rmse:0.433267	test-rmse:0.522986 
+[136]	train-rmse:0.432807	test-rmse:0.522936 
+[137]	train-rmse:0.432351	test-rmse:0.522869 
+[138]	train-rmse:0.431507	test-rmse:0.522522 
+[139]	train-rmse:0.430538	test-rmse:0.522806 
+[140]	train-rmse:0.430145	test-rmse:0.522450 
+[141]	train-rmse:0.429647	test-rmse:0.523151 
+[142]	train-rmse:0.429204	test-rmse:0.523087 
+[143]	train-rmse:0.428478	test-rmse:0.523207 
+[144]	train-rmse:0.427967	test-rmse:0.522984 
+[145]	train-rmse:0.427396	test-rmse:0.522969 
+[146]	train-rmse:0.426802	test-rmse:0.522633 
+[147]	train-rmse:0.426006	test-rmse:0.522625 
+[148]	train-rmse:0.425317	test-rmse:0.522400 
+[149]	train-rmse:0.424582	test-rmse:0.522762 
+[150]	train-rmse:0.424184	test-rmse:0.522890 
+[151]	train-rmse:0.423721	test-rmse:0.522600 
+[152]	train-rmse:0.423116	test-rmse:0.523060 
+[153]	train-rmse:0.422483	test-rmse:0.523295 
+[154]	train-rmse:0.422174	test-rmse:0.523086 
+[155]	train-rmse:0.421323	test-rmse:0.522613 
+[156]	train-rmse:0.420670	test-rmse:0.522436 
+[157]	train-rmse:0.420045	test-rmse:0.522613 
+[158]	train-rmse:0.419490	test-rmse:0.522115 
+[159]	train-rmse:0.418869	test-rmse:0.521718 
+[160]	train-rmse:0.418334	test-rmse:0.521363 
+[161]	train-rmse:0.418097	test-rmse:0.521342 
+[162]	train-rmse:0.417890	test-rmse:0.521361 
+[163]	train-rmse:0.417575	test-rmse:0.521201 
+[164]	train-rmse:0.417329	test-rmse:0.521036 
+[165]	train-rmse:0.416986	test-rmse:0.520807 
+[166]	train-rmse:0.416816	test-rmse:0.520879 
+[167]	train-rmse:0.416661	test-rmse:0.520685 
+[168]	train-rmse:0.416421	test-rmse:0.520631 
+[169]	train-rmse:0.415763	test-rmse:0.521183 
+[170]	train-rmse:0.415403	test-rmse:0.521154 
+[171]	train-rmse:0.415125	test-rmse:0.521206 
+[172]	train-rmse:0.414890	test-rmse:0.521367 
+[173]	train-rmse:0.413960	test-rmse:0.520729 
+[174]	train-rmse:0.413637	test-rmse:0.520637 
+[175]	train-rmse:0.413196	test-rmse:0.520217 
+[176]	train-rmse:0.412887	test-rmse:0.519919 
+[177]	train-rmse:0.412205	test-rmse:0.519543 
+[178]	train-rmse:0.411920	test-rmse:0.519524 
+[179]	train-rmse:0.411441	test-rmse:0.519780 
+[180]	train-rmse:0.411066	test-rmse:0.519791 
+[181]	train-rmse:0.410704	test-rmse:0.519542 
+[182]	train-rmse:0.410375	test-rmse:0.519733 
+[183]	train-rmse:0.409788	test-rmse:0.519689 
+[184]	train-rmse:0.409551	test-rmse:0.519859 
+[185]	train-rmse:0.409319	test-rmse:0.519529 
+[186]	train-rmse:0.408896	test-rmse:0.519474 
+[187]	train-rmse:0.408157	test-rmse:0.519734 
+[188]	train-rmse:0.407898	test-rmse:0.519494 
+[189]	train-rmse:0.407702	test-rmse:0.519322 
+[190]	train-rmse:0.407475	test-rmse:0.519438 
+[191]	train-rmse:0.406742	test-rmse:0.519754 
+[192]	train-rmse:0.406320	test-rmse:0.520073 
+[193]	train-rmse:0.405940	test-rmse:0.520045 
+[194]	train-rmse:0.405328	test-rmse:0.520277 
+[195]	train-rmse:0.404889	test-rmse:0.520077 
+[196]	train-rmse:0.404640	test-rmse:0.520239 
+[197]	train-rmse:0.404014	test-rmse:0.519878 
+[198]	train-rmse:0.403254	test-rmse:0.519764 
+[199]	train-rmse:0.402935	test-rmse:0.519836 
+[200]	train-rmse:0.402497	test-rmse:0.519733 
+##### xgb.Booster
+raw: 228.5 Kb 
+call:
+  xgb.train(data = xgb_train, nrounds = 200, watchlist = watchlist, 
+    max.depth = 3)
+params (as set within xgb.train):
+  max_depth = "3", validate_parameters = "1"
+xgb.attributes:
+  niter
+callbacks:
+  cb.print.evaluation(period = print_every_n)
+  cb.evaluation.log()
+# of features: 208 
+niter: 200
+nfeatures : 208 
+evaluation_log:
+  iter train_rmse test_rmse
+ <num>      <num>     <num>
+     1  3.2501793 3.2484381
+     2  2.3188910 2.3150874
+   ---        ---       ---
+   199  0.4029348 0.5198364
+   200  0.4024971 0.5197333
+[1] "best parameters: 0.1" "best parameters: 8"   "best parameters: 0.9"
+[4] "best parameters: 0.9"
+[1] 0.5007261
+               Length Class              Mode       
+handle              1 xgb.Booster.handle externalptr
+raw            571892 -none-             raw        
+niter               1 -none-             numeric    
+evaluation_log      2 data.table         list       
+call               13 -none-             call       
+params              7 -none-             list       
+callbacks           1 -none-             list       
+feature_names     208 -none-             character  
+nfeatures           1 -none-             numeric    
+[1] "Mean Squared Error (MSE): 0.257973467257506"
+[1] "Root Mean Squared Error (RMSE): 0.507910885153593"
+[1] "Mean Absolute Error (MAE): 0.371433171978156"
+[1] "Mean Absolute Percentage Error (MAPE): 7.96741628760729"
+[1] "Bias: 0.0178641415957137"
+[1] "Percent Bias (pBIAS): 0.354616560961334"
+[1] "Spearman Correlation: 0.708780288410743"
+[1] "R-squared: 0.505795202454902"
+
+====================================
+CPU Time used: 00:13:19
+CPU Percent: 99%
+Memory usage: 3794112kb
+Approx Power usage: 0.0026
+Walltime usage: 00:15:17
+
+====================================

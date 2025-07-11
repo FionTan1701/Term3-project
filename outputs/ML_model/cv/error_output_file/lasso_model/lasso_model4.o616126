@@ -1,0 +1,84 @@
+ num [1:5148, 1:59] 0 0 0 1 0 0 0 0 0 0 ...
+ - attr(*, "dimnames")=List of 2
+  ..$ : chr [1:5148] "2768" "2822" "2522" "711" ...
+  ..$ : chr [1:59] "lockdown_step3" "lockdown_step4" "lockdown_planB" "lockdown_lifting" ...
+ - attr(*, "assign")= int [1:59] 1 2 3 4 5 6 7 8 9 10 ...
+ - attr(*, "contrasts")=List of 1
+  ..$ one_week_date: chr "contr.treatment"
+NULL
+[1] "Best lambda: 0.00017001327720332"
+null device 
+          1 
+60 x 1 sparse Matrix of class "dgCMatrix"
+                                   s0
+(Intercept)              5.470908e+00
+lockdown_step3          -5.580615e-01
+lockdown_step4           .           
+lockdown_planB          -9.234085e-02
+lockdown_lifting         1.634207e-01
+scale_school_density    -2.278282e-02
+scale_carehome_density  -1.422252e-02
+scale_imd_score          7.593542e-03
+scale_BAME              -1.622222e-01
+scale_mobility           1.848370e-01
+scale_rain_rolling_7day -1.246959e-02
+scale_temp_rolling_7day -1.092348e-01
+scale_prop_urb          -1.230106e-02
+one_week_date01/11/2021 -1.156184e-01
+one_week_date02/08/2021  1.466607e-01
+one_week_date03/01/2022  2.720094e-01
+one_week_date04/10/2021 -2.292016e-01
+one_week_date05/07/2021  3.814355e-01
+one_week_date06/09/2021 -7.597711e-03
+one_week_date06/12/2021  4.549037e-02
+one_week_date07/02/2022 -2.758031e-01
+one_week_date07/03/2022  1.729336e-01
+one_week_date07/06/2021 -5.037849e-01
+one_week_date08/11/2021  4.652864e-02
+one_week_date09/08/2021  1.489995e-01
+one_week_date10/01/2022 -1.331129e-01
+one_week_date11/10/2021 -2.172042e-01
+one_week_date12/07/2021  4.239428e-01
+one_week_date13/09/2021  1.019848e-01
+one_week_date13/12/2021  1.668191e-01
+one_week_date14/02/2022 -1.417356e-01
+one_week_date14/03/2022  2.546040e-01
+one_week_date14/06/2021 -4.014239e-01
+one_week_date15/11/2021  2.884220e-03
+one_week_date16/08/2021  2.186406e-01
+one_week_date17/01/2022 -3.406208e-01
+one_week_date18/10/2021 -2.221384e-01
+one_week_date19/07/2021 -1.223845e-01
+one_week_date20/09/2021 -1.127845e-01
+one_week_date20/12/2021  2.926379e-01
+one_week_date21/02/2022  9.858077e-02
+one_week_date21/03/2022  1.124683e-01
+one_week_date21/06/2021 -2.444244e-01
+one_week_date22/11/2021  5.341009e-02
+one_week_date23/08/2021  2.083475e-01
+one_week_date24/01/2022 -4.295374e-01
+one_week_date24/05/2021 -9.623632e-01
+one_week_date25/10/2021 -1.678461e-01
+one_week_date26/07/2021  7.095477e-02
+one_week_date27/09/2021 -1.561434e-01
+one_week_date27/12/2021  8.797267e-01
+one_week_date28/02/2022  6.982182e-02
+one_week_date28/03/2022  8.333145e-02
+one_week_date28/06/2021 -3.196658e-02
+one_week_date29/11/2021  1.503933e-02
+one_week_date30/08/2021  3.883765e-01
+one_week_date31/01/2022 -5.674269e-01
+one_week_date31/05/2021 -2.128926e-01
+Easting                 -4.149231e-07
+Northing                -6.086133e-07
+[1] "Predicting on the test set..."
+[1] "R-squared: 0.213247335538423"
+
+====================================
+CPU Time used: 00:00:00
+CPU Percent: 0%
+Memory usage: 0b
+Approx Power usage: 0.0
+Walltime usage: 00:00:22
+
+====================================

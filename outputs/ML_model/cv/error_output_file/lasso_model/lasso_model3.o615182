@@ -1,0 +1,31 @@
+[1] "Best lambda: 0.000618325269668114"
+null device 
+          1 
+15 x 1 sparse Matrix of class "dgCMatrix"
+                                   s0
+(Intercept)              5.1573952087
+lockdown_step3          -0.4892607128
+lockdown_step4           .           
+lockdown_planB          -0.0851454070
+lockdown_lifting         0.1217802074
+scale_school_density    -0.0267349556
+scale_carehome_density   0.0296469946
+scale_imd_score         -0.0070991377
+scale_BAME              -0.1538517843
+scale_mobility           0.0510685657
+scale_rain_rolling_7day  0.0312296406
+scale_temp_rolling_7day  0.0357454660
+scale_prop_urb          -0.0471121400
+one_week_date           -0.0017019249
+site_code               -0.0001940659
+[1] "Predicting on the test set..."
+[1] "R-squared: 0.206148934637488"
+
+====================================
+CPU Time used: 00:00:00
+CPU Percent: 0%
+Memory usage: 0b
+Approx Power usage: 0.0
+Walltime usage: 00:00:05
+
+====================================

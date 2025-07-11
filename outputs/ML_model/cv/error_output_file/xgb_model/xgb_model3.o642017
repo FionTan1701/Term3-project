@@ -1,0 +1,438 @@
++ Fold01: eta=0.01, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:21] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:21] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold01: eta=0.01, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold01: eta=0.01, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:22] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:22] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold01: eta=0.01, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold01: eta=0.01, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:23] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:23] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold01: eta=0.01, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold01: eta=0.10, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:24] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:24] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold01: eta=0.10, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold01: eta=0.10, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:25] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:25] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold01: eta=0.10, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold01: eta=0.10, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:26] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:26] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold01: eta=0.10, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold01: eta=0.20, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:27] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:27] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold01: eta=0.20, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold01: eta=0.20, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:28] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:28] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold01: eta=0.20, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold01: eta=0.20, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:29] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:29] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold01: eta=0.20, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold02: eta=0.01, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:29] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:29] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold02: eta=0.01, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold02: eta=0.01, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:30] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:30] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold02: eta=0.01, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold02: eta=0.01, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:31] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:31] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold02: eta=0.01, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold02: eta=0.10, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:32] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:32] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold02: eta=0.10, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold02: eta=0.10, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:33] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:33] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold02: eta=0.10, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold02: eta=0.10, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:34] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:34] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold02: eta=0.10, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold02: eta=0.20, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:35] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:35] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold02: eta=0.20, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold02: eta=0.20, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:36] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:36] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold02: eta=0.20, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold02: eta=0.20, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:37] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:37] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold02: eta=0.20, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold03: eta=0.01, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:38] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:38] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold03: eta=0.01, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold03: eta=0.01, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:39] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:39] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold03: eta=0.01, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold03: eta=0.01, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:40] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:40] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold03: eta=0.01, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold03: eta=0.10, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:40] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:40] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold03: eta=0.10, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold03: eta=0.10, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:41] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:41] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold03: eta=0.10, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold03: eta=0.10, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:43] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:43] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold03: eta=0.10, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold03: eta=0.20, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:43] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:43] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold03: eta=0.20, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold03: eta=0.20, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:44] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:44] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold03: eta=0.20, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold03: eta=0.20, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:45] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:45] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold03: eta=0.20, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold04: eta=0.01, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:46] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:46] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold04: eta=0.01, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold04: eta=0.01, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:47] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:47] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold04: eta=0.01, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold04: eta=0.01, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:48] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:48] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold04: eta=0.01, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold04: eta=0.10, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:49] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:49] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold04: eta=0.10, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold04: eta=0.10, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:50] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:50] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold04: eta=0.10, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold04: eta=0.10, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:51] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:51] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold04: eta=0.10, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold04: eta=0.20, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:52] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:52] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold04: eta=0.20, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold04: eta=0.20, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:52] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:52] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold04: eta=0.20, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold04: eta=0.20, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:54] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:54] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold04: eta=0.20, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold05: eta=0.01, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:54] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:54] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold05: eta=0.01, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold05: eta=0.01, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:55] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:55] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold05: eta=0.01, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold05: eta=0.01, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:56] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:56] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold05: eta=0.01, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold05: eta=0.10, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:57] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:57] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold05: eta=0.10, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold05: eta=0.10, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:58] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:58] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold05: eta=0.10, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold05: eta=0.10, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:15:59] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:15:59] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold05: eta=0.10, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold05: eta=0.20, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:00] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:00] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold05: eta=0.20, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold05: eta=0.20, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:01] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:01] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold05: eta=0.20, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold05: eta=0.20, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:02] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:02] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold05: eta=0.20, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold06: eta=0.01, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:03] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:03] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold06: eta=0.01, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold06: eta=0.01, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:03] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:03] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold06: eta=0.01, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold06: eta=0.01, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:05] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:05] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold06: eta=0.01, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold06: eta=0.10, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:05] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:05] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold06: eta=0.10, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold06: eta=0.10, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:06] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:06] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold06: eta=0.10, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold06: eta=0.10, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:07] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:07] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold06: eta=0.10, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold06: eta=0.20, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:08] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:08] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold06: eta=0.20, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold06: eta=0.20, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:09] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:09] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold06: eta=0.20, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold06: eta=0.20, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:10] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:10] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold06: eta=0.20, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold07: eta=0.01, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:11] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:11] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold07: eta=0.01, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold07: eta=0.01, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:12] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:12] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold07: eta=0.01, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold07: eta=0.01, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:13] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:13] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold07: eta=0.01, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold07: eta=0.10, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:14] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:14] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold07: eta=0.10, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold07: eta=0.10, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:14] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:14] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold07: eta=0.10, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold07: eta=0.10, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:16] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:16] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold07: eta=0.10, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold07: eta=0.20, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:16] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:16] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold07: eta=0.20, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold07: eta=0.20, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:17] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:17] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold07: eta=0.20, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold07: eta=0.20, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:18] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:18] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold07: eta=0.20, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold08: eta=0.01, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:19] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:19] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold08: eta=0.01, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold08: eta=0.01, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:20] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:20] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold08: eta=0.01, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold08: eta=0.01, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:21] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:21] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold08: eta=0.01, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold08: eta=0.10, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:22] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:22] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold08: eta=0.10, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold08: eta=0.10, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:23] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:23] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold08: eta=0.10, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold08: eta=0.10, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:24] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:24] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold08: eta=0.10, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold08: eta=0.20, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:25] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:25] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold08: eta=0.20, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold08: eta=0.20, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:26] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:26] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold08: eta=0.20, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold08: eta=0.20, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:27] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:27] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold08: eta=0.20, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold09: eta=0.01, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:27] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:27] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold09: eta=0.01, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold09: eta=0.01, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:28] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:28] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold09: eta=0.01, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold09: eta=0.01, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:29] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:29] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold09: eta=0.01, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold09: eta=0.10, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:30] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:30] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold09: eta=0.10, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold09: eta=0.10, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:31] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:31] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold09: eta=0.10, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold09: eta=0.10, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:32] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:32] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold09: eta=0.10, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold09: eta=0.20, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:33] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:33] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold09: eta=0.20, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold09: eta=0.20, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:34] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:34] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold09: eta=0.20, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold09: eta=0.20, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:35] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:35] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold09: eta=0.20, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold10: eta=0.01, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:36] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:36] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold10: eta=0.01, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold10: eta=0.01, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:37] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:37] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold10: eta=0.01, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold10: eta=0.01, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:38] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:38] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold10: eta=0.01, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold10: eta=0.10, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:38] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:38] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold10: eta=0.10, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold10: eta=0.10, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:39] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:39] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold10: eta=0.10, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold10: eta=0.10, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:40] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:40] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold10: eta=0.10, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold10: eta=0.20, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:41] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:41] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold10: eta=0.20, max_depth=3, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold10: eta=0.20, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:42] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:42] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold10: eta=0.20, max_depth=4, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
++ Fold10: eta=0.20, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+[17:16:43] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+[17:16:43] WARNING: src/c_api/c_api.cc:935: `ntree_limit` is deprecated, use `iteration_range` instead.
+- Fold10: eta=0.20, max_depth=5, gamma=0, colsample_bytree=1, min_child_weight=1, subsample=1, nrounds=300 
+Aggregating results
+Selecting tuning parameters
+Fitting nrounds = 300, max_depth = 5, eta = 0.1, gamma = 0, colsample_bytree = 1, min_child_weight = 1, subsample = 1 on full training set
+    eta max_depth gamma colsample_bytree min_child_weight subsample nrounds
+1  0.01         3     0                1                1         1     100
+10 0.10         3     0                1                1         1     100
+19 0.20         3     0                1                1         1     100
+4  0.01         4     0                1                1         1     100
+13 0.10         4     0                1                1         1     100
+22 0.20         4     0                1                1         1     100
+7  0.01         5     0                1                1         1     100
+16 0.10         5     0                1                1         1     100
+25 0.20         5     0                1                1         1     100
+2  0.01         3     0                1                1         1     200
+11 0.10         3     0                1                1         1     200
+20 0.20         3     0                1                1         1     200
+5  0.01         4     0                1                1         1     200
+14 0.10         4     0                1                1         1     200
+23 0.20         4     0                1                1         1     200
+8  0.01         5     0                1                1         1     200
+17 0.10         5     0                1                1         1     200
+26 0.20         5     0                1                1         1     200
+3  0.01         3     0                1                1         1     300
+12 0.10         3     0                1                1         1     300
+21 0.20         3     0                1                1         1     300
+6  0.01         4     0                1                1         1     300
+15 0.10         4     0                1                1         1     300
+24 0.20         4     0                1                1         1     300
+9  0.01         5     0                1                1         1     300
+18 0.10         5     0                1                1         1     300
+27 0.20         5     0                1                1         1     300
+         MAE          BIAS      RMSE       MAESD      BIASSD      RMSESD
+1  1.6700975 -1.664110e+00 1.7797472 0.007944367 0.009200677 0.007629661
+10 0.4019418 -5.849499e-04 0.5245156 0.013503593 0.014944459 0.021615085
+19 0.3870100 -9.289872e-05 0.5070850 0.012450374 0.015242607 0.020691501
+4  1.6711290 -1.665675e+00 1.7755678 0.007614079 0.008557008 0.007576794
+13 0.3824349 -5.332342e-04 0.5010967 0.015105647 0.015350931 0.023617455
+22 0.3755353 -3.087701e-03 0.4912409 0.013984182 0.015020124 0.023648195
+7  1.6726911 -1.667779e+00 1.7718227 0.008026792 0.008651842 0.008054174
+16 0.3713570 -2.502304e-03 0.4885167 0.014141356 0.014341582 0.022942746
+25 0.3680300  1.003295e-03 0.4838109 0.012849713 0.015697233 0.022502448
+2  0.7344943 -6.105505e-01 0.8544305 0.013034864 0.010884278 0.012852845
+11 0.3860855 -6.920935e-04 0.5064556 0.012811557 0.015690159 0.022667302
+20 0.3826470 -8.765134e-04 0.5024142 0.010513182 0.016550903 0.019832130
+5  0.7224122 -6.120766e-01 0.8379553 0.012800818 0.010405568 0.012902027
+14 0.3739618 -8.478655e-04 0.4907887 0.013444711 0.014746291 0.022738144
+23 0.3731843 -3.808460e-03 0.4876252 0.014066051 0.015864840 0.023174835
+8  0.7132261 -6.153277e-01 0.8246721 0.012554539 0.011733221 0.012823877
+17 0.3651276 -2.653931e-03 0.4814708 0.013319205 0.014538869 0.021596541
+26 0.3672072 -2.281451e-04 0.4835663 0.011863911 0.016628982 0.021717625
+3  0.5022391 -2.243151e-01 0.6175894 0.010536746 0.012031313 0.016949323
+12 0.3808948 -1.130589e-03 0.5001677 0.012562537 0.015930805 0.023160154
+21 0.3814214 -6.414833e-04 0.5013600 0.011193439 0.017028122 0.021132375
+6  0.4821370 -2.260200e-01 0.5931936 0.011249276 0.011791715 0.017261434
+15 0.3719706 -9.011690e-04 0.4881536 0.013321953 0.014163541 0.023716937
+24 0.3729937 -5.316103e-03 0.4886618 0.013306678 0.015371137 0.023106545
+9  0.4645187 -2.281374e-01 0.5720502 0.011343714 0.013169991 0.017534498
+18 0.3638604 -3.661971e-03 0.4798082 0.012662513 0.015204395 0.020801126
+27 0.3666608 -7.122452e-04 0.4834877 0.012291461 0.016530793 0.021319523
+   nrounds max_depth eta gamma colsample_bytree min_child_weight subsample
+18     300         5 0.1     0                1                1         1
+[1] "Mean Squared Error (MSE): 0.2408989903783"
+[1] "Root Mean Squared Error (RMSE): 0.490814619157071"
+[1] "Mean Absolute Error (MAE): 0.35608893794394"
+[1] "Mean Absolute Percentage Error (MAPE): 7.65141534917346"
+[1] "Bias: 0.0195732232277098"
+[1] "Percent Bias (pBIAS): 0.388543108592712"
+[1] "Spearman Correlation: 0.738580900318293"
+[1] "R-squared: 0.538505110489178"
+
+====================================
+CPU Time used: 00:00:00
+CPU Percent: 0%
+Memory usage: 0b
+Approx Power usage: 0.0
+Walltime usage: 00:01:44
+
+====================================
