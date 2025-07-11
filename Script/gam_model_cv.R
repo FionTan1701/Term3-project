@@ -85,8 +85,8 @@ for (k in 1:10) {
     
     fit[[k]] <- gam(nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting + 
                       scale_school_density + scale_carehome_density + scale_mobility + scale_BAME + scale_imd_score + scale_prop_urb +
-                      scale_rain_rolling_7day + scale_temp_rolling_7day + s(Easting, Northing, k=100, bs ="tp")+ s(date_index, k=20, bs ="tp") + ti(Easting, Northing, date_index, d=c(2,1), k=20, bs= c("tp","tp")),
-                    data = train, family =gaussian,method="REML")
+                      scale_rain_rolling_7day + scale_temp_rolling_7day + s(Easting, Northing, k=130, bs ="tp")+ s(date_index, k=20, bs ="tp") + ti(Easting, Northing, date_index, d=c(2,1), k=20, bs= c("tp","tp")),
+                    data = train, family =gaussian(),method="REML")
 
     fit.fold<- fit[[k]]
   
@@ -142,4 +142,4 @@ summary_metrics <- metrics %>%
 # Print the summary of metrics
 print(summary_metrics)
 
-write.csv(metrics, "outputs/ML_model/cv/ML_gam_model1_metrics_full.csv")
+write.csv(metrics, "outputs/ML_model/cv/ML_gam_model3_metrics_full.csv")

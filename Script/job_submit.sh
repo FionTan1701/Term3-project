@@ -1,10 +1,10 @@
-#PBS -l walltime=12:00:00
-#PBS -l select=1:ncpus=4:mem=100gb
-#PBS -N gam_model_cv
+#PBS -l walltime=24:00:00
+#PBS -l select=1:ncpus=4:mem=200gb
+#PBS -N xgb_model_cv
 
 cd /rds/general/user/ft824/home/Term3-project/Script
 
 eval "$(~/anaconda3/bin/conda shell.bash hook)"
 source activate r442
 
-Rscript gam_model_cv.R
+Rscript xgb_model_cv.R

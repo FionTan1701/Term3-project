@@ -1,5 +1,5 @@
 library(tidyverse)
-library(brms)
+library(glmnet)
 library(sf)
 library(sp)
 library(raster)
@@ -27,6 +27,7 @@ scale_covariates <- function(df, covariates_to_scale) {
 
 nov_df<- scale_covariates(nov_df, covariates_to_scale)
 nov_df<- as.data.frame(nov_df)
+nov_df <- nov_df[!is.na(nov_df$nov_3week), ]
 
 nov <- nov_df
 nov <- st_as_sf(nov_df, coords= c("Easting", "Northing"), crs= 27700)
@@ -82,34 +83,56 @@ for (k in 1:10) {
     val$Easting <- val_coords[,1]
     val$Northing <- val_coords[,2]
 
-    
-    fit[[k]] <- brm(nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting + 
-                      scale_school_density + scale_carehome_density + scale_mobility + scale_BAME + scale_imd_score + scale_prop_urb +
-                      scale_rain_rolling_7day + scale_temp_rolling_7day + s(Easting, Northing, k=130, bs ="tp")+ s(date_index, k=20, bs ="tp") + t2(Easting, Northing, date_index, d=c(2,1), k=20, bs= c("tp","tp")),
-                      data = train,
-                      family = gaussian(),
-                      chains = 4, cores = 4, iter = 1000, warmup = 500, thin = 1,
-                      control = list(adapt_delta = 0.95))
+    y_train <- train$nov_3week
+    X_train <- model.matrix(nov_3week ~ -1 + lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting +
+                              scale_school_density + scale_carehome_density + scale_imd_score +scale_BAME+
+                              scale_mobility+ scale_rain_rolling_7day+ scale_temp_rolling_7day+ scale_prop_urb+
+                              date_index * site_code, data = train)
+
+    X_test <- model.matrix(nov_3week ~ -1 + lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting +
+                              scale_school_density + scale_carehome_density + scale_imd_score +scale_BAME+
+                              scale_mobility+ scale_rain_rolling_7day+ scale_temp_rolling_7day+ scale_prop_urb+date_index * site_code, data = val)                       
+
+    y_test <- val$nov_3week   
+
+    # Align test matrix columns to training matrix
+    missing_cols <- setdiff(colnames(X_train), colnames(X_test))
+    extra_cols <- setdiff(colnames(X_test), colnames(X_train))
+
+    # Remove extra columns from test set if any
+    if(length(extra_cols) > 0) {
+      X_test <- X_test[, !(colnames(X_test) %in% extra_cols), drop = FALSE]
+    }
+
+    # Add missing columns as zeros
+    if(length(missing_cols) > 0) {
+      zero_mat <- matrix(0, nrow = nrow(X_test), ncol = length(missing_cols))
+      colnames(zero_mat) <- missing_cols
+      X_test <- cbind(X_test, zero_mat)
+    }
+
+    # Reorder columns to match training set
+    X_test <- X_test[, colnames(X_train), drop = FALSE]
+
+    cv_model <- cv.glmnet(X_train, y_train, alpha = 1, family = "gaussian", nfolds = 10)
+    fit[[k]] <- glmnet(X_train, y_train, alpha = 1, lambda = cv_model$lambda.min, family = "gaussian")
+    print(paste("Best lambda:",cv_model$lambda.min ))                     
 
     fit.fold<- fit[[k]]
   
     print(summary(fit.fold))
-    print(paste("check prior distributions:"))
     
   
     # Predictions
-    # mean of posterior predictions as the final prediction
-    val$predicted<-fitted(fit.fold, newdata = val)[, "Estimate"]
-    #val$predicted <- if (is.null(dim(pp))) mean(pp) else colMeans(pp)
-
-    # Calculate metrics
+    val$predicted <- predict(fit.fold, s= cv_model$lambda.min, newx = X_test)
+    # Calculate mean squared error
     mse <- mean((val$nov_3week - val$predicted)^2, na.rm = TRUE)
     rmse <- sqrt(mse)
     mae <- mean(abs(val$nov_3week - val$predicted), na.rm = TRUE)
     mape <- mean(abs((val$nov_3week - val$predicted) / val$nov_3week), na.rm = TRUE) * 100
     bias <- mean(val$predicted - val$nov_3week, na.rm = TRUE)
     pbias <- (bias / mean(val$nov_3week, na.rm = TRUE)) * 100
-    corr <- cor(val$nov_3week, val$predicted, use="complete.obs", method="spearman")      
+    corr <- as.numeric(cor(val$nov_3week, val$predicted, use="complete.obs", method="spearman"))      
 
     metrics_fold <- data.frame(
     Fold = k,
@@ -127,18 +150,9 @@ for (k in 1:10) {
    
 }
 
-priors_k <- get_prior(
-  nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting + 
-    scale_school_density + scale_carehome_density + scale_mobility + scale_BAME + 
-    scale_imd_score + scale_prop_urb + scale_rain_rolling_7day + scale_temp_rolling_7day + 
-    s(Easting, Northing, k=130, bs ="tp") + 
-    s(date_index, k=20, bs ="tp") + 
-    t2(Easting, Northing, date_index, d=c(2,1), k=20, bs= c("tp","tp")),
-  data = train,
-  family = gaussian()
-)
-
-print(priors_k)
+print(dim(metrics))
+print(names(metrics))
+print(head(metrics))
 
 summary_metrics <- metrics %>%
   summarise(
@@ -161,4 +175,4 @@ summary_metrics <- metrics %>%
 # Print the summary of metrics
 print(summary_metrics)
 
-write.csv(metrics, "outputs/ML_model/cv/ML_brms_model1_metrics_full.csv")
+write.csv(metrics, "outputs/ML_model/cv/ML_lasso_model6_metrics_full.csv")

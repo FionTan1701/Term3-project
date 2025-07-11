@@ -1,0 +1,272 @@
+
+SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 
+SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 1).
+2).
+
+SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 3).
+
+SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 4).
+Chain Chain 21: : 
+
+Chain Chain 21: : Gradient evaluation took 0.014875 secondsGradient evaluation took 0.014839 seconds
+
+Chain Chain 12: : 1000 transitions using 10 leapfrog steps per transition would take 148.39 seconds.1000 transitions using 10 leapfrog steps per transition would take 148.75 seconds.
+
+Chain Chain 12: : Adjust your expectations accordingly!Adjust your expectations accordingly!
+
+Chain Chain 12: : 
+
+Chain Chain 12: : 
+
+Chain 4: 
+Chain 4: Gradient evaluation took 0.016317 seconds
+Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 163.17 seconds.
+Chain 4: Adjust your expectations accordingly!
+Chain 4: 
+Chain 4: 
+Chain 3: 
+Chain 3: Gradient evaluation took 0.018334 seconds
+Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 183.34 seconds.
+Chain 3: Adjust your expectations accordingly!
+Chain 3: 
+Chain 3: 
+Chain 1: Iteration:    1 / 4000 [  0%]  (Warmup)
+Chain 2: Iteration:    1 / 4000 [  0%]  (Warmup)
+Chain 3: Iteration:    1 / 4000 [  0%]  (Warmup)
+Chain 4: Iteration:    1 / 4000 [  0%]  (Warmup)
+Chain 4: Iteration:  400 / 4000 [ 10%]  (Warmup)
+Chain 3: Iteration:  400 / 4000 [ 10%]  (Warmup)
+Chain 2: Iteration:  400 / 4000 [ 10%]  (Warmup)
+Chain 1: Iteration:  400 / 4000 [ 10%]  (Warmup)
+Chain 3: Iteration:  800 / 4000 [ 20%]  (Warmup)
+Chain 4: Iteration:  800 / 4000 [ 20%]  (Warmup)
+Chain 2: Iteration:  800 / 4000 [ 20%]  (Warmup)
+Chain 1: Iteration:  800 / 4000 [ 20%]  (Warmup)
+Chain 3: Iteration: 1200 / 4000 [ 30%]  (Warmup)
+Chain 4: Iteration: 1200 / 4000 [ 30%]  (Warmup)
+Chain 2: Iteration: 1200 / 4000 [ 30%]  (Warmup)
+Chain 1: Iteration: 1200 / 4000 [ 30%]  (Warmup)
+Chain 4: Iteration: 1600 / 4000 [ 40%]  (Warmup)
+Chain 3: Iteration: 1600 / 4000 [ 40%]  (Warmup)
+Chain 2: Iteration: 1600 / 4000 [ 40%]  (Warmup)
+Chain 1: Iteration: 1600 / 4000 [ 40%]  (Warmup)
+Chain 4: Iteration: 2000 / 4000 [ 50%]  (Warmup)
+Chain 4: Iteration: 2001 / 4000 [ 50%]  (Sampling)
+Chain 3: Iteration: 2000 / 4000 [ 50%]  (Warmup)
+Chain 3: Iteration: 2001 / 4000 [ 50%]  (Sampling)
+Chain 1: Iteration: 2000 / 4000 [ 50%]  (Warmup)
+Chain 1: Iteration: 2001 / 4000 [ 50%]  (Sampling)
+Chain 2: Iteration: 2000 / 4000 [ 50%]  (Warmup)
+Chain 2: Iteration: 2001 / 4000 [ 50%]  (Sampling)
+Chain 1: Iteration: 2400 / 4000 [ 60%]  (Sampling)
+Chain 4: Iteration: 2400 / 4000 [ 60%]  (Sampling)
+Chain 3: Iteration: 2400 / 4000 [ 60%]  (Sampling)
+Chain 2: Iteration: 2400 / 4000 [ 60%]  (Sampling)
+Chain 1: Iteration: 2800 / 4000 [ 70%]  (Sampling)
+Chain 4: Iteration: 2800 / 4000 [ 70%]  (Sampling)
+Chain 3: Iteration: 2800 / 4000 [ 70%]  (Sampling)
+Chain 2: Iteration: 2800 / 4000 [ 70%]  (Sampling)
+Chain 1: Iteration: 3200 / 4000 [ 80%]  (Sampling)
+Chain 4: Iteration: 3200 / 4000 [ 80%]  (Sampling)
+Chain 3: Iteration: 3200 / 4000 [ 80%]  (Sampling)
+Chain 2: Iteration: 3200 / 4000 [ 80%]  (Sampling)
+Chain 1: Iteration: 3600 / 4000 [ 90%]  (Sampling)
+Chain 4: Iteration: 3600 / 4000 [ 90%]  (Sampling)
+Chain 3: Iteration: 3600 / 4000 [ 90%]  (Sampling)
+Chain 2: Iteration: 3600 / 4000 [ 90%]  (Sampling)
+Chain 1: Iteration: 4000 / 4000 [100%]  (Sampling)
+Chain 1: 
+Chain 1:  Elapsed Time: 28713.2 seconds (Warm-up)
+Chain 1:                28446.1 seconds (Sampling)
+Chain 1:                57159.3 seconds (Total)
+Chain 1: 
+Chain 4: Iteration: 4000 / 4000 [100%]  (Sampling)
+Chain 4: 
+Chain 4:  Elapsed Time: 28612.9 seconds (Warm-up)
+Chain 4:                28778.1 seconds (Sampling)
+Chain 4:                57391 seconds (Total)
+Chain 4: 
+Chain 3: Iteration: 4000 / 4000 [100%]  (Sampling)
+Chain 3: 
+Chain 3:  Elapsed Time: 28663.7 seconds (Warm-up)
+Chain 3:                28756 seconds (Sampling)
+Chain 3:                57419.7 seconds (Total)
+Chain 3: 
+Chain 2: Iteration: 4000 / 4000 [100%]  (Sampling)
+Chain 2: 
+Chain 2:  Elapsed Time: 28895.8 seconds (Warm-up)
+Chain 2:                28623.2 seconds (Sampling)
+Chain 2:                57519 seconds (Total)
+Chain 2: 
+ Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting + scale_school_density + scale_carehome_density + scale_mobility + scale_BAME + scale_imd_score + scale_prop_urb + scale_rain_rolling_7day + scale_temp_rolling_7day + s(Easting, Northing, k = 130, bs = "tp") + s(date_index, k = 20, bs = "tp") + t2(Easting, Northing, date_index, d = c(2, 1), k = 20, bs = c("tp", "tp")) 
+   Data: nov_df (Number of observations: 6435) 
+  Draws: 4 chains, each with iter = 4000; warmup = 2000; thin = 1;
+         total post-warmup draws = 8000
+
+Smoothing Spline Hyperparameters:
+                                   Estimate Est.Error l-95% CI u-95% CI Rhat
+sds(sEastingNorthing_1)                2.84      0.15     2.57     3.25 1.85
+sds(sdate_index_1)                     1.54      0.90     0.23     3.87 1.43
+sds(t2EastingNorthingdate_index_1)   143.95     28.18    97.72   216.71 1.89
+sds(t2EastingNorthingdate_index_2)     2.74      2.87     0.06    11.45 1.75
+sds(t2EastingNorthingdate_index_3)     1.97      2.09     0.02     7.92 1.33
+                                   Bulk_ESS Tail_ESS
+sds(sEastingNorthing_1)                   6       12
+sds(sdate_index_1)                        8       21
+sds(t2EastingNorthingdate_index_1)        6       15
+sds(t2EastingNorthingdate_index_2)        6       15
+sds(t2EastingNorthingdate_index_3)       10       22
+
+Regression Coefficients:
+                              Estimate Est.Error l-95% CI u-95% CI Rhat
+Intercept                        -7.05     16.42   -28.68    17.69 2.35
+lockdown_step3                   13.57     16.62   -10.48    34.66 2.43
+lockdown_step4                   13.38     16.64   -10.71    34.49 2.43
+lockdown_planB                   13.33     16.60   -10.65    34.43 2.46
+lockdown_lifting                 13.33     16.59   -10.60    34.41 2.45
+scale_school_density             -0.06      0.01    -0.09    -0.04 1.56
+scale_carehome_density            0.05      0.02     0.01     0.08 1.29
+scale_mobility                   -0.00      0.02    -0.04     0.02 1.82
+scale_BAME                       -0.14      0.02    -0.18    -0.10 1.84
+scale_imd_score                  -0.03      0.04    -0.08     0.04 2.17
+scale_prop_urb                    0.00      0.04    -0.06     0.08 2.01
+scale_rain_rolling_7day          -0.00      0.01    -0.02     0.01 1.21
+scale_temp_rolling_7day           0.00      0.02    -0.03     0.03 1.40
+sEastingNorthing_1             -126.20    222.88  -572.90   286.73 2.62
+sEastingNorthing_2                6.04    243.93  -498.09   472.15 3.19
+sdate_index_1                    11.14    573.33  -875.95   872.73 2.56
+t2EastingNorthingdate_index_1     1.58     71.44  -109.06   109.17 2.57
+t2EastingNorthingdate_index_2   -10.67     35.92   -86.07    64.29 2.90
+t2EastingNorthingdate_index_3    -0.08      0.05    -0.23    -0.02 1.34
+t2EastingNorthingdate_index_4    -9.50     15.70   -40.10    12.97 2.70
+t2EastingNorthingdate_index_5    -0.03      0.05    -0.19     0.02 1.33
+                              Bulk_ESS Tail_ESS
+Intercept                            5       13
+lockdown_step3                       5       14
+lockdown_step4                       5       14
+lockdown_planB                       5       14
+lockdown_lifting                     5       14
+scale_school_density                 7       27
+scale_carehome_density              11       26
+scale_mobility                       6       12
+scale_BAME                           6       30
+scale_imd_score                      5       47
+scale_prop_urb                       5       13
+scale_rain_rolling_7day             15       40
+scale_temp_rolling_7day              8       18
+sEastingNorthing_1                   5       11
+sEastingNorthing_2                   4       12
+sdate_index_1                        5       22
+t2EastingNorthingdate_index_1        5       22
+t2EastingNorthingdate_index_2        5       11
+t2EastingNorthingdate_index_3       10       20
+t2EastingNorthingdate_index_4        5       16
+t2EastingNorthingdate_index_5       11       26
+
+Further Distributional Parameters:
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma     0.50      0.00     0.49     0.50 1.20       16       80
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+[1] "check prior distributions:"
+                  prior     class
+                 (flat)         b
+                 (flat)         b
+                 (flat)         b
+                 (flat)         b
+                 (flat)         b
+                 (flat)         b
+                 (flat)         b
+                 (flat)         b
+                 (flat)         b
+                 (flat)         b
+                 (flat)         b
+                 (flat)         b
+                 (flat)         b
+                 (flat)         b
+                 (flat)         b
+                 (flat)         b
+                 (flat)         b
+                 (flat)         b
+                 (flat)         b
+                 (flat)         b
+                 (flat)         b
+ student_t(3, 5.1, 2.5) Intercept
+   student_t(3, 0, 2.5)       sds
+   student_t(3, 0, 2.5)       sds
+   student_t(3, 0, 2.5)       sds
+   student_t(3, 0, 2.5)       sds
+   student_t(3, 0, 2.5)     sigma
+                                                                       coef
+                                                                           
+                                                           lockdown_lifting
+                                                             lockdown_planB
+                                                             lockdown_step3
+                                                             lockdown_step4
+                                                                 scale_BAME
+                                                     scale_carehome_density
+                                                            scale_imd_score
+                                                             scale_mobility
+                                                             scale_prop_urb
+                                                    scale_rain_rolling_7day
+                                                       scale_school_density
+                                                    scale_temp_rolling_7day
+                                                              sdate_index_1
+                                                         sEastingNorthing_1
+                                                         sEastingNorthing_2
+                                              t2EastingNorthingdate_index_1
+                                              t2EastingNorthingdate_index_2
+                                              t2EastingNorthingdate_index_3
+                                              t2EastingNorthingdate_index_4
+                                              t2EastingNorthingdate_index_5
+                                                                           
+                                                                           
+                                           s(date_index, k = 20, bs = "tp")
+                                   s(Easting, Northing, k = 130, bs = "tp")
+ t2(Easting, Northing, date_index, d = c(2, 1), k = 20, bs = c("tp", "tp"))
+                                                                           
+ group resp dpar nlpar lb ub       source
+                                  default
+                             (vectorized)
+                             (vectorized)
+                             (vectorized)
+                             (vectorized)
+                             (vectorized)
+                             (vectorized)
+                             (vectorized)
+                             (vectorized)
+                             (vectorized)
+                             (vectorized)
+                             (vectorized)
+                             (vectorized)
+                             (vectorized)
+                             (vectorized)
+                             (vectorized)
+                             (vectorized)
+                             (vectorized)
+                             (vectorized)
+                             (vectorized)
+                             (vectorized)
+                                  default
+                        0         default
+                        0    (vectorized)
+                        0    (vectorized)
+                        0    (vectorized)
+                        0         default
+null device 
+          1 
+null device 
+          1 
+
+====================================
+CPU Time used: 62:47:55
+CPU Percent: 397%
+Memory usage: 3259632kb
+Approx Power usage: 0.7534
+Walltime usage: 16:01:19
+
+====================================

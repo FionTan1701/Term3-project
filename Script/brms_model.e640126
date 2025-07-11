@@ -1,0 +1,48 @@
+Error while loading conda entry point: conda-libmamba-solver (/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /rds/general/user/ft824/home/anaconda3/lib/python3.10/site-packages/libmambapy/bindings.cpython-310-x86_64-linux-gnu.so))
+Error while loading conda entry point: conda-libmamba-solver (/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /rds/general/user/ft824/home/anaconda3/lib/python3.10/site-packages/libmambapy/bindings.cpython-310-x86_64-linux-gnu.so))
+Error while loading conda entry point: conda-libmamba-solver (/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /rds/general/user/ft824/home/anaconda3/lib/python3.10/site-packages/libmambapy/bindings.cpython-310-x86_64-linux-gnu.so))
+Loading required package: Rcpp
+Loading 'brms' package (version 2.22.0). Useful instructions
+can be found by typing help('brms'). A more detailed introduction
+to the package is available through vignette('brms_overview').
+
+Attaching package: ‘brms’
+
+The following object is masked from ‘package:stats’:
+
+    ar
+
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.4     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Warning message:
+package ‘ggplot2’ was built under R version 4.4.3 
+This is bayesplot version 1.13.0
+- Online documentation and vignettes at mc-stan.org/bayesplot
+- bayesplot theme set to bayesplot::theme_default()
+   * Does _not_ affect other ggplot2 plots
+   * See ?bayesplot_theme_set for details on theme setting
+
+Attaching package: ‘bayesplot’
+
+The following object is masked from ‘package:brms’:
+
+    rhat
+
+Compiling Stan program...
+Start sampling
+Error in x@mode : 
+  no applicable method for `@` applied to an object of class "try-error"
+Calls: brm ... eval -> .fun -> .fun -> .local -> sapply -> lapply -> FUN
+In addition: Warning messages:
+1: Rows containing NAs were excluded from the model. 
+2: In parallel::mclapply(1:chains, FUN = callFun, mc.preschedule = FALSE,  :
+  4 function calls resulted in an error
+Execution halted

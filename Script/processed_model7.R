@@ -437,7 +437,7 @@ for (k in 1:10) {
   
   
   results.train= fit.fold$summary.linear.predictor$mean[index_inla_train]
-  predicted= fit.fold$summary.linear.predictor$mean[index_inla_val]
+  predicted= fit.fold$summary.fitted.values$mean[index_inla_val]
   
   train_data<- train$nov_3week
   
@@ -533,6 +533,6 @@ summary_metrics <- metrics %>%
 print(summary_metrics)
 
 
-write.csv(metrics, "outputs/cv/cv_model7_processed_metrics_full.csv")
-write.csv(predictions, "outputs/cv/cv_model7_processed_predictions.csv")
+write.csv(metrics, "outputs/cv/cv_model7_processed_posterior_metrics_full.csv")
+write.csv(predictions, "outputs/cv/cv_model7_processed_posterior_predictions.csv")
 
