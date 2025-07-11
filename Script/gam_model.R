@@ -2,6 +2,8 @@ library(tidyverse)
 library(mgcv)
 library(sf)
 library(ggplot2)
+library(raster)
+library(viridis)
 
 set.seed(123)
 
@@ -83,17 +85,67 @@ gam_model5 <- gam(nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_planB +
 
 
 #results interpretation
-par(mfrow=c(2,2))
-plot(gam_model, select =1)
-summary(gam_model3)
-gam.check(gam_model5)
+par(mfrow=c(1,1))
+plot(gam_model4, select =1)
+summary(gam_model4)
+gam.check(gam_model4)
 anova(gam_model3, gam_model4)
+
 
 layout(matrix(1:3,nrow=1))
 
-plot.gam(gam_model, scheme =2)
-plot(gam_model1,pages=1,scheme=1,unconditional=TRUE) 
+plot.gam(gam_model4, scheme =2)
+plot(gam_model4,pages=1,scheme=1,unconditional=TRUE) 
 AIC(gam_model1, gam_model3)
+
+
+##Visual plots with ggplot
+# Get coordinate range from your data
+e_range <- range(nov_df$Easting, na.rm = TRUE)
+n_range <- range(nov_df$Northing, na.rm = TRUE)
+
+# Create a grid over the study region
+grid <- expand.grid(
+  Easting = seq(e_range[1], e_range[2], length.out = 150),
+  Northing = seq(n_range[1], n_range[2], length.out = 150)
+)
+
+# Create prediction dataframe with all necessary covariates
+pred_df <- grid %>%
+  mutate(
+    lockdown_step3 = 0,
+    lockdown_step4 = 0,
+    lockdown_planB = 0,
+    lockdown_lifting = 0,
+    scale_school_density = 0,
+    scale_carehome_density = 0,
+    scale_mobility = 0,
+    scale_BAME = 0,
+    scale_imd_score = 0,
+    scale_prop_urb = 0,
+    scale_rain_rolling_7day = 0,
+    scale_temp_rolling_7day = 0,
+    date_index = median(nov_df$date_index, na.rm = TRUE)  # hold time constant
+  )
+
+# Predict only the spatial smooth: s(Easting, Northing)
+terms_pred <- predict(gam_model4, newdata = pred_df, type = "terms", se.fit = TRUE)
+
+# Extract the spatial smooth estimate and standard error
+pred_df$fit <- terms_pred$fit[, "s(Easting,Northing)"]
+pred_df$se <- terms_pred$se.fit[, "s(Easting,Northing)"]
+
+pred_sf <- st_as_sf(pred_df, coords = c("Easting", "Northing"), crs = 27700)
+
+ggplot() +
+  geom_sf(data = england, fill = "grey90", color = NA) +
+  geom_sf(data = pred_sf, aes(fill = fit) )+
+  scale_fill_viridis(option = "C", name = "Spatial smooth") +
+  coord_sf() +
+  labs(title = "Spatial smooth from GAM: s(Easting, Northing)",
+       x = "Easting", y = "Northing") +
+  theme_minimal()
+
 
 #prediction
 predict_nov = expand.grid(
