@@ -52,16 +52,13 @@ formula <- as.formula("nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_pl
   scale_mobility + scale_rain_rolling_7day + scale_temp_rolling_7day + scale_prop_urb +
   Easting + Northing + date_index")
 
-model <- randomForest(formula, data=train_data, 
-                      ntree = 500, importance = TRUE, nperm = 3, 
-                      na.action = na.omit, mtry = 3)
+model <- ranger(formula, data=train_data, num.trees = 500, importance = "permutation",
+                mtry = 3, write.forest = TRUE)
 print(model)
-plot(model)
 
-randomForest::importance(model, type =1)
-randomForest::importance(model, type =2)
+predictions<- predict(model,data = test_data)
+str(predictions)
 
-predictions<- predict(model, newdata = X_test)
 plot(test_data$nov_3week ~ predictions, asp=1, pch=20, xlab="fitted", ylab="actual", xlim=c(2,3.3),          
      ylim=c(2,3.3), main="Norovirus Random Forest")
 grid(); abline(0,1)
