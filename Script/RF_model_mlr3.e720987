@@ -1,0 +1,25 @@
+Error while loading conda entry point: conda-libmamba-solver (/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /rds/general/user/ft824/home/anaconda3/lib/python3.10/site-packages/libmambapy/bindings.cpython-310-x86_64-linux-gnu.so))
+Error while loading conda entry point: conda-libmamba-solver (/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /rds/general/user/ft824/home/anaconda3/lib/python3.10/site-packages/libmambapy/bindings.cpython-310-x86_64-linux-gnu.so))
+Error while loading conda entry point: conda-libmamba-solver (/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /rds/general/user/ft824/home/anaconda3/lib/python3.10/site-packages/libmambapy/bindings.cpython-310-x86_64-linux-gnu.so))
+Loading required package: paradox
+blockCV 3.1.5
+Linking to GEOS 3.13.0, GDAL 3.10.2, PROJ 9.5.1; sf_use_s2() is TRUE
+Warning message:
+package ‘sf’ was built under R version 4.4.3 
+Warning message:
+package ‘data.table’ was built under R version 4.4.3 
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:data.table’:
+
+    between, first, last
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+

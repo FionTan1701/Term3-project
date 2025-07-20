@@ -1,0 +1,224 @@
+Reading layer `england_crop' from data source 
+  `/rds/general/user/ft824/home/Term3-project/Data/shapefiles/england/england_crop.shp' 
+  using driver `ESRI Shapefile'
+Simple feature collection with 1 feature and 8 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 82668.52 ymin: 5336.966 xmax: 655653.8 ymax: 657536
+Projected CRS: OSGB36 / British National Grid
+  |                                                                              |                                                                      |   0%  |                                                                              |=                                                                     |   1%  |                                                                              |=                                                                     |   2%  |                                                                              |==                                                                    |   3%  |                                                                              |===                                                                   |   4%  |                                                                              |====                                                                  |   5%  |                                                                              |====                                                                  |   6%  |                                                                              |=====                                                                 |   7%  |                                                                              |======                                                                |   8%  |                                                                              |======                                                                |   9%  |                                                                              |=======                                                               |  10%  |                                                                              |========                                                              |  11%  |                                                                              |========                                                              |  12%  |                                                                              |=========                                                             |  13%  |                                                                              |==========                                                            |  14%  |                                                                              |==========                                                            |  15%  |                                                                              |===========                                                           |  16%  |                                                                              |============                                                          |  17%  |                                                                              |=============                                                         |  18%  |                                                                              |=============                                                         |  19%  |                                                                              |==============                                                        |  20%  |                                                                              |===============                                                       |  21%  |                                                                              |===============                                                       |  22%  |                                                                              |================                                                      |  23%  |                                                                              |=================                                                     |  24%  |                                                                              |==================                                                    |  25%  |                                                                              |==================                                                    |  26%  |                                                                              |===================                                                   |  27%  |                                                                              |====================                                                  |  28%  |                                                                              |====================                                                  |  29%  |                                                                              |=====================                                                 |  30%  |                                                                              |======================                                                |  31%  |                                                                              |======================                                                |  32%  |                                                                              |=======================                                               |  33%  |                                                                              |========================                                              |  34%  |                                                                              |========================                                              |  35%  |                                                                              |=========================                                             |  36%  |                                                                              |==========================                                            |  37%  |                                                                              |===========================                                           |  38%  |                                                                              |===========================                                           |  39%  |                                                                              |============================                                          |  40%  |                                                                              |=============================                                         |  41%  |                                                                              |=============================                                         |  42%  |                                                                              |==============================                                        |  43%  |                                                                              |===============================                                       |  44%  |                                                                              |================================                                      |  45%  |                                                                              |================================                                      |  46%  |                                                                              |=================================                                     |  47%  |                                                                              |==================================                                    |  48%  |                                                                              |==================================                                    |  49%  |                                                                              |===================================                                   |  50%  |                                                                              |====================================                                  |  51%  |                                                                              |====================================                                  |  52%  |                                                                              |=====================================                                 |  53%  |                                                                              |======================================                                |  54%  |                                                                              |======================================                                |  55%  |                                                                              |=======================================                               |  56%  |                                                                              |========================================                              |  57%  |                                                                              |=========================================                             |  58%  |                                                                              |=========================================                             |  59%  |                                                                              |==========================================                            |  60%  |                                                                              |===========================================                           |  61%  |                                                                              |===========================================                           |  62%  |                                                                              |============================================                          |  63%  |                                                                              |=============================================                         |  64%  |                                                                              |==============================================                        |  65%  |                                                                              |==============================================                        |  66%  |                                                                              |===============================================                       |  67%  |                                                                              |================================================                      |  68%  |                                                                              |================================================                      |  69%  |                                                                              |=================================================                     |  70%  |                                                                              |==================================================                    |  71%  |                                                                              |==================================================                    |  72%  |                                                                              |===================================================                   |  73%  |                                                                              |====================================================                  |  74%  |                                                                              |====================================================                  |  75%  |                                                                              |=====================================================                 |  76%  |                                                                              |======================================================                |  77%  |                                                                              |=======================================================               |  78%  |                                                                              |=======================================================               |  79%  |                                                                              |========================================================              |  80%  |                                                                              |=========================================================             |  81%  |                                                                              |=========================================================             |  82%  |                                                                              |==========================================================            |  83%  |                                                                              |===========================================================           |  84%  |                                                                              |============================================================          |  85%  |                                                                              |============================================================          |  86%  |                                                                              |=============================================================         |  87%  |                                                                              |==============================================================        |  88%  |                                                                              |==============================================================        |  89%  |                                                                              |===============================================================       |  90%  |                                                                              |================================================================      |  91%  |                                                                              |================================================================      |  92%  |                                                                              |=================================================================     |  93%  |                                                                              |==================================================================    |  94%  |                                                                              |==================================================================    |  95%  |                                                                              |===================================================================   |  96%  |                                                                              |====================================================================  |  97%  |                                                                              |===================================================================== |  98%  |                                                                              |===================================================================== |  99%  |                                                                              |======================================================================| 100%
+   train test
+1    139   13
+2    131   21
+3    137   15
+4    138   14
+5    140   12
+6    139   13
+7    138   14
+8    134   18
+9    135   17
+10   137   15
+[1] 6435   29
+                          Length Class         Mode     
+predictions               5920   -none-        numeric  
+num.trees                    1   -none-        numeric  
+num.independent.variables    1   -none-        numeric  
+mtry                         1   -none-        numeric  
+min.node.size                1   -none-        numeric  
+variable.importance         15   -none-        numeric  
+prediction.error             1   -none-        numeric  
+forest                       7   ranger.forest list     
+splitrule                    1   -none-        character
+treetype                     1   -none-        character
+r.squared                    1   -none-        numeric  
+call                         8   -none-        call     
+importance.mode              1   -none-        character
+num.samples                  1   -none-        numeric  
+replace                      1   -none-        logical  
+dependent.variable.name      1   -none-        character
+max.depth                    1   -none-        numeric  
+[1] "1 folds done"
+                          Length Class         Mode     
+predictions               5540   -none-        numeric  
+num.trees                    1   -none-        numeric  
+num.independent.variables    1   -none-        numeric  
+mtry                         1   -none-        numeric  
+min.node.size                1   -none-        numeric  
+variable.importance         15   -none-        numeric  
+prediction.error             1   -none-        numeric  
+forest                       7   ranger.forest list     
+splitrule                    1   -none-        character
+treetype                     1   -none-        character
+r.squared                    1   -none-        numeric  
+call                         8   -none-        call     
+importance.mode              1   -none-        character
+num.samples                  1   -none-        numeric  
+replace                      1   -none-        logical  
+dependent.variable.name      1   -none-        character
+max.depth                    1   -none-        numeric  
+[1] "2 folds done"
+                          Length Class         Mode     
+predictions               5774   -none-        numeric  
+num.trees                    1   -none-        numeric  
+num.independent.variables    1   -none-        numeric  
+mtry                         1   -none-        numeric  
+min.node.size                1   -none-        numeric  
+variable.importance         15   -none-        numeric  
+prediction.error             1   -none-        numeric  
+forest                       7   ranger.forest list     
+splitrule                    1   -none-        character
+treetype                     1   -none-        character
+r.squared                    1   -none-        numeric  
+call                         8   -none-        call     
+importance.mode              1   -none-        character
+num.samples                  1   -none-        numeric  
+replace                      1   -none-        logical  
+dependent.variable.name      1   -none-        character
+max.depth                    1   -none-        numeric  
+[1] "3 folds done"
+                          Length Class         Mode     
+predictions               5877   -none-        numeric  
+num.trees                    1   -none-        numeric  
+num.independent.variables    1   -none-        numeric  
+mtry                         1   -none-        numeric  
+min.node.size                1   -none-        numeric  
+variable.importance         15   -none-        numeric  
+prediction.error             1   -none-        numeric  
+forest                       7   ranger.forest list     
+splitrule                    1   -none-        character
+treetype                     1   -none-        character
+r.squared                    1   -none-        numeric  
+call                         8   -none-        call     
+importance.mode              1   -none-        character
+num.samples                  1   -none-        numeric  
+replace                      1   -none-        logical  
+dependent.variable.name      1   -none-        character
+max.depth                    1   -none-        numeric  
+[1] "4 folds done"
+                          Length Class         Mode     
+predictions               5910   -none-        numeric  
+num.trees                    1   -none-        numeric  
+num.independent.variables    1   -none-        numeric  
+mtry                         1   -none-        numeric  
+min.node.size                1   -none-        numeric  
+variable.importance         15   -none-        numeric  
+prediction.error             1   -none-        numeric  
+forest                       7   ranger.forest list     
+splitrule                    1   -none-        character
+treetype                     1   -none-        character
+r.squared                    1   -none-        numeric  
+call                         8   -none-        call     
+importance.mode              1   -none-        character
+num.samples                  1   -none-        numeric  
+replace                      1   -none-        logical  
+dependent.variable.name      1   -none-        character
+max.depth                    1   -none-        numeric  
+[1] "5 folds done"
+                          Length Class         Mode     
+predictions               5869   -none-        numeric  
+num.trees                    1   -none-        numeric  
+num.independent.variables    1   -none-        numeric  
+mtry                         1   -none-        numeric  
+min.node.size                1   -none-        numeric  
+variable.importance         15   -none-        numeric  
+prediction.error             1   -none-        numeric  
+forest                       7   ranger.forest list     
+splitrule                    1   -none-        character
+treetype                     1   -none-        character
+r.squared                    1   -none-        numeric  
+call                         8   -none-        call     
+importance.mode              1   -none-        character
+num.samples                  1   -none-        numeric  
+replace                      1   -none-        logical  
+dependent.variable.name      1   -none-        character
+max.depth                    1   -none-        numeric  
+[1] "6 folds done"
+                          Length Class         Mode     
+predictions               5839   -none-        numeric  
+num.trees                    1   -none-        numeric  
+num.independent.variables    1   -none-        numeric  
+mtry                         1   -none-        numeric  
+min.node.size                1   -none-        numeric  
+variable.importance         15   -none-        numeric  
+prediction.error             1   -none-        numeric  
+forest                       7   ranger.forest list     
+splitrule                    1   -none-        character
+treetype                     1   -none-        character
+r.squared                    1   -none-        numeric  
+call                         8   -none-        call     
+importance.mode              1   -none-        character
+num.samples                  1   -none-        numeric  
+replace                      1   -none-        logical  
+dependent.variable.name      1   -none-        character
+max.depth                    1   -none-        numeric  
+[1] "7 folds done"
+                          Length Class         Mode     
+predictions               5717   -none-        numeric  
+num.trees                    1   -none-        numeric  
+num.independent.variables    1   -none-        numeric  
+mtry                         1   -none-        numeric  
+min.node.size                1   -none-        numeric  
+variable.importance         15   -none-        numeric  
+prediction.error             1   -none-        numeric  
+forest                       7   ranger.forest list     
+splitrule                    1   -none-        character
+treetype                     1   -none-        character
+r.squared                    1   -none-        numeric  
+call                         8   -none-        call     
+importance.mode              1   -none-        character
+num.samples                  1   -none-        numeric  
+replace                      1   -none-        logical  
+dependent.variable.name      1   -none-        character
+max.depth                    1   -none-        numeric  
+[1] "8 folds done"
+                          Length Class         Mode     
+predictions               5693   -none-        numeric  
+num.trees                    1   -none-        numeric  
+num.independent.variables    1   -none-        numeric  
+mtry                         1   -none-        numeric  
+min.node.size                1   -none-        numeric  
+variable.importance         15   -none-        numeric  
+prediction.error             1   -none-        numeric  
+forest                       7   ranger.forest list     
+splitrule                    1   -none-        character
+treetype                     1   -none-        character
+r.squared                    1   -none-        numeric  
+call                         8   -none-        call     
+importance.mode              1   -none-        character
+num.samples                  1   -none-        numeric  
+replace                      1   -none-        logical  
+dependent.variable.name      1   -none-        character
+max.depth                    1   -none-        numeric  
+[1] "9 folds done"
+                          Length Class         Mode     
+predictions               5776   -none-        numeric  
+num.trees                    1   -none-        numeric  
+num.independent.variables    1   -none-        numeric  
+mtry                         1   -none-        numeric  
+min.node.size                1   -none-        numeric  
+variable.importance         15   -none-        numeric  
+prediction.error             1   -none-        numeric  
+forest                       7   ranger.forest list     
+splitrule                    1   -none-        character
+treetype                     1   -none-        character
+r.squared                    1   -none-        numeric  
+call                         8   -none-        call     
+importance.mode              1   -none-        character
+num.samples                  1   -none-        numeric  
+replace                      1   -none-        logical  
+dependent.variable.name      1   -none-        character
+max.depth                    1   -none-        numeric  
+[1] "10 folds done"
+   Mean_MSE         SE  CI_Lower  CI_Upper Mean_rmse    SE_rmse CI_Lower_rmse
+1 0.4230446 0.03213485 0.3503506 0.4957387 0.6464983 0.02376867     0.5927299
+  CI_Upper_rmse  Mean_MAE Mean_MAPE  Mean_BIAS Mean_pBIAS Mean_CORR
+1     0.7002668 0.5121176  10.74574 -0.0336998 -0.6305863 0.3996582
+
+====================================
+CPU Time used: 00:01:29
+CPU Percent: 130%
+Memory usage: 1684664kb
+Approx Power usage: 0.0002
+Walltime usage: 00:02:29
+
+====================================

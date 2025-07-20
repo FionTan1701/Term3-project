@@ -1,8 +1,6 @@
 library(ranger)
 library(mlr)
-library(tidymodels)
 library(ranger)
-library(randomForest)
 library(dplyr)
 
 set.seed(123)
@@ -55,7 +53,7 @@ learner <- makeLearner("regr.ranger")
 # Choose resampling strategy and define grid
 rdesc <- makeResampleDesc("CV", iters = 5)
 ps <- makeParamSet(makeIntegerParam("mtry", 3, 8),
-                   makeDiscreteParam("num.trees", c(200,500,1000)),
+                   makeDiscreteParam("num.trees", c(500,1000)),
                   makeIntegerParam("min.node.size",lower = 1, upper =10))
         
                    

@@ -1,5 +1,5 @@
 library(tidyverse)
-library(xgboost)
+library(ranger)
 library(caret)
 library(sf)
 library(sp)
@@ -57,6 +57,7 @@ folds<- cv_spatial(
   plot = FALSE
 )
 
+
 fold_blocks<- folds$blocks
 
 fold_blocks<- st_transform(fold_blocks, crs= st_crs(nov))
@@ -65,9 +66,12 @@ fold_blocks<- st_transform(fold_blocks, crs= st_crs(nov))
 nov <- nov %>%
   st_intersection(fold_blocks)
 
+print(dim(nov))
+
 #cross-validation---------------------------------------------------
 fit <- list()
 metrics<- data.frame()
+
 
 for (k in 1:10) {
   
@@ -84,64 +88,34 @@ for (k in 1:10) {
     val$Easting <- val_coords[,1]
     val$Northing <- val_coords[,2]
 
-    y_train <- train$nov_3week
-    X_train <- model.matrix(nov_3week ~ -1 + lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting +
-                              scale_school_density + scale_carehome_density + scale_imd_score +scale_BAME+
-                              scale_mobility+ scale_rain_rolling_7day+ scale_temp_rolling_7day+ scale_prop_urb+
-                              date_index + Easting + Northing, data = train)
+    # DROP geometry before modeling
+    train <- train %>% st_drop_geometry()
+    val <- val %>% st_drop_geometry()
+    
 
-    X_test <- model.matrix(nov_3week ~ -1 + lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting +
-                              scale_school_density + scale_carehome_density + scale_imd_score +scale_BAME+
-                              scale_mobility+ scale_rain_rolling_7day+ scale_temp_rolling_7day+ scale_prop_urb+
-                              date_index + Easting + Northing, data = val)                       
+    formula <- as.formula("nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting +
+    scale_school_density + scale_carehome_density + scale_imd_score + scale_BAME +
+    scale_mobility + scale_rain_rolling_7day + scale_temp_rolling_7day + scale_prop_urb +
+    Easting + Northing + date_index")
 
-    y_test <- val$nov_3week   
+    fit[[k]]  <- ranger(formula,
+                        data=train, 
+                        num.trees = 1000, 
+                        importance = "permutation",
+                        mtry = 3, 
+                        min.node.size=9,
+                        write.forest = TRUE)
 
-    # Align test matrix columns to training matrix
-    missing_cols <- setdiff(colnames(X_train), colnames(X_test))
-    extra_cols <- setdiff(colnames(X_test), colnames(X_train))
-
-    # Remove extra columns from test set if any
-    if(length(extra_cols) > 0) {
-      X_test <- X_test[, !(colnames(X_test) %in% extra_cols), drop = FALSE]
-    }
-
-    # Add missing columns as zeros
-    if(length(missing_cols) > 0) {
-      zero_mat <- matrix(0, nrow = nrow(X_test), ncol = length(missing_cols))
-      colnames(zero_mat) <- missing_cols
-      X_test <- cbind(X_test, zero_mat)
-    }
-
-    # Reorder columns to match training set
-    X_test <- X_test[, colnames(X_train), drop = FALSE]
-
-
-    # define final training and testing sets
-    xgb_train <- xgb.DMatrix(data = X_train, label = y_train)
-    xgb_test <- xgb.DMatrix(data = X_test, label = y_test)
-
-    fit[[k]]  <- xgboost(
-    data = xgb_train,
-    params = list(
-      eta = 0.05,
-      max_depth = 4,
-      subsample = 0.7,
-      colsample_bytree = 0.7,
-      objective = "reg:squarederror",
-      eval_metric = "rmse"
-    ),
-    nrounds = 30,
-    verbose = 0
-  )
                          
-
     fit.fold<- fit[[k]]
+    print(fit.fold)
     print(summary(fit.fold))
+
     
   
     # Predictions
-    val$predicted <- predict(fit.fold, newdata = X_test)
+    val$predicted <- predict(fit.fold,data = val)$predictions
+
     # Calculate mean squared error
     mse <- mean((val$nov_3week - val$predicted)^2, na.rm = TRUE)
     rmse <- sqrt(mse)
@@ -167,9 +141,6 @@ for (k in 1:10) {
    
 }
 
-print(dim(metrics))
-print(names(metrics))
-print(head(metrics))
 
 summary_metrics <- metrics %>%
   summarise(
@@ -192,4 +163,4 @@ summary_metrics <- metrics %>%
 # Print the summary of metrics
 print(summary_metrics)
 
-write.csv(metrics, "outputs/ML_model/cv/ML_xgb_model2_metrics_full.csv")
+write.csv(metrics, "outputs/ML_model/cv/ML_rf_model4_metrics_full.csv")

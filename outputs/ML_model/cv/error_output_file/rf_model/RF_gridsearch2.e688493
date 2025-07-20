@@ -1,0 +1,383 @@
+Error while loading conda entry point: conda-libmamba-solver (/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /rds/general/user/ft824/home/anaconda3/lib/python3.10/site-packages/libmambapy/bindings.cpython-310-x86_64-linux-gnu.so))
+Error while loading conda entry point: conda-libmamba-solver (/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /rds/general/user/ft824/home/anaconda3/lib/python3.10/site-packages/libmambapy/bindings.cpython-310-x86_64-linux-gnu.so))
+Error while loading conda entry point: conda-libmamba-solver (/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /rds/general/user/ft824/home/anaconda3/lib/python3.10/site-packages/libmambapy/bindings.cpython-310-x86_64-linux-gnu.so))
+Loading required package: ParamHelpers
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+[Tune] Started tuning learner regr.ranger for parameter set:
+                  Type len Def       Constr Req Tunable Trafo
+mtry           integer   -   -       3 to 8   -    TRUE     -
+num.trees     discrete   -   - 200,500,1000   -    TRUE     -
+min.node.size  integer   -   -      1 to 10   -    TRUE     -
+With control class: TuneControlGrid
+Imputation value: Inf
+[Tune-x] 1: mtry=3; num.trees=200; min.node.size=1
+[Tune-y] 1: mse.test.mean=0.2002340; time: 0.1 min
+[Tune-x] 2: mtry=4; num.trees=200; min.node.size=1
+[Tune-y] 2: mse.test.mean=0.1942982; time: 0.2 min
+[Tune-x] 3: mtry=5; num.trees=200; min.node.size=1
+[Tune-y] 3: mse.test.mean=0.1917940; time: 0.2 min
+[Tune-x] 4: mtry=6; num.trees=200; min.node.size=1
+[Tune-y] 4: mse.test.mean=0.1903707; time: 0.2 min
+[Tune-x] 5: mtry=7; num.trees=200; min.node.size=1
+[Tune-y] 5: mse.test.mean=0.1905675; time: 0.3 min
+[Tune-x] 6: mtry=8; num.trees=200; min.node.size=1
+[Tune-y] 6: mse.test.mean=0.1910694; time: 0.3 min
+[Tune-x] 7: mtry=3; num.trees=500; min.node.size=1
+[Tune-y] 7: mse.test.mean=0.1992829; time: 0.4 min
+[Tune-x] 8: mtry=4; num.trees=500; min.node.size=1
+[Tune-y] 8: mse.test.mean=0.1934501; time: 0.4 min
+[Tune-x] 9: mtry=5; num.trees=500; min.node.size=1
+[Tune-y] 9: mse.test.mean=0.1907436; time: 0.5 min
+[Tune-x] 10: mtry=6; num.trees=500; min.node.size=1
+[Tune-y] 10: mse.test.mean=0.1897904; time: 0.6 min
+[Tune-x] 11: mtry=7; num.trees=500; min.node.size=1
+[Tune-y] 11: mse.test.mean=0.1896656; time: 0.7 min
+[Tune-x] 12: mtry=8; num.trees=500; min.node.size=1
+[Tune-y] 12: mse.test.mean=0.1899426; time: 0.8 min
+[Tune-x] 13: mtry=3; num.trees=1000; min.node.size=1
+[Tune-y] 13: mse.test.mean=0.1990173; time: 0.7 min
+[Tune-x] 14: mtry=4; num.trees=1000; min.node.size=1
+[Tune-y] 14: mse.test.mean=0.1926528; time: 0.8 min
+[Tune-x] 15: mtry=5; num.trees=1000; min.node.size=1
+[Tune-y] 15: mse.test.mean=0.1905264; time: 1.0 min
+[Tune-x] 16: mtry=6; num.trees=1000; min.node.size=1
+[Tune-y] 16: mse.test.mean=0.1896794; time: 1.2 min
+[Tune-x] 17: mtry=7; num.trees=1000; min.node.size=1
+[Tune-y] 17: mse.test.mean=0.1897061; time: 1.4 min
+[Tune-x] 18: mtry=8; num.trees=1000; min.node.size=1
+[Tune-y] 18: mse.test.mean=0.1902667; time: 1.5 min
+[Tune-x] 19: mtry=3; num.trees=200; min.node.size=2
+[Tune-y] 19: mse.test.mean=0.2010511; time: 0.1 min
+[Tune-x] 20: mtry=4; num.trees=200; min.node.size=2
+[Tune-y] 20: mse.test.mean=0.1952590; time: 0.2 min
+[Tune-x] 21: mtry=5; num.trees=200; min.node.size=2
+[Tune-y] 21: mse.test.mean=0.1924544; time: 0.2 min
+[Tune-x] 22: mtry=6; num.trees=200; min.node.size=2
+[Tune-y] 22: mse.test.mean=0.1921926; time: 0.2 min
+[Tune-x] 23: mtry=7; num.trees=200; min.node.size=2
+[Tune-y] 23: mse.test.mean=0.1923172; time: 0.3 min
+[Tune-x] 24: mtry=8; num.trees=200; min.node.size=2
+[Tune-y] 24: mse.test.mean=0.1921533; time: 0.3 min
+[Tune-x] 25: mtry=3; num.trees=500; min.node.size=2
+[Tune-y] 25: mse.test.mean=0.2001941; time: 0.3 min
+[Tune-x] 26: mtry=4; num.trees=500; min.node.size=2
+[Tune-y] 26: mse.test.mean=0.1935882; time: 0.4 min
+[Tune-x] 27: mtry=5; num.trees=500; min.node.size=2
+[Tune-y] 27: mse.test.mean=0.1916034; time: 0.5 min
+[Tune-x] 28: mtry=6; num.trees=500; min.node.size=2
+[Tune-y] 28: mse.test.mean=0.1907289; time: 0.6 min
+[Tune-x] 29: mtry=7; num.trees=500; min.node.size=2
+[Tune-y] 29: mse.test.mean=0.1909128; time: 0.7 min
+[Tune-x] 30: mtry=8; num.trees=500; min.node.size=2
+[Tune-y] 30: mse.test.mean=0.1902908; time: 0.7 min
+[Tune-x] 31: mtry=3; num.trees=1000; min.node.size=2
+[Tune-y] 31: mse.test.mean=0.1997849; time: 0.7 min
+[Tune-x] 32: mtry=4; num.trees=1000; min.node.size=2
+[Tune-y] 32: mse.test.mean=0.1935460; time: 0.8 min
+[Tune-x] 33: mtry=5; num.trees=1000; min.node.size=2
+[Tune-y] 33: mse.test.mean=0.1911457; time: 1.0 min
+[Tune-x] 34: mtry=6; num.trees=1000; min.node.size=2
+[Tune-y] 34: mse.test.mean=0.1903577; time: 1.1 min
+[Tune-x] 35: mtry=7; num.trees=1000; min.node.size=2
+[Tune-y] 35: mse.test.mean=0.1905335; time: 1.3 min
+[Tune-x] 36: mtry=8; num.trees=1000; min.node.size=2
+[Tune-y] 36: mse.test.mean=0.1901951; time: 1.4 min
+[Tune-x] 37: mtry=3; num.trees=200; min.node.size=3
+[Tune-y] 37: mse.test.mean=0.2027201; time: 0.1 min
+[Tune-x] 38: mtry=4; num.trees=200; min.node.size=3
+[Tune-y] 38: mse.test.mean=0.1962395; time: 0.2 min
+[Tune-x] 39: mtry=5; num.trees=200; min.node.size=3
+[Tune-y] 39: mse.test.mean=0.1927863; time: 0.2 min
+[Tune-x] 40: mtry=6; num.trees=200; min.node.size=3
+[Tune-y] 40: mse.test.mean=0.1923479; time: 0.2 min
+[Tune-x] 41: mtry=7; num.trees=200; min.node.size=3
+[Tune-y] 41: mse.test.mean=0.1927995; time: 0.2 min
+[Tune-x] 42: mtry=8; num.trees=200; min.node.size=3
+[Tune-y] 42: mse.test.mean=0.1925547; time: 0.3 min
+[Tune-x] 43: mtry=3; num.trees=500; min.node.size=3
+[Tune-y] 43: mse.test.mean=0.2018143; time: 0.3 min
+[Tune-x] 44: mtry=4; num.trees=500; min.node.size=3
+[Tune-y] 44: mse.test.mean=0.1947433; time: 0.4 min
+[Tune-x] 45: mtry=5; num.trees=500; min.node.size=3
+[Tune-y] 45: mse.test.mean=0.1929042; time: 0.5 min
+[Tune-x] 46: mtry=6; num.trees=500; min.node.size=3
+[Tune-y] 46: mse.test.mean=0.1923866; time: 0.5 min
+[Tune-x] 47: mtry=7; num.trees=500; min.node.size=3
+[Tune-y] 47: mse.test.mean=0.1923141; time: 0.6 min
+[Tune-x] 48: mtry=8; num.trees=500; min.node.size=3
+[Tune-y] 48: mse.test.mean=0.1915511; time: 0.7 min
+[Tune-x] 49: mtry=3; num.trees=1000; min.node.size=3
+[Tune-y] 49: mse.test.mean=0.2011616; time: 0.6 min
+[Tune-x] 50: mtry=4; num.trees=1000; min.node.size=3
+[Tune-y] 50: mse.test.mean=0.1947139; time: 0.8 min
+[Tune-x] 51: mtry=5; num.trees=1000; min.node.size=3
+[Tune-y] 51: mse.test.mean=0.1925175; time: 0.9 min
+[Tune-x] 52: mtry=6; num.trees=1000; min.node.size=3
+[Tune-y] 52: mse.test.mean=0.1918985; time: 1.1 min
+[Tune-x] 53: mtry=7; num.trees=1000; min.node.size=3
+[Tune-y] 53: mse.test.mean=0.1911793; time: 1.2 min
+[Tune-x] 54: mtry=8; num.trees=1000; min.node.size=3
+[Tune-y] 54: mse.test.mean=0.1915184; time: 1.4 min
+[Tune-x] 55: mtry=3; num.trees=200; min.node.size=4
+[Tune-y] 55: mse.test.mean=0.2039948; time: 0.1 min
+[Tune-x] 56: mtry=4; num.trees=200; min.node.size=4
+[Tune-y] 56: mse.test.mean=0.1967575; time: 0.2 min
+[Tune-x] 57: mtry=5; num.trees=200; min.node.size=4
+[Tune-y] 57: mse.test.mean=0.1954971; time: 0.2 min
+[Tune-x] 58: mtry=6; num.trees=200; min.node.size=4
+[Tune-y] 58: mse.test.mean=0.1940985; time: 0.2 min
+[Tune-x] 59: mtry=7; num.trees=200; min.node.size=4
+[Tune-y] 59: mse.test.mean=0.1942212; time: 0.2 min
+[Tune-x] 60: mtry=8; num.trees=200; min.node.size=4
+[Tune-y] 60: mse.test.mean=0.1939315; time: 0.3 min
+[Tune-x] 61: mtry=3; num.trees=500; min.node.size=4
+[Tune-y] 61: mse.test.mean=0.2030985; time: 0.3 min
+[Tune-x] 62: mtry=4; num.trees=500; min.node.size=4
+[Tune-y] 62: mse.test.mean=0.1961373; time: 0.4 min
+[Tune-x] 63: mtry=5; num.trees=500; min.node.size=4
+[Tune-y] 63: mse.test.mean=0.1942225; time: 0.5 min
+[Tune-x] 64: mtry=6; num.trees=500; min.node.size=4
+[Tune-y] 64: mse.test.mean=0.1930420; time: 0.5 min
+[Tune-x] 65: mtry=7; num.trees=500; min.node.size=4
+[Tune-y] 65: mse.test.mean=0.1932205; time: 0.6 min
+[Tune-x] 66: mtry=8; num.trees=500; min.node.size=4
+[Tune-y] 66: mse.test.mean=0.1929344; time: 0.6 min
+[Tune-x] 67: mtry=3; num.trees=1000; min.node.size=4
+[Tune-y] 67: mse.test.mean=0.2025322; time: 0.6 min
+[Tune-x] 68: mtry=4; num.trees=1000; min.node.size=4
+[Tune-y] 68: mse.test.mean=0.1966995; time: 0.8 min
+[Tune-x] 69: mtry=5; num.trees=1000; min.node.size=4
+[Tune-y] 69: mse.test.mean=0.1939566; time: 0.9 min
+[Tune-x] 70: mtry=6; num.trees=1000; min.node.size=4
+[Tune-y] 70: mse.test.mean=0.1931672; time: 1.0 min
+[Tune-x] 71: mtry=7; num.trees=1000; min.node.size=4
+[Tune-y] 71: mse.test.mean=0.1925343; time: 1.2 min
+[Tune-x] 72: mtry=8; num.trees=1000; min.node.size=4
+[Tune-y] 72: mse.test.mean=0.1925206; time: 1.3 min
+[Tune-x] 73: mtry=3; num.trees=200; min.node.size=5
+[Tune-y] 73: mse.test.mean=0.2057134; time: 0.1 min
+[Tune-x] 74: mtry=4; num.trees=200; min.node.size=5
+[Tune-y] 74: mse.test.mean=0.2002724; time: 0.1 min
+[Tune-x] 75: mtry=5; num.trees=200; min.node.size=5
+[Tune-y] 75: mse.test.mean=0.1969251; time: 0.2 min
+[Tune-x] 76: mtry=6; num.trees=200; min.node.size=5
+[Tune-y] 76: mse.test.mean=0.1953331; time: 0.2 min
+[Tune-x] 77: mtry=7; num.trees=200; min.node.size=5
+[Tune-y] 77: mse.test.mean=0.1948406; time: 0.2 min
+[Tune-x] 78: mtry=8; num.trees=200; min.node.size=5
+[Tune-y] 78: mse.test.mean=0.1952320; time: 0.2 min
+[Tune-x] 79: mtry=3; num.trees=500; min.node.size=5
+[Tune-y] 79: mse.test.mean=0.2045212; time: 0.3 min
+[Tune-x] 80: mtry=4; num.trees=500; min.node.size=5
+[Tune-y] 80: mse.test.mean=0.1988021; time: 0.3 min
+[Tune-x] 81: mtry=5; num.trees=500; min.node.size=5
+[Tune-y] 81: mse.test.mean=0.1959821; time: 0.4 min
+[Tune-x] 82: mtry=6; num.trees=500; min.node.size=5
+[Tune-y] 82: mse.test.mean=0.1947431; time: 0.5 min
+[Tune-x] 83: mtry=7; num.trees=500; min.node.size=5
+[Tune-y] 83: mse.test.mean=0.1938430; time: 0.6 min
+[Tune-x] 84: mtry=8; num.trees=500; min.node.size=5
+[Tune-y] 84: mse.test.mean=0.1943132; time: 0.6 min
+[Tune-x] 85: mtry=3; num.trees=1000; min.node.size=5
+[Tune-y] 85: mse.test.mean=0.2042739; time: 0.6 min
+[Tune-x] 86: mtry=4; num.trees=1000; min.node.size=5
+[Tune-y] 86: mse.test.mean=0.1983961; time: 0.7 min
+[Tune-x] 87: mtry=5; num.trees=1000; min.node.size=5
+[Tune-y] 87: mse.test.mean=0.1959250; time: 0.9 min
+[Tune-x] 88: mtry=6; num.trees=1000; min.node.size=5
+[Tune-y] 88: mse.test.mean=0.1944997; time: 1.0 min
+[Tune-x] 89: mtry=7; num.trees=1000; min.node.size=5
+[Tune-y] 89: mse.test.mean=0.1942624; time: 1.1 min
+[Tune-x] 90: mtry=8; num.trees=1000; min.node.size=5
+[Tune-y] 90: mse.test.mean=0.1939721; time: 1.2 min
+[Tune-x] 91: mtry=3; num.trees=200; min.node.size=6
+[Tune-y] 91: mse.test.mean=0.2066768; time: 0.1 min
+[Tune-x] 92: mtry=4; num.trees=200; min.node.size=6
+[Tune-y] 92: mse.test.mean=0.2010408; time: 0.1 min
+[Tune-x] 93: mtry=5; num.trees=200; min.node.size=6
+[Tune-y] 93: mse.test.mean=0.1983063; time: 0.2 min
+[Tune-x] 94: mtry=6; num.trees=200; min.node.size=6
+[Tune-y] 94: mse.test.mean=0.1963257; time: 0.2 min
+[Tune-x] 95: mtry=7; num.trees=200; min.node.size=6
+[Tune-y] 95: mse.test.mean=0.1966313; time: 0.2 min
+[Tune-x] 96: mtry=8; num.trees=200; min.node.size=6
+[Tune-y] 96: mse.test.mean=0.1969650; time: 0.2 min
+[Tune-x] 97: mtry=3; num.trees=500; min.node.size=6
+[Tune-y] 97: mse.test.mean=0.2068949; time: 0.3 min
+[Tune-x] 98: mtry=4; num.trees=500; min.node.size=6
+[Tune-y] 98: mse.test.mean=0.2002336; time: 0.3 min
+[Tune-x] 99: mtry=5; num.trees=500; min.node.size=6
+[Tune-y] 99: mse.test.mean=0.1973437; time: 0.4 min
+[Tune-x] 100: mtry=6; num.trees=500; min.node.size=6
+[Tune-y] 100: mse.test.mean=0.1964778; time: 0.5 min
+[Tune-x] 101: mtry=7; num.trees=500; min.node.size=6
+[Tune-y] 101: mse.test.mean=0.1954791; time: 0.5 min
+[Tune-x] 102: mtry=8; num.trees=500; min.node.size=6
+[Tune-y] 102: mse.test.mean=0.1957362; time: 0.6 min
+[Tune-x] 103: mtry=3; num.trees=1000; min.node.size=6
+[Tune-y] 103: mse.test.mean=0.2061925; time: 0.5 min
+[Tune-x] 104: mtry=4; num.trees=1000; min.node.size=6
+[Tune-y] 104: mse.test.mean=0.1998887; time: 0.7 min
+[Tune-x] 105: mtry=5; num.trees=1000; min.node.size=6
+[Tune-y] 105: mse.test.mean=0.1977752; time: 0.8 min
+[Tune-x] 106: mtry=6; num.trees=1000; min.node.size=6
+[Tune-y] 106: mse.test.mean=0.1961201; time: 0.9 min
+[Tune-x] 107: mtry=7; num.trees=1000; min.node.size=6
+[Tune-y] 107: mse.test.mean=0.1955338; time: 1.0 min
+[Tune-x] 108: mtry=8; num.trees=1000; min.node.size=6
+[Tune-y] 108: mse.test.mean=0.1959208; time: 1.1 min
+[Tune-x] 109: mtry=3; num.trees=200; min.node.size=7
+[Tune-y] 109: mse.test.mean=0.2085392; time: 0.1 min
+[Tune-x] 110: mtry=4; num.trees=200; min.node.size=7
+[Tune-y] 110: mse.test.mean=0.2024066; time: 0.1 min
+[Tune-x] 111: mtry=5; num.trees=200; min.node.size=7
+[Tune-y] 111: mse.test.mean=0.1993647; time: 0.1 min
+[Tune-x] 112: mtry=6; num.trees=200; min.node.size=7
+[Tune-y] 112: mse.test.mean=0.2000826; time: 0.2 min
+[Tune-x] 113: mtry=7; num.trees=200; min.node.size=7
+[Tune-y] 113: mse.test.mean=0.1975394; time: 0.2 min
+[Tune-x] 114: mtry=8; num.trees=200; min.node.size=7
+[Tune-y] 114: mse.test.mean=0.1984344; time: 0.2 min
+[Tune-x] 115: mtry=3; num.trees=500; min.node.size=7
+[Tune-y] 115: mse.test.mean=0.2086308; time: 0.2 min
+[Tune-x] 116: mtry=4; num.trees=500; min.node.size=7
+[Tune-y] 116: mse.test.mean=0.2025242; time: 0.3 min
+[Tune-x] 117: mtry=5; num.trees=500; min.node.size=7
+[Tune-y] 117: mse.test.mean=0.1993429; time: 0.4 min
+[Tune-x] 118: mtry=6; num.trees=500; min.node.size=7
+[Tune-y] 118: mse.test.mean=0.1978125; time: 0.4 min
+[Tune-x] 119: mtry=7; num.trees=500; min.node.size=7
+[Tune-y] 119: mse.test.mean=0.1970827; time: 0.5 min
+[Tune-x] 120: mtry=8; num.trees=500; min.node.size=7
+[Tune-y] 120: mse.test.mean=0.1971003; time: 0.5 min
+[Tune-x] 121: mtry=3; num.trees=1000; min.node.size=7
+[Tune-y] 121: mse.test.mean=0.2080509; time: 0.5 min
+[Tune-x] 122: mtry=4; num.trees=1000; min.node.size=7
+[Tune-y] 122: mse.test.mean=0.2018469; time: 0.7 min
+[Tune-x] 123: mtry=5; num.trees=1000; min.node.size=7
+[Tune-y] 123: mse.test.mean=0.1988954; time: 0.8 min
+[Tune-x] 124: mtry=6; num.trees=1000; min.node.size=7
+[Tune-y] 124: mse.test.mean=0.1973682; time: 0.9 min
+[Tune-x] 125: mtry=7; num.trees=1000; min.node.size=7
+[Tune-y] 125: mse.test.mean=0.1973173; time: 1.1 min
+[Tune-x] 126: mtry=8; num.trees=1000; min.node.size=7
+[Tune-y] 126: mse.test.mean=0.1968015; time: 1.2 min
+[Tune-x] 127: mtry=3; num.trees=200; min.node.size=8
+[Tune-y] 127: mse.test.mean=0.2107266; time: 0.1 min
+[Tune-x] 128: mtry=4; num.trees=200; min.node.size=8
+[Tune-y] 128: mse.test.mean=0.2041264; time: 0.1 min
+[Tune-x] 129: mtry=5; num.trees=200; min.node.size=8
+[Tune-y] 129: mse.test.mean=0.2012104; time: 0.2 min
+[Tune-x] 130: mtry=6; num.trees=200; min.node.size=8
+[Tune-y] 130: mse.test.mean=0.2002576; time: 0.2 min
+[Tune-x] 131: mtry=7; num.trees=200; min.node.size=8
+[Tune-y] 131: mse.test.mean=0.1993363; time: 0.2 min
+[Tune-x] 132: mtry=8; num.trees=200; min.node.size=8
+[Tune-y] 132: mse.test.mean=0.1993656; time: 0.2 min
+[Tune-x] 133: mtry=3; num.trees=500; min.node.size=8
+[Tune-y] 133: mse.test.mean=0.2099270; time: 0.3 min
+[Tune-x] 134: mtry=4; num.trees=500; min.node.size=8
+[Tune-y] 134: mse.test.mean=0.2029908; time: 0.3 min
+[Tune-x] 135: mtry=5; num.trees=500; min.node.size=8
+[Tune-y] 135: mse.test.mean=0.2014874; time: 0.4 min
+[Tune-x] 136: mtry=6; num.trees=500; min.node.size=8
+[Tune-y] 136: mse.test.mean=0.1996335; time: 0.4 min
+[Tune-x] 137: mtry=7; num.trees=500; min.node.size=8
+[Tune-y] 137: mse.test.mean=0.1991888; time: 0.5 min
+[Tune-x] 138: mtry=8; num.trees=500; min.node.size=8
+[Tune-y] 138: mse.test.mean=0.1987714; time: 0.5 min
+[Tune-x] 139: mtry=3; num.trees=1000; min.node.size=8
+[Tune-y] 139: mse.test.mean=0.2095195; time: 0.5 min
+[Tune-x] 140: mtry=4; num.trees=1000; min.node.size=8
+[Tune-y] 140: mse.test.mean=0.2033263; time: 0.7 min
+[Tune-x] 141: mtry=5; num.trees=1000; min.node.size=8
+[Tune-y] 141: mse.test.mean=0.2003658; time: 0.8 min
+[Tune-x] 142: mtry=6; num.trees=1000; min.node.size=8
+[Tune-y] 142: mse.test.mean=0.1992183; time: 0.9 min
+[Tune-x] 143: mtry=7; num.trees=1000; min.node.size=8
+[Tune-y] 143: mse.test.mean=0.1986931; time: 1.0 min
+[Tune-x] 144: mtry=8; num.trees=1000; min.node.size=8
+[Tune-y] 144: mse.test.mean=0.1977174; time: 1.1 min
+[Tune-x] 145: mtry=3; num.trees=200; min.node.size=9
+[Tune-y] 145: mse.test.mean=0.2127064; time: 0.1 min
+[Tune-x] 146: mtry=4; num.trees=200; min.node.size=9
+[Tune-y] 146: mse.test.mean=0.2055924; time: 0.1 min
+[Tune-x] 147: mtry=5; num.trees=200; min.node.size=9
+[Tune-y] 147: mse.test.mean=0.2034017; time: 0.1 min
+[Tune-x] 148: mtry=6; num.trees=200; min.node.size=9
+[Tune-y] 148: mse.test.mean=0.2011006; time: 0.2 min
+[Tune-x] 149: mtry=7; num.trees=200; min.node.size=9
+[Tune-y] 149: mse.test.mean=0.2005091; time: 0.2 min
+[Tune-x] 150: mtry=8; num.trees=200; min.node.size=9
+[Tune-y] 150: mse.test.mean=0.1998885; time: 0.2 min
+[Tune-x] 151: mtry=3; num.trees=500; min.node.size=9
+[Tune-y] 151: mse.test.mean=0.2118090; time: 0.3 min
+[Tune-x] 152: mtry=4; num.trees=500; min.node.size=9
+[Tune-y] 152: mse.test.mean=0.2048949; time: 0.3 min
+[Tune-x] 153: mtry=5; num.trees=500; min.node.size=9
+[Tune-y] 153: mse.test.mean=0.2024142; time: 0.4 min
+[Tune-x] 154: mtry=6; num.trees=500; min.node.size=9
+[Tune-y] 154: mse.test.mean=0.2012787; time: 0.4 min
+[Tune-x] 155: mtry=7; num.trees=500; min.node.size=9
+[Tune-y] 155: mse.test.mean=0.1997725; time: 0.5 min
+[Tune-x] 156: mtry=8; num.trees=500; min.node.size=9
+[Tune-y] 156: mse.test.mean=0.1994141; time: 0.5 min
+[Tune-x] 157: mtry=3; num.trees=1000; min.node.size=9
+[Tune-y] 157: mse.test.mean=0.2117744; time: 0.5 min
+[Tune-x] 158: mtry=4; num.trees=1000; min.node.size=9
+[Tune-y] 158: mse.test.mean=0.2049422; time: 0.6 min
+[Tune-x] 159: mtry=5; num.trees=1000; min.node.size=9
+[Tune-y] 159: mse.test.mean=0.2019431; time: 0.8 min
+[Tune-x] 160: mtry=6; num.trees=1000; min.node.size=9
+[Tune-y] 160: mse.test.mean=0.2003671; time: 0.9 min
+[Tune-x] 161: mtry=7; num.trees=1000; min.node.size=9
+[Tune-y] 161: mse.test.mean=0.1998638; time: 1.0 min
+[Tune-x] 162: mtry=8; num.trees=1000; min.node.size=9
+[Tune-y] 162: mse.test.mean=0.1993442; time: 1.1 min
+[Tune-x] 163: mtry=3; num.trees=200; min.node.size=10
+[Tune-y] 163: mse.test.mean=0.2129036; time: 0.1 min
+[Tune-x] 164: mtry=4; num.trees=200; min.node.size=10
+[Tune-y] 164: mse.test.mean=0.2068930; time: 0.1 min
+[Tune-x] 165: mtry=5; num.trees=200; min.node.size=10
+[Tune-y] 165: mse.test.mean=0.2040821; time: 0.1 min
+[Tune-x] 166: mtry=6; num.trees=200; min.node.size=10
+[Tune-y] 166: mse.test.mean=0.2027475; time: 0.2 min
+[Tune-x] 167: mtry=7; num.trees=200; min.node.size=10
+[Tune-y] 167: mse.test.mean=0.2015238; time: 0.2 min
+[Tune-x] 168: mtry=8; num.trees=200; min.node.size=10
+[Tune-y] 168: mse.test.mean=0.2009322; time: 0.2 min
+[Tune-x] 169: mtry=3; num.trees=500; min.node.size=10
+[Tune-y] 169: mse.test.mean=0.2130600; time: 0.3 min
+[Tune-x] 170: mtry=4; num.trees=500; min.node.size=10
+[Tune-y] 170: mse.test.mean=0.2066523; time: 0.3 min
+[Tune-x] 171: mtry=5; num.trees=500; min.node.size=10
+[Tune-y] 171: mse.test.mean=0.2043806; time: 0.4 min
+[Tune-x] 172: mtry=6; num.trees=500; min.node.size=10
+[Tune-y] 172: mse.test.mean=0.2025726; time: 0.4 min
+[Tune-x] 173: mtry=7; num.trees=500; min.node.size=10
+[Tune-y] 173: mse.test.mean=0.2015417; time: 0.5 min
+[Tune-x] 174: mtry=8; num.trees=500; min.node.size=10
+[Tune-y] 174: mse.test.mean=0.2008645; time: 0.5 min
+[Tune-x] 175: mtry=3; num.trees=1000; min.node.size=10
+[Tune-y] 175: mse.test.mean=0.2127502; time: 0.5 min
+[Tune-x] 176: mtry=4; num.trees=1000; min.node.size=10
+[Tune-y] 176: mse.test.mean=0.2063964; time: 0.6 min
+[Tune-x] 177: mtry=5; num.trees=1000; min.node.size=10
+[Tune-y] 177: mse.test.mean=0.2040845; time: 0.7 min
+[Tune-x] 178: mtry=6; num.trees=1000; min.node.size=10
+[Tune-y] 178: mse.test.mean=0.2023789; time: 0.9 min
+[Tune-x] 179: mtry=7; num.trees=1000; min.node.size=10
+[Tune-y] 179: mse.test.mean=0.2013710; time: 1.0 min
+[Tune-x] 180: mtry=8; num.trees=1000; min.node.size=10
+[Tune-y] 180: mse.test.mean=0.2008323; time: 1.1 min
+[Tune] Result: mtry=7; num.trees=500; min.node.size=1 : mse.test.mean=0.1896656

@@ -1,0 +1,14 @@
+Model for learner.id=regr.ranger; learner.class=regr.ranger
+Trained on: task.id = train_data; obs = 5148; features = 15
+Hyperparameters: num.threads=1,verbose=FALSE,respect.unordered.factors=order,mtry=7,num.trees=1e+03,min.node.size=1
+    user   system  elapsed 
+3491.050   50.152 3562.709 
+
+====================================
+CPU Time used: 00:57:03
+CPU Percent: 99%
+Memory usage: 824456kb
+Approx Power usage: 0.011399999999999999
+Walltime usage: 00:59:54
+
+====================================
