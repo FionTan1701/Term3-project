@@ -19,134 +19,134 @@ Projected CRS: OSGB36 / British National Grid
 9    135   17
 10   137   15
                Length Class              Mode       
-handle             1  xgb.Booster.handle externalptr
-raw            48559  -none-             raw        
-niter              1  -none-             numeric    
-evaluation_log     2  data.table         list       
-call              13  -none-             call       
-params             7  -none-             list       
-callbacks          1  -none-             list       
-feature_names     15  -none-             character  
-nfeatures          1  -none-             numeric    
+handle              1 xgb.Booster.handle externalptr
+raw            166901 -none-             raw        
+niter               1 -none-             numeric    
+evaluation_log      2 data.table         list       
+call               13 -none-             call       
+params              7 -none-             list       
+callbacks           1 -none-             list       
+feature_names      15 -none-             character  
+nfeatures           1 -none-             numeric    
 [1] "1 folds done"
                Length Class              Mode       
-handle             1  xgb.Booster.handle externalptr
-raw            49035  -none-             raw        
-niter              1  -none-             numeric    
-evaluation_log     2  data.table         list       
-call              13  -none-             call       
-params             7  -none-             list       
-callbacks          1  -none-             list       
-feature_names     15  -none-             character  
-nfeatures          1  -none-             numeric    
+handle              1 xgb.Booster.handle externalptr
+raw            165133 -none-             raw        
+niter               1 -none-             numeric    
+evaluation_log      2 data.table         list       
+call               13 -none-             call       
+params              7 -none-             list       
+callbacks           1 -none-             list       
+feature_names      15 -none-             character  
+nfeatures           1 -none-             numeric    
 [1] "2 folds done"
                Length Class              Mode       
-handle             1  xgb.Booster.handle externalptr
-raw            48762  -none-             raw        
-niter              1  -none-             numeric    
-evaluation_log     2  data.table         list       
-call              13  -none-             call       
-params             7  -none-             list       
-callbacks          1  -none-             list       
-feature_names     15  -none-             character  
-nfeatures          1  -none-             numeric    
+handle              1 xgb.Booster.handle externalptr
+raw            167376 -none-             raw        
+niter               1 -none-             numeric    
+evaluation_log      2 data.table         list       
+call               13 -none-             call       
+params              7 -none-             list       
+callbacks           1 -none-             list       
+feature_names      15 -none-             character  
+nfeatures           1 -none-             numeric    
 [1] "3 folds done"
                Length Class              Mode       
-handle             1  xgb.Booster.handle externalptr
-raw            47947  -none-             raw        
-niter              1  -none-             numeric    
-evaluation_log     2  data.table         list       
-call              13  -none-             call       
-params             7  -none-             list       
-callbacks          1  -none-             list       
-feature_names     15  -none-             character  
-nfeatures          1  -none-             numeric    
+handle              1 xgb.Booster.handle externalptr
+raw            166289 -none-             raw        
+niter               1 -none-             numeric    
+evaluation_log      2 data.table         list       
+call               13 -none-             call       
+params              7 -none-             list       
+callbacks           1 -none-             list       
+feature_names      15 -none-             character  
+nfeatures           1 -none-             numeric    
 [1] "4 folds done"
                Length Class              Mode       
-handle             1  xgb.Booster.handle externalptr
-raw            48626  -none-             raw        
-niter              1  -none-             numeric    
-evaluation_log     2  data.table         list       
-call              13  -none-             call       
-params             7  -none-             list       
-callbacks          1  -none-             list       
-feature_names     15  -none-             character  
-nfeatures          1  -none-             numeric    
+handle              1 xgb.Booster.handle externalptr
+raw            168872 -none-             raw        
+niter               1 -none-             numeric    
+evaluation_log      2 data.table         list       
+call               13 -none-             call       
+params              7 -none-             list       
+callbacks           1 -none-             list       
+feature_names      15 -none-             character  
+nfeatures           1 -none-             numeric    
 [1] "5 folds done"
                Length Class              Mode       
-handle             1  xgb.Booster.handle externalptr
-raw            48899  -none-             raw        
-niter              1  -none-             numeric    
-evaluation_log     2  data.table         list       
-call              13  -none-             call       
-params             7  -none-             list       
-callbacks          1  -none-             list       
-feature_names     15  -none-             character  
-nfeatures          1  -none-             numeric    
+handle              1 xgb.Booster.handle externalptr
+raw            167445 -none-             raw        
+niter               1 -none-             numeric    
+evaluation_log      2 data.table         list       
+call               13 -none-             call       
+params              7 -none-             list       
+callbacks           1 -none-             list       
+feature_names      15 -none-             character  
+nfeatures           1 -none-             numeric    
 [1] "6 folds done"
                Length Class              Mode       
-handle             1  xgb.Booster.handle externalptr
-raw            47605  -none-             raw        
-niter              1  -none-             numeric    
-evaluation_log     2  data.table         list       
-call              13  -none-             call       
-params             7  -none-             list       
-callbacks          1  -none-             list       
-feature_names     15  -none-             character  
-nfeatures          1  -none-             numeric    
+handle              1 xgb.Booster.handle externalptr
+raw            166425 -none-             raw        
+niter               1 -none-             numeric    
+evaluation_log      2 data.table         list       
+call               13 -none-             call       
+params              7 -none-             list       
+callbacks           1 -none-             list       
+feature_names      15 -none-             character  
+nfeatures           1 -none-             numeric    
 [1] "7 folds done"
                Length Class              Mode       
-handle             1  xgb.Booster.handle externalptr
-raw            48966  -none-             raw        
-niter              1  -none-             numeric    
-evaluation_log     2  data.table         list       
-call              13  -none-             call       
-params             7  -none-             list       
-callbacks          1  -none-             list       
-feature_names     15  -none-             character  
-nfeatures          1  -none-             numeric    
+handle              1 xgb.Booster.handle externalptr
+raw            166629 -none-             raw        
+niter               1 -none-             numeric    
+evaluation_log      2 data.table         list       
+call               13 -none-             call       
+params              7 -none-             list       
+callbacks           1 -none-             list       
+feature_names      15 -none-             character  
+nfeatures           1 -none-             numeric    
 [1] "8 folds done"
                Length Class              Mode       
-handle             1  xgb.Booster.handle externalptr
-raw            48287  -none-             raw        
-niter              1  -none-             numeric    
-evaluation_log     2  data.table         list       
-call              13  -none-             call       
-params             7  -none-             list       
-callbacks          1  -none-             list       
-feature_names     15  -none-             character  
-nfeatures          1  -none-             numeric    
+handle              1 xgb.Booster.handle externalptr
+raw            167649 -none-             raw        
+niter               1 -none-             numeric    
+evaluation_log      2 data.table         list       
+call               13 -none-             call       
+params              7 -none-             list       
+callbacks           1 -none-             list       
+feature_names      15 -none-             character  
+nfeatures           1 -none-             numeric    
 [1] "9 folds done"
                Length Class              Mode       
-handle             1  xgb.Booster.handle externalptr
-raw            49035  -none-             raw        
-niter              1  -none-             numeric    
-evaluation_log     2  data.table         list       
-call              13  -none-             call       
-params             7  -none-             list       
-callbacks          1  -none-             list       
-feature_names     15  -none-             character  
-nfeatures          1  -none-             numeric    
+handle              1 xgb.Booster.handle externalptr
+raw            166697 -none-             raw        
+niter               1 -none-             numeric    
+evaluation_log      2 data.table         list       
+call               13 -none-             call       
+params              7 -none-             list       
+callbacks           1 -none-             list       
+feature_names      15 -none-             character  
+nfeatures           1 -none-             numeric    
 [1] "10 folds done"
 [1] 10  8
 [1] "Fold"  "MSE"   "RMSE"  "MAE"   "MAPE"  "BIAS"  "pBIAS" "CORR" 
-  Fold      MSE     RMSE       MAE     MAPE       BIAS     pBIAS       CORR
-1    1 1.366413 1.168937 1.0459863 19.64622 -1.0153259 -19.89443 0.49454062
-2    2 1.146623 1.070805 0.9350564 18.12144 -0.8481985 -17.21338 0.36357791
-3    3 1.588949 1.260535 1.1389373 20.76049 -1.0924949 -20.76442 0.37740319
-4    4 1.676200 1.294681 1.1764177 21.52229 -1.1374676 -21.67176 0.55210474
-5    5 1.148172 1.071528 0.9553154 17.77664 -0.9158490 -17.76807 0.39910918
-6    6 1.592886 1.262096 1.0779810 20.73620 -1.0039620 -20.42555 0.08806276
-  Mean_MSE         SE CI_Lower CI_Upper Mean_rmse    SE_rmse CI_Lower_rmse
-1 1.406432 0.06865695  1.25112 1.561745  1.182633 0.02945977      1.115991
-  CI_Upper_rmse Mean_MAE Mean_MAPE  Mean_BIAS Mean_pBIAS Mean_CORR
-1      1.249276 1.051174  19.88373 -0.9942782  -19.62751 0.4149699
+  Fold       MSE      RMSE       MAE      MAPE        BIAS     pBIAS       CORR
+1    1 0.3258449 0.5708283 0.4546614  9.159010 -0.10661126 -2.088955 0.53276414
+2    2 0.4330892 0.6580951 0.5171808 11.455040  0.09432588  1.914254 0.35646048
+3    3 0.3706362 0.6087990 0.4771100  9.508396 -0.09454661 -1.796993 0.42342030
+4    4 0.3700554 0.6083218 0.4987390  9.836652 -0.19695039 -3.752425 0.60077523
+5    5 0.3492943 0.5910113 0.4618402  9.536570  0.13239227  2.568497 0.28556159
+6    6 0.6662968 0.8162701 0.6442260 13.514722 -0.13335442 -2.713089 0.08907247
+   Mean_MSE         SE CI_Lower  CI_Upper Mean_rmse    SE_rmse CI_Lower_rmse
+1 0.4112609 0.03272535 0.337231 0.4852908 0.6373357 0.02372097     0.5836751
+  CI_Upper_rmse  Mean_MAE Mean_MAPE   Mean_BIAS Mean_pBIAS Mean_CORR
+1     0.6909962 0.5034275  10.55072 -0.05106373  -0.969004 0.4161651
 
 ====================================
 CPU Time used: 00:00:00
-CPU Percent: 0%
-Memory usage: 0b
+CPU Percent: 2%
+Memory usage: 34124kb
 Approx Power usage: 0.0
-Walltime usage: 00:00:36
+Walltime usage: 00:01:06
 
 ====================================

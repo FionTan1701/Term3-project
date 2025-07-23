@@ -1,6 +1,5 @@
 library(tidyverse)
-library(xgboost)
-library(caret)
+library(glmnet)
 library(sf)
 library(sp)
 library(raster)
@@ -87,13 +86,14 @@ for (k in 1:10) {
     y_train <- train$nov_3week
     X_train <- model.matrix(nov_3week ~ -1 + lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting +
                               scale_school_density + scale_carehome_density + scale_imd_score +scale_BAME+
-                              scale_mobility+ scale_rain_rolling_7day+ scale_temp_rolling_7day+ scale_prop_urb+
-                              date_index + Easting + Northing, data = train)
+                              scale_mobility+ scale_rain_rolling_7day+ scale_temp_rolling_7day+ scale_prop_urb
+                              + date_index * Easting * Northing, data = train)
+                              
 
     X_test <- model.matrix(nov_3week ~ -1 + lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting +
                               scale_school_density + scale_carehome_density + scale_imd_score +scale_BAME+
                               scale_mobility+ scale_rain_rolling_7day+ scale_temp_rolling_7day+ scale_prop_urb+
-                              date_index + Easting + Northing, data = val)                       
+                               date_index * Easting * Northing, data = val)                       
 
     y_test <- val$nov_3week   
 
@@ -116,32 +116,17 @@ for (k in 1:10) {
     # Reorder columns to match training set
     X_test <- X_test[, colnames(X_train), drop = FALSE]
 
-
-    # define final training and testing sets
-    xgb_train <- xgb.DMatrix(data = X_train, label = y_train)
-    xgb_test <- xgb.DMatrix(data = X_test, label = y_test)
-
-    fit[[k]]  <- xgboost(
-    data = xgb_train,
-    params = list(
-      eta = 0.05,
-      max_depth = 4,
-      subsample = 0.8,
-      colsample_bytree = 0.8,
-      objective = "reg:squarederror",
-      eval_metric = "rmse"
-    ),
-    nrounds = 100,
-    verbose = 0
-  )
-                         
+    cv_model <- cv.glmnet(X_train, y_train, alpha = 1, family = "gaussian", nfolds = 10)
+    fit[[k]] <- glmnet(X_train, y_train, alpha = 1, lambda = cv_model$lambda.min, family = "gaussian")
+    print(paste("Best lambda:",cv_model$lambda.min ))                     
 
     fit.fold<- fit[[k]]
+  
     print(summary(fit.fold))
     
   
     # Predictions
-    val$predicted <- predict(fit.fold, newdata = X_test)
+    val$predicted <- predict(fit.fold, s= cv_model$lambda.min, newx = X_test)
     # Calculate mean squared error
     mse <- mean((val$nov_3week - val$predicted)^2, na.rm = TRUE)
     rmse <- sqrt(mse)
@@ -192,4 +177,5 @@ summary_metrics <- metrics %>%
 # Print the summary of metrics
 print(summary_metrics)
 
-write.csv(metrics, "outputs/ML_model/cv/ML_xgb_model3_metrics_full.csv")
+write.csv(metrics, "outputs/ML_model/cv/ML_lasso_model7_metrics_full.csv")
+write.csv(summary_metrics, "lasso_model7_summary_metrics.csv", row.names = FALSE)

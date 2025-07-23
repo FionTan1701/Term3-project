@@ -100,10 +100,10 @@ for (k in 1:10) {
 
     fit[[k]]  <- ranger(formula,
                         data=train, 
-                        num.trees = 1000, 
+                        num.trees = 750, 
                         importance = "permutation",
                         mtry = 3, 
-                        min.node.size=9,
+                        min.node.size=1,
                         write.forest = TRUE)
 
                          
@@ -163,4 +163,4 @@ summary_metrics <- metrics %>%
 # Print the summary of metrics
 print(summary_metrics)
 
-write.csv(metrics, "outputs/ML_model/cv/ML_rf_model4_metrics_full.csv")
+write.csv(metrics, "outputs/ML_model/cv/ML_rf_model5_metrics_full.csv")
