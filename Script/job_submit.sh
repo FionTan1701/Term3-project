@@ -1,6 +1,6 @@
-#PBS -l walltime=12:00:00
+#PBS -l walltime=6:00:00
 #PBS -l select=1:ncpus=2:mem=50gb
-#PBS -N lasoo_model_cv2
+#PBS -N lasso_model_cv2_final
 
 cd /rds/general/user/ft824/home/Term3-project/Script
 

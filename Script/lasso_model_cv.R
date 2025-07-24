@@ -11,6 +11,21 @@ setwd("~/Term3-project")
 
 nov_df <- read.csv("Data/processed_final.csv")
 
+#coverage probability function-------------------------------------------------
+COV <- function(z, lower=NULL, upper=NULL, coverage=NULL) {
+  if(!is.null(lower) && !is.null(upper)){
+    z <- as.matrix(z)
+    lower <- as.matrix(lower)
+    upper <- as.matrix(upper)
+    x <- z>=lower & z<=upper
+    u <- x[!is.na(x)]
+    round(sum(u)/length(u) * 100, 4)
+  }else if(!is.null(coverage)){
+    round(mean(coverage, na.rm = T),4)
+  }
+}
+
+
 #scale function-------------------------------------------------
 covariates_to_scale <-  c("school_density", "carehome_density", "imd_score", "BAME", "mobility", "rain_rolling_7day","temp_rolling_7day", "prop_urb")
 scale_covariates <- function(df, covariates_to_scale) {
@@ -67,6 +82,7 @@ nov <- nov %>%
 #cross-validation---------------------------------------------------
 fit <- list()
 metrics<- data.frame()
+predictions <- data.frame()
 
 for (k in 1:10) {
   
@@ -91,7 +107,8 @@ for (k in 1:10) {
 
     X_test <- model.matrix(nov_3week ~ -1 + lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting +
                               scale_school_density + scale_carehome_density + scale_imd_score +scale_BAME+
-                              scale_mobility+ scale_rain_rolling_7day+ scale_temp_rolling_7day+ scale_prop_urb+date_index * site_code, data = val)                       
+                              scale_mobility+ scale_rain_rolling_7day+ scale_temp_rolling_7day+ scale_prop_urb+
+                              date_index * site_code, data = val)                       
 
     y_test <- val$nov_3week   
 
@@ -119,12 +136,28 @@ for (k in 1:10) {
     print(paste("Best lambda:",cv_model$lambda.min ))                     
 
     fit.fold<- fit[[k]]
-  
     print(summary(fit.fold))
-    
-  
+
     # Predictions
     val$predicted <- predict(fit.fold, s= cv_model$lambda.min, newx = X_test)
+
+    n_boot <- 10000
+    boot_preds <- matrix(NA, nrow = n_boot, ncol = nrow(val))
+
+    for (i in 1:n_boot) {
+      set.seed(123 + i)
+      boot_idx <- sample(seq_len(nrow(train)), replace = TRUE)
+      X_train_boot <- X_train[boot_idx, ]
+      y_train_boot <- y_train[boot_idx]
+      boot_model <- glmnet(X_train_boot, y_train_boot, alpha = 1, lambda = cv_model$lambda.min, family = "gaussian")
+      boot_preds[i, ] <- as.numeric(predict(boot_model, s = cv_model$lambda.min, newx = X_test))
+    }
+
+    val$q0.025 <- apply(boot_preds, 2, quantile, probs = 0.025)
+    val$q0.975 <- apply(boot_preds, 2, quantile, probs = 0.975)
+        
+    predictions <- rbind(predictions, val)
+  
     # Calculate mean squared error
     mse <- mean((val$nov_3week - val$predicted)^2, na.rm = TRUE)
     rmse <- sqrt(mse)
@@ -133,6 +166,7 @@ for (k in 1:10) {
     bias <- mean(val$predicted - val$nov_3week, na.rm = TRUE)
     pbias <- (bias / mean(val$nov_3week, na.rm = TRUE)) * 100
     corr <- as.numeric(cor(val$nov_3week, val$predicted, use="complete.obs", method="spearman"))      
+    cov <- COV(val$nov_3week, lower = val$q0.025, upper = val$q0.975)
 
     metrics_fold <- data.frame(
     Fold = k,
@@ -142,7 +176,8 @@ for (k in 1:10) {
     MAPE = mape,
     BIAS = bias,
     pBIAS = pbias,
-    CORR = corr
+    CORR = corr,
+    COV = cov
   )
     metrics <- rbind(metrics, metrics_fold)
 
@@ -150,9 +185,29 @@ for (k in 1:10) {
    
 }
 
-print(dim(metrics))
-print(names(metrics))
-print(head(metrics))
+# 95 % coverage probability
+# Coverage
+coverage_vector <- numeric(nrow(predictions))
+
+for (i in 1:nrow(predictions)) {
+  # Get the confidence interval bounds for the i-th observation
+  lower_bound <- predictions$q0.025[i]
+  upper_bound <- predictions$q0.975[i]
+  
+  # Get the observed value for the i-th observation
+  observed <- predictions$nov_3week[i]
+  
+  # Check if the observed value is within the confidence interval bounds
+  coverage <- ifelse(observed >= lower_bound & observed <= upper_bound, 1, 0)
+  
+  # Store the coverage result (1 if within interval, 0 if outside) for the i-th observation
+  coverage_vector[i] <- coverage
+}
+
+# Calculate the overall coverage probability
+coverage_probability <- mean(coverage_vector, na.rm = TRUE) * 100
+print(paste("Coverage Probability (%):", coverage_probability))
+
 
 summary_metrics <- metrics %>%
   summarise(
@@ -168,11 +223,13 @@ summary_metrics <- metrics %>%
     Mean_MAPE = mean(MAPE, na.rm = TRUE),
     Mean_BIAS = mean(BIAS, na.rm = TRUE),
     Mean_pBIAS = mean(pBIAS, na.rm = TRUE),
-    Mean_CORR = mean(CORR, na.rm = TRUE)
+    Mean_CORR = mean(CORR, na.rm = TRUE),
+    COV = coverage_probability
   )
   
 
 # Print the summary of metrics
 print(summary_metrics)
 
-write.csv(metrics, "outputs/ML_model/cv/ML_lasso_model6_metrics_full.csv")
+write.csv(metrics, "outputs/ML_model/cv/ML_lasso_model_metrics_full_final.csv")
+write.csv(predictions, "outputs/ML_model/cv/ML_lasso_model_predictions_full_final.csv")

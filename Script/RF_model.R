@@ -52,8 +52,14 @@ formula <- as.formula("nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_pl
   scale_mobility + scale_rain_rolling_7day + scale_temp_rolling_7day + scale_prop_urb +
   Easting + Northing + date_index")
 
-model <- ranger(formula, data=train_data, num.trees = 500, importance = "permutation",
+start_time <- Sys.time()
+
+model <- ranger(formula, data=nov_df, num.trees = 500, importance = "permutation",
                 mtry = 3, write.forest = TRUE)
+
+end_time <- Sys.time()
+print(paste("Run time", end_time - start_time))
+
 print(model)
 
 predictions<- predict(model,data = test_data)

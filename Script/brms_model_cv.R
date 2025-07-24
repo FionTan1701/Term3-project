@@ -11,6 +11,20 @@ setwd("~/Term3-project")
 
 nov_df <- read.csv("Data/processed_final.csv")
 
+#coverage probability function-------------------------------------------------
+COV <- function(z, lower=NULL, upper=NULL, coverage=NULL) {
+  if(!is.null(lower) && !is.null(upper)){
+    z <- as.matrix(z)
+    lower <- as.matrix(lower)
+    upper <- as.matrix(upper)
+    x <- z>=lower & z<=upper
+    u <- x[!is.na(x)]
+    round(sum(u)/length(u) * 100, 4)
+  }else if(!is.null(coverage)){
+    round(mean(coverage, na.rm = T),4)
+  }
+}
+
 #scale function-------------------------------------------------
 covariates_to_scale <-  c("school_density", "carehome_density", "imd_score", "BAME", "mobility", "rain_rolling_7day","temp_rolling_7day", "prop_urb")
 scale_covariates <- function(df, covariates_to_scale) {
@@ -66,6 +80,7 @@ nov <- nov %>%
 #cross-validation---------------------------------------------------
 fit <- list()
 metrics<- data.frame()
+predictions <- data.frame()
 
 for (k in 1:10) {
   
@@ -94,13 +109,19 @@ for (k in 1:10) {
     fit.fold<- fit[[k]]
   
     print(summary(fit.fold))
-    print(paste("check prior distributions:"))
     
-  
     # Predictions
     # mean of posterior predictions as the final prediction
     val$predicted<-fitted(fit.fold, newdata = val)[, "Estimate"]
-    #val$predicted <- if (is.null(dim(pp))) mean(pp) else colMeans(pp)
+    val$q0.025 <- fitted(fit.fold, newdata = val)[, "Q2.5"]
+    val$q0.975 <- fitted(fit.fold, newdata = val)[, "Q97.5"]
+
+    # Save predictions
+    val <- val %>%
+      dplyr::select(site_code, date_index, nov_3week, predicted, q0.025, q0.975) %>%
+      st_drop_geometry()
+
+    predictions <- rbind(predictions, val)
 
     # Calculate metrics
     mse <- mean((val$nov_3week - val$predicted)^2, na.rm = TRUE)
@@ -109,7 +130,8 @@ for (k in 1:10) {
     mape <- mean(abs((val$nov_3week - val$predicted) / val$nov_3week), na.rm = TRUE) * 100
     bias <- mean(val$predicted - val$nov_3week, na.rm = TRUE)
     pbias <- (bias / mean(val$nov_3week, na.rm = TRUE)) * 100
-    corr <- cor(val$nov_3week, val$predicted, use="complete.obs", method="spearman")      
+    corr <- cor(val$nov_3week, val$predicted, use="complete.obs", method="spearman")   
+    cov <- COV(val$nov_3week, lower = val$q0.025, upper = val$q0.975)   
 
     metrics_fold <- data.frame(
     Fold = k,
@@ -119,8 +141,11 @@ for (k in 1:10) {
     MAPE = mape,
     BIAS = bias,
     pBIAS = pbias,
-    CORR = corr
+    CORR = corr,
+    COV = cov
   )
+    print(metrics_fold)
+
     metrics <- rbind(metrics, metrics_fold)
 
     print(paste(k, "folds done"))
@@ -140,6 +165,30 @@ priors_k <- get_prior(
 
 print(priors_k)
 
+# 95 % coverage probability
+# Coverage
+coverage_vector <- numeric(nrow(predictions))
+
+for (i in 1:nrow(predictions)) {
+  # Get the confidence interval bounds for the i-th observation
+  lower_bound <- predictions$q0.025[i]
+  upper_bound <- predictions$q0.975[i]
+  
+  # Get the observed value for the i-th observation
+  observed <- predictions$nov_3week[i]
+  
+  # Check if the observed value is within the confidence interval bounds
+  coverage <- ifelse(observed >= lower_bound & observed <= upper_bound, 1, 0)
+  
+  # Store the coverage result (1 if within interval, 0 if outside) for the i-th observation
+  coverage_vector[i] <- coverage
+}
+
+# Calculate the overall coverage probability
+coverage_probability <- mean(coverage_vector, na.rm = TRUE) * 100
+print(paste("Coverage Probability (%):", coverage_probability))
+
+
 summary_metrics <- metrics %>%
   summarise(
     Mean_MSE = mean(MSE, na.rm = TRUE),
@@ -154,11 +203,13 @@ summary_metrics <- metrics %>%
     Mean_MAPE = mean(MAPE, na.rm = TRUE),
     Mean_BIAS = mean(BIAS, na.rm = TRUE),
     Mean_pBIAS = mean(pBIAS, na.rm = TRUE),
-    Mean_CORR = mean(CORR, na.rm = TRUE)
+    Mean_CORR = mean(CORR, na.rm = TRUE),
+    COV = coverage_probability
   )
   
 
 # Print the summary of metrics
 print(summary_metrics)
 
-write.csv(metrics, "outputs/ML_model/cv/ML_brms_model1_metrics_full.csv")
+write.csv(metrics, "outputs/ML_model/cv/ML_brms_model1_metrics_full_final.csv")
+write.csv(predictions, "outputs/ML_model/cv/ML_brms_model1_predictions_full_final.csv") 
