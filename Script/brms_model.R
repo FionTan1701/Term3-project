@@ -40,14 +40,17 @@ formula <- as.formula("nov_3week ~  lockdown_step3 + lockdown_step4 + lockdown_p
   scale_mobility + scale_rain_rolling_7day + scale_temp_rolling_7day + scale_prop_urb +
   ( 1 | site_code ) + (1|date_index) + (1 | site_code :date_index)")
 
+start_time <- Sys.time()
 model1 <- brm(nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting + 
                       scale_school_density + scale_carehome_density + scale_mobility + scale_BAME + scale_imd_score + scale_prop_urb +
                       scale_rain_rolling_7day + scale_temp_rolling_7day + s(Easting, Northing, k=130, bs ="tp")+ s(date_index, k=20, bs ="tp") + t2(Easting, Northing, date_index, d=c(2,1), k=20, bs= c("tp","tp")),
                       data = nov_df,
                       family = gaussian(),
-                      priors = priors,
                       chains = 4, cores = 4, iter = 4000,
                       control = list(adapt_delta = 0.95))
+end_time <- Sys.time()
+print(paste("Run time:", end_time - start_time))
+
 
 
 print(summary(model1))
