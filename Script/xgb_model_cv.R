@@ -160,7 +160,7 @@ for (k in 1:10) {
     val$predicted <- predict(fit.fold, newdata = X_test)
     
     #Pseudocode for bootstrapped intervals
-    n_boot <- 10000
+    n_boot <- 1000
     pred_matrix <- matrix(NA, nrow = n_boot, ncol = nrow(X_test))
     for (i in 1:n_boot) {
       boot_idx <- sample(seq_len(nrow(X_train)), replace = TRUE)
@@ -258,3 +258,4 @@ print(summary_metrics)
 
 write.csv(metrics, "outputs/ML_model/cv/ML_xgb_model_metrics_full_final.csv")
 write.csv(predictions, "outputs/ML_model/cv/ML_xgb_model_predictions_full_final.csv")
+write.csv(summary_metrics, "ML_xgb_model_summary_metrics_full_final.csv")

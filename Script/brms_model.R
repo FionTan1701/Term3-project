@@ -53,28 +53,28 @@ print(paste("Run time:", end_time - start_time))
 
 
 
-print(summary(model1))
-print(summary(model1)$rhat)
-print(summary(model1)$neff_ratio)
+#print(summary(model1))
+#print(summary(model1)$rhat)
+#print(summary(model1)$neff_ratio)
 
-print(paste("check prior distributions:"))
-print(get_prior(model))
+#print(paste("check prior distributions:"))
+#print(get_prior(model))
 
-pdf("brms_model_summary.pdf")
+#pdf("brms_model_summary.pdf")
 # Page 1: Check smooths
-print(check_smooths(model1))
+#print(check_smooths(model1))
 # Page 2: Posterior predictive checks
-print(pp_check(model1))
+#print(pp_check(model1))
 # Page 3: Conditional smooths
-plot(conditional_smooths(model1)) 
+#plot(conditional_smooths(model1)) 
 
-mcmc_rhat(rhat(model1))
-mcmc_neff(neff_ratio(model1))
-dev.off()
+#mcmc_rhat(rhat(model1))
+#mcmc_neff(neff_ratio(model1))
+#dev.off()
 
-pdf("brms_traceplot.pdf")
-plot(model)
-dev.off()
+#pdf("brms_traceplot.pdf")
+#plot(model)
+#dev.off()
 
 waic1 <- waic(model1)
 #waic2 <- waic(model2)

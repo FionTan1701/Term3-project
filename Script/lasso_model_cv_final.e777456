@@ -13,16 +13,17 @@ Error while loading conda entry point: conda-libmamba-solver (/lib64/libstdc++.s
 ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 Warning message:
 package ‘ggplot2’ was built under R version 4.4.3 
-Loading required package: lattice
+Loading required package: Matrix
 
-Attaching package: ‘caret’
+Attaching package: ‘Matrix’
 
-The following object is masked from ‘package:purrr’:
+The following objects are masked from ‘package:tidyr’:
 
-    lift
+    expand, pack, unpack
 
+Loaded glmnet 4.1-9
 Warning message:
-package ‘lattice’ was built under R version 4.4.3 
+package ‘Matrix’ was built under R version 4.4.3 
 Linking to GEOS 3.13.0, GDAL 3.10.2, PROJ 9.5.1; sf_use_s2() is TRUE
 Warning message:
 package ‘sf’ was built under R version 4.4.3 
