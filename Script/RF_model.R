@@ -54,8 +54,14 @@ formula <- as.formula("nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_pl
 
 start_time <- Sys.time()
 
-model <- ranger(formula, data=nov_df, num.trees = 500, importance = "permutation",
-                mtry = 3, write.forest = TRUE)
+model  <- ranger(formula,
+                    data=nov_df, 
+                    num.trees = 750, 
+                    importance = "permutation",
+                    mtry = 3, 
+                    min.node.size=1,
+                    write.forest = TRUE,
+                    quantreg = TRUE)
 
 end_time <- Sys.time()
 print(paste("Run time", end_time - start_time))

@@ -73,10 +73,13 @@ gam_model3 <- gam(nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_planB +
                     scale_school_density + scale_carehome_density + scale_mobility + scale_BAME + scale_imd_score + scale_prop_urb +
                     scale_rain_rolling_7day + scale_temp_rolling_7day + s(Easting, Northing, k=150)+ s(date_index, k=20) + ti(Easting, Northing, date_index, d=c(2,1), k=20),
                   data =nov_df, family =gaussian,method="ML")
+start_time <- Sys.time()
 gam_model4 <- gam(nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting +
                     scale_school_density + scale_carehome_density + scale_mobility + scale_BAME + scale_imd_score + scale_prop_urb +
-                    scale_rain_rolling_7day + scale_temp_rolling_7day + s(Easting, Northing, k=150, bs ="tp")+ s(date_index, k=20, bs ="tp") + ti(Easting, Northing, date_index, d=c(2,1), k=20, bs= c("tp","tp","tp")),
+                    scale_rain_rolling_7day + scale_temp_rolling_7day + s(Easting, Northing, k=150, bs ="tp")+ s(date_index, k=20, bs ="tp") + ti(Easting, Northing, date_index, d=c(2,1), k=20, bs= c("tp","tp")),
                   data =nov_df, family =gaussian,method="REML")
+end_time <- Sys.time()
+print(paste("Run time:", end_time - start_time))
 
 gam_model5 <- gam(nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting +
                     scale_school_density + scale_carehome_density + scale_mobility + scale_BAME + scale_imd_score + scale_prop_urb +

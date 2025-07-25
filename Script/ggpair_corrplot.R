@@ -36,7 +36,7 @@ colnames(cor_vars)<- c("Population mobility","Rain", "Temperature (K)",
 pdf("Figures/ggpair_corrplot3.pdf", width =15 , height = 12)
 
 corr_plot <- ggpairs(cor_vars, lower = "blank")
-corr_plot_bw <- corr_plot 
+corr_plot_bw <- corr_plot + theme
 print(corr_plot_bw)
 
 dev.off()

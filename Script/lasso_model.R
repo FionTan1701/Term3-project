@@ -38,28 +38,22 @@ train_data <- nov_df[train_index, ]
 test_data  <- nov_df[-train_index, ]
 
 
-y_train <- train_data$nov_3week
-X_train <- model.matrix(nov_3week ~ -1 + lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting +
+X_train <- model.matrix(nov_3week ~  -1 +lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting +
                               scale_school_density + scale_carehome_density + scale_imd_score +scale_BAME+
-                              scale_mobility+ scale_rain_rolling_7day+ scale_temp_rolling_7day+ scale_prop_urb+date_index * site_code, data = train_data)
-#data.matrix(train_data %>% 
- #               dplyr::select(lockdown_step3, lockdown_step4, lockdown_planB, lockdown_lifting,
-  #                            scale_school_density, scale_carehome_density, scale_imd_score, scale_BAME,
-   #                           scale_mobility, scale_rain_rolling_7day, scale_temp_rolling_7day, scale_prop_urb,one_week_date, Easting, Northing))
-#
+                              scale_mobility+ scale_rain_rolling_7day+ scale_temp_rolling_7day+ scale_prop_urb+
+                              date_index * site_code, data = train_data)
 
-#X_test <- data.matrix(test_data %>% 
- #               dplyr::select(lockdown_step3, lockdown_step4, lockdown_planB, lockdown_lifting,
-  #                            scale_school_density, scale_carehome_density, scale_imd_score, scale_BAME,
-   #                           scale_mobility, scale_rain_rolling_7day, scale_temp_rolling_7day, scale_prop_urb, one_week_date, Easting, Northing))
-#
+y_train <- train_data$nov_3week
+
 X_test <- model.matrix(nov_3week ~ -1 + lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting +
                               scale_school_density + scale_carehome_density + scale_imd_score +scale_BAME+
-                              scale_mobility+ scale_rain_rolling_7day+ scale_temp_rolling_7day+ scale_prop_urb+date_index * site_code, data = test_data)                       
+                              scale_mobility+ scale_rain_rolling_7day+ scale_temp_rolling_7day+ scale_prop_urb+
+                              date_index * site_code, data = test_data)                       
 
 y_test <- test_data$nov_3week
 
 # Fit the Lasso model
+
 cv_model <- cv.glmnet(X_train, y_train, alpha = 1, family = "gaussian", nfolds = 10)
 
 best_lambda <- cv_model$lambda.min
@@ -70,7 +64,11 @@ plot(cv_model)
 dev.off()
 
 # Fit the final model using the best lambda
+start_time <- Sys.time()
 lasso_model <- glmnet(X_train, y_train, alpha = 1, lambda = best_lambda)
+end_time <- Sys.time()
+print(paste("Run time:", end_time - start_time))
+
 print(coef(lasso_model))   
 
 #Predict on the test set
