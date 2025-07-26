@@ -21,14 +21,64 @@ Projected CRS: OSGB36 / British National Grid
   Fold       MSE      RMSE      MAE     MAPE        BIAS     pBIAS      CORR
 1    1 0.3330104 0.5770706 0.457095 9.247351 -0.07478745 -1.465395 0.5283599
       COV
-1 25.0485
+1 24.8544
 [1] "1 folds done"
+  Fold       MSE      RMSE       MAE     MAPE       BIAS    pBIAS      CORR
+1    2 0.4677172 0.6838985 0.5430355 11.97449 0.09127515 1.852343 0.3059878
+      COV
+1 21.5642
+[1] "2 folds done"
+  Fold       MSE      RMSE       MAE     MAPE        BIAS      pBIAS      CORR
+1    3 0.3717431 0.6097074 0.4710166 9.436392 -0.04657395 -0.8852041 0.4194979
+      COV
+1 27.3828
+[1] "3 folds done"
+  Fold       MSE      RMSE       MAE     MAPE       BIAS     pBIAS      CORR
+1    4 0.3575361 0.5979432 0.4772042 9.541138 -0.1323515 -2.521646 0.5252076
+      COV
+1 23.8351
+[1] "4 folds done"
+  Fold       MSE      RMSE       MAE     MAPE      BIAS    pBIAS     CORR
+1    5 0.3590841 0.5992363 0.4663751 9.663447 0.1711592 3.320601 0.300914
+      COV
+1 26.6667
+[1] "5 folds done"
+  Fold       MSE      RMSE       MAE     MAPE       BIAS     pBIAS      CORR
+1    6 0.6655905 0.8158373 0.6456414 13.50441 -0.1302325 -2.649573 0.1150031
+      COV
+1 17.4912
+[1] "6 folds done"
+  Fold       MSE      RMSE       MAE     MAPE        BIAS     pBIAS      CORR
+1    7 0.3242225 0.5694054 0.4349353 8.765748 -0.09388567 -1.803464 0.5472817
+      COV
+1 28.3557
+[1] "7 folds done"
+  Fold       MSE      RMSE       MAE     MAPE        BIAS      pBIAS      CORR
+1    8 0.4360731 0.6603583 0.5263969 11.35443 -0.04728866 -0.9584188 0.3779995
+      COV
+1 24.3733
+[1] "8 folds done"
+  Fold       MSE      RMSE       MAE     MAPE      BIAS    pBIAS      CORR
+1    9 0.5099755 0.7141257 0.5500207 13.08532 0.1698176 3.613477 0.4808591
+      COV
+1 24.7978
+[1] "9 folds done"
+  Fold       MSE      RMSE       MAE     MAPE        BIAS     pBIAS    CORR
+1   10 0.3264978 0.5713998 0.4539443 9.234507 -0.09622547 -1.889947 0.46585
+      COV
+1 28.9833
+[1] "10 folds done"
+[1] "Coverage Probability (%): 24.7552447552448"
+  Mean_MSE         SE  CI_Lower  CI_Upper Mean_rmse    SE_rmse CI_Lower_rmse
+1 0.415145 0.03434049 0.3374614 0.4928286 0.6398983 0.02511144     0.5830922
+  CI_Upper_rmse  Mean_MAE Mean_MAPE   Mean_BIAS Mean_pBIAS Mean_CORR      COV
+1     0.6967043 0.5025665  10.58072 -0.01890933 -0.3387227 0.4066961 24.75524
 
 ====================================
-CPU Time used: 05:56:26
+CPU Time used: 02:32:37
 CPU Percent: 99%
-Memory usage: 954916kb
-Approx Power usage: 0.0712
-Walltime usage: 06:00:29
+Memory usage: 830504kb
+Approx Power usage: 0.0304
+Walltime usage: 02:35:31
 
 ====================================

@@ -86,9 +86,9 @@ metrics<- data.frame()
 predictions <- data.frame()
 
 params = list(
-      eta = 0.05,
-      max_depth = 4,
-      subsample = 0.7,
+      eta = 0.1,
+      max_depth = 9,
+      subsample = 0.9,
       colsample_bytree = 0.7,
       objective = "reg:squarederror",
       eval_metric = "rmse"
