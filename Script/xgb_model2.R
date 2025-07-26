@@ -45,6 +45,26 @@ train_index <- sample(1:nrow(nov_df), size = 0.8 * nrow(nov_df))
 train_data <- nov_df[train_index, ]
 test_data  <- nov_df[-train_index, ]
 
+y <- nov_df$nov_3week
+nov_df <-model.matrix(nov_3week ~ . -1, data = nov_df)
+xgb_nov <- xgb.DMatrix(data = nov_df, label = y)
+
+start_time <- Sys.time()
+final_model <- xgboost(
+  data = xgb_nov,
+  params = list(
+    eta = 0.05,
+    max_depth = 4,
+    subsample = 0.7,
+    colsample_bytree = 0.7,
+    objective = "reg:squarederror",
+    eval_metric = "rmse"
+  ),
+  nrounds = 300,
+  verbose = 0
+)
+end_time <- Sys.time()
+print(paste("Run Time:", end_time - start_time))
 
 y_train <- train_data$nov_3week
 X_train <- model.matrix(nov_3week ~ . -1, data = train_data)
