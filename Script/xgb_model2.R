@@ -30,9 +30,9 @@ nov_df<- scale_covariates(nov_df, covariates_to_scale)
 nov_df$site_code <- as.factor(nov_df$site_code)
 
 nov_df <- nov_df %>% 
-                dplyr::select(nov_3week, lockdown_step3, lockdown_step4, lockdown_planB, lockdown_lifting,
-                              scale_school_density, scale_carehome_density, scale_imd_score, scale_BAME,
-                             scale_mobility, scale_rain_rolling_7day, scale_temp_rolling_7day, scale_prop_urb, date_index, Easting, Northing)
+  dplyr::select(nov_3week, lockdown_step3, lockdown_step4, lockdown_planB, lockdown_lifting,
+                scale_school_density, scale_carehome_density, scale_imd_score, scale_BAME,
+                scale_mobility, scale_rain_rolling_7day, scale_temp_rolling_7day, scale_prop_urb, date_index, Easting, Northing)
 
 
 nov_df<- as.data.frame(nov_df)
