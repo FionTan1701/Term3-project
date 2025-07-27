@@ -112,13 +112,15 @@ for (k in 1:10) {
     y_train <- train$nov_3week
     X_train <- model.matrix(nov_3week ~ -1 + lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting +
                               scale_school_density + scale_carehome_density + scale_imd_score +scale_BAME+
-                              scale_mobility+ scale_rain_rolling_7day+ scale_temp_rolling_7day+ scale_prop_urb
-                              + date_index * Easting * Northing, data = train)
+                              scale_mobility+ scale_rain_rolling_7day+ scale_temp_rolling_7day+ scale_prop_urb +
+                              date_index + Easting + Northing +
+                              date_index * Easting * Northing, data = train)
                               
 
     X_test <- model.matrix(nov_3week ~ -1 + lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting +
                               scale_school_density + scale_carehome_density + scale_imd_score +scale_BAME+
-                              scale_mobility+ scale_rain_rolling_7day+ scale_temp_rolling_7day+ scale_prop_urb+
+                              scale_mobility+ scale_rain_rolling_7day+ scale_temp_rolling_7day+ scale_prop_urb+ 
+                              date_index + Easting + Northing +
                               date_index * Easting * Northing, data = val)                       
 
     y_test <- val$nov_3week   
@@ -248,5 +250,5 @@ summary_metrics <- metrics %>%
 # Print the summary of metrics
 print(summary_metrics)
 
-write.csv(metrics, "outputs/ML_model/cv/ML_lasso_model_metrics_full_final2.csv")
-write.csv(predictions, "outputs/ML_model/cv/ML_lasso_model_predictions_full_final2.csv")
+write.csv(metrics, "outputs/ML_model/cv/ML_lasso_model8_metrics_full_final2.csv")
+write.csv(predictions, "outputs/ML_model/cv/ML_lasso_model8_predictions_full_final2.csv")
