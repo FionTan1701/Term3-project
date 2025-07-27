@@ -41,13 +41,20 @@ scale_covariates <- function(df, covariates_to_scale) {
 
 nov_df<- scale_covariates(nov_df, covariates_to_scale)
 nov_df<- as.data.frame(nov_df)
+
+nov_df <- nov_df %>%
+  arrange(site_code) %>%
+  mutate(site_code= as.factor(site_code)) %>%
+  mutate(s_index=as.numeric(site_code)) %>%
+  mutate(site_code= as.character(site_code))
+
 nov_df <- nov_df[!is.na(nov_df$nov_3week), ]
 
 nov <- nov_df
 nov <- st_as_sf(nov_df, coords= c("Easting", "Northing"), crs= 27700)
 nov <- st_transform(nov,  crs = "+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=km +no_defs")
 
-nov$one_week_date <- as.numeric(as.Date(nov$one_week_date, format="%d/%m/%Y"))
+
 
 # create fold blocks------------------------------------------------------------
 # unique sites
@@ -161,7 +168,10 @@ for (k in 1:10) {
     val$q0.025 <- apply(boot_preds, 2, quantile, probs = 0.025)
     val$q0.975 <- apply(boot_preds, 2, quantile, probs = 0.975)
         
-
+    val <- val %>%
+      dplyr::select(site_code, s_index, one_week_date, date_index, nov_3week, predicted, q0.025, q0.975) %>%
+      st_drop_geometry()
+      
     predictions <- rbind(predictions, val)
 
     # Calculate metrics

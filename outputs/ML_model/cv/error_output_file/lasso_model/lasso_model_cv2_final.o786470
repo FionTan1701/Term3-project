@@ -159,17 +159,17 @@ offset     1     -none-    logical
 call       6     -none-    call   
 nobs       1     -none-    numeric
 [1] "10 folds done"
-[1] "Coverage Probability (%): 7.1950271950272"
+[1] "Coverage Probability (%): 7.17948717948718"
    Mean_MSE         SE  CI_Lower  CI_Upper Mean_rmse    SE_rmse CI_Lower_rmse
 1 0.4472438 0.04022685 0.3562444 0.5382433 0.6632529 0.02855691     0.5986527
   CI_Upper_rmse  Mean_MAE Mean_MAPE   Mean_BIAS Mean_pBIAS Mean_CORR      COV
-1     0.7278531 0.5231089  11.10533 -0.01678495   -0.25542 0.3518169 7.195027
+1     0.7278531 0.5231089  11.10533 -0.01678495   -0.25542 0.3518169 7.179487
 
 ====================================
-CPU Time used: 00:04:53
+CPU Time used: 00:05:50
 CPU Percent: 99%
-Memory usage: 857892kb
-Approx Power usage: 0.0008
-Walltime usage: 00:07:30
+Memory usage: 939900kb
+Approx Power usage: 0.001
+Walltime usage: 00:06:43
 
 ====================================

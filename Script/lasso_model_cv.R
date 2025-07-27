@@ -25,7 +25,6 @@ COV <- function(z, lower=NULL, upper=NULL, coverage=NULL) {
   }
 }
 
-
 #scale function-------------------------------------------------
 covariates_to_scale <-  c("school_density", "carehome_density", "imd_score", "BAME", "mobility", "rain_rolling_7day","temp_rolling_7day", "prop_urb")
 scale_covariates <- function(df, covariates_to_scale) {
@@ -42,13 +41,20 @@ scale_covariates <- function(df, covariates_to_scale) {
 
 nov_df<- scale_covariates(nov_df, covariates_to_scale)
 nov_df<- as.data.frame(nov_df)
+
+nov_df <- nov_df %>%
+  arrange(site_code) %>%
+  mutate(site_code= as.factor(site_code)) %>%
+  mutate(s_index=as.numeric(site_code)) %>%
+  mutate(site_code= as.character(site_code))
+
 nov_df <- nov_df[!is.na(nov_df$nov_3week), ]
 
 nov <- nov_df
 nov <- st_as_sf(nov_df, coords= c("Easting", "Northing"), crs= 27700)
 nov <- st_transform(nov,  crs = "+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=km +no_defs")
 
-nov$one_week_date <- as.numeric(as.Date(nov$one_week_date, format="%d/%m/%Y"))
+
 
 # create fold blocks------------------------------------------------------------
 # unique sites
@@ -84,6 +90,10 @@ fit <- list()
 metrics<- data.frame()
 predictions <- data.frame()
 
+#Run model with best lambda
+best_lambda <-  0.0247707635599171
+print(paste("Best lambda:", best_lambda))
+
 for (k in 1:10) {
   
     # subset data
@@ -102,8 +112,9 @@ for (k in 1:10) {
     y_train <- train$nov_3week
     X_train <- model.matrix(nov_3week ~ -1 + lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting +
                               scale_school_density + scale_carehome_density + scale_imd_score +scale_BAME+
-                              scale_mobility+ scale_rain_rolling_7day+ scale_temp_rolling_7day+ scale_prop_urb+
-                              date_index * site_code, data = train)
+                              scale_mobility+ scale_rain_rolling_7day+ scale_temp_rolling_7day+ scale_prop_urb
+                              + date_index * site_code, data = train)
+                              
 
     X_test <- model.matrix(nov_3week ~ -1 + lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting +
                               scale_school_density + scale_carehome_density + scale_imd_score +scale_BAME+
@@ -131,16 +142,17 @@ for (k in 1:10) {
     # Reorder columns to match training set
     X_test <- X_test[, colnames(X_train), drop = FALSE]
 
-    cv_model <- cv.glmnet(X_train, y_train, alpha = 1, family = "gaussian", nfolds = 10)
-    fit[[k]] <- glmnet(X_train, y_train, alpha = 1, lambda = cv_model$lambda.min, family = "gaussian")
-    print(paste("Best lambda:",cv_model$lambda.min ))                     
+    fit[[k]] <- glmnet(X_train, y_train, alpha = 1, lambda = best_lambda, family = "gaussian")                    
 
     fit.fold<- fit[[k]]
+  
     print(summary(fit.fold))
 
+    
     # Predictions
-    val$predicted <- predict(fit.fold, s= cv_model$lambda.min, newx = X_test)
+    val$predicted <- predict(fit.fold, s= best_lambda, newx = X_test)
 
+    # bootstrap predictions for uncertainty estimation
     n_boot <- 10000
     boot_preds <- matrix(NA, nrow = n_boot, ncol = nrow(val))
 
@@ -149,24 +161,28 @@ for (k in 1:10) {
       boot_idx <- sample(seq_len(nrow(train)), replace = TRUE)
       X_train_boot <- X_train[boot_idx, ]
       y_train_boot <- y_train[boot_idx]
-      boot_model <- glmnet(X_train_boot, y_train_boot, alpha = 1, lambda = cv_model$lambda.min, family = "gaussian")
-      boot_preds[i, ] <- as.numeric(predict(boot_model, s = cv_model$lambda.min, newx = X_test))
+      boot_model <- glmnet(X_train_boot, y_train_boot, alpha = 1, lambda = best_lambda, family = "gaussian")
+      boot_preds[i, ] <- as.numeric(predict(boot_model, s = best_lambda, newx = X_test))
     }
 
     val$q0.025 <- apply(boot_preds, 2, quantile, probs = 0.025)
     val$q0.975 <- apply(boot_preds, 2, quantile, probs = 0.975)
         
+    val <- val %>%
+      dplyr::select(site_code, s_index, one_week_date, date_index, nov_3week, predicted, q0.025, q0.975) %>%
+      st_drop_geometry()
+      
     predictions <- rbind(predictions, val)
-  
-    # Calculate mean squared error
+
+    # Calculate metrics
     mse <- mean((val$nov_3week - val$predicted)^2, na.rm = TRUE)
     rmse <- sqrt(mse)
     mae <- mean(abs(val$nov_3week - val$predicted), na.rm = TRUE)
     mape <- mean(abs((val$nov_3week - val$predicted) / val$nov_3week), na.rm = TRUE) * 100
     bias <- mean(val$predicted - val$nov_3week, na.rm = TRUE)
     pbias <- (bias / mean(val$nov_3week, na.rm = TRUE)) * 100
-    corr <- as.numeric(cor(val$nov_3week, val$predicted, use="complete.obs", method="spearman"))      
-    cov <- COV(val$nov_3week, lower = val$q0.025, upper = val$q0.975)
+    corr <- as.numeric(cor(val$nov_3week, val$predicted, use="complete.obs", method="spearman"))  
+    cov <- COV(val$nov_3week, lower = val$q0.025, upper = val$q0.975)    
 
     metrics_fold <- data.frame(
     Fold = k,
@@ -209,6 +225,7 @@ coverage_probability <- mean(coverage_vector, na.rm = TRUE) * 100
 print(paste("Coverage Probability (%):", coverage_probability))
 
 
+
 summary_metrics <- metrics %>%
   summarise(
     Mean_MSE = mean(MSE, na.rm = TRUE),
@@ -230,6 +247,7 @@ summary_metrics <- metrics %>%
 
 # Print the summary of metrics
 print(summary_metrics)
+
 
 write.csv(metrics, "outputs/ML_model/cv/ML_lasso_model_metrics_full_final.csv")
 write.csv(predictions, "outputs/ML_model/cv/ML_lasso_model_predictions_full_final.csv")

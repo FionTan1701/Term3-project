@@ -33,11 +33,11 @@ nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_planB +
 
 Parametric coefficients:
                          Estimate Std. Error t value Pr(>|t|)    
-(Intercept)              5.201469   0.073041  71.213  < 2e-16 ***
-lockdown_step3           0.000000   0.000000     NaN      NaN    
-lockdown_step4          -0.186266   0.077537  -2.402  0.01633 *  
-lockdown_planB          -0.215991   0.109104  -1.980  0.04779 *  
-lockdown_lifting        -0.168378   0.132923  -1.267  0.20530    
+(Intercept)              5.033090   0.079507  63.304  < 2e-16 ***
+lockdown_step3           0.168378   0.132923   1.267  0.20530    
+lockdown_step4          -0.017887   0.110235  -0.162  0.87110    
+lockdown_planB          -0.047612   0.076990  -0.618  0.53633    
+lockdown_lifting         0.000000   0.000000     NaN      NaN    
 scale_school_density    -0.079910   0.028196  -2.834  0.00461 ** 
 scale_carehome_density  -0.089473   0.039849  -2.245  0.02479 *  
 scale_mobility          -0.008700   0.012407  -0.701  0.48317    
@@ -63,7 +63,7 @@ R-sq.(adj) =  0.555   Deviance explained = 57.6%
 
 Method: REML   Optimizer: outer newton
 full convergence after 12 iterations.
-Gradient range [-2.77379e-07,2.858069e-07]
+Gradient range [-2.590538e-07,2.424181e-07]
 (score 4593.475 & scale 0.2334223).
 Hessian positive definite, eigenvalue range [4.931999,2953.002].
 Model rank =  521 / 522 
@@ -72,9 +72,9 @@ Basis dimension (k) checking results. Low p-value (k-index<1) may
 indicate that k is too low, especially if edf is close to k'.
 
                                    k'   edf k-index p-value
-s(Easting,Northing)             129.0 121.9    1.00    0.58
-s(date_index)                    19.0  13.9    1.00    0.36
-ti(Easting,Northing,date_index) 361.0 134.2    1.02    0.92
+s(Easting,Northing)             129.0 121.9    1.00    0.54
+s(date_index)                    19.0  13.9    1.02    0.94
+ti(Easting,Northing,date_index) 361.0 134.2    1.03    0.99
 $mfrow
 [1] 2 2
 
@@ -128,7 +128,7 @@ R-sq.(adj) =  0.571   Deviance explained = 59.4%
 
 Method: REML   Optimizer: outer newton
 full convergence after 12 iterations.
-Gradient range [-0.0001377945,6.451671e-06]
+Gradient range [-0.0001377517,3.16549e-05]
 (score 4204.502 & scale 0.2234793).
 Hessian positive definite, eigenvalue range [5.052856,2763.223].
 Model rank =  521 / 522 
@@ -137,8 +137,8 @@ Basis dimension (k) checking results. Low p-value (k-index<1) may
 indicate that k is too low, especially if edf is close to k'.
 
                                    k'   edf k-index p-value
-s(Easting,Northing)             129.0 116.7    1.02    0.95
-s(date_index)                    19.0  14.4    1.02    0.83
+s(Easting,Northing)             129.0 116.7    1.01    0.74
+s(date_index)                    19.0  14.4    1.02    0.94
 ti(Easting,Northing,date_index) 361.0 149.3    1.06    1.00
 $mfrow
 [1] 2 2
@@ -193,7 +193,7 @@ R-sq.(adj) =  0.556   Deviance explained = 57.7%
 
 Method: REML   Optimizer: outer newton
 full convergence after 12 iterations.
-Gradient range [-0.0001000783,0.000104623]
+Gradient range [-0.0001000132,0.0001046008]
 (score 4426.086 & scale 0.2295046).
 Hessian positive definite, eigenvalue range [5.227137,2879.9].
 Model rank =  521 / 522 
@@ -202,8 +202,8 @@ Basis dimension (k) checking results. Low p-value (k-index<1) may
 indicate that k is too low, especially if edf is close to k'.
 
                                    k'   edf k-index p-value
-s(Easting,Northing)             129.0 120.8    1.02    0.90
-s(date_index)                    19.0  14.2    1.01    0.83
+s(Easting,Northing)             129.0 120.8    1.02    0.86
+s(date_index)                    19.0  14.2    1.01    0.76
 ti(Easting,Northing,date_index) 361.0 122.5    1.03    1.00
 $mfrow
 [1] 2 2
@@ -258,7 +258,7 @@ R-sq.(adj) =   0.55   Deviance explained = 57.1%
 
 Method: REML   Optimizer: outer newton
 full convergence after 13 iterations.
-Gradient range [-1.654559e-05,7.367199e-06]
+Gradient range [-1.641814e-05,7.313712e-06]
 (score 4550.553 & scale 0.233127).
 Hessian positive definite, eigenvalue range [5.100506,2931.439].
 Model rank =  521 / 522 
@@ -267,9 +267,9 @@ Basis dimension (k) checking results. Low p-value (k-index<1) may
 indicate that k is too low, especially if edf is close to k'.
 
                                    k'   edf k-index p-value
-s(Easting,Northing)             129.0 121.2    1.01    0.71
-s(date_index)                    19.0  14.5    0.99    0.18
-ti(Easting,Northing,date_index) 361.0 128.4    1.03    1.00
+s(Easting,Northing)             129.0 121.2    1.01    0.69
+s(date_index)                    19.0  14.5    1.01    0.67
+ti(Easting,Northing,date_index) 361.0 128.4    1.05    1.00
 $mfrow
 [1] 2 2
 
@@ -323,7 +323,7 @@ R-sq.(adj) =  0.569   Deviance explained = 59.1%
 
 Method: REML   Optimizer: outer newton
 full convergence after 12 iterations.
-Gradient range [-7.254868e-06,1.62557e-06]
+Gradient range [-7.090292e-06,1.585277e-06]
 (score 4563.009 & scale 0.2284983).
 Hessian positive definite, eigenvalue range [5.637368,2948.314].
 Model rank =  521 / 522 
@@ -331,10 +331,12 @@ Model rank =  521 / 522
 Basis dimension (k) checking results. Low p-value (k-index<1) may
 indicate that k is too low, especially if edf is close to k'.
 
-                                   k'   edf k-index p-value
-s(Easting,Northing)             129.0 122.3    1.02    0.94
-s(date_index)                    19.0  14.3    0.99    0.17
-ti(Easting,Northing,date_index) 361.0 157.9    1.05    1.00
+                                   k'   edf k-index p-value  
+s(Easting,Northing)             129.0 122.3    1.05    1.00  
+s(date_index)                    19.0  14.3    0.97    0.02 *
+ti(Easting,Northing,date_index) 361.0 157.9    1.05    1.00  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 $mfrow
 [1] 2 2
 
@@ -388,7 +390,7 @@ R-sq.(adj) =  0.544   Deviance explained = 56.5%
 
 Method: REML   Optimizer: outer newton
 full convergence after 11 iterations.
-Gradient range [-6.583313e-06,2.468674e-06]
+Gradient range [-6.566716e-06,2.464557e-06]
 (score 4516.673 & scale 0.2329107).
 Hessian positive definite, eigenvalue range [3.667923,2927.337].
 Model rank =  521 / 522 
@@ -397,8 +399,8 @@ Basis dimension (k) checking results. Low p-value (k-index<1) may
 indicate that k is too low, especially if edf is close to k'.
 
                                    k'   edf k-index p-value
-s(Easting,Northing)             129.0 119.0    1.01    0.83
-s(date_index)                    19.0  14.1    1.00    0.61
+s(Easting,Northing)             129.0 119.0    1.01    0.69
+s(date_index)                    19.0  14.1    0.98    0.10
 ti(Easting,Northing,date_index) 361.0 122.1    1.02    0.96
 $mfrow
 [1] 2 2
@@ -453,7 +455,7 @@ R-sq.(adj) =  0.561   Deviance explained = 58.2%
 
 Method: REML   Optimizer: outer newton
 full convergence after 11 iterations.
-Gradient range [-0.0007808423,0.000236325]
+Gradient range [-0.0007808752,0.0002363276]
 (score 4481.774 & scale 0.2292761).
 Hessian positive definite, eigenvalue range [4.582016,2912.493].
 Model rank =  521 / 522 
@@ -462,9 +464,9 @@ Basis dimension (k) checking results. Low p-value (k-index<1) may
 indicate that k is too low, especially if edf is close to k'.
 
                                    k'   edf k-index p-value
-s(Easting,Northing)             129.0 121.3    1.01    0.83
-s(date_index)                    19.0  14.1    0.99    0.22
-ti(Easting,Northing,date_index) 361.0 131.4    1.03    1.00
+s(Easting,Northing)             129.0 121.3    1.01    0.64
+s(date_index)                    19.0  14.1    0.99    0.17
+ti(Easting,Northing,date_index) 361.0 131.4    1.03    0.98
 $mfrow
 [1] 2 2
 
@@ -518,7 +520,7 @@ R-sq.(adj) =  0.577   Deviance explained = 59.8%
 
 Method: REML   Optimizer: outer newton
 full convergence after 11 iterations.
-Gradient range [-0.00461884,0.001247007]
+Gradient range [-0.004618813,0.001246972]
 (score 4287.457 & scale 0.219287).
 Hessian positive definite, eigenvalue range [5.149285,2851.664].
 Model rank =  521 / 522 
@@ -526,10 +528,12 @@ Model rank =  521 / 522
 Basis dimension (k) checking results. Low p-value (k-index<1) may
 indicate that k is too low, especially if edf is close to k'.
 
-                                   k'   edf k-index p-value
-s(Easting,Northing)             129.0 120.4    1.01    0.80
-s(date_index)                    19.0  14.2    1.00    0.38
-ti(Easting,Northing,date_index) 361.0 143.9    1.02    0.98
+                                   k'   edf k-index p-value  
+s(Easting,Northing)             129.0 120.4    1.03   1.000  
+s(date_index)                    19.0  14.2    0.98   0.095 .
+ti(Easting,Northing,date_index) 361.0 143.9    1.02   0.975  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 $mfrow
 [1] 2 2
 
@@ -553,11 +557,11 @@ nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_planB +
 
 Parametric coefficients:
                          Estimate Std. Error t value Pr(>|t|)    
-(Intercept)              5.205983   0.074997  69.416   <2e-16 ***
-lockdown_step3           0.000000   0.000000     NaN      NaN    
-lockdown_step4          -0.186890   0.079318  -2.356   0.0185 *  
-lockdown_planB          -0.203927   0.111781  -1.824   0.0682 .  
-lockdown_lifting        -0.136096   0.135924  -1.001   0.3167    
+(Intercept)              5.069888   0.081038  62.562   <2e-16 ***
+lockdown_step3           0.136096   0.135924   1.001   0.3167    
+lockdown_step4          -0.050794   0.112761  -0.450   0.6524    
+lockdown_planB          -0.067831   0.077957  -0.870   0.3843    
+lockdown_lifting         0.000000   0.000000     NaN      NaN    
 scale_school_density    -0.023977   0.036332  -0.660   0.5093    
 scale_carehome_density  -0.019526   0.039120  -0.499   0.6177    
 scale_mobility          -0.013186   0.012515  -1.054   0.2921    
@@ -583,7 +587,7 @@ R-sq.(adj) =  0.546   Deviance explained =   57%
 
 Method: REML   Optimizer: outer newton
 full convergence after 12 iterations.
-Gradient range [-4.517033e-05,1.042438e-05]
+Gradient range [-4.512577e-05,1.042248e-05]
 (score 4287.661 & scale 0.2212353).
 Hessian positive definite, eigenvalue range [5.793449,2839.672].
 Model rank =  521 / 522 
@@ -592,9 +596,9 @@ Basis dimension (k) checking results. Low p-value (k-index<1) may
 indicate that k is too low, especially if edf is close to k'.
 
                                    k'   edf k-index p-value
-s(Easting,Northing)             129.0 119.6    1.02    0.92
-s(date_index)                    19.0  14.5    1.01    0.70
-ti(Easting,Northing,date_index) 361.0 145.2    1.05    1.00
+s(Easting,Northing)             129.0 119.6    1.01    0.81
+s(date_index)                    19.0  14.5    1.00    0.52
+ti(Easting,Northing,date_index) 361.0 145.2    1.06    1.00
 $mfrow
 [1] 2 2
 
@@ -618,11 +622,11 @@ nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_planB +
 
 Parametric coefficients:
                          Estimate Std. Error t value Pr(>|t|)    
-(Intercept)              5.177822   0.077353  66.938  < 2e-16 ***
-lockdown_step3           0.000000   0.000000     NaN      NaN    
-lockdown_step4          -0.175075   0.081844  -2.139  0.03247 *  
-lockdown_planB          -0.211736   0.115546  -1.832  0.06693 .  
-lockdown_lifting        -0.176459   0.140563  -1.255  0.20939    
+(Intercept)              5.001363   0.083700  59.753  < 2e-16 ***
+lockdown_step3           0.176459   0.140563   1.255  0.20939    
+lockdown_step4           0.001385   0.116697   0.012  0.99053    
+lockdown_planB          -0.035277   0.080424  -0.439  0.66094    
+lockdown_lifting         0.000000   0.000000     NaN      NaN    
 scale_school_density    -0.085432   0.027452  -3.112  0.00187 ** 
 scale_carehome_density  -0.073824   0.041032  -1.799  0.07205 .  
 scale_mobility          -0.009350   0.012920  -0.724  0.46929    
@@ -648,7 +652,7 @@ R-sq.(adj) =   0.56   Deviance explained = 58.1%
 
 Method: REML   Optimizer: outer newton
 full convergence after 11 iterations.
-Gradient range [-0.002780756,0.0009264952]
+Gradient range [-0.002780732,0.0009264983]
 (score 4493.86 & scale 0.2340285).
 Hessian positive definite, eigenvalue range [4.784194,2880.981].
 Model rank =  521 / 522 
@@ -656,10 +660,12 @@ Model rank =  521 / 522
 Basis dimension (k) checking results. Low p-value (k-index<1) may
 indicate that k is too low, especially if edf is close to k'.
 
-                                   k'   edf k-index p-value
-s(Easting,Northing)             129.0 120.6    1.02    0.92
-s(date_index)                    19.0  14.7    1.01    0.77
-ti(Easting,Northing,date_index) 361.0 129.8    1.03    1.00
+                                   k'   edf k-index p-value  
+s(Easting,Northing)             129.0 120.6    1.00   0.560  
+s(date_index)                    19.0  14.7    0.97   0.015 *
+ti(Easting,Northing,date_index) 361.0 129.8    1.04   1.000  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 $mfrow
 [1] 2 2
 
@@ -675,10 +681,10 @@ $mfrow
 1     0.9267449 0.6039798  12.50057 -0.05165114  -1.016585 0.3113035 32.49417
 
 ====================================
-CPU Time used: 00:16:58
-CPU Percent: 98%
-Memory usage: 1456452kb
-Approx Power usage: 0.0032
-Walltime usage: 00:18:19
+CPU Time used: 00:14:34
+CPU Percent: 99%
+Memory usage: 1423528kb
+Approx Power usage: 0.0028
+Walltime usage: 00:15:57
 
 ====================================

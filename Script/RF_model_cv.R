@@ -42,13 +42,20 @@ scale_covariates <- function(df, covariates_to_scale) {
 
 nov_df<- scale_covariates(nov_df, covariates_to_scale)
 nov_df<- as.data.frame(nov_df)
+
+nov_df <- nov_df %>%
+  arrange(site_code) %>%
+  mutate(site_code= as.factor(site_code)) %>%
+  mutate(s_index=as.numeric(site_code)) %>%
+  mutate(site_code= as.character(site_code))
+
 nov_df <- nov_df[!is.na(nov_df$nov_3week), ]
 
 nov <- nov_df
 nov <- st_as_sf(nov_df, coords= c("Easting", "Northing"), crs= 27700)
 nov <- st_transform(nov,  crs = "+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=km +no_defs")
 
-nov$one_week_date <- as.numeric(as.Date(nov$one_week_date, format="%d/%m/%Y"))
+
 
 # create fold blocks------------------------------------------------------------
 # unique sites
@@ -115,10 +122,10 @@ for (k in 1:10) {
 
     fit[[k]]  <- ranger(formula,
                         data=train, 
-                        num.trees = 750, 
+                        num.trees=500, 
                         importance = "permutation",
                         mtry = 3, 
-                        min.node.size=1,
+                        min.node.size=6,
                         write.forest = TRUE,
                         quantreg = TRUE)
 
@@ -136,7 +143,7 @@ for (k in 1:10) {
 
     # Save predictions
     val <- val %>%
-      dplyr::select(site_code, one_week_date, nov_3week, predicted, q0.025, q0.975) %>%
+      dplyr::select(site_code, s_index, one_week_date, date_index, nov_3week, predicted, q0.025, q0.975) %>%
       st_drop_geometry()
       
     predictions <- rbind(predictions, val)
@@ -215,5 +222,5 @@ summary_metrics <- metrics %>%
 # Print the summary of metrics
 print(summary_metrics)
 
-write.csv(metrics, "outputs/ML_model/cv/ML_rf_model_metrics_full_final.csv")
-write.csv(predictions, "outputs/ML_model/cv/ML_rf_model_predictions_full_final.csv")
+write.csv(metrics, "outputs/ML_model/cv/ML_rf_model4_metrics_full_final.csv")
+write.csv(predictions, "outputs/ML_model/cv/ML_rf_model4_predictions_full_final.csv")
