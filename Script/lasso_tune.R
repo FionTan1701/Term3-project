@@ -11,6 +11,20 @@ setwd("~/Term3-project")
 
 nov_df <- read.csv("Data/processed_final.csv")
 
+#coverage probability function-------------------------------------------------
+COV <- function(z, lower=NULL, upper=NULL, coverage=NULL) {
+  if(!is.null(lower) && !is.null(upper)){
+    z <- as.matrix(z)
+    lower <- as.matrix(lower)
+    upper <- as.matrix(upper)
+    x <- z>=lower & z<=upper
+    u <- x[!is.na(x)]
+    round(sum(u)/length(u) * 100, 4)
+  }else if(!is.null(coverage)){
+    round(mean(coverage, na.rm = T),4)
+  }
+}
+
 #scale function-------------------------------------------------
 covariates_to_scale <-  c("school_density", "carehome_density", "imd_score", "BAME", "mobility", "rain_rolling_7day","temp_rolling_7day", "prop_urb")
 scale_covariates <- function(df, covariates_to_scale) {
@@ -27,6 +41,13 @@ scale_covariates <- function(df, covariates_to_scale) {
 
 nov_df<- scale_covariates(nov_df, covariates_to_scale)
 nov_df<- as.data.frame(nov_df)
+
+nov_df <- nov_df %>%
+  arrange(site_code) %>%
+  mutate(site_code= as.factor(site_code)) %>%
+  mutate(s_index=as.numeric(site_code)) %>%
+  mutate(site_code= as.character(site_code))
+
 nov_df <- nov_df[!is.na(nov_df$nov_3week), ]
 
 nov <- nov_df
