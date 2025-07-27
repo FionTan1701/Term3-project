@@ -103,8 +103,8 @@ for (k in 1:10) {
                       scale_rain_rolling_7day + scale_temp_rolling_7day + s(Easting, Northing, k=130, bs ="tp")+ s(date_index, k=20, bs ="tp") + t2(Easting, Northing, date_index, d=c(2,1), k=20, bs= c("tp","tp")),
                       data = train,
                       family = gaussian(),
-                      chains = 4, cores = 4, iter = 1000, warmup = 500, thin = 1,
-                      control = list(adapt_delta = 0.95))
+                      chains = 4, cores = 4, iter = 1000, warmup = 500, thin = 1, seed = 123,
+                      control = list(adapt_delta = 0.95),silent =TRUE, refresh = 0)
 
     fit.fold<- fit[[k]]
   

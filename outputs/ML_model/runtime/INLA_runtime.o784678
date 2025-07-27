@@ -1,0 +1,19 @@
+Reading layer `england_crop' from data source 
+  `/rds/general/user/ft824/home/Term3-project/Data/shapefiles/england/england_crop.shp' 
+  using driver `ESRI Shapefile'
+Simple feature collection with 1 feature and 8 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 82668.52 ymin: 5336.966 xmax: 655653.8 ymax: 657536
+Projected CRS: OSGB36 / British National Grid
+[1] "INLA model runtime: 3.68916208346685"
+[1] 221.3497
+
+====================================
+CPU Time used: 00:05:44
+CPU Percent: 183%
+Memory usage: 2238260kb
+Approx Power usage: 0.001
+Walltime usage: 00:04:14
+
+====================================

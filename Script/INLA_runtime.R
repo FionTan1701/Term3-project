@@ -324,3 +324,5 @@ fit_full <- inla(
 end_time <- Sys.time()
 runtime <- end_time - start_time
 print(paste("INLA model runtime:", runtime))
+print(as.numeric(difftime(end_time, start_time, units = "secs")))
+

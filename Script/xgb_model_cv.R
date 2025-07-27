@@ -86,9 +86,9 @@ metrics<- data.frame()
 predictions <- data.frame()
 
 params = list(
-      eta = 0.1,
-      max_depth = 9,
-      subsample = 0.9,
+      eta = 0.05,
+      max_depth = 4,
+      subsample = 0.7,
       colsample_bytree = 0.7,
       objective = "reg:squarederror",
       eval_metric = "rmse"
@@ -256,6 +256,6 @@ summary_metrics <- metrics %>%
 # Print the summary of metrics
 print(summary_metrics)
 
-write.csv(metrics, "outputs/ML_model/cv/ML_xgb_model_metrics_full_final.csv")
-write.csv(predictions, "outputs/ML_model/cv/ML_xgb_model_predictions_full_final.csv")
-write.csv(summary_metrics, "ML_xgb_model_summary_metrics_full_final.csv")
+write.csv(metrics, "outputs/ML_model/cv/ML_xgb_modeltune_metrics_full_final.csv")
+write.csv(predictions, "outputs/ML_model/cv/ML_xgb_modeltune_predictions_full_final.csv")
+write.csv(summary_metrics, "ML_xgb_modeltune_summary_metrics_full_final.csv")

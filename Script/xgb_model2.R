@@ -65,6 +65,8 @@ final_model <- xgboost(
 )
 end_time <- Sys.time()
 print(paste("Run Time:", end_time - start_time))
+print(as.numeric(difftime(end_time, start_time, units = "secs")))
+
 
 y_train <- train_data$nov_3week
 X_train <- model.matrix(nov_3week ~ . -1, data = train_data)

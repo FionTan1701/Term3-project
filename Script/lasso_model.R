@@ -59,15 +59,16 @@ cv_model <- cv.glmnet(X_train, y_train, alpha = 1, family = "gaussian", nfolds =
 best_lambda <- cv_model$lambda.min
 print(paste("Best lambda:", best_lambda))
 
-pdf("lasso_cv_plot.pdf")
-plot(cv_model) 
-dev.off()
+#pdf("lasso_cv_plot.pdf")
+#plot(cv_model) 
+#dev.off()
 
 # Fit the final model using the best lambda
 start_time <- Sys.time()
 lasso_model <- glmnet(X_train, y_train, alpha = 1, lambda = best_lambda)
 end_time <- Sys.time()
 print(paste("Run time:", end_time - start_time))
+print(as.numeric(difftime(end_time, start_time, units = "secs")))
 
 print(coef(lasso_model))   
 

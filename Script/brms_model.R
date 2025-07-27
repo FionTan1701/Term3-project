@@ -49,7 +49,7 @@ model1 <- brm(nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_planB + loc
                       chains = 4, cores = 4, iter = 4000,
                       control = list(adapt_delta = 0.95))
 end_time <- Sys.time()
-print(paste("Run time:", end_time - start_time))
+print(as.numeric(difftime(end_time, start_time, units = "secs")))
 
 
 

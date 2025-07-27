@@ -1,4 +1,4 @@
-library(randomForest)
+
 library(ranger)
 library(dplyr)
 
@@ -67,44 +67,4 @@ end_time <- Sys.time()
 print(paste("Run time", end_time - start_time))
 print(as.numeric(difftime(end_time, start_time, units = "secs")))
 
-print(model)
 
-predictions<- predict(model,data = test_data)
-str(predictions)
-
-plot(test_data$nov_3week ~ predictions, asp=1, pch=20, xlab="fitted", ylab="actual", xlim=c(2,3.3),          
-     ylim=c(2,3.3), main="Norovirus Random Forest")
-grid(); abline(0,1)
-
-predict_oob <- predict(model)
-plot(train_data$nov_3week ~ predict_oob, asp=1, pch=20,
-     xlab="Out-of-bag cross-validation estimates",
-     ylab="actual", xlim=c(2,3.3), ylim=c(2,3.3),
-     main="Norovirus, Random Forest")
-grid()
-abline(0,1)
-
-# Calculate evaluation metrics
-mse <- mean((y_test - predictions)^2, na.rm = TRUE)
-rmse <- sqrt(mse)
-mae <- mean(abs(y_test - predictions), na.rm = TRUE)
-mape <- mean(abs((y_test - predictions) / y_test), na.rm = TRUE) * 100
-bias <- mean(predictions - y_test, na.rm = TRUE)
-pbias <- (bias / mean(y_test, na.rm = TRUE)) * 100
-corr <- as.numeric(cor(y_test, predictions, use = "complete.obs", method = "spearman"))
-
-print(paste("Mean Squared Error (MSE):", mse))
-print(paste("Root Mean Squared Error (RMSE):", rmse))
-print(paste("Mean Absolute Error (MAE):", mae))
-print(paste("Mean Absolute Percentage Error (MAPE):", mape))
-print(paste("Bias:", bias))
-print(paste("Percent Bias (pBIAS):", pbias))
-print(paste("Spearman Correlation:", corr))
-
-#find TSS and RSS
-tss <- sum((y_test - mean(y_test))^2)
-rss <- sum((predictions - y_test)^2)
-
-#find R-Squared
-rsq <- 1 - rss/tss
-print(paste("R-squared:",rsq))
