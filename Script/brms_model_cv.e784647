@@ -13,17 +13,17 @@ Error while loading conda entry point: conda-libmamba-solver (/lib64/libstdc++.s
 ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 Warning message:
 package ‘ggplot2’ was built under R version 4.4.3 
-Loading required package: Matrix
+Loading required package: Rcpp
+Loading 'brms' package (version 2.22.0). Useful instructions
+can be found by typing help('brms'). A more detailed introduction
+to the package is available through vignette('brms_overview').
 
-Attaching package: ‘Matrix’
+Attaching package: ‘brms’
 
-The following objects are masked from ‘package:tidyr’:
+The following object is masked from ‘package:stats’:
 
-    expand, pack, unpack
+    ar
 
-Loaded glmnet 4.1-9
-Warning message:
-package ‘Matrix’ was built under R version 4.4.3 
 Linking to GEOS 3.13.0, GDAL 3.10.2, PROJ 9.5.1; sf_use_s2() is TRUE
 Warning message:
 package ‘sf’ was built under R version 4.4.3 
@@ -39,30 +39,26 @@ package ‘raster’ was built under R version 4.4.3
 blockCV 3.1.5
 Warning message:
 attribute variables are assumed to be spatially constant throughout all geometries 
-Error in `dplyr::select()`:
-! Can't select columns that don't exist.
-✖ Column `s_index` doesn't exist.
-Backtrace:
-     ▆
-  1. ├─... %>% st_drop_geometry()
-  2. ├─sf::st_drop_geometry(.)
-  3. ├─dplyr::select(...)
-  4. ├─sf:::select.sf(...)
-  5. │ └─tidyselect::eval_select(quote(c(...)), .data)
-  6. │   └─tidyselect:::eval_select_impl(...)
-  7. │     ├─tidyselect:::with_subscript_errors(...)
-  8. │     │ └─base::withCallingHandlers(...)
-  9. │     └─tidyselect:::vars_select_eval(...)
- 10. │       └─tidyselect:::walk_data_tree(expr, data_mask, context_mask)
- 11. │         └─tidyselect:::eval_c(expr, data_mask, context_mask)
- 12. │           └─tidyselect:::reduce_sels(node, data_mask, context_mask, init = init)
- 13. │             └─tidyselect:::walk_data_tree(new, data_mask, context_mask)
- 14. │               └─tidyselect:::as_indices_sel_impl(...)
- 15. │                 └─tidyselect:::as_indices_impl(...)
- 16. │                   └─tidyselect:::chr_as_locations(x, vars, call = call, arg = arg)
- 17. │                     └─vctrs::vec_as_location(...)
- 18. └─vctrs (local) `<fn>`()
- 19.   └─vctrs:::stop_subscript_oob(...)
- 20.     └─vctrs:::stop_subscript(...)
- 21.       └─rlang::abort(...)
-Execution halted
+Compiling Stan program...
+Start sampling
+Compiling Stan program...
+Start sampling
+Compiling Stan program...
+Start sampling
+Compiling Stan program...
+Start sampling
+Compiling Stan program...
+Start sampling
+Compiling Stan program...
+Start sampling
+Compiling Stan program...
+Start sampling
+Compiling Stan program...
+Start sampling
+Compiling Stan program...
+Start sampling
+Compiling Stan program...
+Start sampling
+There were 50 or more warnings (use warnings() to see the first 50)
+Warning message:
+Rows containing NAs were excluded from the model. 
