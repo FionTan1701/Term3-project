@@ -1,4 +1,8 @@
 library(dplyr)
+library(readr)
+library(ggplot2)
+
+setwd("~/Term3-project")
 
 read_model_predictions <- function(file_path, model_name) {
   read_csv(file_path) %>%
@@ -31,6 +35,7 @@ ggplot(bias_df, aes(x = model, y = bias, fill = model)) +
     "XGB" = "lightsalmon",
     "RF" = "plum1"
   )) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red")+
   theme_bw() +
   labs(title = "Comparing Bias across Models",
        x = "Model",

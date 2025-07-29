@@ -1,0 +1,11 @@
+processed_final.csv
+covariates and outcome as 3 week rolling average of nov concentration (lockdown stage one-hot encoded)
+
+final_processed2.csv 
+covariates and outcome as 3 week rolling average of nov concentration (lockdown stage as a column)(152sites)
+
+new_processed_final_rm_sites.csv 
+processed_final.csv remove sites with >13 NAs in nov_3week concentration (144sites)
+
+final_df3.csv 
+covariates and outcome as Log10_nov_norm
