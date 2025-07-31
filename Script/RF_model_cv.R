@@ -10,7 +10,7 @@ set.seed(123)
 
 setwd("~/Term3-project")
 
-nov_df <- read.csv("Data/processed_final.csv")
+nov_df <- read.csv("Data/final_data/processed_final.csv")
 
 #coverage probability function-------------------------------------------------
 COV <- function(z, lower=NULL, upper=NULL, coverage=NULL) {

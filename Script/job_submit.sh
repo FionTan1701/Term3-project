@@ -1,10 +1,10 @@
 #PBS -l walltime=24:00:00
 #PBS -l select=1:ncpus=2:mem=100gb
-#PBS -N lasso_model8b_cv
+#PBS -N RF_model_cv_
 
 cd /rds/general/user/ft824/home/Term3-project/Script
 
 eval "$(~/anaconda3/bin/conda shell.bash hook)"
 source activate r442
 
-Rscript lasso_tune.R
+Rscript RF_model_cv.R

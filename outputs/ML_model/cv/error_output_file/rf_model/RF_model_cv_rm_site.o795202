@@ -1,0 +1,385 @@
+Reading layer `england_crop' from data source 
+  `/rds/general/user/ft824/home/Term3-project/Data/shapefiles/england/england_crop.shp' 
+  using driver `ESRI Shapefile'
+Simple feature collection with 1 feature and 8 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 82668.52 ymin: 5336.966 xmax: 655653.8 ymax: 657536
+Projected CRS: OSGB36 / British National Grid
+  |                                                                              |                                                                      |   0%  |                                                                              |=                                                                     |   1%  |                                                                              |=                                                                     |   2%  |                                                                              |==                                                                    |   3%  |                                                                              |===                                                                   |   4%  |                                                                              |====                                                                  |   5%  |                                                                              |====                                                                  |   6%  |                                                                              |=====                                                                 |   7%  |                                                                              |======                                                                |   8%  |                                                                              |======                                                                |   9%  |                                                                              |=======                                                               |  10%  |                                                                              |========                                                              |  11%  |                                                                              |========                                                              |  12%  |                                                                              |=========                                                             |  13%  |                                                                              |==========                                                            |  14%  |                                                                              |==========                                                            |  15%  |                                                                              |===========                                                           |  16%  |                                                                              |============                                                          |  17%  |                                                                              |=============                                                         |  18%  |                                                                              |=============                                                         |  19%  |                                                                              |==============                                                        |  20%  |                                                                              |===============                                                       |  21%  |                                                                              |===============                                                       |  22%  |                                                                              |================                                                      |  23%  |                                                                              |=================                                                     |  24%  |                                                                              |==================                                                    |  25%  |                                                                              |==================                                                    |  26%  |                                                                              |===================                                                   |  27%  |                                                                              |====================                                                  |  28%  |                                                                              |====================                                                  |  29%  |                                                                              |=====================                                                 |  30%  |                                                                              |======================                                                |  31%  |                                                                              |======================                                                |  32%  |                                                                              |=======================                                               |  33%  |                                                                              |========================                                              |  34%  |                                                                              |========================                                              |  35%  |                                                                              |=========================                                             |  36%  |                                                                              |==========================                                            |  37%  |                                                                              |===========================                                           |  38%  |                                                                              |===========================                                           |  39%  |                                                                              |============================                                          |  40%  |                                                                              |=============================                                         |  41%  |                                                                              |=============================                                         |  42%  |                                                                              |==============================                                        |  43%  |                                                                              |===============================                                       |  44%  |                                                                              |================================                                      |  45%  |                                                                              |================================                                      |  46%  |                                                                              |=================================                                     |  47%  |                                                                              |==================================                                    |  48%  |                                                                              |==================================                                    |  49%  |                                                                              |===================================                                   |  50%  |                                                                              |====================================                                  |  51%  |                                                                              |====================================                                  |  52%  |                                                                              |=====================================                                 |  53%  |                                                                              |======================================                                |  54%  |                                                                              |======================================                                |  55%  |                                                                              |=======================================                               |  56%  |                                                                              |========================================                              |  57%  |                                                                              |=========================================                             |  58%  |                                                                              |=========================================                             |  59%  |                                                                              |==========================================                            |  60%  |                                                                              |===========================================                           |  61%  |                                                                              |===========================================                           |  62%  |                                                                              |============================================                          |  63%  |                                                                              |=============================================                         |  64%  |                                                                              |==============================================                        |  65%  |                                                                              |==============================================                        |  66%  |                                                                              |===============================================                       |  67%  |                                                                              |================================================                      |  68%  |                                                                              |================================================                      |  69%  |                                                                              |=================================================                     |  70%  |                                                                              |==================================================                    |  71%  |                                                                              |==================================================                    |  72%  |                                                                              |===================================================                   |  73%  |                                                                              |====================================================                  |  74%  |                                                                              |====================================================                  |  75%  |                                                                              |=====================================================                 |  76%  |                                                                              |======================================================                |  77%  |                                                                              |=======================================================               |  78%  |                                                                              |=======================================================               |  79%  |                                                                              |========================================================              |  80%  |                                                                              |=========================================================             |  81%  |                                                                              |=========================================================             |  82%  |                                                                              |==========================================================            |  83%  |                                                                              |===========================================================           |  84%  |                                                                              |============================================================          |  85%  |                                                                              |============================================================          |  86%  |                                                                              |=============================================================         |  87%  |                                                                              |==============================================================        |  88%  |                                                                              |==============================================================        |  89%  |                                                                              |===============================================================       |  90%  |                                                                              |================================================================      |  91%  |                                                                              |================================================================      |  92%  |                                                                              |=================================================================     |  93%  |                                                                              |==================================================================    |  94%  |                                                                              |==================================================================    |  95%  |                                                                              |===================================================================   |  96%  |                                                                              |====================================================================  |  97%  |                                                                              |===================================================================== |  98%  |                                                                              |===================================================================== |  99%  |                                                                              |======================================================================| 100%
+   train test
+1    132   12
+2    129   15
+3    130   14
+4    123   21
+5    129   15
+6    130   14
+7    132   12
+8    131   13
+9    130   14
+10   130   14
+[1] 6301   30
+Ranger result
+
+Call:
+ ranger(formula, data = train, num.trees = 500, importance = "permutation",      mtry = 3, min.node.size = 6, write.forest = TRUE, quantreg = TRUE) 
+
+Type:                             Regression 
+Number of trees:                  500 
+Sample size:                      5777 
+Number of independent variables:  15 
+Mtry:                             3 
+Target node size:                 6 
+Variable importance mode:         permutation 
+Splitrule:                        variance 
+OOB prediction error (MSE):       0.1929804 
+R squared (OOB):                  0.6235349 
+                          Length  Class         Mode     
+predictions                  5777 -none-        numeric  
+num.trees                       1 -none-        numeric  
+num.independent.variables       1 -none-        numeric  
+mtry                            1 -none-        numeric  
+min.node.size                   1 -none-        numeric  
+variable.importance            15 -none-        numeric  
+prediction.error                1 -none-        numeric  
+forest                          7 ranger.forest list     
+splitrule                       1 -none-        character
+treetype                        1 -none-        character
+r.squared                       1 -none-        numeric  
+call                            9 -none-        call     
+importance.mode                 1 -none-        character
+num.samples                     1 -none-        numeric  
+replace                         1 -none-        logical  
+dependent.variable.name         1 -none-        character
+max.depth                       1 -none-        numeric  
+random.node.values        1563500 -none-        numeric  
+[1] "1 folds done"
+Ranger result
+
+Call:
+ ranger(formula, data = train, num.trees = 500, importance = "permutation",      mtry = 3, min.node.size = 6, write.forest = TRUE, quantreg = TRUE) 
+
+Type:                             Regression 
+Number of trees:                  500 
+Sample size:                      5644 
+Number of independent variables:  15 
+Mtry:                             3 
+Target node size:                 6 
+Variable importance mode:         permutation 
+Splitrule:                        variance 
+OOB prediction error (MSE):       0.1891172 
+R squared (OOB):                  0.6317978 
+                          Length  Class         Mode     
+predictions                  5644 -none-        numeric  
+num.trees                       1 -none-        numeric  
+num.independent.variables       1 -none-        numeric  
+mtry                            1 -none-        numeric  
+min.node.size                   1 -none-        numeric  
+variable.importance            15 -none-        numeric  
+prediction.error                1 -none-        numeric  
+forest                          7 ranger.forest list     
+splitrule                       1 -none-        character
+treetype                        1 -none-        character
+r.squared                       1 -none-        numeric  
+call                            9 -none-        call     
+importance.mode                 1 -none-        character
+num.samples                     1 -none-        numeric  
+replace                         1 -none-        logical  
+dependent.variable.name         1 -none-        character
+max.depth                       1 -none-        numeric  
+random.node.values        1484500 -none-        numeric  
+[1] "2 folds done"
+Ranger result
+
+Call:
+ ranger(formula, data = train, num.trees = 500, importance = "permutation",      mtry = 3, min.node.size = 6, write.forest = TRUE, quantreg = TRUE) 
+
+Type:                             Regression 
+Number of trees:                  500 
+Sample size:                      5688 
+Number of independent variables:  15 
+Mtry:                             3 
+Target node size:                 6 
+Variable importance mode:         permutation 
+Splitrule:                        variance 
+OOB prediction error (MSE):       0.1882711 
+R squared (OOB):                  0.6308553 
+                          Length  Class         Mode     
+predictions                  5688 -none-        numeric  
+num.trees                       1 -none-        numeric  
+num.independent.variables       1 -none-        numeric  
+mtry                            1 -none-        numeric  
+min.node.size                   1 -none-        numeric  
+variable.importance            15 -none-        numeric  
+prediction.error                1 -none-        numeric  
+forest                          7 ranger.forest list     
+splitrule                       1 -none-        character
+treetype                        1 -none-        character
+r.squared                       1 -none-        numeric  
+call                            9 -none-        call     
+importance.mode                 1 -none-        character
+num.samples                     1 -none-        numeric  
+replace                         1 -none-        logical  
+dependent.variable.name         1 -none-        character
+max.depth                       1 -none-        numeric  
+random.node.values        1508500 -none-        numeric  
+[1] "3 folds done"
+Ranger result
+
+Call:
+ ranger(formula, data = train, num.trees = 500, importance = "permutation",      mtry = 3, min.node.size = 6, write.forest = TRUE, quantreg = TRUE) 
+
+Type:                             Regression 
+Number of trees:                  500 
+Sample size:                      5376 
+Number of independent variables:  15 
+Mtry:                             3 
+Target node size:                 6 
+Variable importance mode:         permutation 
+Splitrule:                        variance 
+OOB prediction error (MSE):       0.1956644 
+R squared (OOB):                  0.6200076 
+                          Length  Class         Mode     
+predictions                  5376 -none-        numeric  
+num.trees                       1 -none-        numeric  
+num.independent.variables       1 -none-        numeric  
+mtry                            1 -none-        numeric  
+min.node.size                   1 -none-        numeric  
+variable.importance            15 -none-        numeric  
+prediction.error                1 -none-        numeric  
+forest                          7 ranger.forest list     
+splitrule                       1 -none-        character
+treetype                        1 -none-        character
+r.squared                       1 -none-        numeric  
+call                            9 -none-        call     
+importance.mode                 1 -none-        character
+num.samples                     1 -none-        numeric  
+replace                         1 -none-        logical  
+dependent.variable.name         1 -none-        character
+max.depth                       1 -none-        numeric  
+random.node.values        1442500 -none-        numeric  
+[1] "4 folds done"
+Ranger result
+
+Call:
+ ranger(formula, data = train, num.trees = 500, importance = "permutation",      mtry = 3, min.node.size = 6, write.forest = TRUE, quantreg = TRUE) 
+
+Type:                             Regression 
+Number of trees:                  500 
+Sample size:                      5646 
+Number of independent variables:  15 
+Mtry:                             3 
+Target node size:                 6 
+Variable importance mode:         permutation 
+Splitrule:                        variance 
+OOB prediction error (MSE):       0.1936125 
+R squared (OOB):                  0.6354168 
+                          Length  Class         Mode     
+predictions                  5646 -none-        numeric  
+num.trees                       1 -none-        numeric  
+num.independent.variables       1 -none-        numeric  
+mtry                            1 -none-        numeric  
+min.node.size                   1 -none-        numeric  
+variable.importance            15 -none-        numeric  
+prediction.error                1 -none-        numeric  
+forest                          7 ranger.forest list     
+splitrule                       1 -none-        character
+treetype                        1 -none-        character
+r.squared                       1 -none-        numeric  
+call                            9 -none-        call     
+importance.mode                 1 -none-        character
+num.samples                     1 -none-        numeric  
+replace                         1 -none-        logical  
+dependent.variable.name         1 -none-        character
+max.depth                       1 -none-        numeric  
+random.node.values        1506500 -none-        numeric  
+[1] "5 folds done"
+Ranger result
+
+Call:
+ ranger(formula, data = train, num.trees = 500, importance = "permutation",      mtry = 3, min.node.size = 6, write.forest = TRUE, quantreg = TRUE) 
+
+Type:                             Regression 
+Number of trees:                  500 
+Sample size:                      5691 
+Number of independent variables:  15 
+Mtry:                             3 
+Target node size:                 6 
+Variable importance mode:         permutation 
+Splitrule:                        variance 
+OOB prediction error (MSE):       0.1936533 
+R squared (OOB):                  0.6300143 
+                          Length  Class         Mode     
+predictions                  5691 -none-        numeric  
+num.trees                       1 -none-        numeric  
+num.independent.variables       1 -none-        numeric  
+mtry                            1 -none-        numeric  
+min.node.size                   1 -none-        numeric  
+variable.importance            15 -none-        numeric  
+prediction.error                1 -none-        numeric  
+forest                          7 ranger.forest list     
+splitrule                       1 -none-        character
+treetype                        1 -none-        character
+r.squared                       1 -none-        numeric  
+call                            9 -none-        call     
+importance.mode                 1 -none-        character
+num.samples                     1 -none-        numeric  
+replace                         1 -none-        logical  
+dependent.variable.name         1 -none-        character
+max.depth                       1 -none-        numeric  
+random.node.values        1493500 -none-        numeric  
+[1] "6 folds done"
+Ranger result
+
+Call:
+ ranger(formula, data = train, num.trees = 500, importance = "permutation",      mtry = 3, min.node.size = 6, write.forest = TRUE, quantreg = TRUE) 
+
+Type:                             Regression 
+Number of trees:                  500 
+Sample size:                      5775 
+Number of independent variables:  15 
+Mtry:                             3 
+Target node size:                 6 
+Variable importance mode:         permutation 
+Splitrule:                        variance 
+OOB prediction error (MSE):       0.1937582 
+R squared (OOB):                  0.6044174 
+                          Length  Class         Mode     
+predictions                  5775 -none-        numeric  
+num.trees                       1 -none-        numeric  
+num.independent.variables       1 -none-        numeric  
+mtry                            1 -none-        numeric  
+min.node.size                   1 -none-        numeric  
+variable.importance            15 -none-        numeric  
+prediction.error                1 -none-        numeric  
+forest                          7 ranger.forest list     
+splitrule                       1 -none-        character
+treetype                        1 -none-        character
+r.squared                       1 -none-        numeric  
+call                            9 -none-        call     
+importance.mode                 1 -none-        character
+num.samples                     1 -none-        numeric  
+replace                         1 -none-        logical  
+dependent.variable.name         1 -none-        character
+max.depth                       1 -none-        numeric  
+random.node.values        1565500 -none-        numeric  
+[1] "7 folds done"
+Ranger result
+
+Call:
+ ranger(formula, data = train, num.trees = 500, importance = "permutation",      mtry = 3, min.node.size = 6, write.forest = TRUE, quantreg = TRUE) 
+
+Type:                             Regression 
+Number of trees:                  500 
+Sample size:                      5738 
+Number of independent variables:  15 
+Mtry:                             3 
+Target node size:                 6 
+Variable importance mode:         permutation 
+Splitrule:                        variance 
+OOB prediction error (MSE):       0.1939855 
+R squared (OOB):                  0.6306379 
+                          Length  Class         Mode     
+predictions                  5738 -none-        numeric  
+num.trees                       1 -none-        numeric  
+num.independent.variables       1 -none-        numeric  
+mtry                            1 -none-        numeric  
+min.node.size                   1 -none-        numeric  
+variable.importance            15 -none-        numeric  
+prediction.error                1 -none-        numeric  
+forest                          7 ranger.forest list     
+splitrule                       1 -none-        character
+treetype                        1 -none-        character
+r.squared                       1 -none-        numeric  
+call                            9 -none-        call     
+importance.mode                 1 -none-        character
+num.samples                     1 -none-        numeric  
+replace                         1 -none-        logical  
+dependent.variable.name         1 -none-        character
+max.depth                       1 -none-        numeric  
+random.node.values        1510500 -none-        numeric  
+[1] "8 folds done"
+Ranger result
+
+Call:
+ ranger(formula, data = train, num.trees = 500, importance = "permutation",      mtry = 3, min.node.size = 6, write.forest = TRUE, quantreg = TRUE) 
+
+Type:                             Regression 
+Number of trees:                  500 
+Sample size:                      5689 
+Number of independent variables:  15 
+Mtry:                             3 
+Target node size:                 6 
+Variable importance mode:         permutation 
+Splitrule:                        variance 
+OOB prediction error (MSE):       0.1962906 
+R squared (OOB):                  0.6231563 
+                          Length  Class         Mode     
+predictions                  5689 -none-        numeric  
+num.trees                       1 -none-        numeric  
+num.independent.variables       1 -none-        numeric  
+mtry                            1 -none-        numeric  
+min.node.size                   1 -none-        numeric  
+variable.importance            15 -none-        numeric  
+prediction.error                1 -none-        numeric  
+forest                          7 ranger.forest list     
+splitrule                       1 -none-        character
+treetype                        1 -none-        character
+r.squared                       1 -none-        numeric  
+call                            9 -none-        call     
+importance.mode                 1 -none-        character
+num.samples                     1 -none-        numeric  
+replace                         1 -none-        logical  
+dependent.variable.name         1 -none-        character
+max.depth                       1 -none-        numeric  
+random.node.values        1509500 -none-        numeric  
+[1] "9 folds done"
+Ranger result
+
+Call:
+ ranger(formula, data = train, num.trees = 500, importance = "permutation",      mtry = 3, min.node.size = 6, write.forest = TRUE, quantreg = TRUE) 
+
+Type:                             Regression 
+Number of trees:                  500 
+Sample size:                      5685 
+Number of independent variables:  15 
+Mtry:                             3 
+Target node size:                 6 
+Variable importance mode:         permutation 
+Splitrule:                        variance 
+OOB prediction error (MSE):       0.1931001 
+R squared (OOB):                  0.6253254 
+                          Length  Class         Mode     
+predictions                  5685 -none-        numeric  
+num.trees                       1 -none-        numeric  
+num.independent.variables       1 -none-        numeric  
+mtry                            1 -none-        numeric  
+min.node.size                   1 -none-        numeric  
+variable.importance            15 -none-        numeric  
+prediction.error                1 -none-        numeric  
+forest                          7 ranger.forest list     
+splitrule                       1 -none-        character
+treetype                        1 -none-        character
+r.squared                       1 -none-        numeric  
+call                            9 -none-        call     
+importance.mode                 1 -none-        character
+num.samples                     1 -none-        numeric  
+replace                         1 -none-        logical  
+dependent.variable.name         1 -none-        character
+max.depth                       1 -none-        numeric  
+random.node.values        1503500 -none-        numeric  
+[1] "10 folds done"
+[1] "Coverage Probability (%): 93.6676717981273"
+   Mean_MSE         SE  CI_Lower  CI_Upper Mean_rmse    SE_rmse CI_Lower_rmse
+1 0.4102677 0.03250002 0.3367476 0.4837879 0.6362946 0.02448785     0.5808993
+  CI_Upper_rmse  Mean_MAE Mean_MAPE    Mean_BIAS Mean_pBIAS Mean_CORR      COV
+1       0.69169 0.5010826  10.72212 -0.002749207  0.0608322  0.470314 93.66767
+
+====================================
+CPU Time used: 00:00:00
+CPU Percent: 0%
+Memory usage: 0b
+Approx Power usage: 0.0
+Walltime usage: 00:01:14
+
+====================================

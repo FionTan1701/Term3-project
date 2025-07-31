@@ -27,7 +27,7 @@ inla.setOption(num.threads= "6")
 
 
 setwd("~/Term3-project")
-nov_df <- read.csv("Data/processed_final.csv")
+nov_df <- read.csv("Data/final_data/new_processed_final_rm_site.csv")
 
 ## functions--------------------------------------------------------------------
 
@@ -437,7 +437,7 @@ for (k in 1:10) {
   
   
   results.train= fit.fold$summary.linear.predictor$mean[index_inla_train]
-  predicted= fit.fold$summary.fitted.values$mean[index_inla_val]
+  predicted= fit.fold$summary.linear.predictor$mean[index_inla_val]
   
   train_data<- train$nov_3week
   
@@ -450,7 +450,7 @@ for (k in 1:10) {
   # append predictions and samples to dataframe
   
   val<- val %>%
-    dplyr::select(date_index, site_code, nov_3week, mean, q0.025, q0.975) %>%
+    dplyr::select( site_code, s_index,one_week_date, date_index, nov_3week, mean, q0.025, q0.975) %>%
     st_drop_geometry()
   
   predictions<- rbind(predictions, val)
@@ -533,6 +533,7 @@ summary_metrics <- metrics %>%
 print(summary_metrics)
 
 
-write.csv(metrics, "outputs/cv/cv_model7_processed_posterior_metrics_full.csv")
-write.csv(predictions, "outputs/cv/cv_model7_processed_posterior_predictions.csv")
+write.csv(metrics, "outputs/cv/cv_model7_posterior_metrics_full_new.csv")
+write.csv(predictions, "outputs/cv/cv_model7_posterior_predictions_new.csv")
+write.csv(summary_metrics, "outputs/cv/cv_model7_posterior_summary_metrics_new.csv")
 
