@@ -15,7 +15,7 @@ library(readr)
 setwd("~/Term3-project")
 
 ## read data -------------------------------------------------------------------
-nov_df <- read.csv("Data/processed_final.csv")
+nov_df <- read.csv("Data/final_data/processed_final.csv")
 pred_grid <- read.csv("Data/prediction_data/lsoa_grid_prediction.csv")
 
 
@@ -123,28 +123,30 @@ stack_est <- inla.stack(
 
 ## prediction stack ------------------------------------------------------------
 
-sc= 1/1000
-coords.lsoa<- unique(st_coordinates(grid))
+coords.lsoa<- st_coordinates(grid)
 
-groupp= grid$week
-n_week<- length(unique(grid$week))
+nrow(coords.lsoa) == nrow(grid)
+
+
+group_pred <- grid$week
+n_week_pred <- length(unique(grid$week))
 
 ## A matrix (pred) -------------------------------------------------------------
 
 A_pred = inla.spde.make.A(
   mesh =  mesh,
   loc = coords.lsoa,
-  group = groupp,
-  n.group = n_week)
+  group = group_pred,
+  n.group = n_week_pred)
 
 dim(A_pred)
 
 ## create index (pred) ---------------------------------------------------------
 
-s.index = inla.spde.make.index(
+s.index_pred = inla.spde.make.index(
   name = "spatial.field",
   n.spde = spde$n.spde,
-  n.group = n_week)
+  n.group = n_week_pred)
 
 ## prediction stack-------------------------------------------------------------
 
@@ -153,22 +155,22 @@ stack_pred <- inla.stack(
   data = list(y = NA),
   A = list(1, A_pred),
   effects = list(
-    c(s.index, list(Intercept = 1)),
+    c(s.index_pred, list(Intercept = 1)),
     list(
-      week = grid$date_index,
-      site_code = grid$site_code,
+      week = grid$week,
+      LSOA21CD = grid$LSOA21CD,
       lockdown_step3 = grid$lockdown_step3,
       lockdown_step4 = grid$lockdown_step4,
       lockdown_lifting = grid$lockdown_lifting,
       lockdown_planB = grid$lockdown_planB,
-      scale_school_density = grid$scale_school_density,
-      scale_carehome_density = grid$scale_carehome_density,
-      scale_mobility = grid$scale_mobility,
-      scale_BAME = grid$scale_BAME,
-      scale_imd_score= grid$scale_imd_score,
+      scale_school_density = grid$scale_school_den,
+      scale_carehome_density = grid$scale_carehome_den,
+      scale_mobility = grid$scale_mob_7day,
+      scale_BAME = grid$scale_bame,
+      scale_imd_score= grid$scale_imd,
       scale_prop_urb= grid$scale_prop_urb,
-      scale_rain_rolling_7day = grid$scale_rain_rolling_7day,
-      scale_temp_rolling_7day = grid$scale_temp_rolling_7day
+      scale_rain_rolling_7day = grid$scale_rain_7day_avg,
+      scale_temp_rolling_7day = grid$scale_temp_7day_avg
     )
   )
 )
@@ -180,9 +182,9 @@ join_stack <- inla.stack(stack_est, stack_pred)
 ## prediction model 
 
 pred.lsoa <- inla(formula,
-                  data = inla.stack.data(joint.stack),
+                  data = inla.stack.data(join_stack),
                   family = "gaussian",
-                  control.predictor = list(A = inla.stack.A(joint.stack), compute = TRUE, link = 1),
+                  control.predictor = list(A = inla.stack.A(join_stack), compute = TRUE, link = 1),
                   control.compute = list(dic = TRUE, cpo = TRUE, waic = TRUE,
                                          mlik = TRUE, return.marginals.predictor = TRUE, config = TRUE,
                                          openmp.strategy = "default", smtp = "taucs"),
