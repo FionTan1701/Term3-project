@@ -41,8 +41,23 @@ nov_df<- as.data.frame(nov_df)
 nov <- st_as_sf(nov_df, coords= c("Easting", "Northing"), crs= 27700)
 nov <- st_transform(nov,  crs = "+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=km +no_defs")
 
-grid <-st_as_sf(pred_grid, coords= c("Easting", "Northing"), crs= 27700)
-grid <- st_transform(grid,  crs = "+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=km +no_defs")
+#grid <-st_as_sf(pred_grid, coords= c("Easting", "Northing"), crs= 27700)
+#grid <- st_transform(grid,  crs = "+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=km +no_defs")
+grid <- pred_grid %>%
+  rename(lockdown_step3 = lockdown_step3,
+      lockdown_step4 = lockdown_step4,
+      lockdown_lifting = lockdown_lifting,
+      lockdown_planB = lockdown_planB,
+      scale_school_density = scale_school_den,
+      scale_carehome_density = scale_carehome_den,
+      scale_mobility = scale_mob_7day,
+      scale_BAME = scale_bame,
+      scale_imd_score= scale_imd,
+      scale_prop_urb= scale_prop_urb,
+      scale_rain_rolling_7day = scale_rain_7day_avg,
+      scale_temp_rolling_7day = scale_temp_7day_avg,
+      date_index = week
+    )
 
 ## Set prior and formula--------------------------------------------------------
 
@@ -90,7 +105,11 @@ s.index<- inla.spde.make.index(name="spatial.field",
                                n.group= n_week) 
 ## A matrix (est)---------------------------------------------------------------
 
-A_est <- inla.spde.make.A(mesh = mesh, loc = st_coordinates(nov), group = nov$date_index)
+A_est <- inla.spde.make.A(
+  mesh = mesh, 
+  loc = st_coordinates(nov),
+  group = nov$date_index,
+  n.group = n_week)
 
 dim(A_est)
 
@@ -123,13 +142,15 @@ stack_est <- inla.stack(
 
 ## prediction stack ------------------------------------------------------------
 
-coords.lsoa<- st_coordinates(grid)
+sc <- 1/1000
+coords<- unique(as.matrix(cbind(grid[,"Easting"], grid[,"Northing"])*sc))
+#coords.lsoa<- st_coordinates(grid)
 
 nrow(coords.lsoa) == nrow(grid)
 
 
-group_pred <- grid$week
-n_week_pred <- length(unique(grid$week))
+group_pred <- grid$date_index
+n_week_pred <- length(unique(grid$date_index))
 
 ## A matrix (pred) -------------------------------------------------------------
 
@@ -157,7 +178,7 @@ stack_pred <- inla.stack(
   effects = list(
     c(s.index_pred, list(Intercept = 1)),
     list(
-      week = grid$week,
+      week = grid$date_index,,
       LSOA21CD = grid$LSOA21CD,
       lockdown_step3 = grid$lockdown_step3,
       lockdown_step4 = grid$lockdown_step4,
@@ -190,7 +211,6 @@ pred.lsoa <- inla(formula,
                                          openmp.strategy = "default", smtp = "taucs"),
                   control.fixed = list(mean = 0, prec = 0.0001,mean.intercept = 0, prec.intercept = 0.0001), 
                   control.family = list(hyper = list(prec = list(param = c(1, 0.2)))),
-                  num.threads= 256,
                   verbose= TRUE)
 
 save(pred.lsoa, file="outputs/prediction/lsoa_pred.RData") 
