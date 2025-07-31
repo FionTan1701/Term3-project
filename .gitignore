@@ -5,3 +5,4 @@ Data/LSOA/
 *.rds
 outputs/cv/error_ouput_file
 outputs/prediction/error_ouput_file
+Data/prediction_data/lsoa_grid_prediction.csv
