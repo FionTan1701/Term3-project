@@ -82,7 +82,7 @@ formula<-  as.formula('nov_3week ~ -1 + Intercept + lockdown_step3 + lockdown_st
 
 max.edge = diff(range(st_coordinates(nov)[,1]))/(3*5)
 bound.outer = diff(range(st_coordinates(nov)[,1]))/3
-coords<- unique(st_coordinates(nov))
+coords<- as.matrix((st_coordinates(nov)))
 domain <- inla.nonconvex.hull(coords)
 
 mesh<- fm_mesh_2d_inla(boundary = domain,
@@ -91,7 +91,7 @@ mesh<- fm_mesh_2d_inla(boundary = domain,
                        offset= c(max.edge, bound.outer),
                        cutoff= max.edge/5,
                        crs= st_crs(nov))
-
+plot(mesh)
 ## SPDE(est) -------------------------------------------------------------------------
 
 spde <- inla.spde2.pcmatern(mesh = mesh, alpha = 2,
@@ -101,15 +101,15 @@ spde <- inla.spde2.pcmatern(mesh = mesh, alpha = 2,
 # create index
 n_week<- length(unique(nov$date_index))
 s.index<- inla.spde.make.index(name="spatial.field",
+                               group = nov$date_index,
                                n.spde=spde$n.spde,
                                n.group= n_week) 
 ## A matrix (est)---------------------------------------------------------------
 
-A_est <- inla.spde.make.A(
-  mesh = mesh, 
-  loc = st_coordinates(nov),
-  group = nov$date_index,
-  n.group = n_week)
+A_est <- inla.spde.make.A(mesh = mesh,
+                          loc = coords,
+                          group = nov$date_index,
+                          n.group = n_week)
 
 dim(A_est)
 
@@ -117,8 +117,8 @@ dim(A_est)
 
 stack_est <- inla.stack(
   tag = "est",
-  data = list(y = nov$nov_3week),
-  A = list(1, A_est),
+  data = list(nov_3week = nov$nov_3week),
+  A = list(A_est,1),
   effects = list(
     c(s.index, list(Intercept = 1)),
     list(
@@ -143,7 +143,7 @@ stack_est <- inla.stack(
 ## prediction stack ------------------------------------------------------------
 
 sc <- 1/1000
-coords<- unique(as.matrix(cbind(grid[,"Easting"], grid[,"Northing"])*sc))
+coords.lsoa<- as.matrix(cbind(grid[,"Easting"], grid[,"Northing"])*sc)
 #coords.lsoa<- st_coordinates(grid)
 
 nrow(coords.lsoa) == nrow(grid)
@@ -173,25 +173,25 @@ s.index_pred = inla.spde.make.index(
 
 stack_pred <- inla.stack(
   tag = "pred",
-  data = list(y = NA),
-  A = list(1, A_pred),
+  data = list(nov_3week = NA),
+  A = list(A_pred,1),
   effects = list(
     c(s.index_pred, list(Intercept = 1)),
     list(
-      week = grid$date_index,,
+      week = grid$date_index,
       LSOA21CD = grid$LSOA21CD,
       lockdown_step3 = grid$lockdown_step3,
       lockdown_step4 = grid$lockdown_step4,
       lockdown_lifting = grid$lockdown_lifting,
       lockdown_planB = grid$lockdown_planB,
-      scale_school_density = grid$scale_school_den,
-      scale_carehome_density = grid$scale_carehome_den,
-      scale_mobility = grid$scale_mob_7day,
-      scale_BAME = grid$scale_bame,
-      scale_imd_score= grid$scale_imd,
+      scale_school_density = grid$scale_school_density,
+      scale_carehome_density = grid$scale_carehome_density,
+      scale_mobility = grid$scale_mobility,
+      scale_BAME = grid$scale_BAME,
+      scale_imd_score= grid$scale_imd_score,
       scale_prop_urb= grid$scale_prop_urb,
-      scale_rain_rolling_7day = grid$scale_rain_7day_avg,
-      scale_temp_rolling_7day = grid$scale_temp_7day_avg
+      scale_rain_rolling_7day = grid$scale_rain_rolling_7day,
+      scale_temp_rolling_7day = grid$scale_temp_rolling_7day
     )
   )
 )

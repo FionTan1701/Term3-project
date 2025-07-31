@@ -27,27 +27,29 @@ options(saveWorkspace = FALSE)
 ###  Data
 #===================================================
 
+setwd("~/Term3-project")
 ## LSOA 
 
 # shapefile
-lsoa<- st_read("data/lsoa_crop.shp") # lsoa shapefile
+lsoa<- st_read("Data/LSOA/LSOA2021_boundaries/LSOA2021_boundaries.shp") # lsoa shapefile
 lsoa<- lsoa[grepl("^E0", lsoa$LSOA21CD), ] # 318
 
 # school, carehome, imd, bame
-cov<- fread("data/lsoa.cov.csv") # some covariates at the centroid grid
+cov<- fread("Data/Covariates/lsoa_covariates/lsoa.cov.csv") # some covariates at the centroid grid
 cov<- cov[grepl("^E0", cov$LSOA21CD), ]
 
 
 cov <- cov %>%
-  dplyr::select(LSOA21CD, school_den, carehom_den, scale_imd, scale_bame, Easting, Northing) %>%
+  dplyr::select(LSOA21CD, school_den, carehom_den, scale_imd, scale_bame,
+                Easting, Northing) %>%
   unique()
 
 
 # land cover
-land_cover<- read.csv("data/covariates/lsoa/land_cover_cat_lsoa.csv")
+land_cover<- read.csv("Data/Covariates/lsoa_covariates/land_cover_cat_lsoa.csv")
 
 # mobility
-mob<- fread("data/covariates/lsoa/lsoa_mob_raw.csv")
+mob<- fread("Data/Covariates/lsoa_covariates/lsoa_mob_raw.csv")
 
 mob <- mob %>%
   group_by(LSOA21CD) %>%
@@ -55,11 +57,11 @@ mob <- mob %>%
   mutate(mob_7day = rollmean(mobility, k = 7, fill = NA, align = "right"))
 
 # temperature
-temp<- fread("data/covariates/lsoa/daily_temp_lsoa_2.csv")
+temp<- fread("Data/Covariates/lsoa_covariates/daily_temp_lsoa_2.csv")
 
 
 # rainfall
-rain<- fread("data/covariates/lsoa/daily_rain_lsoa_2.csv")
+rain<- fread("Data/Covariates/lsoa_covariates/daily_rain_lsoa_2.csv")
 
 ## Add covariates to data frame
 
@@ -153,7 +155,7 @@ grid <- grid %>%
     date >= as.Date("2021-12-08") & date <= as.Date("2022-01-26") ~ "planB",
     date >= as.Date("2022-01-27") & date <= as.Date("2022-03-28") ~ "lifting"))
 
-# recode temperature and rain as dummy variables
+# recode lockdown phase as dummy variables
 grid<- grid %>%
   mutate(lockdown_phase = as.character(lockdown_phase)) %>%
   pivot_wider(names_from   = lockdown_phase, 
@@ -165,7 +167,8 @@ grid<- grid %>%
 
 grid$carehome_den<- grid$carehom_den
 # scale covariates
-covariates_to_scale <-  c("school_den", "carehome_den", "mob_7day", "prop_agri", "prop_urb")
+covariates_to_scale <-  c("school_den", "carehome_den", "mob_7day", "prop_agri", "prop_urb",
+                          "temp_7day_avg", "rain_7day_avg")
 scale_covariates <- function(df, covariates_to_scale) {
   # Define a custom scaling function
   scale <- function(x) {
@@ -191,6 +194,7 @@ grid <- grid %>%
 grid_sf<-st_as_sf(grid, coords= c("Easting", "Northing"), crs= 27700)
 grid_sf<- st_transform(grid_sf,  crs = "+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=km +no_defs")
 
+write.csv(grid ,"Data/prediction_data/lsoa_grid_prediction.csv", row.names = FALSE)
 
 ## Spatial mean
 space_agg <- samples_df %>%
