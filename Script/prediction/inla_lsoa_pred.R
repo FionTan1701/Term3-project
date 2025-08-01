@@ -91,7 +91,7 @@ mesh<- fm_mesh_2d_inla(boundary = domain,
                        offset= c(max.edge, bound.outer),
                        cutoff= max.edge/5,
                        crs= st_crs(nov))
-plot(mesh)
+
 ## SPDE(est) -------------------------------------------------------------------------
 
 spde <- inla.spde2.pcmatern(mesh = mesh, alpha = 2,
@@ -213,5 +213,12 @@ pred.lsoa <- inla(formula,
                   control.family = list(hyper = list(prec = list(param = c(1, 0.2)))),
                   verbose= TRUE)
 
-save(pred.lsoa, file="outputs/prediction/lsoa_pred.RData") 
-saveRDS(pred.lsoa, "outputs/prediction/lsoa_pred.rds")
+#save(pred.lsoa, file="outputs/prediction/lsoa_pred.RData") 
+#saveRDS(pred.lsoa, "outputs/prediction/lsoa_pred.rds")
+
+grid_sf <-st_as_sf(pred_grid, coords= c("Easting", "Northing"), crs= 27700)
+grid_sf <- st_transform(grid,  crs = "+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=km +no_defs")
+#grid_sf$nov_3week <- pred.lsoa$summary.fitted.values$mean
+
+ggplot(grid_sf) + 
+  geom_sf(aes(color = cluster))
