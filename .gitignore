@@ -6,6 +6,6 @@ Data/LSOA/
 outputs/cv/error_ouput_file
 outputs/prediction/error_ouput_file
 Data/prediction_data/lsoa_grid_prediction.csv
-../outputs/prediction/lsoa_prediction.csv
+outputs/prediction/lsoa_prediction.csv
 outputs/prediction/rf_lsoa_prediction.csv
 outputs/prediction/lsoa_pred.RData
