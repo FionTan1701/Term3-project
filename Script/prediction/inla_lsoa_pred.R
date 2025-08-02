@@ -18,6 +18,9 @@ setwd("~/Term3-project")
 nov_df <- read.csv("Data/final_data/processed_final.csv")
 pred_grid <- read.csv("Data/prediction_data/lsoa_grid_prediction.csv")
 
+#englang shapefile
+england<- st_read("Data/shapefiles/england/england_crop.shp")
+england<- st_transform(england, crs= 27700)
 
 ## scale------------------------------------------------------------------------
 
@@ -216,9 +219,32 @@ pred.lsoa <- inla(formula,
 #save(pred.lsoa, file="outputs/prediction/lsoa_pred.RData") 
 #saveRDS(pred.lsoa, "outputs/prediction/lsoa_pred.rds")
 
-grid_sf <-st_as_sf(pred_grid, coords= c("Easting", "Northing"), crs= 27700)
-grid_sf <- st_transform(grid,  crs = "+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=km +no_defs")
-#grid_sf$nov_3week <- pred.lsoa$summary.fitted.values$mean
+index  <- inla.stack.index(stack = join_stack, tag ="pred")$data
+grid<- data.frame(grid)
 
-ggplot(grid_sf) + 
-  geom_sf(aes(color = cluster))
+grid$pred_mean <-pred.lsoa$summary.fitted.values[index, "mean"]
+grid$pred_ll <- pred.lsoa$summary.fitted.values[index, "0.025quant"]
+grid$pred_ul <- pred.lsoa$summary.fitted.values[index, "0.975quant"]
+
+
+#write.csv(grid, "outputs/prediction/lsoa_prediction.csv", row.names = FALSE)
+
+grid$date <-  as.Date("2021-05-24") + 7*(grid$date_index - 1)
+grid$date <- format(grid$date, "%d/%m/%Y")
+
+grid_sf <-st_as_sf(grid, coords= c("Easting", "Northing"), crs= 27700)
+grid_sf <- st_transform(grid_sf,  crs = "+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=km +no_defs")
+
+pdf("outputs/prediction/lsoa_prediction_plot.pdf",width = 10, height =8)
+ggplot(grid_sf) +
+  geom_sf(aes(color = pred_mean), size = 0.3) +
+  geom_df(data = england, fill =NA , color = "grey", inherit.aes = FALSE) +
+  scale_color_viridis(option = "C") +
+  facet_wrap(~ date) +
+  labs(title = "Posterior Mean by Week",
+       color = "Posterior Mean") +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+  panel.grid.minor = element_blank())
+
+  dev.off()
