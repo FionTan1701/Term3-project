@@ -3,8 +3,13 @@ library(dplyr)
 library(tidyr)
 library(sf)
 library(viridis)
+library(readr)
+library(RColorBrewer)
 
 setwd("~/Term3-project")
+
+# read data
+grid <- read_csv("outputs/prediction/lsoa_prediction.csv")
 
 # shapefile
 england<- st_read("Data/shapefiles/england/england_crop.shp")
@@ -24,7 +29,7 @@ lsoa_expanded <- expand_grid(LSOA21CD = lsoa_boundaries$LSOA21CD,
   st_as_sf()
 
 ## inla prediction
-grid <- read.csv("outputs/prediction/lsoa_prediction.csv")
+
 
 grid$date <-  as.Date("2021-05-24") + 7*(grid$date_index - 1)
 grid$date <- format(grid$date, "%d/%m/%Y")
@@ -38,7 +43,7 @@ lsoa_joined_inla <- lsoa_expanded %>%
 
 ## RF prediction
 # RF grid prediction plot
-grid_RF <- read.csv("outputs/prediction/rf_lsoa_prediction.csv")
+grid_RF <- read_csv("outputs/prediction/rf_lsoa_prediction.csv")
 
 #create date and data_label for plotting
 grid_RF$date <-  as.Date("2021-05-24") + 7*(grid_RF$date_index - 1)
@@ -54,10 +59,10 @@ global_max <- max(grid$pred_mean, grid_RF$predicted)
 
 
 
-i <- seq(1,5)
+#i <- seq(1,5)
 
-subset_grid <- grid %>%
-  filter(date_index == i)
+#subset_grid <- grid %>%
+#  filter(date_index == i)
 
 
 p <- ggplot(grid, aes(x = Easting, y = Northing, color = pred_mean)) +
@@ -66,7 +71,7 @@ p <- ggplot(grid, aes(x = Easting, y = Northing, color = pred_mean)) +
     geom_sf(data = england, fill = NA, color ="grey", inherit.aes = FALSE)+
     coord_sf() +
     theme_bw() +
-    facet_wrap(~date_label, ncol = 5)+
+    facet_wrap(~ date_label, ncol = 5)+
     labs(title = paste("Spatial Distribution of INLA Predictions by Week"),
          color = "Posterior Mean") +
     theme(
@@ -92,37 +97,55 @@ p1 <- ggplot(week1, aes(x = Easting, y = Northing, color = pred_mean)) +
   )
 #print(p1)
 
-lsoa_subset <- lsoa_joined %>%
-  filter(date_index == 1)
+plot_list <- seq(1,45,9)
 
-pdf("Figures/prediction_plot/lsoa_boundary_pred_inla.pdf", width = 10, height = 8)
 
-p2<- ggplot(lsoa_joined_inla) +
+for (j in plot_list) {
+  subset_week <- seq(j,j+8,1)
+  subset_grid <- lsoa_joined_inla %>% filter (date_index %in% subset_week)
+
+  pdf(paste("Figures/prediction_plot/lsoa_boundary_pred/lsoa_boundary_pred_inla",j,"-",j+8,"blue.pdf"),width = 8, height = 10)
+
+  p2<- ggplot(subset_grid) +
   geom_sf(aes(fill = pred_mean), color = NA) +
-  scale_fill_viridis_c(option = "plasma", na.value = "lightgrey",limits = c(global_min, global_max)) +
-  facet_wrap(~ date_label, ncol = 5) +
+  scale_color_brewer(palette = "Blues", na.value = "lightgrey",limits = c(global_min, global_max)) +
   theme_bw() +
+  facet_wrap(~ date_label, ncol = 3) +
   labs(title = "Weekly Predictions (INLA) by LSOA", fill = "Posterior Mean")+
   theme(
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank()
   )
-print(p2)
+  print(p2)
 
-dev.off()
+  dev.off()
+}
 
-pdf("Figures/prediction_plot/lsoa_boundary_pred_RF.pdf", width = 10, height = 8)
 
-p3<- ggplot(lsoa_joined_RF) +
+
+
+pdf("Figures/prediction_plot/lsoa_boundary_pred_RF.pdf", width = 8, height = 10)
+
+for (j in plot_list) {
+  subset_week <- seq(j,j+8,1)
+  subset_grid <- lsoa_joined_RF %>% filter (date_index %in% subset_week)
+
+  pdf(paste("Figures/prediction_plot/lsoa_boundary_pred/lsoa_boundary_pred_RF",j,"-",j+8,"blue.pdf"),width = 8, height = 10)
+
+  p3<- ggplot(subset_grid) +
   geom_sf(aes(fill = predicted), color = NA) +
-  scale_fill_viridis_c(option = "plasma", na.value = "lightgrey",limits = c(global_min, global_max)) +
-  facet_wrap(~ date_label, ncol = 5) +
+  #scale_fill_viridis_c(option = "plasma", na.value = "lightgrey",limits = c(global_min, global_max)) +
+  scale_color_brewer(palette = "Blues", na.value = "lightgrey",limits = c(global_min, global_max)) +
   theme_bw() +
+  facet_wrap(~ date_label, ncol = 3) +
   labs(title = "Weekly Predictions (RF) by LSOA", fill = "Predicted Value")+
   theme(
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank()
   )
-print(p3)
+  print(p3)
 
-dev.off()
+  dev.off()
+}
+
+
