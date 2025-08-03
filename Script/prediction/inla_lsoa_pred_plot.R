@@ -61,17 +61,17 @@ global_max <- max(grid$pred_mean, grid_RF$predicted)
 
 #i <- seq(1,5)
 
-#subset_grid <- grid %>%
-#  filter(date_index == i)
+subset_grid <- lsoa_joined_inla %>%
+  filter(date_index == 1)
 
 
-p <- ggplot(grid, aes(x = Easting, y = Northing, color = pred_mean)) +
+p <- ggplot(subset_grid, aes(x = Easting, y = Northing, color = pred_mean)) +
     geom_point(size = 0.3, alpha = 0.8) +
-    scale_color_viridis_c(option = "plasma", limits = c(global_min, global_max)) +
+  scale_color_gradient(low = "#deebf7", high = "dodgerblue4", limits = c(global_min, global_max)) +
     geom_sf(data = england, fill = NA, color ="grey", inherit.aes = FALSE)+
     coord_sf() +
     theme_bw() +
-    facet_wrap(~ date_label, ncol = 5)+
+    #facet_wrap(~ date_label, ncol = 5)+
     labs(title = paste("Spatial Distribution of INLA Predictions by Week"),
          color = "Posterior Mean") +
     theme(
@@ -80,22 +80,19 @@ p <- ggplot(grid, aes(x = Easting, y = Northing, color = pred_mean)) +
     )
 #print(p)
 
-week1 <- grid %>% 
-  filter(date_index == 1)
 
-p1 <- ggplot(week1, aes(x = Easting, y = Northing, color = pred_mean)) +
-  geom_point(size = 0.3, alpha = 0.8) +
-  scale_color_viridis_c(option = "plasma", limits = c(global_min, global_max)) +
-  geom_sf(data = england, fill = NA, color ="grey", inherit.aes = FALSE)+
-  coord_sf() +
+p2<- ggplot(subset_grid) +
+  geom_sf(aes(fill = pred_mean), color = NA) +
+  scale_color_gradient(low = "#deebf7", high = "dodgerblue4", limits = c(global_min, global_max)) +
   theme_bw() +
-  labs(title = paste("Spatial Distribution of INLA Predictions Week 1"),
-       color = "Posterior Mean") +
+  facet_wrap(~ date_label, ncol = 3) +
+  labs(title = "Weekly Predictions (INLA) by LSOA", fill = "Posterior Mean")+
   theme(
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank()
   )
-#print(p1)
+#print(p2)
+
 
 plot_list <- seq(1,45,9)
 
@@ -108,7 +105,7 @@ for (j in plot_list) {
 
   p2<- ggplot(subset_grid) +
   geom_sf(aes(fill = pred_mean), color = NA) +
-  scale_color_brewer(palette = "Blues", na.value = "lightgrey",limits = c(global_min, global_max)) +
+  scale_color_gradient(low = "#deebf7", high = "dodgerblue4", limits = c(global_min, global_max)) +
   theme_bw() +
   facet_wrap(~ date_label, ncol = 3) +
   labs(title = "Weekly Predictions (INLA) by LSOA", fill = "Posterior Mean")+
@@ -135,7 +132,7 @@ for (j in plot_list) {
   p3<- ggplot(subset_grid) +
   geom_sf(aes(fill = predicted), color = NA) +
   #scale_fill_viridis_c(option = "plasma", na.value = "lightgrey",limits = c(global_min, global_max)) +
-  scale_color_brewer(palette = "Blues", na.value = "lightgrey",limits = c(global_min, global_max)) +
+  scale_color_gradient(low = "#deebf7", high = "dodgerblue4", limits = c(global_min, global_max)) +
   theme_bw() +
   facet_wrap(~ date_label, ncol = 3) +
   labs(title = "Weekly Predictions (RF) by LSOA", fill = "Predicted Value")+
