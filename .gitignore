@@ -9,3 +9,4 @@ Data/prediction_data/lsoa_grid_prediction.csv
 outputs/prediction/lsoa_prediction.csv
 outputs/prediction/rf_lsoa_prediction.csv
 outputs/prediction/lsoa_pred.RData
+Figures/prediction_plot
