@@ -65,83 +65,35 @@ subset_grid <- lsoa_joined_inla %>%
   filter(date_index == i)
 
 
-p <- ggplot(subset_grid, aes(x = Easting, y = Northing, color = pred_mean)) +
-    geom_point(size = 0.3, alpha = 0.8) +
-  scale_color_gradient(low = "#deebf7", high = "dodgerblue4", limits = c(global_min, global_max)) +
-    geom_sf(data = england, fill = NA, color ="grey", inherit.aes = FALSE)+
-    coord_sf() +
-    theme_bw() +
-    #facet_wrap(~ date_label, ncol = 5)+
-    labs(title = paste("Spatial Distribution of INLA Predictions by Week"),
-         color = "Posterior Mean") +
-    theme(
-      panel.grid.major = element_blank(),
-      panel.grid.minor = element_blank()
-    )
-#print(p)
-p2<- ggplot(subset_grid) +
+pdf("Figures/prediction_plot/lsoa_boundary_pred/lsoa_boundary_pred_inla_every5week_blue.pdf",width = 8 , height = 10)
+p<- ggplot(subset_grid) +
   geom_sf(aes(fill = pred_mean), color = NA) +
   scale_fill_gradient(low = "#deebf7", high = "#3182bd", limits = c(global_min, global_max)) +
   theme_bw() +
   facet_wrap(~ date_label, ncol = 3) +
-  labs(title = "Weekly Predictions (INLA) by LSOA", fill = "Posterior Mean")+
+  labs(title = "Predictions (INLA) by LSOA every 5 weeks", fill = "Posterior Mean")+
   theme(
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank()
   )
-#print(p2)
+print(p)
 
+dev.off()
 
+subset_grid <- lsoa_joined_RF %>%
+    filter(date_index == i)
 
-plot_list <- seq(1,45,9)
-
-
-for (j in plot_list) {
-  subset_week <- seq(j,j+8,1)
-  subset_grid <- lsoa_joined_inla %>% filter (date_index %in% subset_week)
-
-  pdf(paste0("Figures/prediction_plot/lsoa_boundary_pred/lsoa_boundary_pred_inla",j,"-",j+8,"blue.pdf"),width = 8, height = 10)
-
-  p2<- ggplot(subset_grid) +
-  geom_sf(aes(fill = pred_mean), color = NA) +
-  scale_fill_gradient(low = "#deebf7", high = "#3182bd", limits = c(global_min, global_max)) +
-  theme_bw() +
-  facet_wrap(~ date_label, ncol = 3) +
-  labs(title = "Weekly Predictions (INLA) by LSOA", fill = "Posterior Mean")+
-  theme(
-    panel.grid.major = element_blank(),
-    panel.grid.minor = element_blank()
-  )
-  print(p2)
-
-  dev.off()
-}
-
-
-
-
-pdf("Figures/prediction_plot/lsoa_boundary_pred_RF.pdf", width = 8, height = 10)
-
-for (j in plot_list) {
-  subset_week <- seq(j,j+8,1)
-  subset_grid <- lsoa_joined_RF %>% filter (date_index %in% subset_week)
-
-  pdf(paste0("Figures/prediction_plot/lsoa_boundary_pred/lsoa_boundary_pred_RF",j,"-",j+8,"blue.pdf"),width = 8, height = 10)
-
-  p3<- ggplot(subset_grid) +
+pdf("Figures/prediction_plot/lsoa_boundary_pred/lsoa_boundary_pred_RF_every5week_blue.pdf",width = 8 , height = 10)
+p<- ggplot(subset_grid) +
   geom_sf(aes(fill = predicted), color = NA) +
-  #scale_fill_viridis_c(option = "plasma", na.value = "lightgrey",limits = c(global_min, global_max)) +
   scale_fill_gradient(low = "#deebf7", high = "#3182bd", limits = c(global_min, global_max)) +
   theme_bw() +
   facet_wrap(~ date_label, ncol = 3) +
-  labs(title = "Weekly Predictions (RF) by LSOA", fill = "Predicted Value")+
+  labs(title = "Predictions (RF) by LSOA every 5 weeks", fill = "Predicted Value")+
   theme(
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank()
   )
-  print(p3)
+print(p)
 
-  dev.off()
-}
-
-
+dev.off()

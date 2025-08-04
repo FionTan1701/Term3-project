@@ -10,8 +10,8 @@ setwd("~/Term3-project")
 
 ## read data -------------------------------------------------------------------
 nov_df <- read.csv("Data/final_data/processed_final.csv")
-#pred_grid <- read.csv("Data/prediction_data/lsoa_grid_prediction.csv")
-pred_grid <- read.csv("Data/Covariates/lsoa_covariates/lsoa_cov.csv")
+pred_grid <- read.csv("Data/prediction_data/lsoa_grid_prediction.csv")
+
 ## scale------------------------------------------------------------------------
 
 covariates_to_scale <-  c("school_density", "carehome_density", "imd_score", "BAME", "mobility", "rain_rolling_7day","temp_rolling_7day", "prop_urb")
@@ -69,7 +69,7 @@ grid <- pred_grid %>%
 grid <- grid %>% 
   dplyr::select(lockdown_step3, lockdown_step4, lockdown_planB, lockdown_lifting,
                 scale_school_density, scale_carehome_density, scale_imd_score, scale_BAME,
-                scale_mobility, scale_rain_rolling_7day, scale_temp_rolling_7day, scale_prop_urb,Easting, Northing, date_index)
+                scale_mobility, scale_rain_rolling_7day, scale_temp_rolling_7day, scale_prop_urb,Easting, Northing, date_index, LSOA21CD)
 
 # formula ---------------------------------------------------------------
 formula <- as.formula("nov_3week ~ lockdown_step3 + lockdown_step4 + lockdown_planB + lockdown_lifting +
@@ -100,21 +100,4 @@ grid$pred_975 <- pred_quantiles[, 3]
 
 write.csv(grid, "outputs/prediction/rf_lsoa_prediction_new.csv", row.names = FALSE)
 
-pdf("outputs/prediction/rf_lsoa_prediction_new.pdf", width = 10, height = 8)
-
-
-subset_grid <- grid %>%
-  filter( date_index ==1)
-
-  ggplot(subset_grid, aes(x = Easting, y = Northing, color = predicted)) +
-    geom_point(size = 0.2, alpha = 0.8) +
-    scale_color_viridis_c(option = "plasma", direction = -1) +
-    coord_equal() +
-    theme_minimal() +
-    labs(title = paste("Spatial Distribution of Predictions week",i),
-        color = "Predicted Value")
-
-
-
-dev.off()
 
