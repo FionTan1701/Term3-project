@@ -3,7 +3,7 @@ library(dplyr)
 
 setwd("~/Term3-project")
 
-df <- read.csv("Data/processed_final.csv")
+df <- read.csv("Data/final_data/processed_final.csv")
 
 #reverse one-hot encoded lockdowns stage
 # Step 1: Identify lockdown stage columns
@@ -26,17 +26,21 @@ df <- df[ , !names(df) %in% stage_cols]
 write.csv(df,"Data/final_processed2.csv", row.names = FALSE)
 
 cor_vars <- df %>%
-  select(mobility, rain_rolling_7day,temp_rolling_7day, school_density,
+  select(nov_3week, mobility, rain_rolling_7day,temp_rolling_7day, school_density,
          carehome_density, prop_urb, imd_score, BAME, lockdown_stage)
 
-colnames(cor_vars)<- c("Population mobility","Rain", "Temperature (K)", 
+colnames(cor_vars)<- c("NoV Concentration","Population mobility","Rain", "Temperature (K)", 
                        "School Density", "Carehome Density", "Proportion Urban", 
                        "IMD", "BAME", "Lockdown Stage")
 
 pdf("Figures/ggpair_corrplot3.pdf", width =15 , height = 12)
 
 corr_plot <- ggpairs(cor_vars, lower = "blank")
-corr_plot_bw <- corr_plot + theme
+corr_plot_bw <- corr_plot + theme_bw() +
+  theme(
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank()
+  )
 print(corr_plot_bw)
 
 dev.off()
