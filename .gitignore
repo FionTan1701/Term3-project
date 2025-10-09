@@ -11,3 +11,4 @@ outputs/prediction/rf_lsoa_prediction.csv
 outputs/prediction/lsoa_pred.RData
 Figures/prediction_plot
 outputs/INLA_final
+outputs/prediction/INLA_model9_lsoa
