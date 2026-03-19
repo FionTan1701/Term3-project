@@ -1,0 +1,62 @@
+Running Fold 1 
+Running Fold 2 
+Running Fold 3 
+Running Fold 4 
+Running Fold 5 
+Running Fold 7 
+Running Fold 10 
+Running Fold 6 
+Running Fold 8 
+Running Fold 9 
+
+Overall 95% empirical coverage (RF): 91.88%
+[1] "Non-vector columns found in data_oos:"
+[1] "collection_date" "week_beginning"  "date"           
+
+=== Final Metrics Across Folds ===
+# A tibble: 10 × 7
+     MAE  RMSE     Bias Correlation Model  Fold Coverage
+   <dbl> <dbl>    <dbl>       <dbl> <chr> <int>    <dbl>
+ 1 0.525 0.675  0.0802        0.558 RF        1    0.908
+ 2 0.530 0.669 -0.148         0.405 RF        2    0.951
+ 3 0.474 0.604 -0.0404        0.517 RF        3    0.951
+ 4 0.604 0.794 -0.0389        0.335 RF        4    0.909
+ 5 0.503 0.676 -0.0733        0.446 RF        5    0.919
+ 6 0.517 0.652  0.234         0.426 RF        6    0.911
+ 7 0.488 0.652  0.00836       0.530 RF        7    0.927
+ 8 0.562 0.714 -0.0937        0.410 RF        8    0.912
+ 9 0.569 0.719  0.163         0.426 RF        9    0.908
+10 0.572 0.723 -0.0345        0.517 RF       10    0.889
+
+=== Sample of Final Predictions ===
+# A tibble: 6 × 73
+   ...1   X.3   X.2 site_code  week   X.1     X sample_id sample_collection_da…¹
+  <dbl> <dbl> <dbl> <chr>     <dbl> <dbl> <dbl> <chr>     <chr>                 
+1    36    36    36 UKENMI_S…     1   785   788 2106490-… 30/05/2021 14:00      
+2    39    39    39 UKENMI_S…     1   835   838 2106770-… 30/05/2021 11:50      
+3    48    48    48 UKENMI_S…     1  1040  1043 2106771-… 30/05/2021 12:00      
+4    61    63    63 UKENNE_Y…     1  1336  1341 2106599-… 30/05/2021 07:00      
+5    63    66    66 UKENNE_Y…     1  1391  1396 2106716-… 30/05/2021 09:00      
+6    65    68    68 UKENNE_Y…     1  1433  1438 2106484-… 30/05/2021 11:30      
+# ℹ abbreviated name: ¹​sample_collection_date_time
+# ℹ 64 more variables: Week_date <chr>, ammonia_mg_l <dbl>, ophosph_mg_l <dbl>,
+#   GI_ND <lgl>, GI_lower_LOQ <lgl>, GII_ND <lgl>, GII_lower_LOQ <lgl>,
+#   GI_per_litre <dbl>, GII_per_litre <dbl>, Log10_GI <dbl>, Log10_GII <dbl>,
+#   Log10_NoV <dbl>, Log10_GI_norm <dbl>, Log10_GII_norm <dbl>,
+#   Log10_NoV_norm <dbl>, site_name <chr>, site_type <chr>,
+#   water_company_name <chr>, catchment_population_ons_mid_2019 <dbl>, …
+
+Summary Statistics:
+# A tibble: 1 × 6
+  Model   MAE  RMSE    Bias Correlation Coverage
+  <chr> <dbl> <dbl>   <dbl>       <dbl>    <dbl>
+1 RF    0.535 0.688 0.00568       0.457    0.919
+
+====================================
+CPU Time used: 00:00:05
+CPU Percent: 31%
+Memory usage: 443672kb
+Approx Power usage: 0.0
+Walltime usage: 00:00:26
+
+====================================

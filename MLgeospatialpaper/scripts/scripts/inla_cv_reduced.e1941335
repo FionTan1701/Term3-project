@@ -1,0 +1,87 @@
+Error while loading conda entry point: conda-libmamba-solver (/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /rds/general/user/ft824/home/anaconda3/lib/python3.10/site-packages/libmambapy/bindings.cpython-310-x86_64-linux-gnu.so))
+Error while loading conda entry point: conda-libmamba-solver (/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /rds/general/user/ft824/home/anaconda3/lib/python3.10/site-packages/libmambapy/bindings.cpython-310-x86_64-linux-gnu.so))
+Error while loading conda entry point: conda-libmamba-solver (/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /rds/general/user/ft824/home/anaconda3/lib/python3.10/site-packages/libmambapy/bindings.cpython-310-x86_64-linux-gnu.so))
+Warning message:
+package ‘fmesher’ was built under R version 4.4.3 
+Loading required package: Matrix
+Loading required package: sp
+This is INLA_24.05.27-2 built 2024-05-27 10:04:55 UTC.
+ - See www.r-inla.org/contact-us for how to get help.
+ - List available models/likelihoods/etc with inla.list.models()
+ - Use inla.doc(<NAME>) to access documentation
+Warning message:
+package ‘Matrix’ was built under R version 4.4.3 
+Warning message:
+package ‘MatrixModels’ was built under R version 4.4.3 
+Linking to GEOS 3.13.0, GDAL 3.10.2, PROJ 9.5.1; sf_use_s2() is TRUE
+Warning message:
+package ‘sf’ was built under R version 4.4.3 
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+
+Attaching package: ‘lubridate’
+
+The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+terra 1.8.42
+Warning message:
+package ‘terra’ was built under R version 4.4.3 
+Warning message:
+package ‘readxl’ was built under R version 4.4.3 
+
+Attaching package: ‘tidyr’
+
+The following object is masked from ‘package:terra’:
+
+    extract
+
+The following objects are masked from ‘package:Matrix’:
+
+    expand, pack, unpack
+
+
+Attaching package: ‘raster’
+
+The following object is masked from ‘package:dplyr’:
+
+    select
+
+Warning message:
+package ‘raster’ was built under R version 4.4.3 
+
+Attaching package: ‘zoo’
+
+The following object is masked from ‘package:terra’:
+
+    time<-
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+Warning message:
+package ‘zoo’ was built under R version 4.4.3 
+see more on https://eliaskrainski.github.io/INLAspacetime
+blockCV 3.1.5
+Warning message:
+attribute variables are assumed to be spatially constant throughout all geometries 
+sh: line 1: 1470542 Killed                  '/rds/general/user/ft824/home/anaconda3/envs/r442/lib/R/library/INLA/bin/linux/64bit/inla.mkl.run' -s -v -t6:1 -P compact '/var/tmp/pbs.1941335.pbs-7/RtmpxktffR/file15d3ac5514a7e7/Model.ini' > '/var/tmp/pbs.1941335.pbs-7/RtmpxktffR/file15d3ac5514a7e7/Logfile.txt'
+sh: line 1: 1486882 Killed                  '/rds/general/user/ft824/home/anaconda3/envs/r442/lib/R/library/INLA/bin/linux/64bit/inla.mkl.run' -s -v -t6:1 -P compact '/var/tmp/pbs.1941335.pbs-7/RtmpxktffR/file15d3ac4488ea22/Model.ini' > '/var/tmp/pbs.1941335.pbs-7/RtmpxktffR/file15d3ac4488ea22/Logfile.txt'
+Error in inla.inlaprogram.has.crashed() : 
+  The inla-program exited with an error. Unless you interupted it yourself, please rerun with verbose=TRUE and check the output carefully.
+  If this does not help, please contact the developers at <help@r-inla.org>.
+Calls: inla ... do.call -> inla -> inla.core -> inla.inlaprogram.has.crashed
+Execution halted
+Cgroup mem limit exceeded: oom-kill:constraint=CONSTRAINT_MEMCG,nodemask=(null),cpuset=1941335.pbs-7,mems_allowed=0-7,oom_memcg=/pbs_jobs.service/jobid/1941335.pbs-7,task_memcg=/pbs_jobs.service/jobid/1941335.pbs-7,task=inla.mkl,pid=1486882,uid=1811505
+

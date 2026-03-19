@@ -1,0 +1,32 @@
+Running Fold 1 
+Running Fold 2 
+Running Fold 3 
+Running Fold 10 
+Running Fold 4 
+Running Fold 5 
+Running Fold 6 
+Running Fold 9 
+Running Fold 8 
+Running Fold 7 
+     [,1]         [,2]         [,3]         [,4]         [,5]        
+[1,] "tbl_df"     "tbl_df"     "tbl_df"     "tbl_df"     "tbl_df"    
+[2,] "tbl"        "tbl"        "tbl"        "tbl"        "tbl"       
+[3,] "data.frame" "data.frame" "data.frame" "data.frame" "data.frame"
+     [,6]         [,7]         [,8]         [,9]         [,10]       
+[1,] "tbl_df"     "tbl_df"     "tbl_df"     "tbl_df"     "tbl_df"    
+[2,] "tbl"        "tbl"        "tbl"        "tbl"        "tbl"       
+[3,] "data.frame" "data.frame" "data.frame" "data.frame" "data.frame"
+[1] "\nOverall ensemble metrics:"
+# A tibble: 1 × 4
+    MAE  RMSE    Bias Correlation
+  <dbl> <dbl>   <dbl>       <dbl>
+1 0.476 0.624 0.00912       0.604
+
+====================================
+CPU Time used: 00:01:27
+CPU Percent: 225%
+Memory usage: 4132940kb
+Approx Power usage: 0.0002
+Walltime usage: 00:01:18
+
+====================================

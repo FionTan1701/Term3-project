@@ -1,0 +1,18 @@
+Reading layer `england_crop' from data source 
+  `/rds/general/user/ft824/home/Term3-project/MLgeospatialpaper/data/data/england_crop.shp' 
+  using driver `ESRI Shapefile'
+Simple feature collection with 1 feature and 9 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 134117.7 ymin: 11429.67 xmax: 655653.8 ymax: 656791.1
+Projected CRS: OSGB36 / British National Grid
+[1]    6840 1564470
+
+====================================
+CPU Time used: 00:02:42
+CPU Percent: 99%
+Memory usage: 10841824kb
+Approx Power usage: 0.0004
+Walltime usage: 00:03:28
+
+====================================

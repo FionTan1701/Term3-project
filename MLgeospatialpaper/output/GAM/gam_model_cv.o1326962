@@ -1,0 +1,702 @@
+Reading layer `england_crop' from data source 
+  `/rds/general/user/ft824/home/Term3-project/MLgeospatialpaper/data/data/england_crop.shp' 
+  using driver `ESRI Shapefile'
+Simple feature collection with 1 feature and 9 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 134117.7 ymin: 11429.67 xmax: 655653.8 ymax: 656791.1
+Projected CRS: OSGB36 / British National Grid
+  |                                                                              |                                                                      |   0%  |                                                                              |=                                                                     |   1%  |                                                                              |=                                                                     |   2%  |                                                                              |==                                                                    |   3%  |                                                                              |===                                                                   |   4%  |                                                                              |====                                                                  |   5%  |                                                                              |====                                                                  |   6%  |                                                                              |=====                                                                 |   7%  |                                                                              |======                                                                |   8%  |                                                                              |======                                                                |   9%  |                                                                              |=======                                                               |  10%  |                                                                              |========                                                              |  11%  |                                                                              |========                                                              |  12%  |                                                                              |=========                                                             |  13%  |                                                                              |==========                                                            |  14%  |                                                                              |==========                                                            |  15%  |                                                                              |===========                                                           |  16%  |                                                                              |============                                                          |  17%  |                                                                              |=============                                                         |  18%  |                                                                              |=============                                                         |  19%  |                                                                              |==============                                                        |  20%  |                                                                              |===============                                                       |  21%  |                                                                              |===============                                                       |  22%  |                                                                              |================                                                      |  23%  |                                                                              |=================                                                     |  24%  |                                                                              |==================                                                    |  25%  |                                                                              |==================                                                    |  26%  |                                                                              |===================                                                   |  27%  |                                                                              |====================                                                  |  28%  |                                                                              |====================                                                  |  29%  |                                                                              |=====================                                                 |  30%  |                                                                              |======================                                                |  31%  |                                                                              |======================                                                |  32%  |                                                                              |=======================                                               |  33%  |                                                                              |========================                                              |  34%  |                                                                              |========================                                              |  35%  |                                                                              |=========================                                             |  36%  |                                                                              |==========================                                            |  37%  |                                                                              |===========================                                           |  38%  |                                                                              |===========================                                           |  39%  |                                                                              |============================                                          |  40%  |                                                                              |=============================                                         |  41%  |                                                                              |=============================                                         |  42%  |                                                                              |==============================                                        |  43%  |                                                                              |===============================                                       |  44%  |                                                                              |================================                                      |  45%  |                                                                              |================================                                      |  46%  |                                                                              |=================================                                     |  47%  |                                                                              |==================================                                    |  48%  |                                                                              |==================================                                    |  49%  |                                                                              |===================================                                   |  50%  |                                                                              |====================================                                  |  51%  |                                                                              |====================================                                  |  52%  |                                                                              |=====================================                                 |  53%  |                                                                              |======================================                                |  54%  |                                                                              |======================================                                |  55%  |                                                                              |=======================================                               |  56%  |                                                                              |========================================                              |  57%  |                                                                              |=========================================                             |  58%  |                                                                              |=========================================                             |  59%  |                                                                              |==========================================                            |  60%  |                                                                              |===========================================                           |  61%  |                                                                              |===========================================                           |  62%  |                                                                              |============================================                          |  63%  |                                                                              |=============================================                         |  64%  |                                                                              |==============================================                        |  65%  |                                                                              |==============================================                        |  66%  |                                                                              |===============================================                       |  67%  |                                                                              |================================================                      |  68%  |                                                                              |================================================                      |  69%  |                                                                              |=================================================                     |  70%  |                                                                              |==================================================                    |  71%  |                                                                              |==================================================                    |  72%  |                                                                              |===================================================                   |  73%  |                                                                              |====================================================                  |  74%  |                                                                              |====================================================                  |  75%  |                                                                              |=====================================================                 |  76%  |                                                                              |======================================================                |  77%  |                                                                              |=======================================================               |  78%  |                                                                              |=======================================================               |  79%  |                                                                              |========================================================              |  80%  |                                                                              |=========================================================             |  81%  |                                                                              |=========================================================             |  82%  |                                                                              |==========================================================            |  83%  |                                                                              |===========================================================           |  84%  |                                                                              |============================================================          |  85%  |                                                                              |============================================================          |  86%  |                                                                              |=============================================================         |  87%  |                                                                              |==============================================================        |  88%  |                                                                              |==============================================================        |  89%  |                                                                              |===============================================================       |  90%  |                                                                              |================================================================      |  91%  |                                                                              |================================================================      |  92%  |                                                                              |=================================================================     |  93%  |                                                                              |==================================================================    |  94%  |                                                                              |==================================================================    |  95%  |                                                                              |===================================================================   |  96%  |                                                                              |====================================================================  |  97%  |                                                                              |===================================================================== |  98%  |                                                                              |===================================================================== |  99%  |                                                                              |======================================================================| 100%
+   train test
+1    131   15
+2    132   14
+3    128   18
+4    127   19
+5    131   15
+6    132   14
+7    132   14
+8    135   11
+9    134   12
+10   132   14
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+avg_Log10_NoV ~ -1 + s(Easting, Northing) + s(week) + lockdown_step3 + 
+    lockdown_step4 + lockdown_planB + scale_school_den + scale_carehome_den + 
+    scale_mob_7day + scale_bame + scale_imd + scale_prop_agri + 
+    scale_prop_urb + temp_2 + temp_3 + temp_4 + temp_5 + rain_2 + 
+    rain_3 + rain_4 + rain_5
+
+Parametric coefficients:
+                   Estimate Std. Error t value Pr(>|t|)    
+lockdown_step3      0.38782    0.21329   1.818  0.06914 .  
+lockdown_step4      0.84229    0.15472   5.444 5.70e-08 ***
+lockdown_planB      0.91557    0.11190   8.182 4.33e-16 ***
+scale_school_den    0.20905    0.02174   9.615  < 2e-16 ***
+scale_carehome_den -0.02203    0.02017  -1.093  0.27468    
+scale_mob_7day      0.05112    0.01897   2.695  0.00708 ** 
+scale_bame         -0.13961    0.02166  -6.446 1.36e-10 ***
+scale_imd          -0.04112    0.02091  -1.967  0.04934 *  
+scale_prop_agri     0.03871    0.02792   1.386  0.16577    
+scale_prop_urb      0.04278    0.03685   1.161  0.24586    
+temp_2              0.40984    0.04109   9.975  < 2e-16 ***
+temp_3              0.58045    0.04583  12.665  < 2e-16 ***
+temp_4              0.70802    0.05142  13.770  < 2e-16 ***
+temp_5              0.50366    0.05623   8.957  < 2e-16 ***
+rain_2              0.31177    0.04314   7.227 6.47e-13 ***
+rain_3              0.41338    0.04183   9.883  < 2e-16 ***
+rain_4              0.38036    0.04367   8.711  < 2e-16 ***
+rain_5              0.42544    0.04582   9.286  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                       edf Ref.df      F p-value    
+s(Easting,Northing) 20.933 25.486  6.118  <2e-16 ***
+s(week)              8.743  8.981 27.906  <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.184   Deviance explained = 19.8%
+-REML = 2638.8  Scale est. = 0.40478   n = 2635
+
+Method: REML   Optimizer: outer newton
+full convergence after 7 iterations.
+Gradient range [-2.032026e-06,1.323127e-06]
+(score 2638.817 & scale 0.4047843).
+Hessian positive definite, eigenvalue range [3.285198,1307.08].
+Model rank =  56 / 56 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                       k'   edf k-index p-value    
+s(Easting,Northing) 29.00 20.93    0.81  <2e-16 ***
+s(week)              9.00  8.74    0.90  <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+$mfrow
+[1] 2 2
+
+  Fold       MSE      RMSE       MAE     MAPE        BIAS     pBIAS      CORR
+1    1 0.3889877 0.6236888 0.4994168 10.13578 -0.03889369 -0.760105 0.3584559
+      COV
+1 24.0678
+[1] "1 folds done"
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+avg_Log10_NoV ~ -1 + s(Easting, Northing) + s(week) + lockdown_step3 + 
+    lockdown_step4 + lockdown_planB + scale_school_den + scale_carehome_den + 
+    scale_mob_7day + scale_bame + scale_imd + scale_prop_agri + 
+    scale_prop_urb + temp_2 + temp_3 + temp_4 + temp_5 + rain_2 + 
+    rain_3 + rain_4 + rain_5
+
+Parametric coefficients:
+                    Estimate Std. Error t value Pr(>|t|)    
+lockdown_step3      0.490218   0.207865   2.358   0.0184 *  
+lockdown_step4      0.975650   0.149618   6.521 8.36e-11 ***
+lockdown_planB      0.926691   0.107823   8.595  < 2e-16 ***
+scale_school_den    0.106826   0.023833   4.482 7.71e-06 ***
+scale_carehome_den -0.006816   0.018490  -0.369   0.7124    
+scale_mob_7day      0.031663   0.018099   1.749   0.0803 .  
+scale_bame         -0.192025   0.022169  -8.662  < 2e-16 ***
+scale_imd          -0.023039   0.020572  -1.120   0.2629    
+scale_prop_agri    -0.014053   0.028187  -0.499   0.6181    
+scale_prop_urb     -0.075192   0.038125  -1.972   0.0487 *  
+temp_2              0.400234   0.039680  10.087  < 2e-16 ***
+temp_3              0.590486   0.043748  13.497  < 2e-16 ***
+temp_4              0.676056   0.049521  13.652  < 2e-16 ***
+temp_5              0.499577   0.054717   9.130  < 2e-16 ***
+rain_2              0.314102   0.041840   7.507 8.24e-14 ***
+rain_3              0.388391   0.040381   9.618  < 2e-16 ***
+rain_4              0.388741   0.042576   9.130  < 2e-16 ***
+rain_5              0.408444   0.044374   9.205  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                       edf Ref.df      F p-value    
+s(Easting,Northing) 25.093 28.076  7.202  <2e-16 ***
+s(week)              8.755  8.983 30.310  <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.208   Deviance explained = 22.3%
+-REML =   2600  Scale est. = 0.38296   n = 2658
+
+Method: REML   Optimizer: outer newton
+full convergence after 8 iterations.
+Gradient range [-0.0001778597,0.000121225]
+(score 2600.001 & scale 0.3829644).
+Hessian positive definite, eigenvalue range [3.329393,1318.613].
+Model rank =  56 / 56 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                       k'   edf k-index p-value    
+s(Easting,Northing) 29.00 25.09    0.86  <2e-16 ***
+s(week)              9.00  8.75    0.92  <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+$mfrow
+[1] 2 2
+
+  Fold       MSE      RMSE       MAE     MAPE       BIAS     pBIAS      CORR
+1    2 0.6653974 0.8157189 0.6434111 12.70707 -0.1127055 -2.166042 0.1058542
+      COV
+1 19.4853
+[1] "2 folds done"
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+avg_Log10_NoV ~ -1 + s(Easting, Northing) + s(week) + lockdown_step3 + 
+    lockdown_step4 + lockdown_planB + scale_school_den + scale_carehome_den + 
+    scale_mob_7day + scale_bame + scale_imd + scale_prop_agri + 
+    scale_prop_urb + temp_2 + temp_3 + temp_4 + temp_5 + rain_2 + 
+    rain_3 + rain_4 + rain_5
+
+Parametric coefficients:
+                   Estimate Std. Error t value Pr(>|t|)    
+lockdown_step3      0.28900    0.21550   1.341  0.18003    
+lockdown_step4      0.73842    0.15543   4.751 2.14e-06 ***
+lockdown_planB      0.86803    0.11102   7.818 7.80e-15 ***
+scale_school_den    0.22286    0.02308   9.654  < 2e-16 ***
+scale_carehome_den  0.01838    0.01802   1.020  0.30788    
+scale_mob_7day      0.05911    0.01875   3.153  0.00163 ** 
+scale_bame         -0.10133    0.02283  -4.438 9.48e-06 ***
+scale_imd          -0.06293    0.02097  -3.001  0.00271 ** 
+scale_prop_agri     0.04103    0.02816   1.457  0.14522    
+scale_prop_urb      0.03792    0.03768   1.006  0.31431    
+temp_2              0.41129    0.04113  10.001  < 2e-16 ***
+temp_3              0.59546    0.04535  13.131  < 2e-16 ***
+temp_4              0.68550    0.05100  13.441  < 2e-16 ***
+temp_5              0.50064    0.05633   8.887  < 2e-16 ***
+rain_2              0.32484    0.04314   7.529 7.08e-14 ***
+rain_3              0.42396    0.04216  10.056  < 2e-16 ***
+rain_4              0.43641    0.04412   9.893  < 2e-16 ***
+rain_5              0.42115    0.04495   9.369  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                      edf Ref.df      F p-value    
+s(Easting,Northing) 23.58 27.317  6.556  <2e-16 ***
+s(week)              8.75  8.982 26.966  <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.195   Deviance explained =   21%
+-REML = 2558.6  Scale est. = 0.39886   n = 2565
+
+Method: REML   Optimizer: outer newton
+full convergence after 9 iterations.
+Gradient range [-5.346885e-06,3.528648e-06]
+(score 2558.628 & scale 0.3988638).
+Hessian positive definite, eigenvalue range [3.285469,1272.104].
+Model rank =  56 / 56 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                       k'   edf k-index p-value    
+s(Easting,Northing) 29.00 23.58    0.80  <2e-16 ***
+s(week)              9.00  8.75    0.91  <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+$mfrow
+[1] 2 2
+
+  Fold       MSE      RMSE      MAE     MAPE       BIAS     pBIAS      CORR
+1    3 0.4029878 0.6348132 0.497825 10.34468 0.04028068 0.7857698 0.3692293
+      COV
+1 24.3836
+[1] "3 folds done"
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+avg_Log10_NoV ~ -1 + s(Easting, Northing) + s(week) + lockdown_step3 + 
+    lockdown_step4 + lockdown_planB + scale_school_den + scale_carehome_den + 
+    scale_mob_7day + scale_bame + scale_imd + scale_prop_agri + 
+    scale_prop_urb + temp_2 + temp_3 + temp_4 + temp_5 + rain_2 + 
+    rain_3 + rain_4 + rain_5
+
+Parametric coefficients:
+                    Estimate Std. Error t value Pr(>|t|)    
+lockdown_step3      0.443671   0.212108   2.092   0.0366 *  
+lockdown_step4      0.924357   0.153145   6.036 1.82e-09 ***
+lockdown_planB      0.945348   0.109966   8.597  < 2e-16 ***
+scale_school_den    0.194625   0.021559   9.027  < 2e-16 ***
+scale_carehome_den -0.005981   0.017520  -0.341   0.7328    
+scale_mob_7day      0.035262   0.018148   1.943   0.0521 .  
+scale_bame         -0.153115   0.022368  -6.845 9.58e-12 ***
+scale_imd          -0.025723   0.020275  -1.269   0.2047    
+scale_prop_agri     0.052973   0.028061   1.888   0.0592 .  
+scale_prop_urb      0.092996   0.037721   2.465   0.0138 *  
+temp_2              0.412383   0.040407  10.206  < 2e-16 ***
+temp_3              0.601831   0.044522  13.518  < 2e-16 ***
+temp_4              0.656419   0.050267  13.059  < 2e-16 ***
+temp_5              0.485778   0.056162   8.650  < 2e-16 ***
+rain_2              0.348306   0.042912   8.117 7.43e-16 ***
+rain_3              0.385493   0.041257   9.344  < 2e-16 ***
+rain_4              0.410600   0.043659   9.405  < 2e-16 ***
+rain_5              0.412747   0.044586   9.257  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                      edf Ref.df      F p-value    
+s(Easting,Northing) 21.63 26.006  6.874  <2e-16 ***
+s(week)              8.76  8.983 28.602  <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.147   Deviance explained = 16.3%
+-REML = 2509.5  Scale est. = 0.38977   n = 2549
+
+Method: REML   Optimizer: outer newton
+full convergence after 7 iterations.
+Gradient range [-3.871862e-06,2.687368e-06]
+(score 2509.489 & scale 0.3897736).
+Hessian positive definite, eigenvalue range [3.34789,1264.088].
+Model rank =  56 / 56 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                       k'   edf k-index p-value    
+s(Easting,Northing) 29.00 21.63    0.84  <2e-16 ***
+s(week)              9.00  8.76    0.91  <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+$mfrow
+[1] 2 2
+
+  Fold     MSE      RMSE       MAE     MAPE      BIAS   pBIAS      CORR     COV
+1    4 0.56575 0.7521635 0.5824591 13.51668 0.2424533 5.10713 0.4070745 19.4226
+[1] "4 folds done"
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+avg_Log10_NoV ~ -1 + s(Easting, Northing) + s(week) + lockdown_step3 + 
+    lockdown_step4 + lockdown_planB + scale_school_den + scale_carehome_den + 
+    scale_mob_7day + scale_bame + scale_imd + scale_prop_agri + 
+    scale_prop_urb + temp_2 + temp_3 + temp_4 + temp_5 + rain_2 + 
+    rain_3 + rain_4 + rain_5
+
+Parametric coefficients:
+                    Estimate Std. Error t value Pr(>|t|)    
+lockdown_step3      0.184016   0.209466   0.879   0.3798    
+lockdown_step4      0.775050   0.149763   5.175 2.45e-07 ***
+lockdown_planB      0.825272   0.107475   7.679 2.26e-14 ***
+scale_school_den    0.242006   0.022428  10.791  < 2e-16 ***
+scale_carehome_den  0.008091   0.017774   0.455   0.6490    
+scale_mob_7day      0.038513   0.018134   2.124   0.0338 *  
+scale_bame         -0.118702   0.021749  -5.458 5.27e-08 ***
+scale_imd          -0.038051   0.020308  -1.874   0.0611 .  
+scale_prop_agri     0.024877   0.027358   0.909   0.3633    
+scale_prop_urb     -0.016289   0.035966  -0.453   0.6507    
+temp_2              0.496304   0.040016  12.403  < 2e-16 ***
+temp_3              0.649001   0.043758  14.831  < 2e-16 ***
+temp_4              0.717227   0.049347  14.534  < 2e-16 ***
+temp_5              0.570150   0.054803  10.404  < 2e-16 ***
+rain_2              0.272788   0.041763   6.532 7.79e-11 ***
+rain_3              0.359848   0.040262   8.938  < 2e-16 ***
+rain_4              0.367118   0.042155   8.709  < 2e-16 ***
+rain_5              0.381743   0.043697   8.736  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                       edf Ref.df      F p-value    
+s(Easting,Northing) 23.566 27.302  7.249  <2e-16 ***
+s(week)              8.802  8.988 30.930  <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.198   Deviance explained = 21.3%
+-REML = 2575.6  Scale est. = 0.38073   n = 2645
+
+Method: REML   Optimizer: outer newton
+full convergence after 8 iterations.
+Gradient range [-0.0009835771,0.0007127602]
+(score 2575.582 & scale 0.3807312).
+Hessian positive definite, eigenvalue range [3.422624,1312.102].
+Model rank =  56 / 56 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                      k'  edf k-index p-value    
+s(Easting,Northing) 29.0 23.6    0.81  <2e-16 ***
+s(week)              9.0  8.8    0.93  <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+$mfrow
+[1] 2 2
+
+  Fold       MSE      RMSE       MAE     MAPE      BIAS    pBIAS     CORR
+1    5 0.5975171 0.7729923 0.5958641 13.10183 0.1444547 2.886338 0.280967
+      COV
+1 25.2632
+[1] "5 folds done"
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+avg_Log10_NoV ~ -1 + s(Easting, Northing) + s(week) + lockdown_step3 + 
+    lockdown_step4 + lockdown_planB + scale_school_den + scale_carehome_den + 
+    scale_mob_7day + scale_bame + scale_imd + scale_prop_agri + 
+    scale_prop_urb + temp_2 + temp_3 + temp_4 + temp_5 + rain_2 + 
+    rain_3 + rain_4 + rain_5
+
+Parametric coefficients:
+                    Estimate Std. Error t value Pr(>|t|)    
+lockdown_step3      0.408984   0.210119   1.946   0.0517 .  
+lockdown_step4      0.877586   0.152520   5.754 9.75e-09 ***
+lockdown_planB      0.903317   0.109694   8.235 2.82e-16 ***
+scale_school_den    0.261477   0.022536  11.603  < 2e-16 ***
+scale_carehome_den  0.019484   0.019889   0.980   0.3273    
+scale_mob_7day      0.045519   0.018369   2.478   0.0133 *  
+scale_bame         -0.095252   0.021695  -4.391 1.18e-05 ***
+scale_imd          -0.121978   0.023861  -5.112 3.42e-07 ***
+scale_prop_agri     0.002293   0.030781   0.074   0.9406    
+scale_prop_urb      0.012798   0.038901   0.329   0.7422    
+temp_2              0.420146   0.040215  10.447  < 2e-16 ***
+temp_3              0.587971   0.044396  13.244  < 2e-16 ***
+temp_4              0.665967   0.050375  13.220  < 2e-16 ***
+temp_5              0.466736   0.055875   8.353  < 2e-16 ***
+rain_2              0.315333   0.042146   7.482 9.98e-14 ***
+rain_3              0.421852   0.041304  10.213  < 2e-16 ***
+rain_4              0.404251   0.043105   9.378  < 2e-16 ***
+rain_5              0.428328   0.044542   9.616  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                       edf Ref.df      F p-value    
+s(Easting,Northing) 24.019 27.556  7.633  <2e-16 ***
+s(week)              8.745  8.981 27.419  <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.204   Deviance explained = 21.8%
+-REML = 2621.6  Scale est. = 0.39743   n = 2634
+
+Method: REML   Optimizer: outer newton
+full convergence after 8 iterations.
+Gradient range [-0.0002604973,6.050458e-05]
+(score 2621.556 & scale 0.3974281).
+Hessian positive definite, eigenvalue range [3.32326,1306.605].
+Model rank =  56 / 56 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                       k'   edf k-index p-value    
+s(Easting,Northing) 29.00 24.02    0.80  <2e-16 ***
+s(week)              9.00  8.74    0.92  <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+$mfrow
+[1] 2 2
+
+  Fold       MSE      RMSE       MAE     MAPE       BIAS     pBIAS      CORR
+1    6 0.4474412 0.6689104 0.5316786 10.31538 -0.1417762 -2.713053 0.3112555
+      COV
+1 23.9865
+[1] "6 folds done"
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+avg_Log10_NoV ~ -1 + s(Easting, Northing) + s(week) + lockdown_step3 + 
+    lockdown_step4 + lockdown_planB + scale_school_den + scale_carehome_den + 
+    scale_mob_7day + scale_bame + scale_imd + scale_prop_agri + 
+    scale_prop_urb + temp_2 + temp_3 + temp_4 + temp_5 + rain_2 + 
+    rain_3 + rain_4 + rain_5
+
+Parametric coefficients:
+                   Estimate Std. Error t value Pr(>|t|)    
+lockdown_step3      0.45755    0.20964   2.183   0.0292 *  
+lockdown_step4      0.88830    0.15063   5.897 4.18e-09 ***
+lockdown_planB      0.94387    0.10868   8.685  < 2e-16 ***
+scale_school_den    0.21553    0.02145  10.050  < 2e-16 ***
+scale_carehome_den  0.01487    0.01842   0.807   0.4197    
+scale_mob_7day      0.04097    0.01879   2.180   0.0293 *  
+scale_bame         -0.10687    0.02185  -4.892 1.06e-06 ***
+scale_imd          -0.03448    0.02041  -1.690   0.0912 .  
+scale_prop_agri     0.06223    0.02846   2.186   0.0289 *  
+scale_prop_urb      0.01403    0.03676   0.382   0.7027    
+temp_2              0.41948    0.03988  10.519  < 2e-16 ***
+temp_3              0.58439    0.04451  13.129  < 2e-16 ***
+temp_4              0.63619    0.05021  12.671  < 2e-16 ***
+temp_5              0.50068    0.05572   8.986  < 2e-16 ***
+rain_2              0.33499    0.04255   7.872 5.08e-15 ***
+rain_3              0.40732    0.04135   9.852  < 2e-16 ***
+rain_4              0.41426    0.04283   9.672  < 2e-16 ***
+rain_5              0.40931    0.04444   9.211  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                       edf Ref.df      F p-value    
+s(Easting,Northing) 24.606 27.854  6.877  <2e-16 ***
+s(week)              8.755  8.983 28.988  <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.203   Deviance explained = 21.8%
+-REML = 2624.8  Scale est. = 0.39657   n = 2638
+
+Method: REML   Optimizer: outer newton
+full convergence after 9 iterations.
+Gradient range [-1.870135e-05,1.293142e-05]
+(score 2624.842 & scale 0.3965655).
+Hessian positive definite, eigenvalue range [3.342269,1308.61].
+Model rank =  56 / 56 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                       k'   edf k-index p-value    
+s(Easting,Northing) 29.00 24.61    0.78  <2e-16 ***
+s(week)              9.00  8.76    0.90  <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+$mfrow
+[1] 2 2
+
+  Fold      MSE      RMSE       MAE    MAPE      BIAS     pBIAS      CORR
+1    7 0.439777 0.6631568 0.5194224 10.7359 0.0177307 0.3483232 0.1733616
+      COV
+1 23.6301
+[1] "7 folds done"
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+avg_Log10_NoV ~ -1 + s(Easting, Northing) + s(week) + lockdown_step3 + 
+    lockdown_step4 + lockdown_planB + scale_school_den + scale_carehome_den + 
+    scale_mob_7day + scale_bame + scale_imd + scale_prop_agri + 
+    scale_prop_urb + temp_2 + temp_3 + temp_4 + temp_5 + rain_2 + 
+    rain_3 + rain_4 + rain_5
+
+Parametric coefficients:
+                   Estimate Std. Error t value Pr(>|t|)    
+lockdown_step3      0.37235    0.20790   1.791   0.0734 .  
+lockdown_step4      0.81243    0.15086   5.385 7.87e-08 ***
+lockdown_planB      0.91556    0.10901   8.398  < 2e-16 ***
+scale_school_den    0.22936    0.02142  10.707  < 2e-16 ***
+scale_carehome_den  0.02777    0.01800   1.543   0.1229    
+scale_mob_7day      0.02181    0.01838   1.187   0.2355    
+scale_bame         -0.12635    0.02141  -5.900 4.09e-09 ***
+scale_imd          -0.05102    0.02072  -2.463   0.0138 *  
+scale_prop_agri     0.03909    0.02895   1.350   0.1770    
+scale_prop_urb      0.05960    0.03870   1.540   0.1237    
+temp_2              0.43417    0.03994  10.871  < 2e-16 ***
+temp_3              0.59068    0.04401  13.421  < 2e-16 ***
+temp_4              0.64320    0.04983  12.909  < 2e-16 ***
+temp_5              0.50787    0.05499   9.236  < 2e-16 ***
+rain_2              0.33068    0.04197   7.878 4.79e-15 ***
+rain_3              0.40610    0.04084   9.944  < 2e-16 ***
+rain_4              0.40789    0.04251   9.595  < 2e-16 ***
+rain_5              0.43791    0.04381   9.996  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                       edf Ref.df      F p-value    
+s(Easting,Northing) 25.534 28.272  7.943  <2e-16 ***
+s(week)              8.779  8.986 29.066  <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.194   Deviance explained =   21%
+-REML = 2692.1  Scale est. = 0.39449   n = 2711
+
+Method: REML   Optimizer: outer newton
+full convergence after 8 iterations.
+Gradient range [-0.0003187013,0.0002273886]
+(score 2692.06 & scale 0.3944878).
+Hessian positive definite, eigenvalue range [3.393867,1345.115].
+Model rank =  56 / 56 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                       k'   edf k-index p-value    
+s(Easting,Northing) 29.00 25.53    0.82  <2e-16 ***
+s(week)              9.00  8.78    0.92  <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+$mfrow
+[1] 2 2
+
+  Fold       MSE      RMSE       MAE     MAPE      BIAS    pBIAS      CORR
+1    8 0.4813969 0.6938277 0.5535896 12.06678 0.2901439 5.807041 0.3546757
+      COV
+1 21.0046
+[1] "8 folds done"
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+avg_Log10_NoV ~ -1 + s(Easting, Northing) + s(week) + lockdown_step3 + 
+    lockdown_step4 + lockdown_planB + scale_school_den + scale_carehome_den + 
+    scale_mob_7day + scale_bame + scale_imd + scale_prop_agri + 
+    scale_prop_urb + temp_2 + temp_3 + temp_4 + temp_5 + rain_2 + 
+    rain_3 + rain_4 + rain_5
+
+Parametric coefficients:
+                   Estimate Std. Error t value Pr(>|t|)    
+lockdown_step3      0.44818    0.20776   2.157   0.0311 *  
+lockdown_step4      0.93233    0.15054   6.193 6.81e-10 ***
+lockdown_planB      0.90825    0.10781   8.425  < 2e-16 ***
+scale_school_den    0.23475    0.02222  10.565  < 2e-16 ***
+scale_carehome_den  0.02959    0.01846   1.603   0.1091    
+scale_mob_7day      0.03829    0.01830   2.092   0.0365 *  
+scale_bame         -0.10830    0.02118  -5.114 3.38e-07 ***
+scale_imd          -0.05476    0.02057  -2.663   0.0078 ** 
+scale_prop_agri     0.05656    0.02911   1.943   0.0521 .  
+scale_prop_urb      0.05600    0.03676   1.523   0.1278    
+temp_2              0.41217    0.03980  10.357  < 2e-16 ***
+temp_3              0.60388    0.04412  13.689  < 2e-16 ***
+temp_4              0.68333    0.05023  13.603  < 2e-16 ***
+temp_5              0.49948    0.05533   9.028  < 2e-16 ***
+rain_2              0.31854    0.04241   7.512 7.94e-14 ***
+rain_3              0.38612    0.04089   9.443  < 2e-16 ***
+rain_4              0.37869    0.04268   8.873  < 2e-16 ***
+rain_5              0.39813    0.04444   8.960  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                       edf Ref.df      F p-value    
+s(Easting,Northing) 23.986 27.532  7.729  <2e-16 ***
+s(week)              8.754  8.982 29.305  <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.193   Deviance explained = 20.7%
+-REML = 2689.1  Scale est. = 0.39747   n = 2704
+
+Method: REML   Optimizer: outer newton
+full convergence after 9 iterations.
+Gradient range [-5.253566e-05,3.620403e-05]
+(score 2689.051 & scale 0.3974745).
+Hessian positive definite, eigenvalue range [3.339965,1341.602].
+Model rank =  56 / 56 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                       k'   edf k-index p-value    
+s(Easting,Northing) 29.00 23.99    0.79  <2e-16 ***
+s(week)              9.00  8.75    0.92  <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+$mfrow
+[1] 2 2
+
+  Fold       MSE      RMSE       MAE     MAPE       BIAS     pBIAS      CORR
+1    9 0.4352594 0.6597419 0.5108137 9.382797 -0.2779805 -5.137534 0.3191481
+      COV
+1 32.3009
+[1] "9 folds done"
+
+Family: gaussian 
+Link function: identity 
+
+Formula:
+avg_Log10_NoV ~ -1 + s(Easting, Northing) + s(week) + lockdown_step3 + 
+    lockdown_step4 + lockdown_planB + scale_school_den + scale_carehome_den + 
+    scale_mob_7day + scale_bame + scale_imd + scale_prop_agri + 
+    scale_prop_urb + temp_2 + temp_3 + temp_4 + temp_5 + rain_2 + 
+    rain_3 + rain_4 + rain_5
+
+Parametric coefficients:
+                   Estimate Std. Error t value Pr(>|t|)    
+lockdown_step3      0.44865    0.21082   2.128   0.0334 *  
+lockdown_step4      0.86496    0.15138   5.714 1.23e-08 ***
+lockdown_planB      0.92930    0.10841   8.572  < 2e-16 ***
+scale_school_den    0.21658    0.02176   9.954  < 2e-16 ***
+scale_carehome_den  0.02875    0.02013   1.428   0.1533    
+scale_mob_7day      0.04789    0.01867   2.565   0.0104 *  
+scale_bame         -0.11852    0.02153  -5.504 4.07e-08 ***
+scale_imd          -0.05237    0.02151  -2.434   0.0150 *  
+scale_prop_agri     0.03462    0.03001   1.154   0.2488    
+scale_prop_urb      0.02467    0.03712   0.665   0.5063    
+temp_2              0.40530    0.04001  10.130  < 2e-16 ***
+temp_3              0.56816    0.04434  12.813  < 2e-16 ***
+temp_4              0.66622    0.04994  13.341  < 2e-16 ***
+temp_5              0.51092    0.05575   9.164  < 2e-16 ***
+rain_2              0.30791    0.04228   7.283 4.31e-13 ***
+rain_3              0.39711    0.04110   9.662  < 2e-16 ***
+rain_4              0.40693    0.04327   9.405  < 2e-16 ***
+rain_5              0.42177    0.04432   9.516  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Approximate significance of smooth terms:
+                       edf Ref.df      F p-value    
+s(Easting,Northing) 24.003  27.55  8.161  <2e-16 ***
+s(week)              8.739   8.98 29.912  <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+R-sq.(adj) =  0.199   Deviance explained = 21.4%
+-REML =   2620  Scale est. = 0.39785   n = 2631
+
+Method: REML   Optimizer: outer newton
+full convergence after 9 iterations.
+Gradient range [-1.747573e-05,1.14933e-05]
+(score 2620.021 & scale 0.3978491).
+Hessian positive definite, eigenvalue range [3.279169,1305.105].
+Model rank =  56 / 56 
+
+Basis dimension (k) checking results. Low p-value (k-index<1) may
+indicate that k is too low, especially if edf is close to k'.
+
+                       k'   edf k-index p-value    
+s(Easting,Northing) 29.00 24.00    0.81  <2e-16 ***
+s(week)              9.00  8.74    0.94  <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+$mfrow
+[1] 2 2
+
+  Fold       MSE      RMSE      MAE     MAPE      BIAS     pBIAS      CORR
+1   10 0.4084771 0.6391222 0.503329 9.772294 -0.106829 -1.986844 0.1812902
+      COV
+1 28.0936
+[1] "10 folds done"
+[1] "Coverage Probability (%): 23.9590443686007"
+   Mean_MSE         SE CI_Lower  CI_Upper Mean_rmse    SE_rmse CI_Lower_rmse
+1 0.4832991 0.02970932 0.416092 0.5505063 0.6924136 0.02071657     0.6455494
+  CI_Upper_rmse  Mean_MAE Mean_MAPE   Mean_BIAS Mean_pBIAS Mean_CORR      COV
+1     0.7392777 0.5437809  11.20792 0.005687835  0.2171024 0.2861312 23.95904
+
+====================================
+CPU Time used: 00:00:00
+CPU Percent: 0%
+Memory usage: 0b
+Approx Power usage: 0.0
+Walltime usage: 00:00:32
+
+====================================

@@ -1,0 +1,552 @@
+Reading layer `england_crop' from data source 
+  `/rds/general/user/ft824/home/Term3-project/MLgeospatialpaper/data/data/england_crop.shp' 
+  using driver `ESRI Shapefile'
+Simple feature collection with 1 feature and 9 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 134117.7 ymin: 11429.67 xmax: 655653.8 ymax: 656791.1
+Projected CRS: OSGB36 / British National Grid
+  |                                                                              |                                                                      |   0%  |                                                                              |=                                                                     |   1%  |                                                                              |=                                                                     |   2%  |                                                                              |==                                                                    |   3%  |                                                                              |===                                                                   |   4%  |                                                                              |====                                                                  |   5%  |                                                                              |====                                                                  |   6%  |                                                                              |=====                                                                 |   7%  |                                                                              |======                                                                |   8%  |                                                                              |======                                                                |   9%  |                                                                              |=======                                                               |  10%  |                                                                              |========                                                              |  11%  |                                                                              |========                                                              |  12%  |                                                                              |=========                                                             |  13%  |                                                                              |==========                                                            |  14%  |                                                                              |==========                                                            |  15%  |                                                                              |===========                                                           |  16%  |                                                                              |============                                                          |  17%  |                                                                              |=============                                                         |  18%  |                                                                              |=============                                                         |  19%  |                                                                              |==============                                                        |  20%  |                                                                              |===============                                                       |  21%  |                                                                              |===============                                                       |  22%  |                                                                              |================                                                      |  23%  |                                                                              |=================                                                     |  24%  |                                                                              |==================                                                    |  25%  |                                                                              |==================                                                    |  26%  |                                                                              |===================                                                   |  27%  |                                                                              |====================                                                  |  28%  |                                                                              |====================                                                  |  29%  |                                                                              |=====================                                                 |  30%  |                                                                              |======================                                                |  31%  |                                                                              |======================                                                |  32%  |                                                                              |=======================                                               |  33%  |                                                                              |========================                                              |  34%  |                                                                              |========================                                              |  35%  |                                                                              |=========================                                             |  36%  |                                                                              |==========================                                            |  37%  |                                                                              |===========================                                           |  38%  |                                                                              |===========================                                           |  39%  |                                                                              |============================                                          |  40%  |                                                                              |=============================                                         |  41%  |                                                                              |=============================                                         |  42%  |                                                                              |==============================                                        |  43%  |                                                                              |===============================                                       |  44%  |                                                                              |================================                                      |  45%  |                                                                              |================================                                      |  46%  |                                                                              |=================================                                     |  47%  |                                                                              |==================================                                    |  48%  |                                                                              |==================================                                    |  49%  |                                                                              |===================================                                   |  50%  |                                                                              |====================================                                  |  51%  |                                                                              |====================================                                  |  52%  |                                                                              |=====================================                                 |  53%  |                                                                              |======================================                                |  54%  |                                                                              |======================================                                |  55%  |                                                                              |=======================================                               |  56%  |                                                                              |========================================                              |  57%  |                                                                              |=========================================                             |  58%  |                                                                              |=========================================                             |  59%  |                                                                              |==========================================                            |  60%  |                                                                              |===========================================                           |  61%  |                                                                              |===========================================                           |  62%  |                                                                              |============================================                          |  63%  |                                                                              |=============================================                         |  64%  |                                                                              |==============================================                        |  65%  |                                                                              |==============================================                        |  66%  |                                                                              |===============================================                       |  67%  |                                                                              |================================================                      |  68%  |                                                                              |================================================                      |  69%  |                                                                              |=================================================                     |  70%  |                                                                              |==================================================                    |  71%  |                                                                              |==================================================                    |  72%  |                                                                              |===================================================                   |  73%  |                                                                              |====================================================                  |  74%  |                                                                              |====================================================                  |  75%  |                                                                              |=====================================================                 |  76%  |                                                                              |======================================================                |  77%  |                                                                              |=======================================================               |  78%  |                                                                              |=======================================================               |  79%  |                                                                              |========================================================              |  80%  |                                                                              |=========================================================             |  81%  |                                                                              |=========================================================             |  82%  |                                                                              |==========================================================            |  83%  |                                                                              |===========================================================           |  84%  |                                                                              |============================================================          |  85%  |                                                                              |============================================================          |  86%  |                                                                              |=============================================================         |  87%  |                                                                              |==============================================================        |  88%  |                                                                              |==============================================================        |  89%  |                                                                              |===============================================================       |  90%  |                                                                              |================================================================      |  91%  |                                                                              |================================================================      |  92%  |                                                                              |=================================================================     |  93%  |                                                                              |==================================================================    |  94%  |                                                                              |==================================================================    |  95%  |                                                                              |===================================================================   |  96%  |                                                                              |====================================================================  |  97%  |                                                                              |===================================================================== |  98%  |                                                                              |===================================================================== |  99%  |                                                                              |======================================================================| 100%
+   train test
+1    131   15
+2    132   14
+3    128   18
+4    127   19
+5    131   15
+6    132   14
+7    132   14
+8    135   11
+9    134   12
+10   132   14
+ Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: avg_Log10_NoV ~ -1 + Intercept + lockdown_step3 + lockdown_step4 + lockdown_planB + scale_school_den + scale_carehome_den + scale_mob_7day + scale_bame + scale_imd + scale_prop_agri + scale_prop_urb + temp_2 + temp_3 + temp_4 + temp_5 + rain_2 + rain_3 + rain_4 + rain_5 + s(Easting, Northing) + s(week) 
+   Data: train (Number of observations: 2635) 
+  Draws: 4 chains, each with iter = 1000; warmup = 500; thin = 1;
+         total post-warmup draws = 2000
+
+Smoothing Spline Hyperparameters:
+                        Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+sds(sEastingNorthing_1)     0.72      0.15     0.46     1.05 1.02      474
+sds(sweek_1)                2.97      0.95     1.58     5.19 1.00      667
+                        Tail_ESS
+sds(sEastingNorthing_1)      672
+sds(sweek_1)                 843
+
+Regression Coefficients:
+                   Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept              5.75      0.27     5.24     6.28 1.00      756     1082
+lockdown_step3        -0.44      0.18    -0.81    -0.08 1.00      957     1162
+lockdown_step4        -0.40      0.15    -0.69    -0.09 1.00      885     1085
+lockdown_planB        -0.23      0.11    -0.45    -0.01 1.00     1081     1199
+scale_school_den       0.20      0.02     0.16     0.24 1.00     1868     1397
+scale_carehome_den    -0.01      0.02    -0.05     0.03 1.00     1781     1450
+scale_mob_7day         0.02      0.02    -0.02     0.06 1.00     2410     1372
+scale_bame            -0.14      0.02    -0.18    -0.09 1.00     1322     1247
+scale_imd             -0.03      0.02    -0.07     0.01 1.00     1576     1522
+scale_prop_agri        0.04      0.03    -0.01     0.10 1.01      971     1071
+scale_prop_urb         0.05      0.04    -0.02     0.12 1.01      856     1022
+temp_2                -0.12      0.04    -0.20    -0.04 1.00     1114     1281
+temp_3                -0.08      0.05    -0.19     0.02 1.00      886     1029
+temp_4                -0.04      0.06    -0.16     0.07 1.00      981     1211
+temp_5                -0.15      0.06    -0.27    -0.04 1.00     1166     1568
+rain_2                 0.01      0.04    -0.07     0.09 1.00     1637     1464
+rain_3                 0.08      0.04    -0.00     0.16 1.00     1494     1420
+rain_4                 0.03      0.04    -0.05     0.12 1.00     1387     1670
+rain_5                 0.00      0.05    -0.08     0.09 1.00     1361     1523
+sEastingNorthing_1    -1.82      0.56    -2.92    -0.72 1.00     1361     1477
+sEastingNorthing_2    -1.06      0.50    -2.03    -0.15 1.00     1122     1348
+sweek_1                4.62      1.80     0.94     8.07 1.00     1144     1400
+
+Further Distributional Parameters:
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma     0.59      0.01     0.58     0.61 1.00     3629     1445
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+  Fold       MSE      RMSE       MAE     MAPE        BIAS      pBIAS      CORR
+1    1 0.3369496 0.5804736 0.4644251 9.441242 -0.02373557 -0.4638676 0.4148518
+      COV
+1 96.2712
+[1] "1 folds done"
+ Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: avg_Log10_NoV ~ -1 + Intercept + lockdown_step3 + lockdown_step4 + lockdown_planB + scale_school_den + scale_carehome_den + scale_mob_7day + scale_bame + scale_imd + scale_prop_agri + scale_prop_urb + temp_2 + temp_3 + temp_4 + temp_5 + rain_2 + rain_3 + rain_4 + rain_5 + s(Easting, Northing) + s(week) 
+   Data: train (Number of observations: 2658) 
+  Draws: 4 chains, each with iter = 1000; warmup = 500; thin = 1;
+         total post-warmup draws = 2000
+
+Smoothing Spline Hyperparameters:
+                        Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+sds(sEastingNorthing_1)     1.01      0.17     0.72     1.40 1.00      565
+sds(sweek_1)                3.00      0.92     1.53     5.15 1.00      649
+                        Tail_ESS
+sds(sEastingNorthing_1)      925
+sds(sweek_1)                 895
+
+Regression Coefficients:
+                   Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept              5.94      0.28     5.37     6.47 1.01      858     1056
+lockdown_step3        -0.42      0.18    -0.77    -0.05 1.00     1072     1271
+lockdown_step4        -0.35      0.15    -0.62    -0.06 1.00     1059     1513
+lockdown_planB        -0.27      0.11    -0.50    -0.06 1.00     1074     1349
+scale_school_den       0.10      0.02     0.05     0.14 1.00     2408     1580
+scale_carehome_den    -0.00      0.02    -0.03     0.03 1.00     1829     1589
+scale_mob_7day        -0.00      0.02    -0.03     0.03 1.00     2239     1575
+scale_bame            -0.20      0.02    -0.24    -0.16 1.00     1727     1589
+scale_imd             -0.01      0.02    -0.05     0.03 1.00     2070     1608
+scale_prop_agri       -0.02      0.03    -0.07     0.04 1.00     1218     1482
+scale_prop_urb        -0.08      0.03    -0.14    -0.01 1.00      962     1240
+temp_2                -0.13      0.04    -0.21    -0.04 1.01     1196     1636
+temp_3                -0.08      0.05    -0.18     0.01 1.01      953     1408
+temp_4                -0.09      0.06    -0.20     0.03 1.01      915     1090
+temp_5                -0.17      0.06    -0.29    -0.05 1.00     1102     1508
+rain_2                -0.01      0.04    -0.09     0.07 1.00     1558     1390
+rain_3                 0.05      0.04    -0.03     0.13 1.00     1264     1476
+rain_4                 0.02      0.04    -0.06     0.10 1.00     1252     1441
+rain_5                -0.03      0.05    -0.12     0.06 1.00     1200     1397
+sEastingNorthing_1     0.05      0.52    -0.95     1.10 1.00     1343     1263
+sEastingNorthing_2     1.51      0.58     0.34     2.69 1.00     1448     1366
+sweek_1                4.31      1.88     0.32     7.82 1.00      945     1268
+
+Further Distributional Parameters:
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma     0.57      0.01     0.56     0.59 1.00     4131     1660
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+  Fold       MSE      RMSE       MAE     MAPE       BIAS     pBIAS       CORR
+1    2 0.6714564 0.8194244 0.6369197 12.63359 -0.1096277 -2.106891 0.09260633
+      COV
+1 81.9853
+[1] "2 folds done"
+ Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: avg_Log10_NoV ~ -1 + Intercept + lockdown_step3 + lockdown_step4 + lockdown_planB + scale_school_den + scale_carehome_den + scale_mob_7day + scale_bame + scale_imd + scale_prop_agri + scale_prop_urb + temp_2 + temp_3 + temp_4 + temp_5 + rain_2 + rain_3 + rain_4 + rain_5 + s(Easting, Northing) + s(week) 
+   Data: train (Number of observations: 2565) 
+  Draws: 4 chains, each with iter = 1000; warmup = 500; thin = 1;
+         total post-warmup draws = 2000
+
+Smoothing Spline Hyperparameters:
+                        Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+sds(sEastingNorthing_1)     0.76      0.14     0.51     1.06 1.01      458
+sds(sweek_1)                3.01      1.02     1.54     5.59 1.01      594
+                        Tail_ESS
+sds(sEastingNorthing_1)      624
+sds(sweek_1)                 748
+
+Regression Coefficients:
+                   Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept              5.65      0.28     5.08     6.19 1.00      824     1162
+lockdown_step3        -0.47      0.19    -0.84    -0.09 1.00     1062     1272
+lockdown_step4        -0.43      0.15    -0.73    -0.14 1.00      953     1165
+lockdown_planB        -0.22      0.11    -0.43    -0.00 1.00      973     1165
+scale_school_den       0.22      0.02     0.18     0.26 1.00     1816     1418
+scale_carehome_den     0.02      0.02    -0.01     0.06 1.00     1810     1669
+scale_mob_7day         0.03      0.02    -0.01     0.06 1.00     2235     1533
+scale_bame            -0.10      0.02    -0.14    -0.05 1.01     1730     1502
+scale_imd             -0.06      0.02    -0.09    -0.02 1.00     1627     1477
+scale_prop_agri        0.05      0.03    -0.01     0.10 1.00     1143     1200
+scale_prop_urb         0.04      0.04    -0.02     0.11 1.00      901     1377
+temp_2                -0.11      0.05    -0.20    -0.02 1.00     1160     1278
+temp_3                -0.05      0.05    -0.16     0.05 1.00      954     1328
+temp_4                -0.06      0.06    -0.18     0.06 1.00      881     1241
+temp_5                -0.16      0.06    -0.29    -0.04 1.00      968     1247
+rain_2                 0.02      0.04    -0.06     0.11 1.00     1496     1512
+rain_3                 0.10      0.04     0.01     0.18 1.00     1166     1249
+rain_4                 0.09      0.04     0.01     0.18 1.00     1227     1302
+rain_5                 0.01      0.05    -0.08     0.10 1.00     1224     1348
+sEastingNorthing_1    -1.52      0.49    -2.45    -0.60 1.00     1475     1326
+sEastingNorthing_2    -1.15      0.42    -1.95    -0.35 1.00     1237     1392
+sweek_1                4.66      1.94     0.80     8.46 1.00     1108     1261
+
+Further Distributional Parameters:
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma     0.59      0.01     0.57     0.61 1.00     3195     1404
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+  Fold       MSE      RMSE       MAE     MAPE       BIAS     pBIAS      CORR
+1    3 0.3498205 0.5914563 0.4597506 9.614232 0.04722374 0.9212106 0.4623684
+      COV
+1 93.9726
+[1] "3 folds done"
+ Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: avg_Log10_NoV ~ -1 + Intercept + lockdown_step3 + lockdown_step4 + lockdown_planB + scale_school_den + scale_carehome_den + scale_mob_7day + scale_bame + scale_imd + scale_prop_agri + scale_prop_urb + temp_2 + temp_3 + temp_4 + temp_5 + rain_2 + rain_3 + rain_4 + rain_5 + s(Easting, Northing) + s(week) 
+   Data: train (Number of observations: 2549) 
+  Draws: 4 chains, each with iter = 1000; warmup = 500; thin = 1;
+         total post-warmup draws = 2000
+
+Smoothing Spline Hyperparameters:
+                        Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+sds(sEastingNorthing_1)     0.72      0.15     0.48     1.04 1.01      489
+sds(sweek_1)                3.22      0.99     1.72     5.68 1.00      561
+                        Tail_ESS
+sds(sEastingNorthing_1)      630
+sds(sweek_1)                 705
+
+Regression Coefficients:
+                   Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept              5.68      0.28     5.16     6.23 1.00      751     1124
+lockdown_step3        -0.41      0.19    -0.77    -0.05 1.00     1231     1420
+lockdown_step4        -0.34      0.15    -0.64    -0.04 1.00     1137     1230
+lockdown_planB        -0.20      0.11    -0.42     0.03 1.00     1140     1396
+scale_school_den       0.19      0.02     0.15     0.23 1.00     1824     1594
+scale_carehome_den    -0.00      0.02    -0.04     0.03 1.00     1869     1531
+scale_mob_7day         0.01      0.02    -0.02     0.05 1.00     2348     1751
+scale_bame            -0.15      0.02    -0.19    -0.11 1.00     1601     1680
+scale_imd             -0.02      0.02    -0.06     0.02 1.00     1997     1701
+scale_prop_agri        0.06      0.03     0.01     0.11 1.00     1297     1571
+scale_prop_urb         0.11      0.04     0.04     0.18 1.00     1206     1424
+temp_2                -0.10      0.04    -0.18    -0.01 1.00     1272     1555
+temp_3                -0.03      0.05    -0.13     0.07 1.00      985     1349
+temp_4                -0.07      0.06    -0.18     0.05 1.00      941     1251
+temp_5                -0.16      0.06    -0.28    -0.04 1.00     1164     1481
+rain_2                 0.03      0.04    -0.06     0.11 1.00     1387     1399
+rain_3                 0.06      0.04    -0.02     0.14 1.00     1210     1401
+rain_4                 0.06      0.04    -0.03     0.15 1.00     1297     1451
+rain_5                -0.01      0.05    -0.10     0.08 1.01     1246     1503
+sEastingNorthing_1     1.28      0.45     0.39     2.16 1.00     1585     1276
+sEastingNorthing_2    -1.40      0.51    -2.46    -0.41 1.00     1273     1161
+sweek_1                4.34      1.87     0.60     8.01 1.00     1333     1360
+
+Further Distributional Parameters:
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma     0.58      0.01     0.57     0.60 1.00     4273     1580
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+  Fold      MSE     RMSE       MAE     MAPE     BIAS    pBIAS      CORR     COV
+1    4 0.514789 0.717488 0.5590668 13.04491 0.271336 5.676521 0.4748372 90.5512
+[1] "4 folds done"
+ Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: avg_Log10_NoV ~ -1 + Intercept + lockdown_step3 + lockdown_step4 + lockdown_planB + scale_school_den + scale_carehome_den + scale_mob_7day + scale_bame + scale_imd + scale_prop_agri + scale_prop_urb + temp_2 + temp_3 + temp_4 + temp_5 + rain_2 + rain_3 + rain_4 + rain_5 + s(Easting, Northing) + s(week) 
+   Data: train (Number of observations: 2645) 
+  Draws: 4 chains, each with iter = 1000; warmup = 500; thin = 1;
+         total post-warmup draws = 2000
+
+Smoothing Spline Hyperparameters:
+                        Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+sds(sEastingNorthing_1)     0.93      0.16     0.64     1.27 1.00      517
+sds(sweek_1)                2.87      0.92     1.48     5.10 1.00      535
+                        Tail_ESS
+sds(sEastingNorthing_1)      896
+sds(sweek_1)                 968
+
+Regression Coefficients:
+                   Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept              5.75      0.27     5.23     6.27 1.00      786     1163
+lockdown_step3        -0.52      0.18    -0.88    -0.18 1.00      990     1534
+lockdown_step4        -0.41      0.14    -0.70    -0.13 1.00      960     1486
+lockdown_planB        -0.29      0.10    -0.50    -0.09 1.00     1063     1336
+scale_school_den       0.24      0.02     0.20     0.28 1.00     1885     1559
+scale_carehome_den     0.01      0.02    -0.02     0.05 1.00     1705     1479
+scale_mob_7day         0.01      0.02    -0.02     0.04 1.00     2071     1622
+scale_bame            -0.12      0.02    -0.16    -0.08 1.00     1554     1496
+scale_imd             -0.03      0.02    -0.07     0.01 1.00     2013     1546
+scale_prop_agri        0.03      0.03    -0.02     0.08 1.00      958     1488
+scale_prop_urb        -0.01      0.04    -0.08     0.06 1.00      813     1445
+temp_2                -0.05      0.04    -0.14     0.04 1.00     1246     1438
+temp_3                -0.03      0.05    -0.13     0.06 1.00     1021     1494
+temp_4                -0.05      0.06    -0.17     0.06 1.00      981     1435
+temp_5                -0.11      0.06    -0.24     0.00 1.00     1092     1389
+rain_2                -0.03      0.04    -0.11     0.06 1.00     1540     1684
+rain_3                 0.04      0.04    -0.04     0.12 1.00     1256     1591
+rain_4                 0.02      0.04    -0.06     0.10 1.00     1159     1618
+rain_5                -0.03      0.04    -0.11     0.06 1.00     1217     1674
+sEastingNorthing_1    -2.09      0.60    -3.25    -0.92 1.00     1721     1306
+sEastingNorthing_2     1.80      0.54     0.75     2.85 1.00     1283     1479
+sweek_1                5.22      1.73     1.82     8.70 1.00     1147     1478
+
+Further Distributional Parameters:
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma     0.58      0.01     0.56     0.59 1.01     4669     1618
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+  Fold       MSE      RMSE       MAE     MAPE      BIAS    pBIAS      CORR
+1    5 0.5489296 0.7408978 0.5813596 12.76638 0.1437243 2.871744 0.3493139
+      COV
+1 87.7193
+[1] "5 folds done"
+ Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: avg_Log10_NoV ~ -1 + Intercept + lockdown_step3 + lockdown_step4 + lockdown_planB + scale_school_den + scale_carehome_den + scale_mob_7day + scale_bame + scale_imd + scale_prop_agri + scale_prop_urb + temp_2 + temp_3 + temp_4 + temp_5 + rain_2 + rain_3 + rain_4 + rain_5 + s(Easting, Northing) + s(week) 
+   Data: train (Number of observations: 2634) 
+  Draws: 4 chains, each with iter = 1000; warmup = 500; thin = 1;
+         total post-warmup draws = 2000
+
+Smoothing Spline Hyperparameters:
+                        Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+sds(sEastingNorthing_1)     0.82      0.14     0.58     1.12 1.00      576
+sds(sweek_1)                3.25      1.06     1.75     5.71 1.01      717
+                        Tail_ESS
+sds(sEastingNorthing_1)     1127
+sds(sweek_1)                1089
+
+Regression Coefficients:
+                   Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept              5.50      0.27     4.98     6.04 1.00      830     1188
+lockdown_step3        -0.41      0.19    -0.78    -0.04 1.00     1129     1552
+lockdown_step4        -0.33      0.15    -0.63    -0.03 1.00      966     1355
+lockdown_planB        -0.20      0.11    -0.43     0.01 1.00     1188     1548
+scale_school_den       0.26      0.02     0.21     0.30 1.01     2331     1429
+scale_carehome_den     0.02      0.02    -0.01     0.06 1.00     1450     1385
+scale_mob_7day         0.02      0.02    -0.01     0.05 1.00     2643     1648
+scale_bame            -0.10      0.02    -0.14    -0.06 1.00     1652     1518
+scale_imd             -0.11      0.02    -0.15    -0.07 1.00     1932     1682
+scale_prop_agri        0.01      0.03    -0.05     0.07 1.00     1091     1327
+scale_prop_urb         0.03      0.04    -0.05     0.10 1.00     1080     1291
+temp_2                -0.07      0.04    -0.16     0.02 1.00     1413     1415
+temp_3                -0.03      0.05    -0.13     0.07 1.00     1096     1621
+temp_4                -0.04      0.06    -0.15     0.08 1.00     1055     1330
+temp_5                -0.15      0.06    -0.27    -0.03 1.00     1114     1448
+rain_2                 0.01      0.04    -0.07     0.09 1.00     1664     1446
+rain_3                 0.10      0.04     0.01     0.18 1.00     1396     1308
+rain_4                 0.06      0.04    -0.03     0.14 1.00     1271     1345
+rain_5                 0.01      0.05    -0.08     0.11 1.00     1210     1307
+sEastingNorthing_1    -1.32      0.49    -2.28    -0.41 1.00     1152     1219
+sEastingNorthing_2     1.00      0.48     0.09     1.96 1.00     1275     1345
+sweek_1                4.06      1.91     0.42     7.76 1.00     1075     1419
+
+Further Distributional Parameters:
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma     0.59      0.01     0.58     0.61 1.00     3340     1639
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+  Fold       MSE      RMSE       MAE     MAPE       BIAS     pBIAS     CORR
+1    6 0.3620932 0.6017418 0.4816296 9.336157 -0.1276005 -2.441784 0.426401
+      COV
+1 95.2703
+[1] "6 folds done"
+ Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: avg_Log10_NoV ~ -1 + Intercept + lockdown_step3 + lockdown_step4 + lockdown_planB + scale_school_den + scale_carehome_den + scale_mob_7day + scale_bame + scale_imd + scale_prop_agri + scale_prop_urb + temp_2 + temp_3 + temp_4 + temp_5 + rain_2 + rain_3 + rain_4 + rain_5 + s(Easting, Northing) + s(week) 
+   Data: train (Number of observations: 2638) 
+  Draws: 4 chains, each with iter = 1000; warmup = 500; thin = 1;
+         total post-warmup draws = 2000
+
+Smoothing Spline Hyperparameters:
+                        Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+sds(sEastingNorthing_1)     1.33      0.22     0.96     1.81 1.00      763
+sds(sweek_1)                3.48      1.07     1.81     6.01 1.00      560
+                        Tail_ESS
+sds(sEastingNorthing_1)     1037
+sds(sweek_1)                 920
+
+Regression Coefficients:
+                   Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept              5.68      0.27     5.15     6.19 1.01      830     1392
+lockdown_step3        -0.41      0.19    -0.79    -0.06 1.00     1153     1263
+lockdown_step4        -0.37      0.15    -0.66    -0.07 1.00     1140     1329
+lockdown_planB        -0.20      0.11    -0.41     0.01 1.00     1136     1634
+scale_school_den       0.21      0.02     0.17     0.25 1.00     1616     1487
+scale_carehome_den     0.02      0.02    -0.01     0.05 1.00     1552     1479
+scale_mob_7day         0.01      0.02    -0.02     0.05 1.00     2100     1511
+scale_bame            -0.10      0.02    -0.15    -0.06 1.00     1301     1437
+scale_imd             -0.03      0.02    -0.06     0.01 1.00     1929     1678
+scale_prop_agri        0.07      0.03     0.02     0.12 1.00     1066     1365
+scale_prop_urb         0.02      0.03    -0.05     0.09 1.00      994     1402
+temp_2                -0.08      0.04    -0.16     0.00 1.00     1401     1277
+temp_3                -0.06      0.05    -0.15     0.04 1.00     1166     1490
+temp_4                -0.09      0.06    -0.20     0.02 1.01     1028     1523
+temp_5                -0.16      0.06    -0.27    -0.04 1.01      953     1166
+rain_2                 0.03      0.04    -0.06     0.11 1.01     1127     1517
+rain_3                 0.08      0.04     0.00     0.16 1.00      873     1298
+rain_4                 0.06      0.04    -0.02     0.15 1.01      847     1182
+rain_5                -0.01      0.05    -0.10     0.08 1.00      807     1380
+sEastingNorthing_1    -3.26      0.77    -4.83    -1.79 1.00     1404     1304
+sEastingNorthing_2     2.76      0.65     1.52     4.03 1.00     1086     1506
+sweek_1                3.90      1.92    -0.02     7.39 1.00     1038     1228
+
+Further Distributional Parameters:
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma     0.59      0.01     0.57     0.60 1.00     3217     1115
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+  Fold       MSE      RMSE       MAE    MAPE       BIAS     pBIAS      CORR
+1    7 0.3949263 0.6284317 0.4950475 10.2381 0.01345334 0.2642935 0.1961901
+      COV
+1 92.1233
+[1] "7 folds done"
+ Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: avg_Log10_NoV ~ -1 + Intercept + lockdown_step3 + lockdown_step4 + lockdown_planB + scale_school_den + scale_carehome_den + scale_mob_7day + scale_bame + scale_imd + scale_prop_agri + scale_prop_urb + temp_2 + temp_3 + temp_4 + temp_5 + rain_2 + rain_3 + rain_4 + rain_5 + s(Easting, Northing) + s(week) 
+   Data: train (Number of observations: 2711) 
+  Draws: 4 chains, each with iter = 1000; warmup = 500; thin = 1;
+         total post-warmup draws = 2000
+
+Smoothing Spline Hyperparameters:
+                        Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+sds(sEastingNorthing_1)     1.38      0.25     0.99     1.93 1.00      550
+sds(sweek_1)                3.39      1.04     1.90     5.71 1.01      709
+                        Tail_ESS
+sds(sEastingNorthing_1)      957
+sds(sweek_1)                1207
+
+Regression Coefficients:
+                   Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept              5.96      0.27     5.41     6.51 1.01      845     1069
+lockdown_step3        -0.47      0.18    -0.82    -0.11 1.00      853     1126
+lockdown_step4        -0.46      0.15    -0.76    -0.18 1.00      878     1032
+lockdown_planB        -0.26      0.11    -0.48    -0.06 1.00     1104     1357
+scale_school_den       0.22      0.02     0.18     0.26 1.00     2382     1593
+scale_carehome_den     0.03      0.02    -0.00     0.06 1.00     2025     1544
+scale_mob_7day        -0.01      0.02    -0.04     0.03 1.00     2447     1397
+scale_bame            -0.12      0.02    -0.16    -0.09 1.00     1423     1372
+scale_imd             -0.04      0.02    -0.08    -0.00 1.00     2050     1681
+scale_prop_agri        0.04      0.03    -0.01     0.09 1.00     1176     1525
+scale_prop_urb         0.07      0.04    -0.00     0.14 1.00     1046     1385
+temp_2                -0.11      0.04    -0.20    -0.03 1.00     1321     1466
+temp_3                -0.09      0.05    -0.19     0.01 1.00     1066     1281
+temp_4                -0.13      0.06    -0.24    -0.02 1.00     1026     1396
+temp_5                -0.18      0.06    -0.29    -0.06 1.00     1052     1263
+rain_2                 0.00      0.04    -0.08     0.08 1.00     1638     1674
+rain_3                 0.06      0.04    -0.02     0.14 1.00     1516     1440
+rain_4                 0.04      0.04    -0.04     0.12 1.01     1416     1737
+rain_5                -0.01      0.04    -0.09     0.08 1.01     1274     1362
+sEastingNorthing_1    -2.00      0.57    -3.14    -0.90 1.00     1145     1269
+sEastingNorthing_2    -1.88      0.72    -3.30    -0.44 1.00     1403     1447
+sweek_1                3.47      1.83    -0.16     7.00 1.00      907     1471
+
+Further Distributional Parameters:
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma     0.58      0.01     0.57     0.60 1.01     3549     1596
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+  Fold       MSE      RMSE       MAE     MAPE     BIAS    pBIAS      CORR
+1    8 0.4953267 0.7037945 0.5745028 12.59004 0.326708 6.538848 0.3533241
+      COV
+1 89.4977
+[1] "8 folds done"
+ Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: avg_Log10_NoV ~ -1 + Intercept + lockdown_step3 + lockdown_step4 + lockdown_planB + scale_school_den + scale_carehome_den + scale_mob_7day + scale_bame + scale_imd + scale_prop_agri + scale_prop_urb + temp_2 + temp_3 + temp_4 + temp_5 + rain_2 + rain_3 + rain_4 + rain_5 + s(Easting, Northing) + s(week) 
+   Data: train (Number of observations: 2704) 
+  Draws: 4 chains, each with iter = 1000; warmup = 500; thin = 1;
+         total post-warmup draws = 2000
+
+Smoothing Spline Hyperparameters:
+                        Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+sds(sEastingNorthing_1)     1.06      0.20     0.73     1.50 1.00      649
+sds(sweek_1)                3.07      1.01     1.66     5.54 1.01      553
+                        Tail_ESS
+sds(sEastingNorthing_1)      914
+sds(sweek_1)                1059
+
+Regression Coefficients:
+                   Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept              5.66      0.28     5.14     6.23 1.00      823     1202
+lockdown_step3        -0.41      0.19    -0.77    -0.05 1.00     1127     1572
+lockdown_step4        -0.33      0.15    -0.63    -0.02 1.00     1026     1381
+lockdown_planB        -0.23      0.11    -0.45    -0.01 1.00     1012     1310
+scale_school_den       0.23      0.02     0.19     0.27 1.00     2300     1619
+scale_carehome_den     0.04      0.02     0.00     0.08 1.00     1835     1430
+scale_mob_7day         0.01      0.02    -0.03     0.04 1.00     2210     1546
+scale_bame            -0.11      0.02    -0.15    -0.07 1.00     1358     1407
+scale_imd             -0.04      0.02    -0.08    -0.01 1.00     1541     1655
+scale_prop_agri        0.06      0.03     0.00     0.11 1.00     1116     1364
+scale_prop_urb         0.06      0.03    -0.01     0.13 1.00     1031     1238
+temp_2                -0.10      0.04    -0.18    -0.02 1.00     1315     1338
+temp_3                -0.04      0.05    -0.14     0.06 1.00      963     1342
+temp_4                -0.05      0.06    -0.17     0.07 1.00      892     1461
+temp_5                -0.14      0.06    -0.26    -0.02 1.00      988     1196
+rain_2                 0.01      0.04    -0.08     0.09 1.00     1781     1678
+rain_3                 0.06      0.04    -0.02     0.14 1.00     1522     1710
+rain_4                 0.03      0.04    -0.05     0.12 1.00     1447     1591
+rain_5                -0.01      0.05    -0.10     0.08 1.00     1381     1642
+sEastingNorthing_1    -2.50      0.61    -3.68    -1.32 1.00     1341     1422
+sEastingNorthing_2    -0.37      0.63    -1.57     0.89 1.00     1198     1363
+sweek_1                4.55      1.82     0.89     8.01 1.00     1147     1369
+
+Further Distributional Parameters:
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma     0.59      0.01     0.57     0.61 1.00     3438     1541
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+  Fold      MSE      RMSE      MAE     MAPE       BIAS     pBIAS      CORR
+1    9 0.378468 0.6151975 0.492123 9.008094 -0.2944137 -5.441246 0.4313714
+      COV
+1 96.0177
+[1] "9 folds done"
+ Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: avg_Log10_NoV ~ -1 + Intercept + lockdown_step3 + lockdown_step4 + lockdown_planB + scale_school_den + scale_carehome_den + scale_mob_7day + scale_bame + scale_imd + scale_prop_agri + scale_prop_urb + temp_2 + temp_3 + temp_4 + temp_5 + rain_2 + rain_3 + rain_4 + rain_5 + s(Easting, Northing) + s(week) 
+   Data: train (Number of observations: 2631) 
+  Draws: 4 chains, each with iter = 1000; warmup = 500; thin = 1;
+         total post-warmup draws = 2000
+
+Smoothing Spline Hyperparameters:
+                        Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+sds(sEastingNorthing_1)     0.75      0.13     0.53     1.04 1.01      595
+sds(sweek_1)                2.89      0.95     1.53     5.15 1.00      936
+                        Tail_ESS
+sds(sEastingNorthing_1)     1136
+sds(sweek_1)                1085
+
+Regression Coefficients:
+                   Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept              5.55      0.28     4.97     6.09 1.01      776     1246
+lockdown_step3        -0.38      0.19    -0.74    -0.01 1.00     1148     1376
+lockdown_step4        -0.36      0.15    -0.65    -0.05 1.01      999     1432
+lockdown_planB        -0.19      0.11    -0.40     0.04 1.00     1018     1400
+scale_school_den       0.21      0.02     0.17     0.25 1.00     2582     1291
+scale_carehome_den     0.03      0.02    -0.00     0.07 1.00     1646     1437
+scale_mob_7day         0.02      0.02    -0.01     0.05 1.00     2739     1536
+scale_bame            -0.12      0.02    -0.16    -0.08 1.00     1498     1442
+scale_imd             -0.04      0.02    -0.08    -0.00 1.00     1774     1585
+scale_prop_agri        0.04      0.03    -0.02     0.09 1.00     1419     1427
+scale_prop_urb         0.03      0.03    -0.04     0.09 1.00     1286     1596
+temp_2                -0.08      0.04    -0.16     0.00 1.00     1465     1528
+temp_3                -0.05      0.05    -0.15     0.04 1.00     1317     1331
+temp_4                -0.05      0.06    -0.16     0.07 1.01     1154     1401
+temp_5                -0.13      0.06    -0.24    -0.00 1.01     1325     1347
+rain_2                -0.00      0.04    -0.08     0.08 1.00     1762     1593
+rain_3                 0.08      0.04    -0.00     0.16 1.00     1269     1615
+rain_4                 0.06      0.04    -0.03     0.14 1.00     1219     1565
+rain_5                 0.01      0.05    -0.08     0.09 1.00     1037     1422
+sEastingNorthing_1     1.80      0.43     0.96     2.63 1.00     1266     1383
+sEastingNorthing_2    -0.73      0.50    -1.70     0.25 1.00     1315     1431
+sweek_1                5.01      1.82     1.49     8.56 1.00     1279     1308
+
+Further Distributional Parameters:
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma     0.59      0.01     0.58     0.61 1.00     3363     1167
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+  Fold      MSE      RMSE       MAE    MAPE       BIAS     pBIAS      CORR
+1   10 0.348897 0.5906751 0.4651656 9.02451 -0.1001101 -1.861884 0.2707122
+      COV
+1 94.9833
+[1] "10 folds done"
+[1] "Coverage Probability (%): 91.9112627986348"
+   Mean_MSE         SE  CI_Lower  CI_Upper Mean_rmse    SE_rmse CI_Lower_rmse
+1 0.4401656 0.03543862 0.3599979 0.5203334 0.6589581 0.02569026     0.6008427
+  CI_Upper_rmse Mean_MAE Mean_MAPE  Mean_BIAS Mean_pBIAS Mean_CORR      COV
+1     0.7170735 0.520999  10.76972 0.01469579  0.3956946 0.3471976 91.91126
+
+====================================
+CPU Time used: 01:00:20
+CPU Percent: 248%
+Memory usage: 5411548kb
+Approx Power usage: 0.012
+Walltime usage: 00:29:39
+
+====================================

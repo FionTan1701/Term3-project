@@ -1,0 +1,83 @@
+Running Fold 1 
+Running Fold 2 
+Running Fold 4 
+Running Fold 3 
+Running Fold 5 
+Running Fold 6 
+Running Fold 7 
+Running Fold 8 
+Running Fold 9 
+Running Fold 10 
+Running /rds/general/user/ft824/home/anaconda3/envs/r442/lib/R/bin/R CMD \
+  SHLIB foo.c
+Running /rds/general/user/ft824/home/anaconda3/envs/r442/lib/R/bin/R CMD \
+  SHLIB foo.c
+Running /rds/general/user/ft824/home/anaconda3/envs/r442/lib/R/bin/R CMD \
+  SHLIB foo.c
+Running /rds/general/user/ft824/home/anaconda3/envs/r442/lib/R/bin/R CMD \
+  SHLIB foo.c
+using C compiler: ‘x86_64-conda-linux-gnu-cc (conda-forge gcc 15.1.0-2) 15.1.0’
+using C compiler: ‘x86_64-conda-linux-gnu-cc (conda-forge gcc 15.1.0-2) 15.1.0’
+using C compiler: ‘x86_64-conda-linux-gnu-cc (conda-forge gcc 15.1.0-2) 15.1.0’
+x86_64-conda-linux-gnu-cc -shared -L/rds/general/user/ft824/home/anaconda3/envs/r442/lib/R/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/rds/general/user/ft824/home/anaconda3/envs/r442/lib -Wl,-rpath-link,/rds/general/user/ft824/home/anaconda3/envs/r442/lib -L/rds/general/user/ft824/home/anaconda3/envs/r442/lib -o foo.so foo.o -L/rds/general/user/ft824/home/anaconda3/envs/r442/lib/R/lib -lR
+using C compiler: ‘x86_64-conda-linux-gnu-cc (conda-forge gcc 15.1.0-2) 15.1.0’
+make: Nothing to be done for 'all'.
+x86_64-conda-linux-gnu-cc -shared -L/rds/general/user/ft824/home/anaconda3/envs/r442/lib/R/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/rds/general/user/ft824/home/anaconda3/envs/r442/lib -Wl,-rpath-link,/rds/general/user/ft824/home/anaconda3/envs/r442/lib -L/rds/general/user/ft824/home/anaconda3/envs/r442/lib -o foo.so foo.o -L/rds/general/user/ft824/home/anaconda3/envs/r442/lib/R/lib -lR
+x86_64-conda-linux-gnu-cc -shared -L/rds/general/user/ft824/home/anaconda3/envs/r442/lib/R/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/rds/general/user/ft824/home/anaconda3/envs/r442/lib -Wl,-rpath-link,/rds/general/user/ft824/home/anaconda3/envs/r442/lib -L/rds/general/user/ft824/home/anaconda3/envs/r442/lib -o foo.so foo.o -L/rds/general/user/ft824/home/anaconda3/envs/r442/lib/R/lib -lR
+Running /rds/general/user/ft824/home/anaconda3/envs/r442/lib/R/bin/R CMD \
+  SHLIB foo.c
+using C compiler: ‘x86_64-conda-linux-gnu-cc (conda-forge gcc 15.1.0-2) 15.1.0’
+x86_64-conda-linux-gnu-cc -I"/rds/general/user/ft824/home/anaconda3/envs/r442/lib/R/include" -DNDEBUG   -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem /rds/general/user/ft824/home/anaconda3/envs/r442/include -I/rds/general/user/ft824/home/anaconda3/envs/r442/include -Wl,-rpath-link,/rds/general/user/ft824/home/anaconda3/envs/r442/lib    -fpic  -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /rds/general/user/ft824/home/anaconda3/envs/r442/include -fdebug-prefix-map=/home/conda/feedstock_root/build_artifacts/r-base-split_1734433466103/work=/usr/local/src/conda/r-base-4.4.2 -fdebug-prefix-map=/rds/general/user/ft824/home/anaconda3/envs/r442=/usr/local/src/conda-prefix  -c foo.c -o foo.o
+x86_64-conda-linux-gnu-cc -shared -L/rds/general/user/ft824/home/anaconda3/envs/r442/lib/R/lib -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/rds/general/user/ft824/home/anaconda3/envs/r442/lib -Wl,-rpath-link,/rds/general/user/ft824/home/anaconda3/envs/r442/lib -L/rds/general/user/ft824/home/anaconda3/envs/r442/lib -o foo.so foo.o -L/rds/general/user/ft824/home/anaconda3/envs/r442/lib/R/lib -lR
+Fold 4 failed: [simpleError] missing values and NaN's not allowed if 'na.rm' is FALSE
+
+Overall 95% empirical coverage (BRMS): 92.81%
+[1] "Non-vector columns found in data_oos:"
+[1] "collection_date" "week_beginning"  "date"           
+
+=== Final Metrics Across Folds ===
+# A tibble: 9 × 7
+    MAE  RMSE     Bias Correlation Model  Fold Coverage
+  <dbl> <dbl>    <dbl>       <dbl> <chr> <int>    <dbl>
+1 0.586 0.742  0.163         0.439 BRMS      1    0.924
+2 0.577 0.727 -0.195         0.307 BRMS      2    0.924
+3 0.481 0.616 -0.0670        0.494 BRMS      3    0.969
+4 0.487 0.670 -0.0848        0.466 BRMS      5    0.939
+5 0.559 0.724  0.201         0.259 BRMS      6    0.911
+6 0.497 0.655  0.00316       0.509 BRMS      7    0.960
+7 0.589 0.743 -0.0353        0.303 BRMS      8    0.905
+8 0.599 0.734  0.135         0.374 BRMS      9    0.935
+9 0.623 0.784  0.00737       0.361 BRMS     10    0.885
+
+=== Sample of Final Predictions ===
+# A tibble: 6 × 73
+   ...1   X.3   X.2 site_code  week   X.1     X sample_id sample_collection_da…¹
+  <dbl> <dbl> <dbl> <chr>     <dbl> <dbl> <dbl> <chr>     <chr>                 
+1    36    36    36 UKENMI_S…     1   785   788 2106490-… 30/05/2021 14:00      
+2    39    39    39 UKENMI_S…     1   835   838 2106770-… 30/05/2021 11:50      
+3    48    48    48 UKENMI_S…     1  1040  1043 2106771-… 30/05/2021 12:00      
+4    61    63    63 UKENNE_Y…     1  1336  1341 2106599-… 30/05/2021 07:00      
+5    63    66    66 UKENNE_Y…     1  1391  1396 2106716-… 30/05/2021 09:00      
+6    65    68    68 UKENNE_Y…     1  1433  1438 2106484-… 30/05/2021 11:30      
+# ℹ abbreviated name: ¹​sample_collection_date_time
+# ℹ 64 more variables: Week_date <chr>, ammonia_mg_l <dbl>, ophosph_mg_l <dbl>,
+#   GI_ND <lgl>, GI_lower_LOQ <lgl>, GII_ND <lgl>, GII_lower_LOQ <lgl>,
+#   GI_per_litre <dbl>, GII_per_litre <dbl>, Log10_GI <dbl>, Log10_GII <dbl>,
+#   Log10_NoV <dbl>, Log10_GI_norm <dbl>, Log10_GII_norm <dbl>,
+#   Log10_NoV_norm <dbl>, site_name <chr>, site_type <chr>,
+#   water_company_name <chr>, catchment_population_ons_mid_2019 <dbl>, …
+
+Summary Statistics:
+# A tibble: 1 × 6
+  Model   MAE  RMSE   Bias Correlation Coverage
+  <chr> <dbl> <dbl>  <dbl>       <dbl>    <dbl>
+1 BRMS  0.555 0.711 0.0143       0.390    0.928
+
+====================================
+CPU Time used: 01:53:34
+CPU Percent: 397%
+Memory usage: 32827652kb
+Approx Power usage: 0.022600000000000002
+Walltime usage: 00:30:51
+
+====================================

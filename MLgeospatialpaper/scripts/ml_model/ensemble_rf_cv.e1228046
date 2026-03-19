@@ -1,0 +1,76 @@
+Error while loading conda entry point: conda-libmamba-solver (/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /rds/general/user/ft824/home/anaconda3/lib/python3.10/site-packages/libmambapy/bindings.cpython-310-x86_64-linux-gnu.so))
+Error while loading conda entry point: conda-libmamba-solver (/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /rds/general/user/ft824/home/anaconda3/lib/python3.10/site-packages/libmambapy/bindings.cpython-310-x86_64-linux-gnu.so))
+Error while loading conda entry point: conda-libmamba-solver (/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /rds/general/user/ft824/home/anaconda3/lib/python3.10/site-packages/libmambapy/bindings.cpython-310-x86_64-linux-gnu.so))
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.4     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Warning message:
+package ‘ggplot2’ was built under R version 4.4.3 
+
+Attaching package: ‘data.table’
+
+The following objects are masked from ‘package:lubridate’:
+
+    hour, isoweek, mday, minute, month, quarter, second, wday, week,
+    yday, year
+
+The following objects are masked from ‘package:dplyr’:
+
+    between, first, last
+
+The following object is masked from ‘package:purrr’:
+
+    transpose
+
+Warning message:
+package ‘data.table’ was built under R version 4.4.3 
+randomForest 4.7-1.2
+Type rfNews() to see new features/changes/bug fixes.
+
+Attaching package: ‘randomForest’
+
+The following object is masked from ‘package:dplyr’:
+
+    combine
+
+The following object is masked from ‘package:ggplot2’:
+
+    margin
+
+Loading required package: viridisLite
+
+Attaching package: ‘scales’
+
+The following object is masked from ‘package:viridis’:
+
+    viridis_pal
+
+The following object is masked from ‘package:purrr’:
+
+    discard
+
+The following object is masked from ‘package:readr’:
+
+    col_factor
+
+Warning message:
+package ‘scales’ was built under R version 4.4.3 
+New names:
+• `` -> `...1`
+Rows: 6570 Columns: 66
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr   (9): site_code, sample_id, sample_collection_date_time, Week_date, sit...
+dbl  (50): ...1, X.3, X.2, week, X.1, X, ammonia_mg_l, ophosph_mg_l, GI_per_...
+lgl   (4): GI_ND, GI_lower_LOQ, GII_ND, GII_lower_LOQ
+date  (3): collection_date, week_beginning, date
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
