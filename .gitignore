@@ -12,3 +12,5 @@ outputs/prediction/lsoa_pred.RData
 Figures/prediction_plot
 outputs/INLA_final
 outputs/prediction/INLA_model9_lsoa
+MLgeospatialpaper/data/LSOA/LSOA2021_boundaries/LSOA2021_boundaries.shp
+MLgeospatialpaper/data/lsoa_prediction_grid.csv
