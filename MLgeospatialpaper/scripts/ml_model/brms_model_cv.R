@@ -136,6 +136,21 @@ for (k in 1:10) {
     fit.fold<- fit[[k]]
   
     print(summary(fit.fold))
+
+    # trace plot
+    png(paste0("trace_fold_", k, ".png"), width = 1200, height = 800)
+
+    plot(fit.fold)   # default brms trace + density plots
+
+    dev.off()
+
+    # posterior check
+    png(paste0("ppc_fold_", k, ".png"), width = 1200, height = 800)
+    
+    pp_check(fit.fold, type = "dens_overlay")
+    
+    dev.off()
+        
     
     # Predictions
     # mean of posterior predictions as the final prediction
